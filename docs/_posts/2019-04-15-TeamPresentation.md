@@ -31,17 +31,21 @@ Here we are Introducing our awesome team and inspiration to take up the project 
 <h3>Frankly, speaking I am not that good in coding but I always had a interest in knowing how a particular app works and how to make a new app. Taking software engineering will really help me in knowing the background knowledge of making and working of an app. The Agile Manifesto here will promote simplification and individuals and interactions over processes and tools. So, taking up this course will not only help me making of an app but will also help me in presenting my app in front of people.</h3><hr><br>
 <h2>Roles and Responsibilities</h2>
 <h3>
-  <strong>Scrum Master: </strong>As the Scrum Master, Anitha will be responsible in dividing the workload among the members depending on core strengths of individuals. She will also be responsible to take into account the intermediate challenges and changes from the client and see to that all the sprint items are completed on schedule. <br>
+  <strong>Scrum Master: </strong> As the Scrum Master, Anitha will be responsible in dividing the workload among the members depending on core strengths of individuals. She will also be responsible to take into account the intermediate challenges and changes from the client and see to that all the sprint items are completed on schedule. <br></h3>
 
-<strong>Quality Control: </strong>Avinash having a testing background will come up with strategies to make sure that quality of product. He will also be responsible to make sure that the standards of the product is meeting up with expectation of the client. <br>
+<h3><strong>Quality Control: </strong>Avinash having a testing background will come up with strategies to make sure that quality of product. He will also be responsible to make sure that the standards of the product is meeting up with expectation of the client. <br></h3>
 
-<strong>Developers: </strong>Kartik with his expertise in Java will be the core member of coding team. He will also be responsible for the architecture of the product and work closely with the quality control to make the product deliverable. Madhu will be helping in Java coding and with his hands-on experience with Git and knowledge in html, will help us maintaining the blog.  <br>
+<h3><strong>Developers: </strong>Kartik with his expertise in Java will be the core member of coding team. He will also be responsible for the architecture of the product and work closely with the quality control to make the product deliverable. Madhu will be helping in Java coding and with his hands-on experience with Git and knowledge in html, will help us maintaining the blog.  <br></h3>
 
-These are the initial roles assigned. But each and every member is eager in trying out the others role. Once we get a handle on how things work we will swap the roles according to the requirement.
+<h3>These are the initial roles assigned. But each and every member is eager in trying out the others role. Once we get a handle on how things work we will swap the roles according to the requirement.
 </h3>
 <hr><br>
 <h1>Communication</h1><br>
-<h3>We are using github for code upload and maintaining the blogs , Whatsapp for daily communication and Trello for scrum management, trello having an android app will make things simpler and active. We have scheduled weekly meeting on Fridays after class hours where sprint challenges and blockers will be tried to be solved.</h3>
+<h3>We are using github for code upload and maintaining the blogs , Whatsapp for daily communication and Trello for scrum management, trello having an android app will make things simpler and active. We have scheduled weekly meeting on Fridays after class hours where sprint challenges and blockers will be tried to be solved.</h3><br>
+<img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/GIT.jpeg?raw=true" width="100" height="100">
+<img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/Trello.jpeg?raw=true" width="100" height="100">
+<img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/WhatsApp.jpeg?raw=true" width="100" height="100">
+<img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/Team.jpeg?raw=true" width="100" height="100">
 
 <h3><strong>Thank You for visiting our blog!! That’s all for Now. Stay tuned for more updates on our project!!</strong></h3>
 </body>
