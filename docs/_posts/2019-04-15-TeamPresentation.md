@@ -62,14 +62,12 @@ Here we are Introducing our awesome team and inspiration to take up the project 
     </div>
    <div class="column">
 <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/Trello.jpeg?raw=true" width="100" height="100">
-     </div>
-  <div class="column">
-<img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/WhatsApp.jpeg?raw=true" width="100" height="100">
-     </div>
-    <div class="column">
-<img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/Team.jpeg?raw=true" width="100" height="100">
-   </div>
   </div>
+<img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/WhatsApp.jpeg?raw=true" width="100" height="100">
+   
+ 
+<img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/Team.jpeg?raw=true" width="100" height="100">
+   
 
 <h3><strong>Thank You for visiting our blog!! That’s all for Now. Stay tuned for more updates on our project!!</strong></h3>
 </body>
