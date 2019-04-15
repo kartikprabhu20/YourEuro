@@ -44,18 +44,7 @@ Here we are Introducing our awesome team and inspiration to take up the project 
 <h3>We are using github for code upload and maintaining the blogs , Whatsapp for daily communication and Trello for scrum management, trello having an android app will make things simpler and active. We have scheduled weekly meeting on Fridays after class hours where sprint challenges and blockers will be tried to be solved.</h3><br>
 
 
-   .column {
-  float: left;
-  width: 33.33%;
-  padding: 5px;
-}
-
-/* Clear floats after image containers */
-.row::after {
-  content: "";
-  clear: both;
-  display: table;
-}
+  
 <div class="row">
   <div class="column">
 <img src=""> <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/GIT.jpeg?raw=true" width="100" height="100">
@@ -63,13 +52,13 @@ Here we are Introducing our awesome team and inspiration to take up the project 
    <div class="column">
 <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/Trello.jpeg?raw=true" width="100" height="100">
   </div>
- <div class="row">
+ 
   <div class="column">
 <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/WhatsApp.jpeg?raw=true" width="100" height="100">
    </div>
- 
+ <div class="column">
 <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/Team.jpeg?raw=true" width="100" height="100">
-   
+   </div>
 
 <h3><strong>Thank You for visiting our blog!! That’s all for Now. Stay tuned for more updates on our project!!</strong></h3>
 </body>
