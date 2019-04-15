@@ -18,12 +18,17 @@ Here we are Introducing our awesome team and inspiration to take up the project 
 <h1>Team Members</h1>
 <h3>Karthik Prabhu</h3>
 <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/karthik.jpeg?raw=true" width="100" height="100">
+<h3>Personally I love coding and a strive for optimisation. But one of the core qualities which I lack Is knowledge sharing . I believe working in a team would help me overcome this gap. As the saying goes “Don’t just look at the end result, look at the intermediate process as well”, this course will make us learn A to Z of software engineering and not just the C for coding part.</h3>
 <h3>Anitha Bhat Talagini Ashoka</h3>
 <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/Anitha.jpeg?raw=true" width="100" height="100">
 <h3>Madhu Gopal Sirivella</h3>
 <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/Madhu.jpeg?raw=true" width="100" height="100">
+<h3>Being from an engineering background I would like to gain the necessary skills required for Software Engineering. The motivation behind taking this course is I will get exposure to the various phases of developing an Android App. I believe by doing this course I can enhance my coding skills. I am excited to work in a team where we combine work to achieve a higher objective.</h3>
+
 <h3>Avinash Ranjan</h3>
 <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/Avinash.jpeg?raw=true" width="100" height="100">
+<h3>Frankly, speaking I am not that good in coding but I always had a interest in knowing how a particular app works and how to make a new app. Taking software engineering will really help me in knowing the background knowledge of making and working of an app. The Agile Manifesto here will promote simplification and individuals and interactions over processes and tools. So, taking up this course will not only help me making of an app but will also help me in presenting my app in front of people.</h3>
+<h1>Roles and Responsibilities</h1>
 
 </body>
 </html>
