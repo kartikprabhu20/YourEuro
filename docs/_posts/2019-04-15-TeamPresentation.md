@@ -14,18 +14,18 @@ Here we are Introducing our awesome team and inspiration to take up the project 
 <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/APP_logo.jpeg?raw=true" width="300" height="150">  </p><hr><br>
   <h1>Team ARTexceptionals</h1><br>
   <p>Inspired by the “AndroidRuntimeException”, our team has moved on from the old school Dalvik virtual Machine and have adopted  Android Runtime. The teams Moto is as below:</p><br>
-<p>  <try{<b/>
-printf(“Making innovative apps”);<b/>
-}catch{<b/>
-printf(“Market needs”); <b/>
-}finally{<b/>
-printf(“Deliver Awesome apps”);<b/>
+<p>  <try{<br/>
+printf(“Making innovative apps”);<br/>
+}catch{<br/>
+printf(“Market needs”); <br/>
+}finally{<br/>
+printf(“Deliver Awesome apps”);<br/>
   }</p>
   
   <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/Team_logo.jpeg?raw=true" width="300" height="150">
   
 <h1>Team Members</h1>
-<h3>Karthik Prabhu</h3>
+<h3>Kartik Prabhu</h3>
 <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/karthik.jpeg?raw=true" width="100" height="100">
 <p>Personally I love coding and a strive for optimisation. But one of the core qualities which I lack Is knowledge sharing . I believe working in a team would help me overcome this gap. As the saying goes “Don’t just look at the end result, look at the intermediate process as well”, this course will make us learn A to Z of software engineering and not just the C for coding part.</h3>
 <h3>Anitha Bhat Talagini Ashoka</p>
