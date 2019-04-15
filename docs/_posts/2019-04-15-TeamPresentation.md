@@ -42,7 +42,7 @@ Here we are Introducing our awesome team and inspiration to take up the project 
 <hr><br>
 <h1>Communication</h1><br>
 <h3>We are using github for code upload and maintaining the blogs , Whatsapp for daily communication and Trello for scrum management, trello having an android app will make things simpler and active. We have scheduled weekly meeting on Fridays after class hours where sprint challenges and blockers will be tried to be solved.</h3><br>
-<img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/GIT.jpeg?raw=true" width="100" height="100">
+<div style="white-space:nowrap;"><img src=""> <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/GIT.jpeg?raw=true" width="100" height="100"></div>
 <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/Trello.jpeg?raw=true" width="100" height="100">
 <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/WhatsApp.jpeg?raw=true" width="100" height="100">
 <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/Team.jpeg?raw=true" width="100" height="100">
