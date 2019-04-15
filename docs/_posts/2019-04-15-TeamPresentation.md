@@ -8,7 +8,7 @@ date: 2019-04-15
 <body>
 
 <h2>HTML Image</h2>
-<img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/Anitha.jpeg?raw=true" alt="Trulli" width="500" height="333">
+<img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/Anitha.jpeg?raw=true" width="500" height="333">
 
 </body>
 </html>
