@@ -55,10 +55,11 @@ printf(“Deliver Awesome apps”);<br/>
 <hr><br><br>
 
 <h1>Complementary Skills</h1><br/>
-<p>A project doesn’t just comprise of coding. It is just a minor part of it. Engineers tend to forget this which leads to a delivery of a bad product. Our team is a group of diverse people with varied skills. All of us have a minimum experience of 2-3 years and thus have already been part of different product development. But now it’s time to use those gained knowledge and skills along with the coding skills used across different courses to good use. Presentation , documentation, agile management, creativity, leadership, pressure handling, and last but not the least Programming are the key skills that exist among the team members and each one of us is eager to learn from one another.</p><hr><br>
+<p>A project doesn’t just comprise of coding. It is just a minor part of it. Engineers tend to forget this which leads to a delivery of a bad product. Our team is a group of diverse people with varied skills. All of us have a minimum experience of 2-3 years and thus have already been part of different product development. But now it’s time to use those gained knowledge and skills along with the coding skills used across different courses to good use. Presentation , documentation, agile management, creativity, leadership, pressure handling, and last but not the least Programming are the key skills that exist among the team members and each one of us is eager to learn from one another.</p>
 
+<hr><br>
 <h1>Communication</h1><br/>
-<p>We are using github for code upload and maintaining the blogs , Whatsapp for daily communication and Trello for scrum management, trello having an android app will make things simpler and active. We have scheduled weekly meeting on Fridays after class hours where sprint challenges and blockers will be tried to be solved.</p><br>
+<p>We are using github for code upload and maintaining the blogs , Whatsapp for daily communication and Trello for scrum management, trello having an android app will make things simpler and active. We have scheduled weekly meeting on Fridays after class hours where sprint challenges and blockers will be tried to be solved.</p>
 
 
   
@@ -78,8 +79,8 @@ printf(“Deliver Awesome apps”);<br/>
    </div>
    </div><br>
    
-  <hr> <br><br>
- <h1>Flexibility<h1><br/>
+  <hr> <br>
+ <h1>Flexibility<h1>
   
   <p>A product comes into its true colour only when each of the jigsaw pieces align properly. A team functions smoothly only when the team members work together. The gaps in the skills of one person needs to be covered by some other. Keeping this in mind, we will have regular standup meets to identify these gaps, discuss the challenges and help each other in growing as individual. Even though we have assigned roles for ourselves, we are not sandboxing ourselves to its parameters. This mindset is necessary for the flexibility of the team and thereby working seemlessly.</p><br><hr>
 
