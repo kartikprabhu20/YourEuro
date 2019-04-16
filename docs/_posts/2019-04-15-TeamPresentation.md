@@ -5,18 +5,24 @@ date: 2019-04-15
 ---
 <html>
 <body>
-  <h1>Project Team Presentation</h1><br>
-  <h3>Hey folks, Welcome to our team blog.
+<h1>Project Team Presentation</h1><br>
+<h3>Hey folks, Welcome to our team blog.
 Here we are Introducing our awesome team and inspiration to take up the project “Money control”.</h3>
-  <hr><br>
-  <h1>Our Project</h1>
-  <p>In this project we have opted to develop an app for “Money control”. Saving money and keeping track of the spending is a very hectic task, It’s always necessary for each one of us to track the money flow for efficient financial management. Our App “YOUREURO” will not only keep the track of money flow, but will also give a statistical analysis.</p><br><br><hr><br>
+  
+ <hr><br>
+ 
+ <h1>Our Project</h1>
+ <p>In this project we have opted to develop an app for “Money control”. Saving money and keeping track of the spending is a very hectic task, It’s always necessary for each one of us to track the money flow for efficient financial management. Our App “YOUREURO” will not only keep the track of money flow, but will also give a statistical analysis.</p>
+  
+ <br><br><hr><br>
     
-    <h1>App Logo</h1>
+<h1>App Logo</h1>
 <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/APP_logo.jpeg?raw=true" width="300" height="150">
-<br><br>
-  <h1>Team ARTexceptionals</h1><br>
-  <p>Inspired by the “AndroidRuntimeException”, our team has moved on from the old school Dalvik virtual Machine and have adopted  Android Runtime. The teams Moto is as below:</p><br>
+
+<br><br><hr>
+
+<h1>Team ARTexceptionals</h1><br>
+<p>Inspired by the “AndroidRuntimeException”, our team has moved on from the old school Dalvik virtual Machine and have adopted  Android Runtime. The teams Moto is as below:</p><br>
 <p>try{<br/>
 printf(“Making innovative apps”);<br/>
 }catch{<br/>
@@ -24,10 +30,14 @@ printf(“Market needs”); <br/>
 }finally{<br/>
 printf(“Deliver Awesome apps”);<br/>
   }</p>
-  <br><br>
-  <h1>Team Logo</h1>
-  <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/Team_logo.jpeg?raw=true" width="400" height="200">
-  <br><br>
+  
+<br><br><hr>
+
+<h1>Team Logo</h1>
+<img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/Team_logo.jpeg?raw=true" width="400" height="200">
+  
+<br><br><hr>
+
 <h1>Team Members</h1><br/>
 <h3>Kartik Prabhu</h3>
 <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/karthik.jpeg?raw=true" width="200" height="200">
@@ -41,7 +51,10 @@ printf(“Deliver Awesome apps”);<br/>
 
 <h3>Avinash Ranjan</h3>
 <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/Avinash.jpeg?raw=true" width="200" height="200">
-<p>"Frankly, speaking I am not that good in coding but I always had a interest in knowing how a particular app works and how to make a new app. Taking software engineering will really help me in knowing the background knowledge of making and working of an app. The Agile Manifesto here will promote simplification and individuals and interactions over processes and tools. So, taking up this course will not only help me making of an app but will also help me in presenting my app in front of people".</p><hr><br>
+<p>"Frankly, speaking I am not that good in coding but I always had a interest in knowing how a particular app works and how to make a new app. Taking software engineering will really help me in knowing the background knowledge of making and working of an app. The Agile Manifesto here will promote simplification and individuals and interactions over processes and tools. So, taking up this course will not only help me making of an app but will also help me in presenting my app in front of people".</p>
+
+<br><br><hr>
+
 <h1>Roles and Responsibilities</h1><br/>
 
 <h3><strong>Scrum Master: </strong></h3><p> As the Scrum Master, Anitha will be responsible in dividing the workload among the members depending on core strengths of individuals. She will also be responsible to take into account the intermediate challenges and changes from the client and see to that all the sprint items are completed on schedule. <br></p>
@@ -52,12 +65,14 @@ printf(“Deliver Awesome apps”);<br/>
 
 <p>These are the initial roles assigned. But each and every member is eager in trying out the others role. Once we get a handle on how things work we will swap the roles according to the requirement.
 </p>
-<hr><br><br>
+
+<br><br><hr>
 
 <h1>Complementary Skills</h1><br/>
 <p>A project doesn’t just comprise of coding. It is just a minor part of it. Engineers tend to forget this which leads to a delivery of a bad product. Our team is a group of diverse people with varied skills. All of us have a minimum experience of 2-3 years and thus have already been part of different product development. But now it’s time to use those gained knowledge and skills along with the coding skills used across different courses to good use. Presentation , documentation, agile management, creativity, leadership, pressure handling, and last but not the least Programming are the key skills that exist among the team members and each one of us is eager to learn from one another.</p>
 
-<hr><br>
+<br><br><hr>
+
 <h1>Communication</h1><br/>
 <p>We are using github for code upload and maintaining the blogs , Whatsapp for daily communication and Trello for scrum management, trello having an android app will make things simpler and active. We have scheduled weekly meeting on Fridays after class hours where sprint challenges and blockers will be tried to be solved.</p>
 
@@ -79,11 +94,13 @@ printf(“Deliver Awesome apps”);<br/>
    </div>
    </div><br>
    
-  <hr> <br>
- <h1>Flexibility<h1>
-  
-  <p>A product comes into its true colour only when each of the jigsaw pieces align properly. A team functions smoothly only when the team members work together. The gaps in the skills of one person needs to be covered by some other. Keeping this in mind, we will have regular standup meets to identify these gaps, discuss the challenges and help each other in growing as individual. Even though we have assigned roles for ourselves, we are not sandboxing ourselves to its parameters. This mindset is necessary for the flexibility of the team and thereby working seemlessly.</p><br><hr>
+<br><br><hr>
 
+<h1>Flexibility<h1>
+  
+  <p>A product comes into its true colour only when each of the jigsaw pieces align properly. A team functions smoothly only when the team members work together. The gaps in the skills of one person needs to be covered by some other. Keeping this in mind, we will have regular standup meets to identify these gaps, discuss the challenges and help each other in growing as individual. Even though we have assigned roles for ourselves, we are not sandboxing ourselves to its parameters. This mindset is necessary for the flexibility of the team and thereby working seemlessly.</p>
+  
+  <br><hr>
 
 <h3><strong>Thank You for visiting our blog!! That’s all for Now. Stay tuned for more updates on our project!!</strong></h3>
 
