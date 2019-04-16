@@ -14,6 +14,7 @@ Here we are Introducing our awesome team and inspiration to take up the project 
     
     <h1>App Logo</h1>
 <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/APP_logo.jpeg?raw=true" width="300" height="150">
+<br><br>
   <h1>Team ARTexceptionals</h1><br>
   <p>Inspired by the “AndroidRuntimeException”, our team has moved on from the old school Dalvik virtual Machine and have adopted  Android Runtime. The teams Moto is as below:</p><br>
 <p>  <try{<br/>
@@ -23,10 +24,10 @@ printf(“Market needs”); <br/>
 }finally{<br/>
 printf(“Deliver Awesome apps”);<br/>
   }</p>
-  
+  <br><br>
   <h1>Team Logo</h1>
   <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/Team_logo.jpeg?raw=true" width="300" height="150">
-  
+  <br><br>
 <h1>Team Members</h1><br/>
 <h3>Kartik Prabhu</h3>
 <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/karthik.jpeg?raw=true" width="100" height="100">
@@ -51,7 +52,7 @@ printf(“Deliver Awesome apps”);<br/>
 
 <p>These are the initial roles assigned. But each and every member is eager in trying out the others role. Once we get a handle on how things work we will swap the roles according to the requirement.
 </p>
-<hr><br>
+<hr><br><br>
 <h1>Complementary Skills</h1><br/>
 <p>A project doesn’t just comprise of coding. It is just a minor part of it. Engineers tend to forget this which leads to a delivery of a bad product. Our team is a group of diverse people with varied skills. All of us have a minimum experience of 2-3 years and thus have already been part of different product development. But now it’s time to use those gained knowledge and skills along with the coding skills used across different courses to good use. Presentation , documentation, agile management, creativity, leadership, pressure handling, and last but not the least Programming are the key skill that exist among the team members and each one of us is eager to learn from one another.</p><hr><br>
 <h1>Communication</h1><br/>
