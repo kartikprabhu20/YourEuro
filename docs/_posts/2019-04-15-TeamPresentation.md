@@ -22,6 +22,7 @@ printf(“Market needs”); <br/>
 printf(“Deliver Awesome apps”);<br/>
   }</p>
   
+  <h3>TEAM LOGO</h3>
   <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/Team_logo.jpeg?raw=true" width="300" height="150">
   
 <h1>Team Members</h1><br/>
@@ -77,5 +78,4 @@ printf(“Deliver Awesome apps”);<br/>
 
 
 <h3><strong>Thank You for visiting our blog!! That’s all for Now. Stay tuned for more updates on our project!!</strong></h3>
-</body>
-</html>
+
