@@ -6,8 +6,8 @@ date: 2019-04-15
 <html>
 <body>
 <h1>Project Team Presentation</h1><br>
-<h3>Hey folks, Welcome to our team blog.
-Here we are Introducing our awesome team and inspiration to take up the project “Money control”.</h3>
+<h3><i>Hey folks, Welcome to our team blog.
+  Here we are Introducing our awesome team and inspiration to take up the project “Money control”.</i></h3>
   
  <hr><br>
  
@@ -23,13 +23,13 @@ Here we are Introducing our awesome team and inspiration to take up the project 
 
 <h1>Team ARTexceptionals</h1><br>
 <p>Inspired by the “AndroidRuntimeException”, our team has moved on from the old school Dalvik virtual Machine and have adopted  Android Runtime. The teams Moto is as below:</p><br>
-<p>try{<br/>
+<p><i>try{<br/>
 printf(“Making innovative apps”);<br/>
 }catch{<br/>
 printf(“Market needs”); <br/>
 }finally{<br/>
 printf(“Deliver Awesome apps”);<br/>
-  }</p>
+  }</i></p>
   
 <br><br><hr>
 
@@ -102,5 +102,5 @@ printf(“Deliver Awesome apps”);<br/>
   
   <br><hr>
 
-<h3><strong>Thank You for visiting our blog!! That’s all for Now. Stay tuned for more updates on our project!!</strong></h3>
+<h3><i><strong>Thank You for visiting our blog!! That’s all for Now. Stay tuned for more updates on our project!!</strong></i></h3>
 
