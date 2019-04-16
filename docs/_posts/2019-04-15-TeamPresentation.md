@@ -96,9 +96,9 @@ printf(“Deliver Awesome apps”);<br/>
    
 <br><br><hr>
 
-<h1>Flexibility<h1><br/>
+<h1>Flexibility</h1><br/>
   
-  <p>A product comes into its true colour only when each of the jigsaw pieces align properly. A team functions smoothly only when the team members work together. The gaps in the skills of one person needs to be covered by some other. Keeping this in mind, we will have regular standup meets to identify these gaps, discuss the challenges and help each other in growing as individual. Even though we have assigned roles for ourselves, we are not sandboxing ourselves to its parameters. This mindset is necessary for the flexibility of the team and thereby working seemlessly.</p>
+  <p>A product comes into its true colour only when each of the jigsaw pieces align properly. A team functions smoothly only when the team members work together. The gaps in the skills of one person needs to be covered by some other. Keeping this in mind, we will have regular standup meets to identify these gaps, discuss the challenges and help each other in growing as individual. Even though we have assigned roles for ourselves, we are not sandboxing ourselves to its parameters. This mindset is necessary for the flexibility of the team and thereby working seamlessly.</p>
   
   <br><hr>
 
