@@ -61,9 +61,9 @@ printf(“Deliver Awesome apps”);<br/>
 
 <h1>Roles and Responsibilities</h1><br/>
 
-<h3><strong>Scrum Master: </strong></h3><p> As the Scrum Master, Anitha will be responsible in dividing the workload among the members depending on core strengths of individuals. She will also be responsible to take into account the intermediate challenges and changes from the client and see to that all the sprint items are completed on schedule. <br></p>
+<h3><strong>Scrum Master: </strong></h3><p> As a scrum master, Anitha will be responsible for dividing the workload among the members depending on core strengths of individuals. She will also be responsible to take into account the intermediate challenges and ad-hoc changes from the client and see to that all the sprint items are completed and delivered on schedule. <br></p>
 
-<h3><strong>Quality Control: </strong></h3><p>Avinash having a testing background will come up with strategies to make sure that quality of product. He will also be responsible to make sure that the standards of the product is meeting up with expectation of the client. <br></p>
+<h3><strong>Quality Control: </strong></h3><p>Avinash, having a testing background will come up with strategies to make sure that quality of product. He will also be responsible for making sure that the standards of the product is met with cleint's expectation. <br></p>
 
 <h3><strong>Developers: </strong></h3><p>Kartik with his expertise in Java will be the core member of coding team. He will also be responsible for the architecture of the product and work closely with the quality control to make the product deliverable. Madhu will be helping in Java coding and with his hands-on experience with Git and knowledge in html, will help us maintaining the blog.  <br></p>
 
