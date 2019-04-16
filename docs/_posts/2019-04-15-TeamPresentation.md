@@ -11,7 +11,7 @@ date: 2019-04-15
   
  <hr><br>
  
- <h1>Our Project</h1>
+ <h1>Our Project</h1><br>
  <p>In this project we have opted to develop an app for “Money control”. Saving money and keeping track of the spending is a very hectic task, It’s always necessary for each one of us to track the money flow for efficient financial management. Our App “YOUREURO” will not only keep the track of money flow, but will also give a statistical analysis.</p>
   
  <br><br><hr><br>
