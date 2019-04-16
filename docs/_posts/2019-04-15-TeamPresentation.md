@@ -13,7 +13,7 @@ date: 2019-04-15
  <h1>Our Project</h1><br>
  <p>In this project we intend to develop an app for “Money control”. Saving money and keeping track of the spending is a very hectic task, It’s always necessary for each one of us to track the money flow for efficient financial management. Our App “YOUREURO” will not only keep the track of money flow, but will also give a statistical analysis.</p>
   
-  <p><i>"Managing money is tedious, but it doesn't have to be anymore"</i></p>
+  <div class="vl"><p><i>"Managing money is tedious, but it doesn't have to be anymore"</i></p></div>
  <br><br><hr><br>
     
 <h1>App Logo</h1>
@@ -22,14 +22,18 @@ date: 2019-04-15
 <br><br><hr>
 
 <h1>Team ARTexceptionals</h1><br>
-<p>Inspired by the “AndroidRuntimeException”, our team has moved on from the old school Dalvik virtual Machine and has adopted  Android Runtime.<br> The teams Moto is as below:</p><br>
+<p>Inspired by the “AndroidRuntimeException”, our team has moved on from the old school Dalvik virtual Machine and has adopted  Android Runtime.
+  
+<br> The teams Moto is as below:</p>
+
 <p><i>try{<br/>
 printf(“Making innovative apps”);<br/>
 }catch{<br/>
 printf(“Market needs”); <br/>
 }finally{<br/>
 printf(“Deliver Awesome apps”);<br/>
-  }</i></p>
+}</i></p>
+
   
 <br><br><hr>
 
@@ -41,17 +45,17 @@ printf(“Deliver Awesome apps”);<br/>
 <h1>Team Members</h1><br/>
 <h3>Kartik Prabhu</h3>
 <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/karthik.jpeg?raw=true" width="200" height="200">
-<p>"Personally, I love coding and a strive for optimisation and perfection. One of the core qualities which I lack Is knowledge sharing . I believe working in a team would help me bridge this skill and boost the overall team work. As the saying goes “Don’t just look at the end result, look at the intermediate process as well”, this course will make us learn A to Z of software engineering and not just the C for coding part".</p>
+<p>"Personally, I love coding and strive for optimisation and perfection. One of the core qualities which I lack Is knowledge sharing . I believe working in a team would help me bridge this skill and boost the overall team work. As the saying goes “Don’t just look at the end result, look at the intermediate process as well”, this course will make us learn A to Z of software engineering and not just the C for coding part".</p>
 <h3>Anitha Bhat Talagini Ashoka</h3>
 <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/Anitha.jpeg?raw=true" width="200" height="200">
-<p>"Being a curious head I always loved learning new things. Developing an app in the Android operating system will not only enhance my coding skills but will also help me to explore new development environment. This course will nurture me to complete my zeal to become a GOOD Software Engineer with boosting up my team working skills".</p>
+<p>"Being a curious head I always loved learning new things. Developing an app in the Android operating system will not only enhance my coding skills but will also help me to explore new development environment. This course will nurture me to complete my zeal to become a good Software Engineer with boosting up my team working skills".</p>
 <h3>Madhu Gopal Sirivella</h3>
 <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/Madhu.jpeg?raw=true" width="200" height="200">
-<p>"Being from an engineering background I would like to gain the necessary skills required for Software Engineering. The motivation behind taking this course is I will get exposure to the various phases of developing an Android App. I believe by doing this course I can enhance my coding skills. I am excited to work in a team where we combine work to achieve a higher objective".</p>
+<p>"Coming from an Instrumentation engineering background I would like to gain the necessary skills required for Software Engineering. The motivation behind taking this course is I will get exposure to the various phases of developing an Android App. I believe by doing this course I can enhance my coding skills. I am excited to work in a team where we combine work to achieve a higher objective".</p>
 
 <h3>Avinash Ranjan</h3>
 <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/Avinash.jpeg?raw=true" width="200" height="200">
-<p>"Frankly, speaking I am not that good in coding but I always had a interest in knowing how a particular app works and how to make a new app. Taking software engineering will really help me in knowing the background knowledge of making and working of an app. The Agile Manifesto here will promote simplification and individuals and interactions over processes and tools. So, taking up this course will not only help me making of an app but will also help me in presenting my app in front of people".</p>
+<p>"Honestly, my expertise in coding is basic. But I always had an interest in knowing how a particular app works and how to make a new app. Taking software engineering will really help me in knowing the background knowledge of making and working of an app. The Agile Manifesto here will promote simplification and individuals and interactions over processes and tools. So, taking up this course will not only help me making of an app but will also help me in presenting my app in front of people".</p>
 
 <br><br><hr>
 
