@@ -25,7 +25,6 @@ date: 2019-04-15
 <p>Inspired by the “AndroidRuntimeException”, our team has moved on from the old school Dalvik virtual Machine and has adopted  Android Runtime.</p>
 
 <p>The teams Moto is as below: </p>
-<br>
 <p><i>try{<br/>
 printf(“Making innovative apps”);<br/>
 }catch{<br/>
