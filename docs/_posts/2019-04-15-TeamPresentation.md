@@ -22,11 +22,9 @@ date: 2019-04-15
 <br><br><hr>
 
 <h1>Team ARTexceptionals</h1><br>
-<p>Inspired by the “AndroidRuntimeException”, our team has moved on from the old school Dalvik virtual Machine and has adopted  Android Runtime.
-  
-<br> The teams Moto is as below:</p>
+<p>Inspired by the “AndroidRuntimeException”, our team has moved on from the old school Dalvik virtual Machine and has adopted  Android Runtime.</p>
 
-<p><i>try{<br/>
+<p>The teams Moto is as below: <br><i>try{<br/>
 printf(“Making innovative apps”);<br/>
 }catch{<br/>
 printf(“Market needs”); <br/>
