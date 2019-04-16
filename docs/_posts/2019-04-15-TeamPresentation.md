@@ -11,6 +11,8 @@ Here we are Introducing our awesome team and inspiration to take up the project 
   <hr><br>
   <h1>Our Project</h1>
   <p>The project we have selected to develop an app “Money control”. Saving money and keeping track of the spending is a very hectic task, It’s always necessary for each one of us to track the money flow for efficient financial management. Our App “YOUREURO” will not only keep the track of money flow, is also give a statistical analysis.<br><br>
+    
+    <h1>App Logo</h1>
 <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/APP_logo.jpeg?raw=true" width="300" height="150">  </p><hr><br>
   <h1>Team ARTexceptionals</h1><br>
   <p>Inspired by the “AndroidRuntimeException”, our team has moved on from the old school Dalvik virtual Machine and have adopted  Android Runtime. The teams Moto is as below:</p><br>
@@ -22,7 +24,7 @@ printf(“Market needs”); <br/>
 printf(“Deliver Awesome apps”);<br/>
   }</p>
   
-  <h3>TEAM LOGO</h3>
+  <h1>Team Logo</h1>
   <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/Team_logo.jpeg?raw=true" width="300" height="150">
   
 <h1>Team Members</h1><br/>
