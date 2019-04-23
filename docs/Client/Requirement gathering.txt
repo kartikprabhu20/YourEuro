@@ -1,0 +1,45 @@
+Requirement gathering:
+
+1. Does the data need to be stored locally? On server/firebase?
+One user is fine
+persistant
+
+2. Login  Authentication using fb, google, email? Any other?
+Local is fine
+
+3. Sharing expense with other users?
+
+4. Any libraries is allowed?
+Yes
+
+5. Any particular statistics on ?
+Any can be used.
+
+6. Summarise monthly expenses in mail?
+Nice to have, no need to focus
+
+7. Barcode scanning?
+No, not that much useful
+
+8. Details/Parameters of expense/income? (Category, note, date, place, camera for receipt)
+*Customisable category, deleting option
+*Payment method of income and expenditure
+*free text note
+*date 
+*no need for place
+
+
+9. Currency change support?
+select currency options 
+
+10. History?(last 6 months, last month, last week, today)
+
+*repeating transaction weekly rent
+* keypad with numeric format, num pad not qwerty
+
+11. Security feature?
+security , pin for app
+
+12. Anything else?
+filter based on time, type of payment, catagory, range of money
+ 
