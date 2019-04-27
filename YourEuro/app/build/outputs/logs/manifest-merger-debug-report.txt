@@ -1,0 +1,175 @@
+-- Merging decision tree log ---
+manifest
+ADDED from /Users/kartikprabhu/Workspace/Android/ISEE project/isee2019-ARTexceptionals/YourEuro/app/src/main/AndroidManifest.xml:2:1-24:12
+INJECTED from /Users/kartikprabhu/Workspace/Android/ISEE project/isee2019-ARTexceptionals/YourEuro/app/src/main/AndroidManifest.xml:2:1-24:12
+INJECTED from /Users/kartikprabhu/Workspace/Android/ISEE project/isee2019-ARTexceptionals/YourEuro/app/src/main/AndroidManifest.xml:2:1-24:12
+INJECTED from /Users/kartikprabhu/Workspace/Android/ISEE project/isee2019-ARTexceptionals/YourEuro/app/src/main/AndroidManifest.xml:2:1-24:12
+MERGED from [com.android.support:design:28.0.0] /Users/kartikprabhu/.gradle/caches/transforms-1/files-1.1/design-28.0.0.aar/2cd28992541f4e626dcabfa382d38ad9/AndroidManifest.xml:17:1-24:12
+MERGED from [com.android.support:appcompat-v7:28.0.0] /Users/kartikprabhu/.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/9d813c5c0724a9774afb53c7bbd30515/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support.constraint:constraint-layout:1.1.3] /Users/kartikprabhu/.gradle/caches/transforms-1/files-1.1/constraint-layout-1.1.3.aar/7642f36c2119e0038f02463e43e874ca/AndroidManifest.xml:2:1-11:12
+MERGED from [com.mikhaellopez:circularimageview:3.2.0] /Users/kartikprabhu/.gradle/caches/transforms-1/files-1.1/circularimageview-3.2.0.aar/2b5253d1dc0799be724d2de8d92c17ce/AndroidManifest.xml:2:1-11:12
+MERGED from [com.android.support:support-fragment:28.0.0] /Users/kartikprabhu/.gradle/caches/transforms-1/files-1.1/support-fragment-28.0.0.aar/6239e0dbde2dad52e528466e05cbd2f0/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:animated-vector-drawable:28.0.0] /Users/kartikprabhu/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-28.0.0.aar/0876cf1cc90c6f69a7eec8b50b0ca492/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:recyclerview-v7:28.0.0] /Users/kartikprabhu/.gradle/caches/transforms-1/files-1.1/recyclerview-v7-28.0.0.aar/649f94ea0c8a15167cb56cffa411449a/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-core-ui:28.0.0] /Users/kartikprabhu/.gradle/caches/transforms-1/files-1.1/support-core-ui-28.0.0.aar/7a2ff9a646b41edfbe1ba1df547f2f66/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-core-utils:28.0.0] /Users/kartikprabhu/.gradle/caches/transforms-1/files-1.1/support-core-utils-28.0.0.aar/291b699852d2eb403d6b8fbcc24f49f0/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-vector-drawable:28.0.0] /Users/kartikprabhu/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-28.0.0.aar/504ac3b9a2cd184d24acac186626c268/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:transition:28.0.0] /Users/kartikprabhu/.gradle/caches/transforms-1/files-1.1/transition-28.0.0.aar/fae2e749c38d4ee5a1e9c3fd089bcf8e/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:loader:28.0.0] /Users/kartikprabhu/.gradle/caches/transforms-1/files-1.1/loader-28.0.0.aar/d6151200d0610ee757344d21a1540f7c/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:viewpager:28.0.0] /Users/kartikprabhu/.gradle/caches/transforms-1/files-1.1/viewpager-28.0.0.aar/dacbd999587c1249eb1060ac56ce8df3/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:coordinatorlayout:28.0.0] /Users/kartikprabhu/.gradle/caches/transforms-1/files-1.1/coordinatorlayout-28.0.0.aar/929534f8ff7ea37b331923d12bb301fb/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:drawerlayout:28.0.0] /Users/kartikprabhu/.gradle/caches/transforms-1/files-1.1/drawerlayout-28.0.0.aar/8d81d82c3a20d8670e972a4a92a66c79/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:slidingpanelayout:28.0.0] /Users/kartikprabhu/.gradle/caches/transforms-1/files-1.1/slidingpanelayout-28.0.0.aar/27171ec74e723a93f3fe7b1c8bc41009/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:customview:28.0.0] /Users/kartikprabhu/.gradle/caches/transforms-1/files-1.1/customview-28.0.0.aar/908644a089d2da6d2ee1c76c8e2a1a8b/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:swiperefreshlayout:28.0.0] /Users/kartikprabhu/.gradle/caches/transforms-1/files-1.1/swiperefreshlayout-28.0.0.aar/d1cf021077b3bdd5d1b83b913253ed57/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:asynclayoutinflater:28.0.0] /Users/kartikprabhu/.gradle/caches/transforms-1/files-1.1/asynclayoutinflater-28.0.0.aar/91a62a5275a6723b189424d01045c763/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-compat:28.0.0] /Users/kartikprabhu/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/5ae931be1e24418f74643140bed90ec3/AndroidManifest.xml:17:1-24:12
+MERGED from [com.android.support:versionedparcelable:28.0.0] /Users/kartikprabhu/.gradle/caches/transforms-1/files-1.1/versionedparcelable-28.0.0.aar/e9f716466594d438b3fac7887ddc0399/AndroidManifest.xml:17:1-25:12
+MERGED from [com.android.support:cursoradapter:28.0.0] /Users/kartikprabhu/.gradle/caches/transforms-1/files-1.1/cursoradapter-28.0.0.aar/f2efc441c6bfdad676766ff3d51b4142/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:cardview-v7:28.0.0] /Users/kartikprabhu/.gradle/caches/transforms-1/files-1.1/cardview-v7-28.0.0.aar/c6fedda7b4fadd696e27bac558bcb68a/AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:runtime:1.1.1] /Users/kartikprabhu/.gradle/caches/transforms-1/files-1.1/runtime-1.1.1.aar/58e4fbfb783e36736e6855544bd76e0a/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:documentfile:28.0.0] /Users/kartikprabhu/.gradle/caches/transforms-1/files-1.1/documentfile-28.0.0.aar/94f9f2267f8014ac37ea11ad0f9176dd/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:localbroadcastmanager:28.0.0] /Users/kartikprabhu/.gradle/caches/transforms-1/files-1.1/localbroadcastmanager-28.0.0.aar/ed2482e97cf89d576fd8984ae8efc679/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:print:28.0.0] /Users/kartikprabhu/.gradle/caches/transforms-1/files-1.1/print-28.0.0.aar/a3cb73400c1a88d1ee4b07b561fa36f8/AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:viewmodel:1.1.1] /Users/kartikprabhu/.gradle/caches/transforms-1/files-1.1/viewmodel-1.1.1.aar/888744ec28c22aa238af363e61ebe36a/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:interpolator:28.0.0] /Users/kartikprabhu/.gradle/caches/transforms-1/files-1.1/interpolator-28.0.0.aar/b9703403875ba8453e60744052fc0e3a/AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:livedata:1.1.1] /Users/kartikprabhu/.gradle/caches/transforms-1/files-1.1/livedata-1.1.1.aar/bb3d5024023245a124b26de3ebbd007b/AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:livedata-core:1.1.1] /Users/kartikprabhu/.gradle/caches/transforms-1/files-1.1/livedata-core-1.1.1.aar/4dd9656fae952cdae7c630bbe561be04/AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.core:runtime:1.1.1] /Users/kartikprabhu/.gradle/caches/transforms-1/files-1.1/runtime-1.1.1.aar/843cc592c353dc33082f8fd342fc6004/AndroidManifest.xml:17:1-22:12
+INJECTED from /Users/kartikprabhu/Workspace/Android/ISEE project/isee2019-ARTexceptionals/YourEuro/app/src/main/AndroidManifest.xml:2:1-24:12
+INJECTED from /Users/kartikprabhu/Workspace/Android/ISEE project/isee2019-ARTexceptionals/YourEuro/app/src/main/AndroidManifest.xml:2:1-24:12
+INJECTED from /Users/kartikprabhu/Workspace/Android/ISEE project/isee2019-ARTexceptionals/YourEuro/app/src/main/AndroidManifest.xml:2:1-24:12
+	package
+		ADDED from /Users/kartikprabhu/Workspace/Android/ISEE project/isee2019-ARTexceptionals/YourEuro/app/src/main/AndroidManifest.xml:3:5-43
+		INJECTED from /Users/kartikprabhu/Workspace/Android/ISEE project/isee2019-ARTexceptionals/YourEuro/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/kartikprabhu/Workspace/Android/ISEE project/isee2019-ARTexceptionals/YourEuro/app/src/main/AndroidManifest.xml
+	android:versionName
+		INJECTED from /Users/kartikprabhu/Workspace/Android/ISEE project/isee2019-ARTexceptionals/YourEuro/app/src/main/AndroidManifest.xml
+		ADDED from /Users/kartikprabhu/Workspace/Android/ISEE project/isee2019-ARTexceptionals/YourEuro/app/src/main/AndroidManifest.xml:2:1-24:12
+		INJECTED from /Users/kartikprabhu/Workspace/Android/ISEE project/isee2019-ARTexceptionals/YourEuro/app/src/main/AndroidManifest.xml
+	android:versionCode
+		INJECTED from /Users/kartikprabhu/Workspace/Android/ISEE project/isee2019-ARTexceptionals/YourEuro/app/src/main/AndroidManifest.xml
+		ADDED from /Users/kartikprabhu/Workspace/Android/ISEE project/isee2019-ARTexceptionals/YourEuro/app/src/main/AndroidManifest.xml:2:1-24:12
+		INJECTED from /Users/kartikprabhu/Workspace/Android/ISEE project/isee2019-ARTexceptionals/YourEuro/app/src/main/AndroidManifest.xml
+	xmlns:android
+		ADDED from /Users/kartikprabhu/Workspace/Android/ISEE project/isee2019-ARTexceptionals/YourEuro/app/src/main/AndroidManifest.xml:2:11-69
+application
+ADDED from /Users/kartikprabhu/Workspace/Android/ISEE project/isee2019-ARTexceptionals/YourEuro/app/src/main/AndroidManifest.xml:5:5-22:19
+MERGED from [com.android.support:design:28.0.0] /Users/kartikprabhu/.gradle/caches/transforms-1/files-1.1/design-28.0.0.aar/2cd28992541f4e626dcabfa382d38ad9/AndroidManifest.xml:22:5-20
+MERGED from [com.android.support:design:28.0.0] /Users/kartikprabhu/.gradle/caches/transforms-1/files-1.1/design-28.0.0.aar/2cd28992541f4e626dcabfa382d38ad9/AndroidManifest.xml:22:5-20
+MERGED from [com.android.support.constraint:constraint-layout:1.1.3] /Users/kartikprabhu/.gradle/caches/transforms-1/files-1.1/constraint-layout-1.1.3.aar/7642f36c2119e0038f02463e43e874ca/AndroidManifest.xml:9:5-20
+MERGED from [com.android.support.constraint:constraint-layout:1.1.3] /Users/kartikprabhu/.gradle/caches/transforms-1/files-1.1/constraint-layout-1.1.3.aar/7642f36c2119e0038f02463e43e874ca/AndroidManifest.xml:9:5-20
+MERGED from [com.android.support:support-compat:28.0.0] /Users/kartikprabhu/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/5ae931be1e24418f74643140bed90ec3/AndroidManifest.xml:22:5-94
+MERGED from [com.android.support:support-compat:28.0.0] /Users/kartikprabhu/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/5ae931be1e24418f74643140bed90ec3/AndroidManifest.xml:22:5-94
+MERGED from [com.android.support:versionedparcelable:28.0.0] /Users/kartikprabhu/.gradle/caches/transforms-1/files-1.1/versionedparcelable-28.0.0.aar/e9f716466594d438b3fac7887ddc0399/AndroidManifest.xml:22:5-23:19
+MERGED from [com.android.support:versionedparcelable:28.0.0] /Users/kartikprabhu/.gradle/caches/transforms-1/files-1.1/versionedparcelable-28.0.0.aar/e9f716466594d438b3fac7887ddc0399/AndroidManifest.xml:22:5-23:19
+	android:appComponentFactory
+		ADDED from [com.android.support:support-compat:28.0.0] /Users/kartikprabhu/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/5ae931be1e24418f74643140bed90ec3/AndroidManifest.xml:22:18-91
+	android:supportsRtl
+		ADDED from /Users/kartikprabhu/Workspace/Android/ISEE project/isee2019-ARTexceptionals/YourEuro/app/src/main/AndroidManifest.xml:10:9-35
+	android:label
+		ADDED from /Users/kartikprabhu/Workspace/Android/ISEE project/isee2019-ARTexceptionals/YourEuro/app/src/main/AndroidManifest.xml:8:9-41
+	android:roundIcon
+		ADDED from /Users/kartikprabhu/Workspace/Android/ISEE project/isee2019-ARTexceptionals/YourEuro/app/src/main/AndroidManifest.xml:9:9-54
+	android:icon
+		ADDED from /Users/kartikprabhu/Workspace/Android/ISEE project/isee2019-ARTexceptionals/YourEuro/app/src/main/AndroidManifest.xml:7:9-43
+	android:allowBackup
+		ADDED from /Users/kartikprabhu/Workspace/Android/ISEE project/isee2019-ARTexceptionals/YourEuro/app/src/main/AndroidManifest.xml:6:9-35
+	android:theme
+		ADDED from /Users/kartikprabhu/Workspace/Android/ISEE project/isee2019-ARTexceptionals/YourEuro/app/src/main/AndroidManifest.xml:11:9-40
+activity#com.artexceptionals.youreuro.MainActivity
+ADDED from /Users/kartikprabhu/Workspace/Android/ISEE project/isee2019-ARTexceptionals/YourEuro/app/src/main/AndroidManifest.xml:12:9-21:20
+	android:label
+		ADDED from /Users/kartikprabhu/Workspace/Android/ISEE project/isee2019-ARTexceptionals/YourEuro/app/src/main/AndroidManifest.xml:14:13-45
+	android:theme
+		ADDED from /Users/kartikprabhu/Workspace/Android/ISEE project/isee2019-ARTexceptionals/YourEuro/app/src/main/AndroidManifest.xml:15:13-56
+	android:name
+		ADDED from /Users/kartikprabhu/Workspace/Android/ISEE project/isee2019-ARTexceptionals/YourEuro/app/src/main/AndroidManifest.xml:13:13-41
+intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
+ADDED from /Users/kartikprabhu/Workspace/Android/ISEE project/isee2019-ARTexceptionals/YourEuro/app/src/main/AndroidManifest.xml:16:13-20:29
+action#android.intent.action.MAIN
+ADDED from /Users/kartikprabhu/Workspace/Android/ISEE project/isee2019-ARTexceptionals/YourEuro/app/src/main/AndroidManifest.xml:17:17-69
+	android:name
+		ADDED from /Users/kartikprabhu/Workspace/Android/ISEE project/isee2019-ARTexceptionals/YourEuro/app/src/main/AndroidManifest.xml:17:25-66
+category#android.intent.category.LAUNCHER
+ADDED from /Users/kartikprabhu/Workspace/Android/ISEE project/isee2019-ARTexceptionals/YourEuro/app/src/main/AndroidManifest.xml:19:17-77
+	android:name
+		ADDED from /Users/kartikprabhu/Workspace/Android/ISEE project/isee2019-ARTexceptionals/YourEuro/app/src/main/AndroidManifest.xml:19:27-74
+uses-sdk
+INJECTED from /Users/kartikprabhu/Workspace/Android/ISEE project/isee2019-ARTexceptionals/YourEuro/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from /Users/kartikprabhu/Workspace/Android/ISEE project/isee2019-ARTexceptionals/YourEuro/app/src/main/AndroidManifest.xml
+INJECTED from /Users/kartikprabhu/Workspace/Android/ISEE project/isee2019-ARTexceptionals/YourEuro/app/src/main/AndroidManifest.xml
+MERGED from [com.android.support:design:28.0.0] /Users/kartikprabhu/.gradle/caches/transforms-1/files-1.1/design-28.0.0.aar/2cd28992541f4e626dcabfa382d38ad9/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:design:28.0.0] /Users/kartikprabhu/.gradle/caches/transforms-1/files-1.1/design-28.0.0.aar/2cd28992541f4e626dcabfa382d38ad9/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:appcompat-v7:28.0.0] /Users/kartikprabhu/.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/9d813c5c0724a9774afb53c7bbd30515/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:appcompat-v7:28.0.0] /Users/kartikprabhu/.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/9d813c5c0724a9774afb53c7bbd30515/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support.constraint:constraint-layout:1.1.3] /Users/kartikprabhu/.gradle/caches/transforms-1/files-1.1/constraint-layout-1.1.3.aar/7642f36c2119e0038f02463e43e874ca/AndroidManifest.xml:5:5-7:41
+MERGED from [com.android.support.constraint:constraint-layout:1.1.3] /Users/kartikprabhu/.gradle/caches/transforms-1/files-1.1/constraint-layout-1.1.3.aar/7642f36c2119e0038f02463e43e874ca/AndroidManifest.xml:5:5-7:41
+MERGED from [com.mikhaellopez:circularimageview:3.2.0] /Users/kartikprabhu/.gradle/caches/transforms-1/files-1.1/circularimageview-3.2.0.aar/2b5253d1dc0799be724d2de8d92c17ce/AndroidManifest.xml:7:5-9:41
+MERGED from [com.mikhaellopez:circularimageview:3.2.0] /Users/kartikprabhu/.gradle/caches/transforms-1/files-1.1/circularimageview-3.2.0.aar/2b5253d1dc0799be724d2de8d92c17ce/AndroidManifest.xml:7:5-9:41
+MERGED from [com.android.support:support-fragment:28.0.0] /Users/kartikprabhu/.gradle/caches/transforms-1/files-1.1/support-fragment-28.0.0.aar/6239e0dbde2dad52e528466e05cbd2f0/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-fragment:28.0.0] /Users/kartikprabhu/.gradle/caches/transforms-1/files-1.1/support-fragment-28.0.0.aar/6239e0dbde2dad52e528466e05cbd2f0/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:animated-vector-drawable:28.0.0] /Users/kartikprabhu/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-28.0.0.aar/0876cf1cc90c6f69a7eec8b50b0ca492/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:animated-vector-drawable:28.0.0] /Users/kartikprabhu/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-28.0.0.aar/0876cf1cc90c6f69a7eec8b50b0ca492/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:recyclerview-v7:28.0.0] /Users/kartikprabhu/.gradle/caches/transforms-1/files-1.1/recyclerview-v7-28.0.0.aar/649f94ea0c8a15167cb56cffa411449a/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:recyclerview-v7:28.0.0] /Users/kartikprabhu/.gradle/caches/transforms-1/files-1.1/recyclerview-v7-28.0.0.aar/649f94ea0c8a15167cb56cffa411449a/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-ui:28.0.0] /Users/kartikprabhu/.gradle/caches/transforms-1/files-1.1/support-core-ui-28.0.0.aar/7a2ff9a646b41edfbe1ba1df547f2f66/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-ui:28.0.0] /Users/kartikprabhu/.gradle/caches/transforms-1/files-1.1/support-core-ui-28.0.0.aar/7a2ff9a646b41edfbe1ba1df547f2f66/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-utils:28.0.0] /Users/kartikprabhu/.gradle/caches/transforms-1/files-1.1/support-core-utils-28.0.0.aar/291b699852d2eb403d6b8fbcc24f49f0/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-utils:28.0.0] /Users/kartikprabhu/.gradle/caches/transforms-1/files-1.1/support-core-utils-28.0.0.aar/291b699852d2eb403d6b8fbcc24f49f0/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:28.0.0] /Users/kartikprabhu/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-28.0.0.aar/504ac3b9a2cd184d24acac186626c268/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:28.0.0] /Users/kartikprabhu/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-28.0.0.aar/504ac3b9a2cd184d24acac186626c268/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:transition:28.0.0] /Users/kartikprabhu/.gradle/caches/transforms-1/files-1.1/transition-28.0.0.aar/fae2e749c38d4ee5a1e9c3fd089bcf8e/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:transition:28.0.0] /Users/kartikprabhu/.gradle/caches/transforms-1/files-1.1/transition-28.0.0.aar/fae2e749c38d4ee5a1e9c3fd089bcf8e/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:loader:28.0.0] /Users/kartikprabhu/.gradle/caches/transforms-1/files-1.1/loader-28.0.0.aar/d6151200d0610ee757344d21a1540f7c/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:loader:28.0.0] /Users/kartikprabhu/.gradle/caches/transforms-1/files-1.1/loader-28.0.0.aar/d6151200d0610ee757344d21a1540f7c/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:viewpager:28.0.0] /Users/kartikprabhu/.gradle/caches/transforms-1/files-1.1/viewpager-28.0.0.aar/dacbd999587c1249eb1060ac56ce8df3/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:viewpager:28.0.0] /Users/kartikprabhu/.gradle/caches/transforms-1/files-1.1/viewpager-28.0.0.aar/dacbd999587c1249eb1060ac56ce8df3/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:coordinatorlayout:28.0.0] /Users/kartikprabhu/.gradle/caches/transforms-1/files-1.1/coordinatorlayout-28.0.0.aar/929534f8ff7ea37b331923d12bb301fb/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:coordinatorlayout:28.0.0] /Users/kartikprabhu/.gradle/caches/transforms-1/files-1.1/coordinatorlayout-28.0.0.aar/929534f8ff7ea37b331923d12bb301fb/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:drawerlayout:28.0.0] /Users/kartikprabhu/.gradle/caches/transforms-1/files-1.1/drawerlayout-28.0.0.aar/8d81d82c3a20d8670e972a4a92a66c79/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:drawerlayout:28.0.0] /Users/kartikprabhu/.gradle/caches/transforms-1/files-1.1/drawerlayout-28.0.0.aar/8d81d82c3a20d8670e972a4a92a66c79/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:slidingpanelayout:28.0.0] /Users/kartikprabhu/.gradle/caches/transforms-1/files-1.1/slidingpanelayout-28.0.0.aar/27171ec74e723a93f3fe7b1c8bc41009/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:slidingpanelayout:28.0.0] /Users/kartikprabhu/.gradle/caches/transforms-1/files-1.1/slidingpanelayout-28.0.0.aar/27171ec74e723a93f3fe7b1c8bc41009/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:customview:28.0.0] /Users/kartikprabhu/.gradle/caches/transforms-1/files-1.1/customview-28.0.0.aar/908644a089d2da6d2ee1c76c8e2a1a8b/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:customview:28.0.0] /Users/kartikprabhu/.gradle/caches/transforms-1/files-1.1/customview-28.0.0.aar/908644a089d2da6d2ee1c76c8e2a1a8b/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:swiperefreshlayout:28.0.0] /Users/kartikprabhu/.gradle/caches/transforms-1/files-1.1/swiperefreshlayout-28.0.0.aar/d1cf021077b3bdd5d1b83b913253ed57/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:swiperefreshlayout:28.0.0] /Users/kartikprabhu/.gradle/caches/transforms-1/files-1.1/swiperefreshlayout-28.0.0.aar/d1cf021077b3bdd5d1b83b913253ed57/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:asynclayoutinflater:28.0.0] /Users/kartikprabhu/.gradle/caches/transforms-1/files-1.1/asynclayoutinflater-28.0.0.aar/91a62a5275a6723b189424d01045c763/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:asynclayoutinflater:28.0.0] /Users/kartikprabhu/.gradle/caches/transforms-1/files-1.1/asynclayoutinflater-28.0.0.aar/91a62a5275a6723b189424d01045c763/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-compat:28.0.0] /Users/kartikprabhu/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/5ae931be1e24418f74643140bed90ec3/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-compat:28.0.0] /Users/kartikprabhu/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/5ae931be1e24418f74643140bed90ec3/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:versionedparcelable:28.0.0] /Users/kartikprabhu/.gradle/caches/transforms-1/files-1.1/versionedparcelable-28.0.0.aar/e9f716466594d438b3fac7887ddc0399/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:versionedparcelable:28.0.0] /Users/kartikprabhu/.gradle/caches/transforms-1/files-1.1/versionedparcelable-28.0.0.aar/e9f716466594d438b3fac7887ddc0399/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:cursoradapter:28.0.0] /Users/kartikprabhu/.gradle/caches/transforms-1/files-1.1/cursoradapter-28.0.0.aar/f2efc441c6bfdad676766ff3d51b4142/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:cursoradapter:28.0.0] /Users/kartikprabhu/.gradle/caches/transforms-1/files-1.1/cursoradapter-28.0.0.aar/f2efc441c6bfdad676766ff3d51b4142/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:cardview-v7:28.0.0] /Users/kartikprabhu/.gradle/caches/transforms-1/files-1.1/cardview-v7-28.0.0.aar/c6fedda7b4fadd696e27bac558bcb68a/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:cardview-v7:28.0.0] /Users/kartikprabhu/.gradle/caches/transforms-1/files-1.1/cardview-v7-28.0.0.aar/c6fedda7b4fadd696e27bac558bcb68a/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:runtime:1.1.1] /Users/kartikprabhu/.gradle/caches/transforms-1/files-1.1/runtime-1.1.1.aar/58e4fbfb783e36736e6855544bd76e0a/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:runtime:1.1.1] /Users/kartikprabhu/.gradle/caches/transforms-1/files-1.1/runtime-1.1.1.aar/58e4fbfb783e36736e6855544bd76e0a/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:documentfile:28.0.0] /Users/kartikprabhu/.gradle/caches/transforms-1/files-1.1/documentfile-28.0.0.aar/94f9f2267f8014ac37ea11ad0f9176dd/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:documentfile:28.0.0] /Users/kartikprabhu/.gradle/caches/transforms-1/files-1.1/documentfile-28.0.0.aar/94f9f2267f8014ac37ea11ad0f9176dd/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:localbroadcastmanager:28.0.0] /Users/kartikprabhu/.gradle/caches/transforms-1/files-1.1/localbroadcastmanager-28.0.0.aar/ed2482e97cf89d576fd8984ae8efc679/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:localbroadcastmanager:28.0.0] /Users/kartikprabhu/.gradle/caches/transforms-1/files-1.1/localbroadcastmanager-28.0.0.aar/ed2482e97cf89d576fd8984ae8efc679/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:print:28.0.0] /Users/kartikprabhu/.gradle/caches/transforms-1/files-1.1/print-28.0.0.aar/a3cb73400c1a88d1ee4b07b561fa36f8/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:print:28.0.0] /Users/kartikprabhu/.gradle/caches/transforms-1/files-1.1/print-28.0.0.aar/a3cb73400c1a88d1ee4b07b561fa36f8/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:viewmodel:1.1.1] /Users/kartikprabhu/.gradle/caches/transforms-1/files-1.1/viewmodel-1.1.1.aar/888744ec28c22aa238af363e61ebe36a/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:viewmodel:1.1.1] /Users/kartikprabhu/.gradle/caches/transforms-1/files-1.1/viewmodel-1.1.1.aar/888744ec28c22aa238af363e61ebe36a/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:interpolator:28.0.0] /Users/kartikprabhu/.gradle/caches/transforms-1/files-1.1/interpolator-28.0.0.aar/b9703403875ba8453e60744052fc0e3a/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:interpolator:28.0.0] /Users/kartikprabhu/.gradle/caches/transforms-1/files-1.1/interpolator-28.0.0.aar/b9703403875ba8453e60744052fc0e3a/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata:1.1.1] /Users/kartikprabhu/.gradle/caches/transforms-1/files-1.1/livedata-1.1.1.aar/bb3d5024023245a124b26de3ebbd007b/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata:1.1.1] /Users/kartikprabhu/.gradle/caches/transforms-1/files-1.1/livedata-1.1.1.aar/bb3d5024023245a124b26de3ebbd007b/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata-core:1.1.1] /Users/kartikprabhu/.gradle/caches/transforms-1/files-1.1/livedata-core-1.1.1.aar/4dd9656fae952cdae7c630bbe561be04/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata-core:1.1.1] /Users/kartikprabhu/.gradle/caches/transforms-1/files-1.1/livedata-core-1.1.1.aar/4dd9656fae952cdae7c630bbe561be04/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.core:runtime:1.1.1] /Users/kartikprabhu/.gradle/caches/transforms-1/files-1.1/runtime-1.1.1.aar/843cc592c353dc33082f8fd342fc6004/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.core:runtime:1.1.1] /Users/kartikprabhu/.gradle/caches/transforms-1/files-1.1/runtime-1.1.1.aar/843cc592c353dc33082f8fd342fc6004/AndroidManifest.xml:20:5-44
+INJECTED from /Users/kartikprabhu/Workspace/Android/ISEE project/isee2019-ARTexceptionals/YourEuro/app/src/main/AndroidManifest.xml
+INJECTED from /Users/kartikprabhu/Workspace/Android/ISEE project/isee2019-ARTexceptionals/YourEuro/app/src/main/AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from /Users/kartikprabhu/Workspace/Android/ISEE project/isee2019-ARTexceptionals/YourEuro/app/src/main/AndroidManifest.xml
+		ADDED from /Users/kartikprabhu/Workspace/Android/ISEE project/isee2019-ARTexceptionals/YourEuro/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/kartikprabhu/Workspace/Android/ISEE project/isee2019-ARTexceptionals/YourEuro/app/src/main/AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from /Users/kartikprabhu/Workspace/Android/ISEE project/isee2019-ARTexceptionals/YourEuro/app/src/main/AndroidManifest.xml
+		ADDED from /Users/kartikprabhu/Workspace/Android/ISEE project/isee2019-ARTexceptionals/YourEuro/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/kartikprabhu/Workspace/Android/ISEE project/isee2019-ARTexceptionals/YourEuro/app/src/main/AndroidManifest.xml

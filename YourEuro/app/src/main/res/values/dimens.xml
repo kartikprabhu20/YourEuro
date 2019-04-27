@@ -1,3 +1,10 @@
 <resources>
     <dimen name="fab_margin">16dp</dimen>
+    <dimen name="unit1">4dp</dimen>
+    <dimen name="unit2">8dp</dimen>
+    <dimen name="unit3">16dp</dimen>
+    <dimen name="unit4">32dp</dimen>
+    <dimen name="unit5">64dp</dimen>
+    <dimen name="unit6">128dp</dimen>
+
 </resources>
