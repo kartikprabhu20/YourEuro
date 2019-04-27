@@ -96,7 +96,8 @@
                                     <map>
                                       <entry key="backgroundAssetType" value="COLOR" />
                                       <entry key="backgroundColor" value="ffffff" />
-                                      <entry key="foregroundImage" value="C:\Users\Anitha\Desktop\youreuro_square.png" />
+                                      <entry key="foregroundImage" value="C:\Users\Anitha\Desktop\youreurologo.jpeg" />
+                                      <entry key="legacyIconShape" value="CIRCLE" />
                                     </map>
                                   </option>
                                 </PersistentState>
