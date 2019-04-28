@@ -2,28 +2,28 @@ package com.artexceptionals.youreuro.model;
 
 public class Category {
 
-    Constants catagoryName;
-    Constants imageID;
+    String catagoryName;
+    String imageID;
 
-    public Category(Constants catagoryName, Constants imageID) {
+    public Category(String  catagoryName, String imageID) {
         this.catagoryName = catagoryName;
         this.imageID = imageID;
     }
 
 
-    public Constants getCatagoryName() {
+    public String getCatagoryName() {
         return catagoryName;
     }
 
-    public void setCatagoryName(Constants catagoryName) {
+    public void setCatagoryName(String catagoryName) {
         this.catagoryName = catagoryName;
     }
 
-    public Constants getImageID() {
+    public String getImageID() {
         return imageID;
     }
 
-    public void setImageID(Constants imageID) {
+    public void setImageID(String imageID) {
         this.imageID = imageID;
     }
 }

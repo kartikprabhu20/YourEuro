@@ -5,12 +5,17 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.artexceptionals.youreuro.R;
 import com.artexceptionals.youreuro.model.CashRecord;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
 
 public class CashRecordAdapter extends RecyclerView.Adapter<CashRecordAdapter.CashRecordViewHolder>{
 
@@ -27,8 +32,18 @@ public class CashRecordAdapter extends RecyclerView.Adapter<CashRecordAdapter.Ca
     }
 
     @Override
-    public void onBindViewHolder(@NonNull CashRecordViewHolder cashRecordViewHolder, int i) {
+    public void onBindViewHolder(@NonNull CashRecordViewHolder holder, int index) {
 
+        if (holder != null){
+            CashRecord cashRecord =  recordList.get(index);
+
+            holder.categoryName.setText(cashRecord.getCategory().getCatagoryName());
+            holder.paymentType.setText(cashRecord.getPaymentType());
+            holder.note.setText(cashRecord.getNotes());
+            holder.amount.setText(cashRecord.getAmount());
+            holder.date.setText(cashRecord.getDate());
+            holder.paymentType.setText(cashRecord.getPaymentType());
+        }
     }
 
     @Override
@@ -40,10 +55,34 @@ public class CashRecordAdapter extends RecyclerView.Adapter<CashRecordAdapter.Ca
         return 0;
     }
 
+    public void addCashRecord(CashRecord cashRecord) {
+        recordList.add(cashRecord);
+        notifyDataSetChanged();
+    }
+
     public class CashRecordViewHolder extends  RecyclerView.ViewHolder implements View.OnClickListener {
+        @BindView(R.id.category_image)
+        ImageView categoryImage;
+
+        @BindView(R.id.category_tv)
+        TextView categoryName;
+
+        @BindView(R.id.payment_type_tv)
+        TextView paymentType;
+
+        @BindView(R.id.note_tv)
+        TextView note;
+
+        @BindView(R.id.amount_tv)
+        TextView amount;
+
+        @BindView(R.id.date_tv)
+        TextView date;
 
         public CashRecordViewHolder(@NonNull View itemView) {
             super(itemView);
+            ButterKnife.bind(this, itemView);
+            itemView.setOnClickListener(this);
         }
 
         @Override

@@ -2,7 +2,7 @@ package com.artexceptionals.youreuro.model;
 
 public class CashRecord {
 
-    String notes, date ;
+    String notes,date,amount ;
 
     @Constants.CurrencyType.Values
     String currency;
@@ -16,6 +16,34 @@ public class CashRecord {
     Category category;
     Account account;
 
+    public CashRecord(String notes, String date, String amount,
+                      String currency, String cashRecordType, String paymentType,
+                      Category category, Account account) {
+        this.notes = notes;
+        this.date = date;
+        this.amount = amount;
+        this.currency = currency;
+        this.cashRecordType = cashRecordType;
+        this.paymentType = paymentType;
+        this.category = category;
+        this.account = account;
+    }
+
+    public String getAmount() {
+        return amount;
+    }
+
+    public void setAmount(String amount) {
+        this.amount = amount;
+    }
+
+    public Account getAccount() {
+        return account;
+    }
+
+    public void setAccount(Account account) {
+        this.account = account;
+    }
 
     public java.lang.String getNotes() {
         return notes;

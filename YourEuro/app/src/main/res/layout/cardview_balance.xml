@@ -25,6 +25,13 @@
             android:text="@string/balance"
             android:textSize="@dimen/unit4" />
 
+        <android.support.v7.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/account_balance_rv">
+
+        </android.support.v7.widget.RecyclerView>
+
         <TextView
             android:id="@+id/cash_display"
             android:layout_width="wrap_content"
@@ -32,8 +39,7 @@
             android:layout_gravity="center_horizontal"
             android:padding="@dimen/unit3"
             android:background="@drawable/round_corner_balance"
-            android:text="Null" />
-
+            android:text="Total" />
 
         <LinearLayout
             android:layout_width="match_parent"

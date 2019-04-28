@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\Anitha\\Desktop\\YourEuro\\isee2019-ARTexceptionals\\YourEuro\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-night-v8\\values-night-v8.xml",
+            "outputFile": "/Users/kartikprabhu/Workspace/Android/ISEE project/isee2019-ARTexceptionals/YourEuro/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-night-v8/values-night-v8.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Anitha\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\278fa6b43ccc60f0e7c49c7ee4af1c0d\\res\\values-night-v8\\values-night-v8.xml",
+                    "source": "/Users/kartikprabhu/.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/915c9cf04d817739ee28383afb76809a/res/values-night-v8/values-night-v8.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8",
                         "startColumns": "4,4,4,4,4,4,4",

@@ -1176,6 +1176,7 @@ id pin
 id progress_circular
 id progress_horizontal
 id radio
+id recent_history_rv
 id right
 id right_icon
 id right_side

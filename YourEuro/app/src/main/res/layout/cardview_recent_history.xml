@@ -24,36 +24,13 @@
             android:text="@string/recents"
             android:textSize="@dimen/unit4" />
 
-        <TextView
-            android:id="@+id/cash_display"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:padding="@dimen/unit3"
-            android:background="@drawable/round_corner_balance"
-            android:text="Null" />
-
-
-        <LinearLayout
+        <android.support.v7.widget.RecyclerView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:gravity="center_horizontal"
-            android:orientation="horizontal">
+            android:id="@+id/recent_history_rv">
 
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/add_account"
-                android:id="@+id/btn_add_account"/>
 
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/history" />
-
-        </LinearLayout>
-
+        </android.support.v7.widget.RecyclerView>
 
     </LinearLayout>
 
