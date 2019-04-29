@@ -22,7 +22,8 @@ public class MainActivity_ViewBinding implements Unbinder {
   public MainActivity_ViewBinding(MainActivity target, View source) {
     this.target = target;
 
-    target.mRecyclerView = Utils.findRequiredViewAsType(source, R.id.recent_history_rv, "field 'mRecyclerView'", RecyclerView.class);
+    target.mRecentsRecyclerView = Utils.findRequiredViewAsType(source, R.id.recent_history_rv, "field 'mRecentsRecyclerView'", RecyclerView.class);
+    target.mAccountsRecyclerView = Utils.findRequiredViewAsType(source, R.id.account_balance_rv, "field 'mAccountsRecyclerView'", RecyclerView.class);
   }
 
   @Override
@@ -32,6 +33,7 @@ public class MainActivity_ViewBinding implements Unbinder {
     if (target == null) throw new IllegalStateException("Bindings already cleared.");
     this.target = null;
 
-    target.mRecyclerView = null;
+    target.mRecentsRecyclerView = null;
+    target.mAccountsRecyclerView = null;
   }
 }

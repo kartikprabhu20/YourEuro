@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.artexceptionals.youreuro.adapter.AccountAdapter;
 import com.artexceptionals.youreuro.adapter.CashRecordAdapter;
 import com.artexceptionals.youreuro.model.Account;
 import com.artexceptionals.youreuro.model.CashRecord;
@@ -23,8 +24,13 @@ import butterknife.ButterKnife;
 public class MainActivity extends AppCompatActivity {
 
     @BindView(R.id.recent_history_rv)
-    RecyclerView mRecyclerView;
+    RecyclerView mRecentsRecyclerView;
+    @BindView(R.id.account_balance_rv)
+    RecyclerView mAccountsRecyclerView;
+
     private CashRecordAdapter mCashRecordAdapter;
+    private AccountAdapter mAccountAdapter;
+    private MoneyControlManager moneyControlManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,11 +41,14 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-//        mRecyclerView = findViewById(R.id.recent_history_rv);
+        mAccountAdapter = new AccountAdapter();
+        mAccountsRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+        mAccountsRecyclerView.setAdapter(mAccountAdapter);
+
         mCashRecordAdapter = new CashRecordAdapter();
-        mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-        mRecyclerView.setAdapter(mCashRecordAdapter);
-        final MoneyControlManager moneyControlManager =  MoneyControlManager.getInstance(mCashRecordAdapter);
+        mRecentsRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+        mRecentsRecyclerView.setAdapter(mCashRecordAdapter);
+        moneyControlManager =  MoneyControlManager.getInstance(mCashRecordAdapter, mAccountAdapter);
 
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -47,7 +56,8 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 moneyControlManager.addCashRecord(new CashRecord("test","22-01-2019", "34",
                         Constants.CurrencyType.EURO, Constants.CashRecordType.INCOME, Constants.PaymentType.BANK_ACCOUNT,
-                        new Category("shopping", "test"), new Account()));
+                        new Category("shopping", "test"), new Account("account1", "25.5")));
+
 //                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
 //                        .setAction("Action", null).show();
             }
@@ -74,5 +84,10 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void addAccount(View view){
+        moneyControlManager.addAccount(new Account("account1", "25.5"));
+
     }
 }

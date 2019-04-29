@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Sun Apr 28 13:18:41 CEST 2019
+#Sun Apr 28 13:50:17 CEST 2019
 1.base=/Users/kartikprabhu/Workspace/Android/ISEE project/isee2019-ARTexceptionals/YourEuro/app/build/intermediates/transforms/dexMerger/debug/0
 0.baseType=DIRECTORY
 1.baseType=DIRECTORY

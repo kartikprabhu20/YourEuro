@@ -638,6 +638,7 @@ color error_color_material_light
 color foreground_material_dark
 color foreground_material_light
 color green
+color highlight_green
 color highlighted_text_material_dark
 color highlighted_text_material_light
 color ic_launcher_background
@@ -922,7 +923,9 @@ dimen tooltip_y_offset_non_touch
 dimen tooltip_y_offset_touch
 dimen unit1
 dimen unit2
+dimen unit2_5
 dimen unit3
+dimen unit3_5
 dimen unit4
 dimen unit5
 dimen unit6
@@ -1051,7 +1054,10 @@ id FUNCTION
 id META
 id SHIFT
 id SYM
+id account_amount_display
+id account_balance_rv
 id account_cardview
+id account_name_display
 id action_bar
 id action_bar_activity_content
 id action_bar_container
@@ -1083,7 +1089,6 @@ id barrier
 id beginning
 id blocking
 id bottom
-id btn_add_account
 id buttonPanel
 id cash_display
 id category_image
@@ -1157,6 +1162,7 @@ id mtrl_child_content_container
 id mtrl_internal_children_alpha_tag
 id multiply
 id navigation_header_container
+id net_balance_ll
 id never
 id none
 id normal
@@ -1305,6 +1311,7 @@ layout abc_search_view
 layout abc_select_dialog_material
 layout abc_tooltip
 layout activity_main
+layout cardview_account
 layout cardview_balance
 layout cardview_cash_record
 layout cardview_recent_history
@@ -1392,6 +1399,8 @@ string hide_bottom_view_on_scroll_behavior
 string history
 string listOfAccounts
 string mtrl_chip_close_icon_content_description
+string net_balance
+string note
 string password_toggle_content_description
 string path_password_eye
 string path_password_eye_mask_strike_through

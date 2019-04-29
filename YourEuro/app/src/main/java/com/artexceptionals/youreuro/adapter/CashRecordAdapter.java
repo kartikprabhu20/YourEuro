@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.artexceptionals.youreuro.CustomClickListener;
 import com.artexceptionals.youreuro.R;
 import com.artexceptionals.youreuro.model.CashRecord;
 
@@ -19,7 +20,7 @@ import butterknife.ButterKnife;
 
 public class CashRecordAdapter extends RecyclerView.Adapter<CashRecordAdapter.CashRecordViewHolder>{
 
-    private RecordClickListener clickListener;
+    private CustomClickListener clickListener;
     private List<CashRecord> recordList = new ArrayList<>();
 
 
@@ -89,9 +90,5 @@ public class CashRecordAdapter extends RecyclerView.Adapter<CashRecordAdapter.Ca
         public void onClick(View v) {
             clickListener.onClick(getLayoutPosition());
         }
-    }
-
-    public interface RecordClickListener {
-        void onClick(int position);
     }
 }

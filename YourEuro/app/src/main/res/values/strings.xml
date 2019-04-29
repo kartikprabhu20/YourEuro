@@ -6,4 +6,6 @@
     <string name="balance">Balance</string>
     <string name="history">History</string>
     <string name="recents">Recents</string>
+    <string name="note">Note:</string>
+    <string name="net_balance">Net Balance:</string>
 </resources>

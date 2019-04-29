@@ -2,21 +2,26 @@ package com.artexceptionals.youreuro.model;
 
 public class Account {
 
-    Constants accountName, balance;
+    String accountName, balance;
 
-    public Constants getAccountName() {
+    public Account(String accountName, String balance) {
+        this.accountName = accountName;
+        this.balance = balance;
+    }
+
+    public String getAccountName() {
         return accountName;
     }
 
-    public void setAccountName(Constants accountName) {
+    public void setAccountName(String accountName) {
         this.accountName = accountName;
     }
 
-    public Constants getBalance() {
+    public String getBalance() {
         return balance;
     }
 
-    public void setBalance(Constants balance) {
+    public void setBalance(String balance) {
         this.balance = balance;
     }
 
