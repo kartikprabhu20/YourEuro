@@ -1,8 +1,7 @@
 body {
     margin: 60px auto;
     width: 70%;
-    text-align: justify;
-  text-justify: inter-word;
+    
 }
 nav ul, footer ul {
     font-family:'Helvetica', 'Arial', 'Sans-Serif';
@@ -45,6 +44,11 @@ ul.posts {
     font-size: 1.5em;
 }
 
+div{
+    text-align: justify;
+    text-justify: inter-word;
+}
+
 ul.posts li {
     list-style: none;
 }
@@ -74,3 +78,5 @@ ul.posts li {
   background-repeat: no-repeat;
   background-size: cover;
 }
+
+
