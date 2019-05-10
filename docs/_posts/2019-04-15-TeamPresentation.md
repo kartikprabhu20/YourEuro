@@ -59,7 +59,7 @@ printf(“Deliver Awesome apps”);<br/>
 <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/Madhu.jpeg?raw=true" width="200" height="200">
 <p>"Coming from an Instrumentation engineering background I would like to gain the necessary skills required for Software Engineering. The motivation behind taking this course is I will get exposure to the various phases of developing an Android App. I believe by doing this course I can enhance my coding skills. I am excited to work in a team where we combine work to achieve a higher objective".</p>
 
-<font-siz="6">Avinash Ranjan</font>
+<font-size="6">Avinash Ranjan</font>
 <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/Avinash.jpeg?raw=true" width="200" height="200">
 <p>"Honestly, my expertise in coding is basic. But I always had an interest in knowing how a particular app works and how to make a new app. Taking software engineering will really help me in knowing the background knowledge of making and working of an app. The Agile Manifesto here will promote simplification and individuals and interactions over processes and tools. So, taking up this course will not only help me making of an app but will also help me in presenting my app in front of people".</p>
 
