@@ -15,10 +15,14 @@ date: 2019-04-15
   
   <div class="vl"><p><i>"Managing money is tedious, but it doesn't have to be anymore"</i></p></div>
  <br><br><hr><br>
-    
+<div class="a">
+ <div class="b"> 
 <h1>App Logo</h1>
+  </div>
+  <div class="c"> 
 <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/APP_logo.jpeg?raw=true" width="300" height="150">
-
+  </div>
+</div>
 <br><br><hr>
 
 <h1>Team ARTexceptionals</h1><br>
