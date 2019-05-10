@@ -18,10 +18,10 @@ date: 2019-04-15
 
 <h1>App Logo</h1>
  
-  <div class="c"> 
+
 <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/APP_logo.jpeg?raw=true" width="300" height="150">
-  </div>
-</div>
+  
+
 <br><br><hr>
 
 <h1>Team ARTexceptionals</h1><br>
