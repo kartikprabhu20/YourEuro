@@ -45,9 +45,9 @@ printf(“Deliver Awesome apps”);<br/>
 <br><br><hr>
 
 <h1>Team Members</h1><br/>
-<div class="first">
+<div id="first">
 <h3>Kartik Prabhu</h3>
-  <div class="second">
+  <div id="second">
 <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/karthik.jpeg?raw=true" width="200" height="200">
     </div>
       </div>
