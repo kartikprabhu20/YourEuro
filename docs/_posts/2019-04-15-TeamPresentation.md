@@ -4,7 +4,7 @@ title: "ISEE 2019 -- Team Presentation"
 date: 2019-04-15
 ---
 <html>
-<body background="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/home_page.JPG?raw=true">
+<body style="background-color:powderblue;">
 <h1>Project Team Presentation</h1><br>
 <h3><i>Hey folks! Welcome to the blog on "YourEuro - a Money Control app" worked upon by our diligent team.</i></h3>
   
