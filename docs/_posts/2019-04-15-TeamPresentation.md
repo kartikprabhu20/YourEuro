@@ -45,8 +45,12 @@ printf(“Deliver Awesome apps”);<br/>
 <br><br><hr>
 
 <h1>Team Members</h1><br/>
+<div class="first">
 <h3>Kartik Prabhu</h3>
+  <div class="second">
 <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/karthik.jpeg?raw=true" width="200" height="200">
+    </div>
+      </div>
 <p>"Personally, I love coding and strive for optimisation and perfection. One of the core qualities which I lack Is knowledge sharing . I believe working in a team would help me bridge this skill and boost the overall team work. As the saying goes “Don’t just look at the end result, look at the intermediate process as well”, this course will make us learn A to Z of software engineering and not just the C for coding part".</p>
 <h3>Anitha Bhat Talagini Ashoka</h3>
 <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/Anitha.jpeg?raw=true" width="200" height="200">
