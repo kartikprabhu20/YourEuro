@@ -25,7 +25,7 @@ h1 {
     font-family:'Helvetica', 'Arial', 'Sans-Serif';
 }
 p {
-      font-size: 1.5em;
+      font-size: 1.0em;
     line-height: 1.4em;
     color: #333;
 }
@@ -94,10 +94,23 @@ ul.posts li {
   border: 3px solid blue;
 } 
 
-.c {
+c {
   position: absolute;
   left: 300px;
   width: 200px;
   height: 120px;
   border: 3px solid green;
+}
+
+first {
+    width: 100px;
+    float: left;
+    height: 300px;
+        background-color: blue;
+}
+second {
+    width: 200px;
+    float: left;
+    height: 300px;
+    background-color: green;
 }
