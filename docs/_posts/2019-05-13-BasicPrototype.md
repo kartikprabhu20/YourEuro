@@ -66,7 +66,7 @@ The time estimation of two other Epics will be re-calculated depending on first 
 	
 <h1>Class Diagram</h1><br>
 <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/ClassDiagram.png?raw=true" width="300" height="150"><br>
-<pre>1. CashRecord is our core entity, it consists Balance, notes, Currency, Date, cashRecordType, paymentType and category. It has getter and setter methods for each attribute mentioned above.<br>
+<p>1. CashRecord is our core entity, it consists Balance, notes, Currency, Date, cashRecordType, paymentType and category. It has getter and setter methods for each attribute mentioned above.<br>
 		•	Category is a custom class which contains categoryName and imageID. We provide set of predefined categories and if customer wants new category other than listed, then there will be an add option where he can add his own category. It has setter and getter methods.<br>
 		•	All attributes defined in Constants will be static variables.<br>
 		•	cashRecordType contains Income and Expense<br>
@@ -74,7 +74,7 @@ The time estimation of two other Epics will be re-calculated depending on first 
 		•	Currency type will give type of currency used for transaction.<br>
 	2. MoneyControlManager will act as a controller for our MVC design pattern. It has all the functional requirements, it sets the views using CashRecordAdapter and it acceses the database and models using CashRecordDao.<br>
 	3. CashRecord will save its objects in database using CashRecordDao.<br>
-	4. CashRecordDao which has all the necessary data manipulation and data querying methods for database which are implemented using RoomDatabase.</pre><br>
+	4. CashRecordDao which has all the necessary data manipulation and data querying methods for database which are implemented using RoomDatabase.</p><br>
 <hr><br>
 
 <h1>Activity Diagrams</h1><br>
