@@ -48,12 +48,12 @@ date: 2019-04-15
 
 <h1>User Stories</h1><br>
 <p> Our project is divided in to four Epics, each Epic consists of Stories and each stories will be further divided as Tasks. The same Tasks have been carried to our Scrum board. User stories diagram of our project is as shown below: </p>
-<img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/UserStories.png?raw=true" width="300" height="150">
+<img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/UserStories.png?raw=true" width="1000" height="600">
 
 <br><hr><br>
 
 <h1>Use Case Diagram</h1><br>
-<img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/useCaseDiagram.png?raw=true" width="300" height="150">
+<img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/useCaseDiagram.png?raw=true" width="1000" height="600">
 <br><hr><br>
 
 <h1>Estimated Time</h1><br>
@@ -65,7 +65,7 @@ The time estimation of two other Epics will be re-calculated depending on first 
 <br><hr><br>
 	
 <h1>Class Diagram</h1><br>
-<img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/ClassDiagram.png?raw=true" width="300" height="150"><br>
+<img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/ClassDiagram.png?raw=true" width="1000" height="600"><br>
 <p>1. CashRecord is our core entity, it consists Balance, notes, Currency, Date, cashRecordType, paymentType and category. It has getter and setter methods for each attribute mentioned above.<br>
 		•	Category is a custom class which contains categoryName and imageID. We provide set of predefined categories and if customer wants new category other than listed, then there will be an add option where he can add his own category. It has setter and getter methods.<br>
 		•	All attributes defined in Constants will be static variables.<br>
@@ -80,11 +80,11 @@ The time estimation of two other Epics will be re-calculated depending on first 
 <h1>Activity Diagrams</h1><br>
 <p>Following are the two activity diagrams for two of the features of our app. </p><br>
 <h2>Activity diagram of Navigation Bar:</h2><br>
-<img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/ActivityDiagram-2.jpeg?raw=true" width="300" height="150"><br>
+<img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/ActivityDiagram-2.jpeg?raw=true" width="1000" height="600"><br>
 <p>Here, the user will start with Pin Login, if the pin is correct then the user will be directed to Home Screen else it will be direct back to Pin Login. Once the user clicks on Home Screen, he will get Navigation bar menu which will navigate to History menu, clicking on History button will direct to Filter menu. 
 In which the user can do three kinds of filtering for the transactions based on Time, Category and RangeOfMoney.Once he is done with these options he can stop</p><br>
 <h2>Activity diagram of Settings:</h2><br>
-<img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/ActivityDiagram-1.jpeg?raw=true" width="300" height="150"><br>
+<img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/ActivityDiagram-1.jpeg?raw=true" width="1000" height="600"><br>
 <p>Here, the user will start by clicking on Settings, then Security Settings. User will be given Security Setings menu in which the user can Change Pin or he can enable or disable EnableLockScreen. After doing the changes he can stop.</p><br>
 <br><hr><br>
 
@@ -95,8 +95,8 @@ In which the user can do three kinds of filtering for the transactions based on 
 Again, each developer will create his own subbranch from developer_1 while working on the app and once he is finished, he will commit his changes to his working subbranch with proper comments. 
 Then he will rise a pull request to developer_1. With this all the team members will be alerted, then the master will investigate the changes and check if it is affecting the existing code anyway. 
 Then he will approve the pull request. In this way we can always assure the integrity of master and any release branches.</p><br>
-<img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/branching2.png?raw=true" width="300" height="150"><br>
-<img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/GitPullRequest.jpeg?raw=true" width="300" height="150"><br>
+<img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/branching2.png?raw=true" width="1000" height="600"><br>
+<img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/GitPullRequest.jpeg?raw=true" width="1000" height="600"><br>
 
 
 
