@@ -90,7 +90,9 @@ In which the user can do three kinds of filtering for the transactions based on 
 
 <h1>Development Strategy</h1>
 <p>In scrum board all the tasks will be picked from user stories for each sprint and all the boards/tasks will be assigned a priority and a requirement label. </p><br>
+<div align="center">
 <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/ScrumBoardTasksLabels.png?raw=true" width="800" height="600" class="center"><br>
+	</div>
 <p>We have created a developer_1 branch so that master will not get affected until & unless you pull the changes in to master. 
 Again, each developer will create his own subbranch from developer_1 while working on the app and once he is finished, he will commit his changes to his working subbranch with proper comments. 
 Then he will rise a pull request to developer_1. With this all the team members will be alerted, then the master will investigate the changes and check if it is affecting the existing code anyway. 
