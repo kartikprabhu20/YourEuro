@@ -29,21 +29,21 @@ date: 2019-04-15
 		<li> Statistics<br></li></p>
 	</ul>
 <h2>2. Necessary Requirements:</h2><br>
- <pre>	• Security question to retrieve forgotten password. Take the answer for security question while setting the pin<br>
+ <p>	• Security question to retrieve forgotten password. Take the answer for security question while setting the pin<br>
 		• The data needs to be filtered based on time, type of payment, catagory, range of money<br>
-		• Currency change support<br></pre> 
+		• Currency change support<br></p> 
 <h2>3. Desirable Requirements:</h2><br>
- <pre>	• Sharing expense with other users<br>
+ <p>	• Sharing expense with other users<br>
 		• Summarise monthly expenses in mail<br>
 		• Store data on server/firebase<br>
 		• Sync at particular time with firebase server<br></p> 
 
 <h1>Wrong Assumptions</h1><br>
-<pre>By exploring various money control apps, we have presumed certain features need to be added in the app but after meeting client, we got clarification what to include and what to exclude. Some of our wrong assumptions are:<br>
+<p>By exploring various money control apps, we have presumed certain features need to be added in the app but after meeting client, we got clarification what to include and what to exclude. Some of our wrong assumptions are:<br>
 		• Our assumption was to include multiple bank accounts in the app but the requirement is to monitor transactions of only one account.<br>
 		• Barcode scanning is not required.<br>
 		• We assumed that Login authentication should be given using google, fb or email whereas the client requirement is pin authentication.<br>
-		• We got to know filtering the expenses based on Payment type, Range of money and category is required along with just date (initial assumption).</pre>
+		• We got to know filtering the expenses based on Payment type, Range of money and category is required along with just date (initial assumption).</p>
 <br><hr><br>
 
 <h1>User Stories</h1><br>
