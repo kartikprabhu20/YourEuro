@@ -114,3 +114,8 @@ second {
     height: 300px;
     background-color: green;
 }
+
+.tab { 
+       display:inline-block; 
+       margin-left: 40px; 
+}
