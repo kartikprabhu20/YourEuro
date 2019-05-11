@@ -18,7 +18,7 @@ date: 2019-04-15
 <p>Requirement gathering is a first and essential step for developing an android app. We gathered requirements from client over series of meetings and also we have created a questionnaire for customer to fill it as per their requirement. The gathered requirements have been analyzed and categorized as Essential, Necessary and Desirable Requirements</p>
 <h2>1. Essential Requirements:</h2><br>
  <ul>	
-	<li>Details/Parameters of expense/income? (Category, note, date, place, camera for receipt)</li>
+	<p><li>Details/Parameters of expense/income? (Category, note, date, place, camera for receipt)</li>
 			a. Customisable category, deleting option<br>
 			b. Payment method of income and expenditure<br>
 			c. Free text note<br>
@@ -26,7 +26,7 @@ date: 2019-04-15
 		<li> The application should work offline</li>
 		<li>Application should store the data locally, one user is fine.</li>
 		<li> Security feature(Pin for the app)</li>
-		<li> Statistics<br></li>
+		<li> Statistics<br></li></p>
 	</ul>
 <h2>2. Necessary Requirements:</h2><br>
  <pre>	• Security question to retrieve forgotten password. Take the answer for security question while setting the pin<br>
