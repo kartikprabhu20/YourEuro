@@ -115,7 +115,7 @@ second {
     background-color: green;
 }
 
-.tab { 
-       display:inline-block; 
-       margin-left: 40px; 
+tab { 
+      
+    padding-left: 68px;
 }
