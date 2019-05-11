@@ -19,10 +19,11 @@ date: 2019-04-15
 <h2>1. Essential Requirements:</h2><br>
 	
 <p>• Details/Parameters of expense/income? (Category, note, date, place, camera for receipt)<br>
-			     a. Customisable category, deleting option<br>
+			 <div class="tab">    a. Customisable category, deleting option<br>
 			     b. Payment method of income and expenditure<br>
 			     c. Free text note<br>
 			     d. Date<br>
+				 </div>
   • The application should work offline<br>
 		• Application should store the data locally, one user is fine.<br>
 		• Security feature(Pin for the app)<br>
