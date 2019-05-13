@@ -39,10 +39,10 @@ date: 2019-04-15
 <hr>
 <h1>Wrong Assumptions</h1>
 <p>By exploring various money control apps, we have presumed certain features need to be added in the app but after meeting client, we got clarification what to include and what to exclude. Some of our wrong assumptions are:<br>
-		• Our assumption was to include multiple bank accounts in the app but the requirement is to monitor transactions of only one account.<br>
+		• Our assumption was to include multiple bank accounts in the app but the requirement is to monitor transactions of only one account<br>
 		• Barcode scanning is not required.<br>
-		• We assumed that Login authentication should be given using google, fb or email whereas the client requirement is pin authentication.<br>
-		• We got to know filtering the expenses based on Payment type, Range of money and category is required along with just date (initial assumption).</p>
+		• We assumed that Login authentication should be given using google, fb or email whereas the client requirement is pin authentication<br>
+		• We got to know filtering the expenses based on Payment type, Range of money and category is required along with just date</p>
 <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/Wrongassumption.jpg?raw=true" width="250" height="480"> 
 <div class="imageClass">
 <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/corrected.jpg?raw=true" width="250" height="480" >
@@ -51,15 +51,15 @@ date: 2019-04-15
 
 <h1>User Stories</h1>
 <p> Our project is divided in to four Epics, each Epic consists of Stories and each stories will be further divided as Tasks. The same Tasks have been carried to our Scrum board. User stories diagram of our project is as shown below: </p>
-<img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/UserStories2.png?raw=true" width="1000" height="800">
-<br><hr><br>
+<img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/UserStoriesFinal.png?raw=true" width="1000" height="800">
+<hr><br>
 <h1>Estimated Time</h1>
 <p>Time management is one of the challenges that we are facing. So, we have assigned estimated time for each task and estimated number of sprints for user stories. 
 We have divided our User stories into four Epics (milestones or stages). Each Epic is categories in Stories and stories are further categorized as sub task. 
 We have provided three sprints for each Epic, one and a half sprints for each story. For fast and smooth purpose of our work, we have divided our development teams into two groups, each working on one Epic. 
 The time estimation of two other Epics will be re-calculated depending on first two Epics.</p>
 
-<br><hr><br>
+<hr><br>
 
 <h1>Use Case Diagram</h1>
 <p>From Home screen user can navigate to four different activities:<br> 
@@ -73,7 +73,7 @@ The time estimation of two other Epics will be re-calculated depending on first 
 	
 <h1>Class Diagram</h1>
 <p>1. CashRecord is our core entity, it consists Balance, notes, Currency, Date, cashRecordType, paymentType and category. It has getter and setter methods for each attribute mentioned above.<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;	•	Category is a custom class which contains categoryName and imageID. We provide set of predefined categories and if customer wants new category other than listed, then there will  be an add option where he can add his own category. It has setter and getter methods.<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;	•	Category is a custom class which contains categoryName and imageID. We provide set of predefined categories and if &nbsp;&nbsp;&nbsp;&nbsp;customer wants new category other than listed, then there will  be an add option where he can add his own category. It has setter and getter methods.<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		•	All attributes defined in Constants will be static variables.<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		•	cashRecordType contains Income and Expense<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		•	PaymentType contains Cash, DebitCard, CreditCard and BankAccount<br>
@@ -98,11 +98,10 @@ In which the user can do three kinds of filtering for the transactions based on 
 <h1>Development Strategy</h1>
 <h2>Sprint Handling</h2>
 <p>In scrum board all the tasks will be picked from user stories for each sprint and all the boards/tasks will be assigned a priority and a requirement label. Using Backlog board we will be tracking all the pending tasks and bugs. For next sprint tasks will be taken from  Backlog board based on priority</p>
-<img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/ScrumBoardTasksLabels.png?raw=true" width="600" height="500"><br>
-<div class="imageClass">
-<img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/Backlog2.png?raw=true" width="250" height="500" >
-</div>
-<p>a)Scrum Board &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;b)Backlog Board
+<img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/ScrumBoardTasksLabels.png?raw=true" width="800" height="600">
+<p>Scrum Board</p>
+<img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/Backlog.png?raw=true" width="800" height="600" >
+<p>Backlog Board</p>
 <h2>GIT Handling</h2>	
 <p>We have created a developer_1 branch so that master will not get affected until & unless you pull the changes in to master. 
 Again, each developer will create his own subbranch from developer_1 while working on the app and once he is finished, he will commit his changes to his working subbranch with proper comments. 
@@ -112,11 +111,10 @@ Then he will approve the pull request. In this way we can always assure the inte
 <p>Active Branches</p>
 <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/GitPullRequest.jpeg?raw=true" width="1000" height="300">
 <p>Pull Request Page</p>
+<hr><br>
 
-<br><hr><br>
 <h1>App Mockups</h1>
-<p> Home screen 1 & 2 has Balance, Recents and Statistics views, you will get Home screen 2 by scrolling down Home screen 1. <br>
-	By clicking on floating button in Home screen you will get the Details screen. Here the user can record his Transaction with respective details</p>
+<p> Home screen 1 & 2 has Balance, Recents and Statistics views, you will get Home screen 2 by scrolling down Home screen 1. By clicking on floating button in Home screen you will get the Details screen. Here the user can record his Transaction with respective details</p>
 <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/homescreen.png?raw=true" width="250" height="480"> 
 <div class="imageClass">
 <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/homescreen_2.png?raw=true" width="250" height="480" >
