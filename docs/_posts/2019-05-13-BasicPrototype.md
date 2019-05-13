@@ -104,14 +104,26 @@ Then he will rise a pull request to developer_1. With this all the team members 
 Then he will approve the pull request. In this way we can always assure the integrity of master and any release branches.</p><br>
 <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/branching2.png?raw=true" width="1000" height="300"><br>
 <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/GitPullRequest.jpeg?raw=true" width="1000" height="300"><br><hr><br>
+
+
 <h1>App Mockups</h1>
+
+
+	
+<div class="form" style="
+    margin-left: 70px;
+    color: white;
+    display: inline-block;
+">
 
 <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/homescreen.png?raw=true" width="200" height="500">
 <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/homescreen_2.png?raw=true" width="150" height="450" class="center">
 <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/details.png?raw=true" width="300" height="600" allign="center" >
-
+</div>
   
   <br><hr>
+  
+ <div>
 
 <h3><i><strong>Thank You for visiting our blog!! That’s all for Now. Stay tuned for more updates on our project!!</strong></i></h3>
 
