@@ -126,3 +126,10 @@ tab {
   margin-right: auto;
   width: 50%;
 }
+
+
+.imageClass{
+    margin-left: 70px;
+    color: white;
+    display: inline-block;
+}
