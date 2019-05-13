@@ -19,20 +19,19 @@ date: 2019-04-15
 <h2>1. Essential Requirements:</h2>
 	
 <p>• Details/Parameters of expense/income? (Category, note, date, place, camera for receipt)<br>
-			 <div id="tab">    a. Customisable category, deleting option<br>
+			     a. Customisable category, deleting option<br>
 			     b. Payment method of income and expenditure<br>
 			     c. Free text note<br>
 			     d. Date<br>
-				 </div>
   • The application should work offline<br>
 		• Application should store the data locally, one user is fine.<br>
 		• Security feature(Pin for the app)<br>
 		• Statistics<br></p> 	
-<h2>2. Necessary Requirements:</h2><br>
+<h2>2. Necessary Requirements:</h2>
  <p>	• Security question to retrieve forgotten password. Take the answer for security question while setting the pin<br>
 		• The data needs to be filtered based on time, type of payment, catagory, range of money<br>
 		• Currency change support<br></p> 
-<h2>3. Desirable Requirements:</h2><br>
+<h2>3. Desirable Requirements:</h2>
  <p>	• Sharing expense with other users<br>
 		• Summarise monthly expenses in mail<br>
 		• Store data on server/firebase<br>
@@ -53,12 +52,12 @@ date: 2019-04-15
 <br><hr><br>
 
 <h1>Use Case Diagram</h1><br>
-<img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/useCaseDiagram.png?raw=true" width="1000" height="600">
 <p>From Home screen user can navigate to four different activities:<br> 
 •	Balance which shows you the remaining funds<br>
 •	Recent shows you the list of records of all recent transactions including date, Payment type and category of purchased item<br>
 •	Navigation bar which displays the activities such as Settings, About us, Statistics and History of all the previous transactions<br>
 •	Settings where the user can Add or Delete categories and in Security settings the user can Enable or Disable Lock screen or change pin.</p>
+<img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/useCaseDiagram.png?raw=true" width="1000" height="600">
 
 <br><hr><br>
 
@@ -71,7 +70,6 @@ The time estimation of two other Epics will be re-calculated depending on first 
 <br><hr><br>
 	
 <h1>Class Diagram</h1><br>
-<img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/ClassDiagram.png?raw=true" width="1000" height="600"><br>
 <p>1. CashRecord is our core entity, it consists Balance, notes, Currency, Date, cashRecordType, paymentType and category. It has getter and setter methods for each attribute mentioned above.<br>
 		•	Category is a custom class which contains categoryName and imageID. We provide set of predefined categories and if customer wants new category other than listed, then there will be an add option where he can add his own category. It has setter and getter methods.<br>
 		•	All attributes defined in Constants will be static variables.<br>
@@ -80,18 +78,19 @@ The time estimation of two other Epics will be re-calculated depending on first 
 		•	Currency type will give type of currency used for transaction.<br>
 	2. MoneyControlManager will act as a controller for our MVC design pattern. It has all the functional requirements, it sets the views using CashRecordAdapter and it acceses the database and models using CashRecordDao.<br>
 	3. CashRecord will save its objects in database using CashRecordDao.<br>
-	4. CashRecordDao which has all the necessary data manipulation and data querying methods for database which are implemented using RoomDatabase.</p><br>
-<hr><br>
+	4. CashRecordDao which has all the necessary data manipulation and data querying methods for database which are implemented using RoomDatabase.</p>
+<img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/ClassDiagram.png?raw=true" width="1000" height="600">
+<br><hr><br>
 
 <h1>Activity Diagrams</h1><br>
 <p>Following are the two activity diagrams for two of the features of our app. </p><br>
-<h2>Activity diagram of Navigation Bar:</h2><br>
-<img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/ActivityDiagram-2.jpeg?raw=true" width="1000" height="600"><br>
+<h2>Activity diagram of Navigation Bar:</h2>
 <p>Here, the user will start with Pin Login, if the pin is correct then the user will be directed to Home Screen else it will be direct back to Pin Login. Once the user clicks on Home Screen, he will get Navigation bar menu which will navigate to History menu, clicking on History button will direct to Filter menu. 
-In which the user can do three kinds of filtering for the transactions based on Time, Category and RangeOfMoney.Once he is done with these options he can stop</p><br>
-<h2>Activity diagram of Settings:</h2><br>
-<img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/ActivityDiagram-1.jpeg?raw=true" width="1000" height="600"><br>
-<p>Here, the user will start by clicking on Settings, then Security Settings. User will be given Security Setings menu in which the user can Change Pin or he can enable or disable EnableLockScreen. After doing the changes he can stop.</p><br>
+In which the user can do three kinds of filtering for the transactions based on Time, Category and RangeOfMoney.Once he is done with these options he can stop</p>
+<img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/ActivityDiagram-2.jpeg?raw=true" width="1000" height="600"><br>
+<h2>Activity diagram of Settings:</h2>
+<p>Here, the user will start by clicking on Settings, then Security Settings. User will be given Security Setings menu in which the user can Change Pin or he can enable or disable EnableLockScreen. After doing the changes he can stop.</p>
+<img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/ActivityDiagram-1.jpeg?raw=true" width="1000" height="600">
 <br><hr><br>
 
 <h1>Development Strategy</h1>
@@ -104,8 +103,12 @@ Again, each developer will create his own subbranch from developer_1 while worki
 Then he will rise a pull request to developer_1. With this all the team members will be alerted, then the master will investigate the changes and check if it is affecting the existing code anyway. 
 Then he will approve the pull request. In this way we can always assure the integrity of master and any release branches.</p><br>
 <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/branching2.png?raw=true" width="1000" height="300"><br>
-<img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/GitPullRequest.jpeg?raw=true" width="1000" height="300"><br>
+<img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/GitPullRequest.jpeg?raw=true" width="1000" height="300"><br><hr><br>
+<h1>App Mockups</h1>
 
+<img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/homescreen.png?raw=true" width="800" height="600" class="center">
+<img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/homescreen_2.png?raw=true" width="800" height="600" class="center">
+<img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/details.png?raw=true" width="800" height="600" class="center">
 
   
   <br><hr>
