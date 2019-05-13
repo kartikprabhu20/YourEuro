@@ -109,14 +109,11 @@ Then he will approve the pull request. In this way we can always assure the inte
 <h1>App Mockups</h1>
 
 
-	
-<div class="form" style="
-    margin-left: 70px;
-    color: white;
-    display: inline-block;
-">
+
 
 <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/homescreen.png?raw=true" width="200" height="500">
+	
+<div class="imageClass">
 <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/homescreen_2.png?raw=true" width="150" height="450" class="center">
 <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/details.png?raw=true" width="300" height="600" allign="center" >
 </div>
