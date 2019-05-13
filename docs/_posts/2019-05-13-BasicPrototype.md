@@ -108,7 +108,7 @@ Then he will approve the pull request. In this way we can always assure the inte
 
 <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/homescreen.png?raw=true" width="300" height="600" class="center">
 <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/homescreen_2.png?raw=true" width="800" height="600" class="center">
-<img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/details.png?raw=true" >
+<img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/details.png?raw=true" width="300" height="600" class="center" >
 
   
   <br><hr>
