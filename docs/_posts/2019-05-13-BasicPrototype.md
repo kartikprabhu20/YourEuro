@@ -71,11 +71,11 @@ The time estimation of two other Epics will be re-calculated depending on first 
 	
 <h1>Class Diagram</h1><br>
 <p>1. CashRecord is our core entity, it consists Balance, notes, Currency, Date, cashRecordType, paymentType and category. It has getter and setter methods for each attribute mentioned above.<br>
-		•	Category is a custom class which contains categoryName and imageID. We provide set of predefined categories and if customer wants new category other than listed, then there will be an add option where he can add his own category. It has setter and getter methods.<br>
-		•	All attributes defined in Constants will be static variables.<br>
-		•	cashRecordType contains Income and Expense<br>
-		•	PaymentType contains Cash, DebitCard, CreditCard and BankAccount<br>
-		•	Currency type will give type of currency used for transaction.<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	•	Category is a custom class which contains categoryName and imageID. We provide &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; set of predefined categories and if customer wants new category other than listed, then there will &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;be an add option where he can add his own category. It has setter and getter methods.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		•	All attributes defined in Constants will be static variables.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		•	cashRecordType contains Income and Expense<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		•	PaymentType contains Cash, DebitCard, CreditCard and BankAccount<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		•	Currency type will give type of currency used for transaction.<br>
 	2. MoneyControlManager will act as a controller for our MVC design pattern. It has all the functional requirements, it sets the views using CashRecordAdapter and it acceses the database and models using CashRecordDao.<br>
 	3. CashRecord will save its objects in database using CashRecordDao.<br>
 	4. CashRecordDao which has all the necessary data manipulation and data querying methods for database which are implemented using RoomDatabase.</p>
