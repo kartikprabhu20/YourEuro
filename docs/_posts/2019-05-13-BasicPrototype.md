@@ -110,7 +110,7 @@ Then he will approve the pull request. In this way we can always assure the inte
 
 
 
-<<div class="imgHolder">
+<div class="imgHolder">
 
     
 <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/homescreen.png?raw=true" width="250" height="480">
