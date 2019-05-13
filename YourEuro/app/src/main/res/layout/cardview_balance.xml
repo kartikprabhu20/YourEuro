@@ -32,25 +32,9 @@
                 android:textSize="@dimen/unit4"
                 android:layout_weight="4"/>
 
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/add_account"
-                android:layout_weight="1"
-                android:layout_gravity="center_vertical"
-                android:textAlignment="center"
-                android:onClick="addAccount"
-                android:clickable="true" />
-
         </LinearLayout>
 
-        <android.support.v7.widget.RecyclerView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/account_balance_rv">
 
-        </android.support.v7.widget.RecyclerView>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -88,16 +72,6 @@
             android:gravity="center_horizontal"
             android:orientation="horizontal">
 
-            <!--<Button-->
-                <!--android:layout_width="wrap_content"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:text="@string/add_account"-->
-                <!--android:id="@+id/btn_add_account"/>-->
-
-            <!--<Button-->
-                <!--android:layout_width="wrap_content"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:text="@string/history" />-->
 
         </LinearLayout>
 

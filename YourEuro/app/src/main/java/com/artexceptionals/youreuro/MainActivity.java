@@ -1,8 +1,10 @@
 package com.artexceptionals.youreuro;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.design.widget.BottomNavigationView;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -11,9 +13,6 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import com.artexceptionals.youreuro.adapter.AccountAdapter;
-import com.artexceptionals.youreuro.adapter.CashRecordAdapter;
-import com.artexceptionals.youreuro.model.Account;
 import com.artexceptionals.youreuro.model.CashRecord;
 import com.artexceptionals.youreuro.model.Category;
 import com.artexceptionals.youreuro.model.Constants;
@@ -25,11 +24,7 @@ public class MainActivity extends AppCompatActivity {
 
     @BindView(R.id.recent_history_rv)
     RecyclerView mRecentsRecyclerView;
-    @BindView(R.id.account_balance_rv)
-    RecyclerView mAccountsRecyclerView;
 
-    private CashRecordAdapter mCashRecordAdapter;
-    private AccountAdapter mAccountAdapter;
     private MoneyControlManager moneyControlManager;
 
     @Override
@@ -41,14 +36,9 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        mAccountAdapter = new AccountAdapter();
-        mAccountsRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-        mAccountsRecyclerView.setAdapter(mAccountAdapter);
-
-        mCashRecordAdapter = new CashRecordAdapter();
+        moneyControlManager =  MoneyControlManager.getInstance();
         mRecentsRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-        mRecentsRecyclerView.setAdapter(mCashRecordAdapter);
-        moneyControlManager =  MoneyControlManager.getInstance(mCashRecordAdapter, mAccountAdapter);
+        mRecentsRecyclerView.setAdapter(moneyControlManager.getCashRecordAdapter());
 
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -56,8 +46,10 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 moneyControlManager.addCashRecord(new CashRecord("test","22-01-2019", "34",
                         Constants.CurrencyType.EURO, Constants.CashRecordType.INCOME, Constants.PaymentType.BANK_ACCOUNT,
-                        new Category("shopping", "test"), new Account("account1", "25.5")));
+                        new Category("shopping", "test"), "time"));
 
+
+                startActivity(new Intent(getApplication(), DetailActivity.class));
 //                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
 //                        .setAction("Action", null).show();
             }
@@ -86,8 +78,4 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void addAccount(View view){
-        moneyControlManager.addAccount(new Account("account1", "25.5"));
-
-    }
 }
