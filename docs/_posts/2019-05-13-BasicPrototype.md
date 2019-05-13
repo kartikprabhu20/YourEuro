@@ -73,7 +73,7 @@ The time estimation of two other Epics will be re-calculated depending on first 
 	
 <h1>Class Diagram</h1>
 <p>1. CashRecord is our core entity, it consists Balance, notes, Currency, Date, cashRecordType, paymentType and category. It has getter and setter methods for each attribute mentioned above.<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;	•	Category is a custom class which contains categoryName and imageID. We provide set of predefined categories and if &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;customer wants new category other than listed, then there will  be an add option where he can add his own category. It has setter and getter methods.<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;	•	Category is a custom class which contains categoryName and imageID. We provide set of predefined categories and if &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;customer wants new category other than listed, then there will  be an add option where he can add his own category. It has &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;setter and getter methods.<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		•	All attributes defined in Constants will be static variables.<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		•	cashRecordType contains Income and Expense<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		•	PaymentType contains Cash, DebitCard, CreditCard and BankAccount<br>
@@ -89,7 +89,7 @@ The time estimation of two other Epics will be re-calculated depending on first 
 <h2>Activity diagram of Navigation Bar:</h2>
 <p>Here, the user will start with Pin Login, if the pin is correct then the user will be directed to Home Screen else it will be direct back to Pin Login. Once the user clicks on Home Screen, he will get Navigation bar menu which will navigate to History menu, clicking on History button will direct to Filter menu. 
 In which the user can do three kinds of filtering for the transactions based on Time, Category and RangeOfMoney.Once he is done with these options, he can stop</p>
-<img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/ActivityDiagram-2.jpeg?raw=true" width="1000" height="600"><br>
+<img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/ActivityDiagram-2Final.jpeg?raw=true" width="1000" height="600"><br>
 <h2>Activity diagram of Settings:</h2>
 <p>Here, the user will start by clicking on Settings, then Security Settings. User will be given Security Settings menu in which the user can Change Pin or he can enable or disable EnableLockScreen. After doing the changes he can stop.</p>
 <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/ActivityDiagram-1.jpeg?raw=true" width="1000" height="600">
