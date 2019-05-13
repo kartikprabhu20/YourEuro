@@ -73,7 +73,7 @@ The time estimation of two other Epics will be re-calculated depending on first 
 	
 <h1>Class Diagram</h1>
 <p>1. CashRecord is our core entity, it consists Balance, notes, Currency, Date, cashRecordType, paymentType and category. It has getter and setter methods for each attribute mentioned above.<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;	•	Category is a custom class which contains categoryName and imageID. We provide set of predefined categories and if &nbsp;&nbsp;&nbsp;&nbsp;customer wants new category other than listed, then there will  be an add option where he can add his own category. It has setter and getter methods.<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;	•	Category is a custom class which contains categoryName and imageID. We provide set of predefined categories and if &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;customer wants new category other than listed, then there will  be an add option where he can add his own category. It has setter and getter methods.<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		•	All attributes defined in Constants will be static variables.<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		•	cashRecordType contains Income and Expense<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		•	PaymentType contains Cash, DebitCard, CreditCard and BankAccount<br>
