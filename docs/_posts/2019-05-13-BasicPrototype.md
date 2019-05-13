@@ -51,7 +51,13 @@ date: 2019-04-15
 
 <h1>User Stories</h1>
 <p> Our project is divided in to four Epics, each Epic consists of Stories and each stories will be further divided as Tasks. The same Tasks have been carried to our Scrum board. User stories diagram of our project is as shown below: </p>
-<img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/UserStories2.png?raw=true" width="1000" height="600">
+<img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/UserStories2.png?raw=true" width="1000" height="800">
+<br><hr><br>
+<h1>Estimated Time</h1>
+<p>Time management is one of the challenges that we are facing. So, we have assigned estimated time for each task and estimated number of sprints for user stories. 
+We have divided our User stories into four Epics (milestones or stages). Each Epic is categories in Stories and stories are further categorized as sub task. 
+We have provided three sprints for each Epic, one and a half sprints for each story. For fast and smooth purpose of our work, we have divided our development teams into two groups, each working on one Epic. 
+The time estimation of two other Epics will be re-calculated depending on first two Epics.</p>
 
 <br><hr><br>
 
@@ -64,18 +70,10 @@ date: 2019-04-15
 <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/useCaseDiagram.png?raw=true" width="1000" height="600">
 
 <br><hr><br>
-
-<h1>Estimated Time</h1>
-<p>Time management is one of the challenges that we are facing. So, we have assigned estimated time for each task and estimated number of sprints for user stories. 
-We have divided our User stories into four Epics (milestones or stages). Each Epic is categories in Stories and stories are further categorized as sub task. 
-We have provided three sprints for each Epic, one and a half sprints for each story. For fast and smooth purpose of our work, we have divided our development teams into two groups, each working on one Epic. 
-The time estimation of two other Epics will be re-calculated depending on first two Epics.</p>
-
-<br><hr><br>
 	
 <h1>Class Diagram</h1>
 <p>1. CashRecord is our core entity, it consists Balance, notes, Currency, Date, cashRecordType, paymentType and category. It has getter and setter methods for each attribute mentioned above.<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;	•	Category is a custom class which contains categoryName and imageID. We provide set of predefined categories and &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if customer wants new category other than listed, then there will  be an add option where he can add his own category. It has &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;setter and getter methods.<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;	•	Category is a custom class which contains categoryName and imageID. We provide set of predefined categories and if customer wants new category other than listed, then there will  be an add option where he can add his own category. It has setter and getter methods.<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		•	All attributes defined in Constants will be static variables.<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		•	cashRecordType contains Income and Expense<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		•	PaymentType contains Cash, DebitCard, CreditCard and BankAccount<br>
@@ -100,9 +98,9 @@ In which the user can do three kinds of filtering for the transactions based on 
 <h1>Development Strategy</h1>
 <h2>Sprint Handling</h2>
 <p>In scrum board all the tasks will be picked from user stories for each sprint and all the boards/tasks will be assigned a priority and a requirement label. Using Backlog board we will be tracking all the pending tasks and bugs. For next sprint tasks will be taken from  Backlog board based on priority</p>
-<img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/ScrumBoardTasksLabels.png?raw=true" width="800" height="600"><br>
+<img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/ScrumBoardTasksLabels.png?raw=true" width="600" height="500"><br>
 <div class="imageClass">
-<img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/Backlog2.png?raw=true" width="250" height="600" >
+<img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/Backlog2.png?raw=true" width="250" height="500" >
 </div>
 <p>a)Scrum Board &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;b)Backlog Board
 <h2>GIT Handling</h2>	
@@ -112,7 +110,7 @@ Then he will rise a pull request to developer_1. With this all the team members 
 Then he will approve the pull request. In this way we can always assure the integrity of master and any release branches.</p><br>
 <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/branching2.png?raw=true" width="1000" height="300">
 <p>Active Branches</p>
-<img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/GitPullRequest.jpeg?raw=true" width="1000" height="300"><br><hr><br>
+<img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/GitPullRequest.jpeg?raw=true" width="1000" height="300">
 <p>Pull Request Page</p>
 
 <br><hr><br>
