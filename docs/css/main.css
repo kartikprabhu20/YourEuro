@@ -133,3 +133,12 @@ tab {
     color: white;
     display: inline-block;
 }
+
+.imgHolder {
+    position: relative;
+}
+.imgHolder span {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}
