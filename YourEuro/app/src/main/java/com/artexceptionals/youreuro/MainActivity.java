@@ -2,8 +2,6 @@ package com.artexceptionals.youreuro;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.design.widget.BottomNavigationView;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
@@ -36,6 +34,12 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        Bundle pinBundle = getIntent().getExtras();
+
+        if ( null == pinBundle || !pinBundle.getBoolean(PinActivity.CORRECT_PIN, false)) {
+            Intent intent = new Intent(this, PinActivity.class);
+            startActivity(intent);
+        }
         moneyControlManager =  MoneyControlManager.getInstance();
         mRecentsRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         mRecentsRecyclerView.setAdapter(moneyControlManager.getCashRecordAdapter());
