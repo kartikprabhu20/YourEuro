@@ -16,7 +16,7 @@ date: 2019-04-15
 <h1>Requirements</h1><br>
 
 <p>Requirement gathering is a first and essential step for developing an android app. We gathered requirements from client over series of meetings and also we have created a questionnaire for customer to fill it as per their requirement. The gathered requirements have been analyzed and categorized as Essential, Necessary and Desirable Requirements</p>
-<h2>1. Essential Requirements:</h2><br>
+<h2>1. Essential Requirements:</h2>
 	
 <p>• Details/Parameters of expense/income? (Category, note, date, place, camera for receipt)<br>
 			 <div id="tab">    a. Customisable category, deleting option<br>
