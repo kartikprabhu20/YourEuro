@@ -8,4 +8,37 @@
     <string name="recents">Recents</string>
     <string name="note">Note:</string>
     <string name="net_balance">Net Balance:</string>
+    <string name="income">INCOME</string>
+    <string name="expense">EXPENSE</string>
+    <string name="amount">Amount</string>
+    <string name="details">Details</string>
+    <string name="optional">*optional</string>
+    <string name="description">Discription</string>
+    <string name="category">Category:</string>
+    <string name="paymenttype">Payment type:</string>
+    <string name="date">Date:</string>
+    <string name="time">Time:</string>
+    <string name="save">Save</string>
+    <string name="cancel">Cancel</string>
+
+    <string-array name="paymenttypes_array">
+        <item>Cash</item>
+        <item>Credit card</item>
+        <item>Debit card</item>
+        <item>Bank account</item>
+        <item>Voucher</item>
+    </string-array>
+
+    <string-array name="category_array">
+        <item>Shopping</item>
+        <item>Communication</item>
+        <item>Education</item>
+        <item>Entertainment</item>
+        <item>Holiday</item>
+        <item>Transportation</item>
+        <item>Media</item>
+        <item>Food</item>
+    </string-array>
+
 </resources>
+
