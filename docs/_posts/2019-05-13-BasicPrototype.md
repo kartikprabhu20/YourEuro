@@ -54,6 +54,12 @@ date: 2019-04-15
 
 <h1>Use Case Diagram</h1><br>
 <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/useCaseDiagram.png?raw=true" width="1000" height="600">
+<p>From Home screen user can navigate to four different activities:<br> 
+•	Balance which shows you the remaining funds<br>
+•	Recent shows you the list of records of all recent transactions including date, Payment type and category of purchased item<br>
+•	Navigation bar which displays the activities such as Settings, About us, Statistics and History of all the previous transactions<br>
+•	Settings where the user can Add or Delete categories and in Security settings the user can Enable or Disable Lock screen or change pin.</p>
+
 <br><hr><br>
 
 <h1>Estimated Time</h1><br>
@@ -98,12 +104,9 @@ Again, each developer will create his own subbranch from developer_1 while worki
 Then he will rise a pull request to developer_1. With this all the team members will be alerted, then the master will investigate the changes and check if it is affecting the existing code anyway. 
 Then he will approve the pull request. In this way we can always assure the integrity of master and any release branches.</p><br>
 <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/branching2.png?raw=true" width="1000" height="300"><br>
-<img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/GitPullRequest.jpeg?raw=true" width="1000" height="300" class="center"><br>
+<img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/GitPullRequest.jpeg?raw=true" width="1000" height="300"><br>
 
 
-
- 
-  <p>A product comes into its true colour only when each of the jigsaw pieces align properly. A team functions smoothly only when the team members work together. The gaps in the skills of one person needs to be covered by some other. Keeping this in mind, we will have regular standup meets to identify these gaps, discuss the challenges and help each other in growing as individual. Even though we have assigned roles for ourselves, we are not sandboxing ourselves to its parameters. This mindset is necessary for the flexibility of the team and thereby working seamlessly.</p>
   
   <br><hr>
 
