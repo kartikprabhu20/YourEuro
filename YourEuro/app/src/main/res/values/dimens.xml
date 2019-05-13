@@ -6,6 +6,7 @@
     <dimen name="unit3">16dp</dimen>
     <dimen name="unit3_5">20dp</dimen>
     <dimen name="unit4">32dp</dimen>
+    <dimen name="unit4_5">48dp</dimen>
     <dimen name="unit5">64dp</dimen>
     <dimen name="unit6">128dp</dimen>
 

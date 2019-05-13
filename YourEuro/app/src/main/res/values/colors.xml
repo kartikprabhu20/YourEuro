@@ -8,6 +8,9 @@
     <color name="red">#FF5252</color>
 
     <color name="highlight_green">#BFFDC1</color>
+    <color name="white">#FFFF</color>
 
+    <color name="grey">#DDDDDD</color>
+    <color name="black">#000</color>
 
 </resources>

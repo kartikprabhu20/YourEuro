@@ -1,23 +1,21 @@
 package com.artexceptionals.youreuro;
 
-import com.artexceptionals.youreuro.adapter.AccountAdapter;
+import android.support.v7.widget.RecyclerView;
+
 import com.artexceptionals.youreuro.adapter.CashRecordAdapter;
-import com.artexceptionals.youreuro.model.Account;
 import com.artexceptionals.youreuro.model.CashRecord;
 
 public class MoneyControlManager {
     private static MoneyControlManager instance;
     private CashRecordAdapter cashRecordAdapter;
-    private AccountAdapter accountAdapter;
 
-    public MoneyControlManager(CashRecordAdapter cashRecordAdapter, AccountAdapter accountAdapter) {
+    public MoneyControlManager(CashRecordAdapter cashRecordAdapter) {
         this.cashRecordAdapter = cashRecordAdapter;
-        this.accountAdapter = accountAdapter;
     }
 
-    public static MoneyControlManager getInstance(CashRecordAdapter cashRecordAdapter, AccountAdapter accountAdapter) {
+    public static MoneyControlManager getInstance() {
         if (instance == null)
-            instance = new MoneyControlManager(cashRecordAdapter, accountAdapter);
+            instance = new MoneyControlManager(new CashRecordAdapter());
 
         return instance;
     }
@@ -27,7 +25,8 @@ public class MoneyControlManager {
         cashRecordAdapter.addCashRecord(cashRecord);
     }
 
-    public void addAccount(Account account) {
-        accountAdapter.addAccount(account);
+    public RecyclerView.Adapter getCashRecordAdapter() {
+        return cashRecordAdapter;
     }
+
 }
