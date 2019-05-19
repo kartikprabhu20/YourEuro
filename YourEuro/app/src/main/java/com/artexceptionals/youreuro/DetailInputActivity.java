@@ -15,13 +15,19 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.ToggleButton;
 
+import com.artexceptionals.youreuro.adapter.CustomCategoryAdapter;
+import com.artexceptionals.youreuro.helpers.CurrencyHelper;
+import com.artexceptionals.youreuro.helpers.PaymentTypeHelper;
 import com.artexceptionals.youreuro.model.CashRecord;
+import com.artexceptionals.youreuro.model.Category;
 import com.artexceptionals.youreuro.model.Constants;
+
+import java.util.Date;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class DetailActivity extends AppCompatActivity {
+public class DetailInputActivity extends AppCompatActivity {
 
     @BindView(R.id.category_spinner)
     Spinner categorySpinner;
@@ -65,6 +71,8 @@ public class DetailActivity extends AppCompatActivity {
     @BindView(R.id.togglebutton_income)
     ToggleButton incomeToggleButton;
 
+    MoneyControlManager moneyControlManager;
+    ArrayAdapter<Category> categoryAdapter = null;
     CashRecord cashRecord;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,24 +84,26 @@ public class DetailActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         init();
-
-        cashRecord = new CashRecord();
-        cashRecord.setCashRecordType(Constants.CashRecordType.EXPENSE);
     }
 
     private void init() {
+        moneyControlManager = MoneyControlManager.getInstance(this);
+        cashRecord = new CashRecord();
+        cashRecord.setCashRecordType(Constants.CashRecordType.EXPENSE);
+
         ArrayAdapter<CharSequence> paymentTypesAdapter = ArrayAdapter.createFromResource(this,
                 R.array.paymenttypes_array, R.layout.spinner_item);
         paymentTypesAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         paymentTypeSpinner.setAdapter(paymentTypesAdapter);
 
-        ArrayAdapter<CharSequence> categoryTypesAdapter = ArrayAdapter.createFromResource(this,
-                R.array.category_array, R.layout.spinner_item);
-        categoryTypesAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        categorySpinner.setAdapter(categoryTypesAdapter);
+         categoryAdapter = new CustomCategoryAdapter(this,moneyControlManager.getAllCategories());
+        categoryAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        categorySpinner.setAdapter(categoryAdapter);
 
         ArrayAdapter<CharSequence> scheduleTypesAdapter = ArrayAdapter.createFromResource(this,
                 R.array.schedule_array, R.layout.spinner_item);
+        new ArrayAdapter<String>(this,
+                android.R.layout.simple_spinner_item);
         scheduleTypesAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         scheduleSpinner.setAdapter(scheduleTypesAdapter);
 
@@ -158,7 +168,11 @@ public class DetailActivity extends AppCompatActivity {
 
     private void saveCashRecord() {
         cashRecord.setAmount(String.valueOf(amountEditText.getText()));
-//        cashRecord.setCategory(categorySpinner.);
+        cashRecord.setCategory(categoryAdapter.getItem(categorySpinner.getSelectedItemPosition()));
         cashRecord.setNotes(String.valueOf(noteEditText.getText()));
+        cashRecord.setTimeStamp(new Date().getTime());
+        cashRecord.setCurrency(CurrencyHelper.CurrencyType.EURO);// Save currency type in shared preference in settings, use same sharedpreference to get currency here
+        cashRecord.setPaymentType(PaymentTypeHelper.getPaymentType(paymentTypeSpinner.getSelectedItem().toString()));
+        moneyControlManager.addCashRecord(cashRecord);
     }
 }

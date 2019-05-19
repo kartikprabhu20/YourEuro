@@ -29,17 +29,7 @@
         <item>Debit card</item>
         <item>Bank account</item>
         <item>Voucher</item>
-    </string-array>
-
-    <string-array name="category_array">
-        <item>Shopping</item>
-        <item>Communication</item>
-        <item>Education</item>
-        <item>Entertainment</item>
-        <item>Holiday</item>
-        <item>Transportation</item>
-        <item>Media</item>
-        <item>Food</item>
+        <item>Unknown</item>
     </string-array>
 
     <string-array name="schedule_array">

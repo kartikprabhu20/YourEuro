@@ -1,5 +1,6 @@
 package com.artexceptionals.youreuro.adapter;
 
+import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -10,9 +11,13 @@ import android.widget.TextView;
 
 import com.artexceptionals.youreuro.CustomClickListener;
 import com.artexceptionals.youreuro.R;
+import com.artexceptionals.youreuro.helpers.CurrencyHelper;
 import com.artexceptionals.youreuro.model.CashRecord;
+import com.artexceptionals.youreuro.model.Constants;
 
+import java.text.DateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import butterknife.BindView;
@@ -22,7 +27,11 @@ public class CashRecordAdapter extends RecyclerView.Adapter<CashRecordAdapter.Ca
 
     private CustomClickListener clickListener;
     private List<CashRecord> recordList = new ArrayList<>();
+    private Context context;
 
+    public CashRecordAdapter(Context context) {
+        this.context = context;
+    }
 
     @NonNull
     @Override
@@ -41,9 +50,13 @@ public class CashRecordAdapter extends RecyclerView.Adapter<CashRecordAdapter.Ca
             holder.categoryName.setText(cashRecord.getCategory().getCatagoryName());
             holder.paymentType.setText(cashRecord.getPaymentType());
             holder.note.setText(cashRecord.getNotes());
-            holder.amount.setText(cashRecord.getAmount());
-            holder.date.setText(cashRecord.getDate());
+            holder.date.setText(DateFormat.getDateTimeInstance(DateFormat.SHORT, DateFormat.SHORT).format(new Date(cashRecord.getTimeStamp())));
             holder.paymentType.setText(cashRecord.getPaymentType());
+            holder.currencySymbol.setText(CurrencyHelper.getSymbol(cashRecord.getCurrency()));
+            holder.amount.setText(cashRecord.getAmount());
+            holder.amount.setTextColor(Constants.CashRecordType.EXPENSE.equalsIgnoreCase(cashRecord.getCashRecordType()) ? context.getResources().getColor(R.color.red): context.getResources().getColor(R.color.green));
+            holder.currencySymbol.setTextColor(Constants.CashRecordType.EXPENSE.equalsIgnoreCase(cashRecord.getCashRecordType()) ? context.getResources().getColor(R.color.red): context.getResources().getColor(R.color.green));
+
         }
     }
 
@@ -56,8 +69,27 @@ public class CashRecordAdapter extends RecyclerView.Adapter<CashRecordAdapter.Ca
         return 0;
     }
 
+    public void setClickListener(CustomClickListener clickListener){
+        this.clickListener = clickListener;
+    }
+
     public void addCashRecord(CashRecord cashRecord) {
         recordList.add(cashRecord);
+        notifyDataSetChanged();
+    }
+
+    public void addCashRecords(List cashRecordList) {
+        recordList.addAll(cashRecordList);
+        notifyDataSetChanged();
+    }
+
+    public void removeCashRecords(List cashRecordList) {
+        recordList.removeAll(cashRecordList);
+        notifyDataSetChanged();
+    }
+
+    public void removeAllCashRecords() {
+        recordList.clear();
         notifyDataSetChanged();
     }
 
@@ -80,6 +112,9 @@ public class CashRecordAdapter extends RecyclerView.Adapter<CashRecordAdapter.Ca
         @BindView(R.id.date_tv)
         TextView date;
 
+        @BindView(R.id.currency_tv)
+        TextView currencySymbol;
+
         public CashRecordViewHolder(@NonNull View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);
@@ -88,7 +123,7 @@ public class CashRecordAdapter extends RecyclerView.Adapter<CashRecordAdapter.Ca
 
         @Override
         public void onClick(View v) {
-            clickListener.onClick(getLayoutPosition());
+            // launch DetailsDisplayActivity
         }
     }
 }

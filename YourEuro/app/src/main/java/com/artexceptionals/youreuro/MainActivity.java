@@ -11,10 +11,6 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import com.artexceptionals.youreuro.model.CashRecord;
-import com.artexceptionals.youreuro.model.Category;
-import com.artexceptionals.youreuro.model.Constants;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
@@ -40,20 +36,17 @@ public class MainActivity extends AppCompatActivity {
             Intent intent = new Intent(this, PinActivity.class);
             startActivity(intent);
         }
-        moneyControlManager =  MoneyControlManager.getInstance();
+        moneyControlManager =  MoneyControlManager.getInstance(this);
         mRecentsRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         mRecentsRecyclerView.setAdapter(moneyControlManager.getCashRecordAdapter());
+        moneyControlManager.updateAllRecords();
 
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                moneyControlManager.addCashRecord(new CashRecord("test","22-01-2019", "34",
-                        Constants.CurrencyType.EURO, Constants.CashRecordType.INCOME, Constants.PaymentType.BANK_ACCOUNT,
-                        new Category("shopping", "test"), "time"));
 
-
-                startActivity(new Intent(getApplication(), DetailActivity.class));
+                startActivity(new Intent(getApplication(), DetailInputActivity.class));
 //                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
 //                        .setAction("Action", null).show();
             }
