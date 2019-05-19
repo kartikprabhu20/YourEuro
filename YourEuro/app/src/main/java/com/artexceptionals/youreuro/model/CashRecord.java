@@ -1,35 +1,68 @@
 package com.artexceptionals.youreuro.model;
 
-public class CashRecord {
+import android.arch.persistence.room.ColumnInfo;
+import android.arch.persistence.room.Embedded;
+import android.arch.persistence.room.Entity;
+import android.arch.persistence.room.Ignore;
+import android.arch.persistence.room.PrimaryKey;
 
-    String notes,date,amount, time ;
+import com.artexceptionals.youreuro.helpers.CurrencyHelper;
+import com.artexceptionals.youreuro.helpers.PaymentTypeHelper;
 
-    @Constants.CurrencyType.Values
+import java.io.Serializable;
+
+
+@Entity(tableName = "cashrecord")
+public class CashRecord implements Serializable {
+
+    @PrimaryKey(autoGenerate = true)
+    private int uid;
+
+    @ColumnInfo(name = "notes")
+    String notes;
+    @ColumnInfo(name = "timeStamp")
+    long timeStamp;
+    @ColumnInfo(name = "amount")
+    String amount;
+
+    @ColumnInfo(name = "currency")
+    @CurrencyHelper.CurrencyType.Values
     String currency;
 
+    @ColumnInfo(name = "cashrecordtype")
     @Constants.CashRecordType.Values
     String cashRecordType;
 
-    @Constants.PaymentType.Values
+    @ColumnInfo(name = "paymenttype")
+    @PaymentTypeHelper.PaymentType.Values
     String paymentType;
 
+    @Embedded
     Category category;
 
-    public CashRecord(String notes, String date, String amount,
+    public CashRecord(String notes, long timeStamp, String amount,
                       String currency, String cashRecordType, String paymentType,
-                      Category category, String time) {
+                      Category category) {
         this.notes = notes;
-        this.date = date;
+        this.timeStamp = timeStamp;
         this.amount = amount;
         this.currency = currency;
         this.cashRecordType = cashRecordType;
         this.paymentType = paymentType;
         this.category = category;
-        this.time = time;
     }
 
+    @Ignore
     public CashRecord() {
 
+    }
+
+    public int getUid() {
+        return uid;
+    }
+
+    public void setUid(int uid) {
+        this.uid = uid;
     }
 
     public String getAmount() {
@@ -48,29 +81,29 @@ public class CashRecord {
         this.notes = notes;
     }
 
-    public String getDate() {
-        return date;
+    public long getTimeStamp() {
+        return timeStamp;
     }
 
-    public void setDate(String date) {
-        this.date = date;
+    public void setTimeStamp(long timeStamp) {
+        this.timeStamp = timeStamp;
     }
 
-    @Constants.CurrencyType.Values
+    @CurrencyHelper.CurrencyType.Values
     public String getCurrency() {
         return currency;
     }
 
-    public void setCurrency(@Constants.CurrencyType.Values String currency) {
+    public void setCurrency(@CurrencyHelper.CurrencyType.Values String currency) {
         this.currency = currency;
     }
 
-    @Constants.PaymentType.Values
+    @PaymentTypeHelper.PaymentType.Values
     public String getPaymentType() {
         return paymentType;
     }
 
-    public void setPaymentType(@Constants.PaymentType.Values String paymentType) {
+    public void setPaymentType(@PaymentTypeHelper.PaymentType.Values String paymentType) {
         this.paymentType = paymentType;
     }
 
