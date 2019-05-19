@@ -1,6 +1,7 @@
 package com.artexceptionals.youreuro.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -10,6 +11,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.artexceptionals.youreuro.CustomClickListener;
+import com.artexceptionals.youreuro.DetailDisplayActivity;
 import com.artexceptionals.youreuro.R;
 import com.artexceptionals.youreuro.helpers.CurrencyHelper;
 import com.artexceptionals.youreuro.model.CashRecord;
@@ -123,7 +125,9 @@ public class CashRecordAdapter extends RecyclerView.Adapter<CashRecordAdapter.Ca
 
         @Override
         public void onClick(View v) {
-            // launch DetailsDisplayActivity
+            Intent intent = new Intent(context, DetailDisplayActivity.class);
+            intent.putExtra(CashRecord.CASHRECORD_DETAIL,recordList.get(getAdapterPosition()));
+            context.startActivity(intent);
         }
     }
 }

@@ -5,16 +5,16 @@ import android.arch.persistence.room.Embedded;
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.Ignore;
 import android.arch.persistence.room.PrimaryKey;
+import android.os.Parcel;
+import android.os.Parcelable;
 
 import com.artexceptionals.youreuro.helpers.CurrencyHelper;
 import com.artexceptionals.youreuro.helpers.PaymentTypeHelper;
 
-import java.io.Serializable;
-
-
 @Entity(tableName = "cashrecord")
-public class CashRecord implements Serializable {
+public class CashRecord implements Parcelable {
 
+    public static final String CASHRECORD_DETAIL = "cashrecord_details";
     @PrimaryKey(autoGenerate = true)
     private int uid;
 
@@ -40,6 +40,12 @@ public class CashRecord implements Serializable {
     @Embedded
     Category category;
 
+    @ColumnInfo(name = "recurringTransaction")
+    boolean recurringTransaction;
+
+    @ColumnInfo(name = "recurringType")
+    String recurringType;
+
     public CashRecord(String notes, long timeStamp, String amount,
                       String currency, String cashRecordType, String paymentType,
                       Category category) {
@@ -56,6 +62,31 @@ public class CashRecord implements Serializable {
     public CashRecord() {
 
     }
+
+    protected CashRecord(Parcel in) {
+        uid = in.readInt();
+        notes = in.readString();
+        timeStamp = in.readLong();
+        amount = in.readString();
+        currency = in.readString();
+        cashRecordType = in.readString();
+        paymentType = in.readString();
+        category = in.readParcelable(Category.class.getClassLoader());
+        recurringTransaction = in.readByte() != 0;
+        recurringType = in.readString();
+    }
+
+    public static final Creator<CashRecord> CREATOR = new Creator<CashRecord>() {
+        @Override
+        public CashRecord createFromParcel(Parcel in) {
+            return new CashRecord(in);
+        }
+
+        @Override
+        public CashRecord[] newArray(int size) {
+            return new CashRecord[size];
+        }
+    };
 
     public int getUid() {
         return uid;
@@ -123,4 +154,41 @@ public class CashRecord implements Serializable {
     public void setCashRecordType(@Constants.CashRecordType.Values String cashRecordType) {
         this.cashRecordType = cashRecordType;
     }
+
+    public boolean isRecurringTransaction() {
+        return recurringTransaction;
+    }
+
+    public void setRecurringTransaction(boolean recurringTransaction) {
+        this.recurringTransaction = recurringTransaction;
+    }
+
+    public String getRecurringType() {
+        return recurringType;
+    }
+
+    public void setRecurringType(String recurringType) {
+        this.recurringType = recurringType;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeInt(uid);
+        dest.writeString(notes);
+        dest.writeLong(timeStamp);
+        dest.writeString(amount);
+        dest.writeString(currency);
+        dest.writeString(cashRecordType);
+        dest.writeString(paymentType);
+        dest.writeParcelable(category, flags);
+        dest.writeByte((byte) (recurringTransaction ? 1 : 0));
+        dest.writeString(recurringType);
+    }
+
+
 }

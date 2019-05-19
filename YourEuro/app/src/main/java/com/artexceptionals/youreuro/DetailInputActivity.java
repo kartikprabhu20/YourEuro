@@ -18,6 +18,7 @@ import android.widget.ToggleButton;
 import com.artexceptionals.youreuro.adapter.CustomCategoryAdapter;
 import com.artexceptionals.youreuro.helpers.CurrencyHelper;
 import com.artexceptionals.youreuro.helpers.PaymentTypeHelper;
+import com.artexceptionals.youreuro.helpers.RecurringHelper;
 import com.artexceptionals.youreuro.model.CashRecord;
 import com.artexceptionals.youreuro.model.Category;
 import com.artexceptionals.youreuro.model.Constants;
@@ -174,5 +175,10 @@ public class DetailInputActivity extends AppCompatActivity {
         cashRecord.setCurrency(CurrencyHelper.CurrencyType.EURO);// Save currency type in shared preference in settings, use same sharedpreference to get currency here
         cashRecord.setPaymentType(PaymentTypeHelper.getPaymentType(paymentTypeSpinner.getSelectedItem().toString()));
         moneyControlManager.addCashRecord(cashRecord);
+
+        cashRecord.setRecurringTransaction(recurringCheckBox.isChecked());
+        cashRecord.setRecurringType(recurringCheckBox.isChecked()? scheduleSpinner.getSelectedItem().toString(): RecurringHelper.RecurringType.UNKNOWN);
+
+        onBackPressed();
     }
 }
