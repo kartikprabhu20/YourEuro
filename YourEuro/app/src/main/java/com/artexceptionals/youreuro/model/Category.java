@@ -4,9 +4,13 @@ import android.arch.persistence.room.ColumnInfo;
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.Ignore;
 import android.arch.persistence.room.PrimaryKey;
+import android.os.Parcel;
+import android.os.Parcelable;
+
+import java.util.Objects;
 
 @Entity(tableName = "category")
-public class Category {
+public class Category implements Parcelable {
 
     @PrimaryKey(autoGenerate = true)
     private int categoryID = 0;
@@ -26,6 +30,24 @@ public class Category {
         this(catagoryName,imageID);
         this.categoryID = categoryID;
     }
+
+    protected Category(Parcel in) {
+        categoryID = in.readInt();
+        catagoryName = in.readString();
+        imageID = in.readInt();
+    }
+
+    public static final Creator<Category> CREATOR = new Creator<Category>() {
+        @Override
+        public Category createFromParcel(Parcel in) {
+            return new Category(in);
+        }
+
+        @Override
+        public Category[] newArray(int size) {
+            return new Category[size];
+        }
+    };
 
     public int getCategoryID() {
         return categoryID;
@@ -48,5 +70,32 @@ public class Category {
 
     public void setImageID(int imageID) {
         this.imageID = imageID;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeInt(categoryID);
+        dest.writeString(catagoryName);
+        dest.writeInt(imageID);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Category category = (Category) o;
+        return categoryID == category.categoryID &&
+                imageID == category.imageID &&
+                catagoryName.equalsIgnoreCase(category.catagoryName);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(categoryID, catagoryName, imageID);
     }
 }

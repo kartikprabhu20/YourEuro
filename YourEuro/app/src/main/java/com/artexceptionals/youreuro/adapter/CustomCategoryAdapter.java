@@ -66,4 +66,9 @@ public class CustomCategoryAdapter extends ArrayAdapter<Category> {
     public Category getItem(int position) {
         return categories.get(position);
     }
+
+    @Override
+    public int getPosition(@Nullable Category item) {
+        return categories.indexOf(item);
+    }
 }
