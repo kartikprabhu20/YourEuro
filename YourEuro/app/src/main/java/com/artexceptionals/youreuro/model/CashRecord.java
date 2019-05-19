@@ -28,6 +28,10 @@ public class CashRecord {
         this.time = time;
     }
 
+    public CashRecord() {
+
+    }
+
     public String getAmount() {
         return amount;
     }
