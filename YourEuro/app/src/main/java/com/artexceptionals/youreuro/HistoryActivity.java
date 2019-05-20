@@ -12,6 +12,8 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.inputmethod.EditorInfo;
 
+import com.artexceptionals.youreuro.model.CashRecordFilter;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
@@ -22,6 +24,7 @@ public class HistoryActivity  extends AppCompatActivity {
     RecyclerView mRecentsRecyclerView;
 
     private MoneyControlManager moneyControlManager;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -65,5 +68,31 @@ public class HistoryActivity  extends AppCompatActivity {
             startActivityForResult(new Intent(this, FilterActivity.class), FILTER_REQUEST_CODE);
         }
         return true;
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == FILTER_REQUEST_CODE) {
+            if (resultCode == RESULT_OK) {
+                Bundle bundle = data.getExtras();
+                if (bundle.containsKey(CashRecordFilter.FILTER)) {
+                    filterResults((CashRecordFilter) bundle.getParcelable(CashRecordFilter.FILTER));
+                }
+            }
+        }
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        moneyControlManager.clearCacheCashRecords();
+        moneyControlManager.updateAllRecords();
+    }
+
+    private void filterResults(CashRecordFilter cashRecordFilter) {
+        moneyControlManager.clearCacheCashRecords();
+        moneyControlManager.loadCashRecords(cashRecordFilter);
     }
 }

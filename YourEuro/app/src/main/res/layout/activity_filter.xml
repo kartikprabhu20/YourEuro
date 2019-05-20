@@ -28,6 +28,7 @@
         android:id="@+id/dialog_box"
         android:layout_marginTop="?attr/actionBarSize">
 
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -35,6 +36,11 @@
             android:weightSum="3"
             android:padding="@dimen/unit2"
             android:layout_margin="@dimen/unit2">
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/category_filter_checkbox"/>
 
             <TextView
                 android:layout_width="match_parent"
@@ -57,6 +63,11 @@
             android:padding="@dimen/unit2"
             android:layout_margin="@dimen/unit2">
 
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/payment_filter_checkbox"/>
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -74,83 +85,137 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
+            android:orientation="vertical"
             android:padding="@dimen/unit2"
-            android:layout_margin="@dimen/unit2"
-            android:weightSum="2">
+            android:layout_margin="@dimen/unit2">
 
             <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+            <CheckBox
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="vertical">
+                android:id="@+id/date_filter_checkbox"/>
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/start_date" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/date_range"
+                android:layout_weight="2"/>
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:weightSum="4">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/date_tv"
-                        android:text="test"
-                        android:layout_weight="3"
-                        android:layout_gravity="center"/>
-
-                    <ImageView
-                        android:layout_weight="1"
-                        android:id="@+id/start_date_iv"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:padding="@dimen/unit1"
-                        android:src="@android:drawable/ic_menu_my_calendar"/>
-
-                </LinearLayout>
             </LinearLayout>
 
             <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/end_date" />
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="@dimen/unit2"
+                android:layout_margin="@dimen/unit2"
+                android:weightSum="2"
+                android:id="@+id/date_range_ll">
 
                 <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="horizontal"
-                    android:weightSum="4">
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:id="@+id/time_tv"
-                        android:text="test"
-                        android:layout_weight="3"
-                        android:layout_gravity="center"/>
+                        android:text="@string/start_date" />
 
-                    <ImageView
-                        android:layout_weight="1"
-                        android:id="@+id/end_date_iv"
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:weightSum="4">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/start_date_tv"
+                            android:text="test"
+                            android:layout_weight="3"
+                            android:layout_gravity="center"/>
+
+                        <ImageView
+                            android:layout_weight="1"
+                            android:id="@+id/start_date_iv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:padding="@dimen/unit1"
+                            android:src="@android:drawable/ic_menu_my_calendar"/>
+
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:padding="@dimen/unit1"
-                        android:src="@android:drawable/ic_menu_my_calendar"/>
+                        android:text="@string/end_date" />
 
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:weightSum="4">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/end_date_tv"
+                            android:text="test"
+                            android:layout_weight="3"
+                            android:layout_gravity="center"/>
+
+                        <ImageView
+                            android:layout_weight="1"
+                            android:id="@+id/end_date_iv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:padding="@dimen/unit1"
+                            android:src="@android:drawable/ic_menu_my_calendar"/>
+
+                    </LinearLayout>
                 </LinearLayout>
             </LinearLayout>
+
         </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="@dimen/unit2"
+        android:layout_margin="@dimen/unit2">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/range_filter_checkbox"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/amount_range"
+                android:layout_weight="2"/>
+
+        </LinearLayout>
+
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -158,7 +223,8 @@
             android:orientation="horizontal"
             android:padding="@dimen/unit2"
             android:layout_margin="@dimen/unit2"
-            android:weightSum="2">
+            android:weightSum="2"
+            android:id="@+id/amount_range_ll">
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -232,6 +298,7 @@
 
 
         </LinearLayout>
+    </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
