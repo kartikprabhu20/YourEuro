@@ -10,8 +10,11 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
 import android.view.inputmethod.EditorInfo;
+import android.widget.TextView;
 
+import com.artexceptionals.youreuro.adapter.CashRecordAdapter;
 import com.artexceptionals.youreuro.model.CashRecordFilter;
 
 import butterknife.BindView;
@@ -22,6 +25,9 @@ public class HistoryActivity  extends AppCompatActivity {
     private static final int FILTER_REQUEST_CODE = 123;
     @BindView(R.id.recent_history_rv)
     RecyclerView mRecentsRecyclerView;
+
+    @BindView(R.id.noRecords_tv)
+    TextView noRecordsTextView;
 
     private MoneyControlManager moneyControlManager;
 
@@ -37,6 +43,14 @@ public class HistoryActivity  extends AppCompatActivity {
         moneyControlManager =  MoneyControlManager.getInstance(this);
         mRecentsRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         mRecentsRecyclerView.setAdapter(moneyControlManager.getCashRecordAdapter());
+        noRecordsTextView.setVisibility(moneyControlManager.getCashRecordAdapter().getItemCount() >0 ? View.GONE : View.VISIBLE);
+
+        moneyControlManager.getCashRecordAdapter().attachCashRecordListListener(new CashRecordAdapter.CashRecordListListener() {
+            @Override
+            public void checkRecordList() {
+                noRecordsTextView.setVisibility(moneyControlManager.getCashRecordAdapter().getItemCount() >0 ? View.GONE : View.VISIBLE);
+            }
+        });
 
     }
 
@@ -56,6 +70,7 @@ public class HistoryActivity  extends AppCompatActivity {
 
                 @Override
                 public boolean onQueryTextChange(String newText) {
+                    moneyControlManager.getCashRecordAdapter().getFilter().filter(newText);
                     return false;
                 }
             });

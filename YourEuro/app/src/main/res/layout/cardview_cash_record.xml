@@ -23,7 +23,8 @@
             android:layout_height="@dimen/unit5"
             android:layout_weight="1"
             android:src="@drawable/youreuro_square"
-            android:padding="@dimen/unit2"/>
+            android:padding="@dimen/unit2"
+            android:layout_gravity="center_vertical"/>
 
         <LinearLayout
             android:layout_width="wrap_content"

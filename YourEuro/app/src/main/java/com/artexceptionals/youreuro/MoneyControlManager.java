@@ -47,7 +47,7 @@ public class MoneyControlManager {
         cashRecordAdapter.addCashRecords(cashRecords);
     }
 
-    public RecyclerView.Adapter getCashRecordAdapter() {
+    public CashRecordAdapter getCashRecordAdapter() {
         return cashRecordAdapter;
     }
 
@@ -66,7 +66,7 @@ public class MoneyControlManager {
                 (cashRecordFilter.isAmountRangeFilter()?"AND amount BETWEEN '"+cashRecordFilter.getStartAmount()+"' AND '"+cashRecordFilter.getEndAmount()+"' ":"")+
                 (cashRecordFilter.isDateRangeFilter()?"AND timeStamp BETWEEN '"+cashRecordFilter.getStartTimeStamp()+"' AND '"+cashRecordFilter.getEndTimeStamp()+"' ":"")+
                 (cashRecordFilter.isCategoryFilter()?"AND categoryID = '"+category.getCategoryID()+"' AND catagoryName = '"+category.getCatagoryName()+"' AND imageID = '"+category.getImageID()+"' ":"")+
-                (cashRecordFilter.isPaymentFilter()?"AND paymenttype LIKE '"+ cashRecordFilter.getPaymentType()+"'":""));
+                (cashRecordFilter.isPaymentFilter()?"AND paymenttype = '"+ cashRecordFilter.getPaymentType()+"'":""));
 
         List<CashRecord> cashRecords = cashRecordDatabase.cashRecordDao().getCashRecords(simpleSQLiteQuery);
 

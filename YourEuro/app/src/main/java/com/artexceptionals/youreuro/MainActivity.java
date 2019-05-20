@@ -10,6 +10,9 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
+
+import com.artexceptionals.youreuro.adapter.CashRecordAdapter;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -18,6 +21,9 @@ public class MainActivity extends AppCompatActivity {
 
     @BindView(R.id.recent_history_rv)
     RecyclerView mRecentsRecyclerView;
+
+    @BindView(R.id.noRecords_tv)
+    TextView noRecordsTextView;
 
     private MoneyControlManager moneyControlManager;
 
@@ -39,6 +45,14 @@ public class MainActivity extends AppCompatActivity {
         moneyControlManager =  MoneyControlManager.getInstance(this);
         mRecentsRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         mRecentsRecyclerView.setAdapter(moneyControlManager.getCashRecordAdapter());
+        noRecordsTextView.setVisibility(moneyControlManager.getCashRecordAdapter().getItemCount() >0 ? View.GONE : View.VISIBLE);
+
+        moneyControlManager.getCashRecordAdapter().attachCashRecordListListener(new CashRecordAdapter.CashRecordListListener() {
+            @Override
+            public void checkRecordList() {
+                noRecordsTextView.setVisibility(moneyControlManager.getCashRecordAdapter().getItemCount() >0 ? View.GONE : View.VISIBLE);
+            }
+        });
         moneyControlManager.updateAllRecords();
 
         FloatingActionButton fab = findViewById(R.id.fab);

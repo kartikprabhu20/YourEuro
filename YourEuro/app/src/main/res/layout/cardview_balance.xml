@@ -29,7 +29,7 @@
                 android:layout_height="wrap_content"
                 android:padding="@dimen/unit3"
                 android:text="@string/balance"
-                android:textSize="@dimen/unit4"
+                android:textSize="@dimen/unit3_5"
                 android:layout_weight="4"/>
 
         </LinearLayout>
