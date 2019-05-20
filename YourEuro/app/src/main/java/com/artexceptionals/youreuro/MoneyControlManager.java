@@ -1,5 +1,6 @@
 package com.artexceptionals.youreuro;
 
+import android.arch.persistence.db.SimpleSQLiteQuery;
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 
@@ -7,9 +8,9 @@ import com.artexceptionals.youreuro.adapter.CashRecordAdapter;
 import com.artexceptionals.youreuro.database.CashRecordDatabase;
 import com.artexceptionals.youreuro.database.CategoryDatabase;
 import com.artexceptionals.youreuro.model.CashRecord;
+import com.artexceptionals.youreuro.model.CashRecordFilter;
 import com.artexceptionals.youreuro.model.Category;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class MoneyControlManager {
@@ -52,5 +53,23 @@ public class MoneyControlManager {
 
     public List<Category> getAllCategories() {
         return categoryDatabase.categoryDao().getAll();
+    }
+
+    public void clearCacheCashRecords() {
+        cashRecordAdapter.removeAllCashRecords();
+    }
+
+    public void loadCashRecords(CashRecordFilter cashRecordFilter) {
+
+        Category category = cashRecordFilter.getCategory();
+        SimpleSQLiteQuery simpleSQLiteQuery = new SimpleSQLiteQuery("SELECT * FROM cashrecord WHERE uid NOT NULL "+
+                (cashRecordFilter.isAmountRangeFilter()?"AND amount BETWEEN '"+cashRecordFilter.getStartAmount()+"' AND '"+cashRecordFilter.getEndAmount()+"' ":"")+
+                (cashRecordFilter.isDateRangeFilter()?"AND timeStamp BETWEEN '"+cashRecordFilter.getStartTimeStamp()+"' AND '"+cashRecordFilter.getEndTimeStamp()+"' ":"")+
+                (cashRecordFilter.isCategoryFilter()?"AND categoryID = '"+category.getCategoryID()+"' AND catagoryName = '"+category.getCatagoryName()+"' AND imageID = '"+category.getImageID()+"' ":"")+
+                (cashRecordFilter.isPaymentFilter()?"AND paymenttype LIKE '"+ cashRecordFilter.getPaymentType()+"'":""));
+
+        List<CashRecord> cashRecords = cashRecordDatabase.cashRecordDao().getCashRecords(simpleSQLiteQuery);
+
+        cashRecordAdapter.addCashRecords(cashRecords);
     }
 }

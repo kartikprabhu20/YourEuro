@@ -27,6 +27,8 @@
     <string name="start_amount">Start amount:</string>
     <string name="end_amount">End amount:</string>
     <string name="filter">Filter</string>
+    <string name="amount_range">Amount range:</string>
+    <string name="date_range">Date range:</string>
 
     <string-array name="paymenttypes_array">
         <item>Cash</item>

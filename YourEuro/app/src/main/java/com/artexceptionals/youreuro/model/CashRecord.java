@@ -23,7 +23,7 @@ public class CashRecord implements Parcelable {
     @ColumnInfo(name = "timeStamp")
     long timeStamp;
     @ColumnInfo(name = "amount")
-    String amount;
+    float amount;
 
     @ColumnInfo(name = "currency")
     @CurrencyHelper.CurrencyType.Values
@@ -46,7 +46,7 @@ public class CashRecord implements Parcelable {
     @ColumnInfo(name = "recurringType")
     String recurringType;
 
-    public CashRecord(String notes, long timeStamp, String amount,
+    public CashRecord(String notes, long timeStamp, float amount,
                       String currency, String cashRecordType, String paymentType,
                       Category category) {
         this.notes = notes;
@@ -67,7 +67,7 @@ public class CashRecord implements Parcelable {
         uid = in.readInt();
         notes = in.readString();
         timeStamp = in.readLong();
-        amount = in.readString();
+        amount = in.readFloat();
         currency = in.readString();
         cashRecordType = in.readString();
         paymentType = in.readString();
@@ -96,11 +96,11 @@ public class CashRecord implements Parcelable {
         this.uid = uid;
     }
 
-    public String getAmount() {
+    public float getAmount() {
         return amount;
     }
 
-    public void setAmount(String amount) {
+    public void setAmount(float amount) {
         this.amount = amount;
     }
 
@@ -181,7 +181,7 @@ public class CashRecord implements Parcelable {
         dest.writeInt(uid);
         dest.writeString(notes);
         dest.writeLong(timeStamp);
-        dest.writeString(amount);
+        dest.writeFloat(amount);
         dest.writeString(currency);
         dest.writeString(cashRecordType);
         dest.writeString(paymentType);

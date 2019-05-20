@@ -168,7 +168,7 @@ public class DetailInputActivity extends AppCompatActivity {
     };
 
     private void saveCashRecord() {
-        cashRecord.setAmount(String.valueOf(amountEditText.getText()));
+        cashRecord.setAmount(Float.parseFloat(String.valueOf(amountEditText.getText())));
         cashRecord.setCategory(categoryAdapter.getItem(categorySpinner.getSelectedItemPosition()));
         cashRecord.setNotes(String.valueOf(noteEditText.getText()));
         cashRecord.setTimeStamp(new Date().getTime());

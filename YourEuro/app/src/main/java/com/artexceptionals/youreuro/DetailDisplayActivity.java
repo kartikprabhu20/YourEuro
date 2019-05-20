@@ -129,7 +129,7 @@ public class DetailDisplayActivity extends AppCompatActivity {
         scheduleSpinner.setSelection(scheduleTypesAdapter.getPosition(cashRecord.getRecurringType()));
         scheduleSpinner.setEnabled(false);
 
-        amountEditText.setText(cashRecord.getAmount());
+        amountEditText.setText(String.valueOf(cashRecord.getAmount()));
         amountEditText.setEnabled(false);
 
         noteEditText.setText(cashRecord.getNotes());

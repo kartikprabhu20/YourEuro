@@ -55,7 +55,7 @@ public class CashRecordAdapter extends RecyclerView.Adapter<CashRecordAdapter.Ca
             holder.date.setText(DateFormat.getDateTimeInstance(DateFormat.SHORT, DateFormat.SHORT).format(new Date(cashRecord.getTimeStamp())));
             holder.paymentType.setText(cashRecord.getPaymentType());
             holder.currencySymbol.setText(CurrencyHelper.getSymbol(cashRecord.getCurrency()));
-            holder.amount.setText(cashRecord.getAmount());
+            holder.amount.setText(String.valueOf(cashRecord.getAmount()));
             holder.amount.setTextColor(Constants.CashRecordType.EXPENSE.equalsIgnoreCase(cashRecord.getCashRecordType()) ? context.getResources().getColor(R.color.red): context.getResources().getColor(R.color.green));
             holder.currencySymbol.setTextColor(Constants.CashRecordType.EXPENSE.equalsIgnoreCase(cashRecord.getCashRecordType()) ? context.getResources().getColor(R.color.red): context.getResources().getColor(R.color.green));
 
