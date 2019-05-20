@@ -107,7 +107,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:padding="@dimen/unit1">
+                android:padding="@dimen/unit1"
+                android:dividerPadding="@dimen/unit1"
+                android:divider="@color/black"
+                android:showDividers="end">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -131,7 +134,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:padding="@dimen/unit1">
+                android:padding="@dimen/unit1"
+                android:dividerPadding="@dimen/unit1"
+                android:divider="@color/black"
+                android:showDividers="end">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -146,8 +152,7 @@
                     android:id="@+id/paymenttype_spinner"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
-                    android:scrollbarSize="@dimen/unit4"
-                    android:padding="@dimen/unit1"/>
+                    android:scrollbarSize="@dimen/unit3_5" />
 
             </LinearLayout>
 
@@ -235,26 +240,65 @@
                 </LinearLayout>
             </LinearLayout>
 
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
+                android:orientation="vertical"
                 android:padding="@dimen/unit1"
-                android:weightSum="10">
+                android:dividerPadding="@dimen/unit1"
+                android:divider="@color/black"
+                android:showDividers="beginning"
+                >
 
-                <CheckBox
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:id="@+id/recurring_cb"/>
+                    android:orientation="horizontal"
+                    android:padding="@dimen/unit1"
+                    android:weightSum="10">
 
-                <TextView
-                    android:layout_width="wrap_content"
+                    <CheckBox
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:id="@+id/recurring_cb"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/recurring_transaction"
+                        android:textSize="@dimen/unit3_5"
+                        android:layout_weight="9"
+                        android:layout_gravity="center_vertical"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/recurring_transaction"
-                    android:textSize="@dimen/unit3_5"
-                    android:layout_weight="9"/>
+                    android:orientation="vertical"
+                    android:padding="@dimen/unit1"
+                    android:id="@+id/schedule_layout"
+                    android:visibility="gone">
 
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:labelFor="@+id/scheduler_spinner"
+                        android:paddingBottom="@dimen/unit1"
+                        android:text="@string/schedule"
+                        android:textSize="@dimen/unit3_5" />
+
+                    <Spinner
+                        style="@style/Widget.AppCompat.DropDownItem.Spinner"
+                        android:id="@+id/scheduler_spinner"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:scrollbarSize="@dimen/unit4"
+                        android:padding="@dimen/unit1"/>
+
+                </LinearLayout>
 
             </LinearLayout>
 
@@ -263,32 +307,9 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:padding="@dimen/unit1"
-                android:id="@+id/schedule_layout"
-                android:visibility="gone">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:labelFor="@+id/scheduler_spinner"
-                    android:paddingBottom="@dimen/unit1"
-                    android:text="@string/schedule"
-                    android:textSize="@dimen/unit3_5" />
-
-                <Spinner
-                    style="@style/Widget.AppCompat.DropDownItem.Spinner"
-                    android:id="@+id/scheduler_spinner"
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:scrollbarSize="@dimen/unit4"
-                    android:padding="@dimen/unit1"/>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="@dimen/unit1">
+                android:dividerPadding="@dimen/unit1"
+                android:divider="@color/black"
+                android:showDividers="beginning">
 
                 <TextView
                     android:layout_width="wrap_content"
