@@ -1,108 +1,119 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="horizontal"
-    android:weightSum="7">
+    android:orientation="vertical">
 
-    <com.mikhaellopez.circularimageview.CircularImageView
-        android:id="@+id/category_image"
-        android:layout_width="@dimen/unit4"
-        android:layout_height="@dimen/unit5"
-        android:layout_weight="1"
-        android:src="@drawable/youreuro_square"
-        android:padding="@dimen/unit2"/>
-
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/grey" />
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="5"
-        android:orientation="vertical"
-        android:paddingLeft="@dimen/unit3"
-        android:layout_gravity="center_vertical">
+        android:orientation="horizontal"
+        android:weightSum="7">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Category"
-            android:textSize="@dimen/unit3"
-            android:id="@+id/category_tv"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="addDateHere"
-            android:textSize="@dimen/unit2_5"
-            android:id="@+id/date_tv"/>
+        <com.mikhaellopez.circularimageview.CircularImageView
+            android:id="@+id/category_image"
+            android:layout_width="@dimen/unit4"
+            android:layout_height="@dimen/unit5"
+            android:layout_weight="1"
+            android:src="@drawable/youreuro_square"
+            android:padding="@dimen/unit2"/>
 
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="5"
+            android:orientation="vertical"
+            android:paddingLeft="@dimen/unit3"
+            android:layout_gravity="center_vertical">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="@dimen/unit2_5"
-                android:text="@string/note"/>
+                android:text="Category"
+                android:textSize="@dimen/unit3"
+                android:id="@+id/category_tv"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="note"
+                android:text="addDateHere"
                 android:textSize="@dimen/unit2_5"
+                android:id="@+id/date_tv"/>
 
-                android:id="@+id/note_tv"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/unit2_5"
+                    android:text="@string/note"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="note"
+                    android:textSize="@dimen/unit2_5"
+
+                    android:id="@+id/note_tv"/>
+            </LinearLayout>
+
+
         </LinearLayout>
 
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:orientation="vertical"
-        android:layout_gravity="center_vertical">
-
-        <TextView
-            android:id="@+id/payment_type_tv"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="@dimen/unit2_5"
-            android:text="paymenttype"
-            android:paddingBottom="@dimen/unit1"
-            android:paddingRight= "@dimen/unit3"
-            android:textAlignment="viewEnd"/>
-
-
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:layout_gravity="center_vertical">
 
             <TextView
-                android:id="@+id/currency_tv"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:text="$"
-                android:textAlignment="viewStart"
-                android:textColor="@color/green"
-                android:textSize="@dimen/unit3" />
-
-            <TextView
+                android:id="@+id/payment_type_tv"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Amount"
-                android:textSize="@dimen/unit3"
+                android:textSize="@dimen/unit2_5"
+                android:text="paymenttype"
+                android:paddingBottom="@dimen/unit1"
                 android:paddingRight= "@dimen/unit3"
-                android:textColor="@color/green"
-                android:id="@+id/amount_tv"
                 android:textAlignment="viewEnd"/>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/currency_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="$"
+                    android:textAlignment="viewStart"
+                    android:textColor="@color/green"
+                    android:textSize="@dimen/unit3" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Amount"
+                    android:textSize="@dimen/unit3"
+                    android:paddingRight= "@dimen/unit3"
+                    android:textColor="@color/green"
+                    android:id="@+id/amount_tv"
+                    android:textAlignment="viewEnd"/>
+
+            </LinearLayout>
 
         </LinearLayout>
 
     </LinearLayout>
-
 
 </LinearLayout>

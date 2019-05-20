@@ -22,6 +22,11 @@
     <string name="cancel">Cancel</string>
     <string name="recurring_transaction">Recurring transaction? </string>
     <string name="schedule">Schedule:</string>
+    <string name="start_date">Start date:</string>
+    <string name="end_date">End date:</string>
+    <string name="start_amount">Start amount:</string>
+    <string name="end_amount">End amount:</string>
+    <string name="filter">Filter</string>
 
     <string-array name="paymenttypes_array">
         <item>Cash</item>

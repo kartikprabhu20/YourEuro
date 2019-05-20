@@ -36,6 +36,19 @@
             android:label="@string/details"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
+
+        <activity
+            android:name=".HistoryActivity"
+            android:label="@string/history"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+
+        <activity
+            android:name=".FilterActivity"
+            android:label="@string/filter"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+
     </application>
 
 </manifest>
