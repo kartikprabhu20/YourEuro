@@ -21,6 +21,12 @@
 
     </android.support.design.widget.AppBarLayout>
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:id="@+id/noRecords_tv"
+        android:text="@string/no_records_msg"/>
 
     <ScrollView
         android:layout_width="match_parent"

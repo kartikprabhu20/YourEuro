@@ -22,13 +22,20 @@
             android:layout_height="wrap_content"
             android:padding="@dimen/unit3"
             android:text="@string/recents"
-            android:textSize="@dimen/unit4" />
+            android:textSize="@dimen/unit3_5" />
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:id="@+id/noRecords_tv"
+            android:text="@string/no_records_msg"/>
 
         <android.support.v7.widget.RecyclerView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/recent_history_rv">
-
 
         </android.support.v7.widget.RecyclerView>
 

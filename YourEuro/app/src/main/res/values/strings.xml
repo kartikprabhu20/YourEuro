@@ -29,6 +29,7 @@
     <string name="filter">Filter</string>
     <string name="amount_range">Amount range:</string>
     <string name="date_range">Date range:</string>
+    <string name="no_records_msg">Currently there are no records for display.</string>
 
     <string-array name="paymenttypes_array">
         <item>Cash</item>
