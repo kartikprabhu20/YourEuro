@@ -33,9 +33,9 @@
 
     <string-array name="paymenttypes_array">
         <item>Cash</item>
-        <item>Credit card</item>
-        <item>Debit card</item>
-        <item>Bank account</item>
+        <item>Credit Card</item>
+        <item>Debit Card</item>
+        <item>Bank Account</item>
         <item>Voucher</item>
         <item>Unknown</item>
     </string-array>

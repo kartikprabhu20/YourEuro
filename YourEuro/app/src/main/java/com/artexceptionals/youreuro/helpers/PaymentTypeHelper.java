@@ -26,11 +26,11 @@ public class PaymentTypeHelper {
         switch (paymentType){
             case "Cash":
                 return PaymentType.CASH;
-            case "Debit card":
+            case "Debit Card":
                 return PaymentType.DEBIT_CARD;
-            case "Credit card":
+            case "Credit Card":
                 return PaymentType.CREDIT_CARD;
-            case "Bank account":
+            case "Bank Account":
                 return PaymentType.BANK_ACCOUNT;
             case "Voucher":
                 return PaymentType.VOUCHER;
