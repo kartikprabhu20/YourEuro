@@ -1,5 +1,7 @@
 package com.artexceptionals.youreuro;
 
+import android.app.DatePickerDialog;
+import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -10,14 +12,19 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.DatePicker;
+import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.TimePicker;
 
 import com.artexceptionals.youreuro.adapter.CashRecordAdapter;
+
+import java.util.Calendar;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity  {
 
     @BindView(R.id.recent_history_rv)
     RecyclerView mRecentsRecyclerView;
@@ -62,6 +69,8 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(getApplication(), DetailInputActivity.class));
             }
         });
+
+
     }
 
     @Override
@@ -88,5 +97,6 @@ public class MainActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
 
 }
