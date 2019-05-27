@@ -1,0 +1,7 @@
+#Mon Apr 29 13:05:01 CEST 2019
+base.0=/Users/kartikprabhu/Workspace/Android/ISEE project/isee2019-ARTexceptionals/YourEuro/app/build/intermediates/transforms/dexMerger/debug/0
+path.1=classes.dex
+renamed.1=classes2.dex
+path.0=classes.dex
+renamed.0=classes.dex
+base.1=/Users/kartikprabhu/Workspace/Android/ISEE project/isee2019-ARTexceptionals/YourEuro/app/build/intermediates/transforms/dexMerger/debug/1
