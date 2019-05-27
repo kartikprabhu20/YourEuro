@@ -1,18 +1,25 @@
 package com.artexceptionals.youreuro;
 
+import android.app.DatePickerDialog;
+import android.app.TimePickerDialog;
+import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.TimePicker;
 import android.widget.ToggleButton;
 
 import com.artexceptionals.youreuro.adapter.CustomCategoryAdapter;
@@ -23,12 +30,24 @@ import com.artexceptionals.youreuro.model.CashRecord;
 import com.artexceptionals.youreuro.model.Category;
 import com.artexceptionals.youreuro.model.Constants;
 
+import java.sql.Time;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.Locale;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class DetailInputActivity extends AppCompatActivity {
+public class DetailInputActivity extends AppCompatActivity implements View.OnClickListener {
+
+
+    ImageView idate;
+    ImageView itime;
+    TextView tdate;
+    TextView ttime;
+    private int day,month,year,hour,minute;
 
     @BindView(R.id.category_spinner)
     Spinner categorySpinner;
@@ -77,6 +96,9 @@ public class DetailInputActivity extends AppCompatActivity {
     CashRecord cashRecord;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
         ButterKnife.bind(this);
@@ -111,6 +133,24 @@ public class DetailInputActivity extends AppCompatActivity {
         expenseToggleButton.setOnClickListener(onClickListener);
         incomeToggleButton .setOnClickListener(onClickListener);
         recurringCheckBox.setOnClickListener(onClickListener);
+
+
+        String current_date = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault()).format(new Date());
+
+        Calendar c = Calendar.getInstance();
+        hour = c.get(Calendar.HOUR_OF_DAY);
+        minute = c.get(Calendar.MINUTE);
+        String current_time= hour+":"+minute;
+
+        idate = (ImageView) findViewById(R.id.calendar_iv);
+        itime = (ImageView) findViewById(R.id.time_iv);
+        tdate = (TextView) findViewById(R.id.date_tv);
+        tdate.setText(current_date);
+        ttime = (TextView) findViewById(R.id.time_tv);
+        ttime.setText(current_time);
+        idate.setOnClickListener(this);
+        itime.setOnClickListener(this);
+
     }
 
     @Override
@@ -141,6 +181,8 @@ public class DetailInputActivity extends AppCompatActivity {
     private View.OnClickListener onClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
+
+
 
             switch (view.getId()){
                 case R.id.togglebutton_income:
@@ -180,5 +222,47 @@ public class DetailInputActivity extends AppCompatActivity {
         cashRecord.setRecurringType(recurringCheckBox.isChecked()? scheduleSpinner.getSelectedItem().toString(): RecurringHelper.RecurringType.UNKNOWN);
 
         onBackPressed();
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.N)
+    @Override
+    public void onClick(View v) {
+        if (v == idate) {
+            Calendar c = Calendar.getInstance();
+            final String currentdate = DateFormat.getDateInstance().format(c.getTime());
+            day = c.get(Calendar.DAY_OF_MONTH);
+            month = c.get(Calendar.MONTH);
+            year = c.get(Calendar.YEAR);
+
+
+            DatePickerDialog datePickerDialog = new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
+                @Override
+                public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+                    //tdate.setText(dayOfMonth + "/" + (monthOfYear + 1) + "/" + year);
+                    tdate.setText(currentdate);
+                }
+            }, day, month, year);
+            datePickerDialog.show();
+
+        }
+        if (v == itime) {
+            {
+                Calendar c = Calendar.getInstance();
+                hour = c.get(Calendar.HOUR_OF_DAY);
+                minute = c.get(Calendar.MINUTE);
+
+                TimePickerDialog timePickerDialog = new TimePickerDialog(this, new TimePickerDialog.OnTimeSetListener() {
+                    @Override
+                    public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+                        ttime.setText(hourOfDay + ":" + minute);
+                    }
+                }, hour, minute, false);
+                timePickerDialog.show();
+
+
+            }
+
+
+        }
     }
 }
