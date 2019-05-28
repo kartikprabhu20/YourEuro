@@ -1,5 +1,6 @@
 package com.artexceptionals.youreuro;
 
+import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -8,7 +9,9 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -18,12 +21,22 @@ import com.artexceptionals.youreuro.model.CashRecordFilter;
 import com.artexceptionals.youreuro.model.Category;
 
 import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.Locale;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class FilterActivity  extends AppCompatActivity {
+public class FilterActivity  extends AppCompatActivity implements View.OnClickListener {
+
+    ImageView istartdate,ienddate;
+    TextView tstartdate,tenddate;
+
+    private int day,month,year;
+
+
 
     @BindView(R.id.category_filter_spinner)
     Spinner categorySpinner;
@@ -37,11 +50,11 @@ public class FilterActivity  extends AppCompatActivity {
     @BindView(R.id.cancel_filter)
     Button cancelFilterButton;
 
-    @BindView(R.id.start_date_tv)
-    TextView startDateTextView;
+    //@BindView(R.id.start_date_tv)
+    //TextView startDateTextView;
 
-    @BindView(R.id.end_date_tv)
-    TextView endDateTextView;
+    //@BindView(R.id.end_date_tv)
+    //TextView endDateTextView;
 
 
     @BindView(R.id.start_amount_et)
@@ -76,6 +89,8 @@ public class FilterActivity  extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_filter);
         ButterKnife.bind(this);
@@ -103,8 +118,8 @@ public class FilterActivity  extends AppCompatActivity {
 
 
         //Default setting to current date
-        startDateTextView.setText(DateFormat.getDateInstance(DateFormat.SHORT).format(new Date().getTime()));
-        endDateTextView.setText(DateFormat.getDateInstance(DateFormat.SHORT).format(new Date().getTime()));
+        //startDateTextView.setText(DateFormat.getDateInstance(DateFormat.SHORT).format(new Date().getTime()));
+        //endDateTextView.setText(DateFormat.getDateInstance(DateFormat.SHORT).format(new Date().getTime()));
 
         categoryFilterCheckbox.setOnClickListener(onClickListener);
         rangeFilterCheckbox.setOnClickListener(onClickListener);
@@ -115,6 +130,18 @@ public class FilterActivity  extends AppCompatActivity {
         dateRangeLinearLayout.setVisibility(View.GONE);
         amountRangeLinearLayout.setVisibility(View.GONE);
         paymentTypeSpinner.setVisibility(View.GONE);
+
+
+        String current_date = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault()).format(new Date());
+
+        istartdate = (ImageView) findViewById(R.id.start_date_iv);
+        ienddate = (ImageView) findViewById(R.id.end_date_iv);
+        tstartdate = (TextView) findViewById(R.id.start_date_tv);
+        tstartdate.setText(current_date);
+        tenddate = (TextView) findViewById(R.id.end_date_tv);
+        tenddate.setText(current_date);
+        istartdate.setOnClickListener(this);
+        ienddate.setOnClickListener(this);
 
     }
 
@@ -157,4 +184,42 @@ public class FilterActivity  extends AppCompatActivity {
             }
         }
     };
+
+    @Override
+    public void onClick(View v) {
+        if (v == istartdate) {
+            Calendar c=Calendar.getInstance();
+            day=c.get(Calendar.DAY_OF_MONTH);
+            month=c.get(Calendar.MONTH);
+            year=c.get(Calendar.YEAR);
+
+            DatePickerDialog datePickerDialog= new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
+                @Override
+                public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+                    tstartdate.setText(dayOfMonth+"/"+(monthOfYear+1)+"/"+year);
+
+                }
+            },day,month,year);
+            datePickerDialog.show();
+
+
+        }
+        if (v == ienddate) {
+            Calendar c=Calendar.getInstance();
+            day=c.get(Calendar.DAY_OF_MONTH);
+            month=c.get(Calendar.MONTH);
+            year=c.get(Calendar.YEAR);
+
+            DatePickerDialog datePickerDialog= new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
+                @Override
+                public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+                    tenddate.setText(dayOfMonth+"/"+(monthOfYear+1)+"/"+year);
+                }
+            },day,month,year);
+            datePickerDialog.show();
+
+
+        }
+
+    }
 }
