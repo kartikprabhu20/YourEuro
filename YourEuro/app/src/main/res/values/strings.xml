@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">YourEuro</string>
+    <string name="Open">My Application</string>
+    <string name="Close">My Application</string>
     <string name="action_settings">Settings</string>
     <string name="listOfAccounts">List of Accounts</string>
     <string name="add_account">Add Account</string>
