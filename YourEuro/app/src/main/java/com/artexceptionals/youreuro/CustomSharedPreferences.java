@@ -29,8 +29,25 @@ public class CustomSharedPreferences {
         editor.apply();
     }
 
+    public void setBoolean(String Key, boolean Value){
+        editor.putBoolean(Key,Value);
+        editor.apply();
+    }
+
+    public boolean getBoolean(String key){
+       return sharedPreferences.getBoolean(key, false);
+    }
+
     public String genericGetString(String Key){
         return sharedPreferences.getString(Key,Default);
     }
 
+    public int getInt(String key) {
+        return sharedPreferences.getInt(key, 0);
+    }
+
+    public void setInt(String Key, int Value){
+        editor.putInt(Key,Value);
+        editor.apply();
+    }
 }

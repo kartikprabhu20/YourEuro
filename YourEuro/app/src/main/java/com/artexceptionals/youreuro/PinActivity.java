@@ -11,38 +11,26 @@ import android.widget.Toast;
 public class PinActivity extends AppCompatActivity {
 
     public static final String CORRECT_PIN = "correct_pin";
-    private EditText PIN;
-    private Button Login;
-    private Button settingPIN;
-    public String actualPIN;
-    public String givenPIN;
-    public static final String Default = "N/A";
+    private EditText pinEditText;
+    public int actualPIN, enteredPIN;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pinactivity);
-        settingPIN = (Button) findViewById(R.id.SetPIN);
-        PIN = (EditText) findViewById(R.id.AppPIN);
-        Login = (Button) findViewById(R.id.AppLogin);
-
+        pinEditText = (EditText) findViewById(R.id.AppPIN);
     }
 
     public void Validation(View view) {
-        givenPIN = PIN.getText().toString();
-        actualPIN = CustomSharedPreferences.getInstance(PinActivity.this).genericGetString("user_pin");
-        if (givenPIN.equals(Default)){
-            Toast.makeText(this,"Please Enter the PIN",Toast.LENGTH_LONG).show();
-        }
-        else if (givenPIN.equals(actualPIN)) {
+        enteredPIN = Integer.parseInt(pinEditText.getText().toString());
+        actualPIN = CustomSharedPreferences.getInstance(PinActivity.this).getInt("user_pin");
+        if (enteredPIN == actualPIN) {
             Intent intent = new Intent(PinActivity.this, MainActivity.class);
             intent.putExtra(CORRECT_PIN,true);
             startActivity(intent);
-        }
-        else{
+        } else{
             Toast.makeText(this,"PIN entered was wrong",Toast.LENGTH_LONG).show();
         }
-
     }
 
     public void CreatePIN(View view) {

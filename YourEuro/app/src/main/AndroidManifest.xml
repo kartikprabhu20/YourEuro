@@ -12,7 +12,12 @@
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning"
         tools:targetApi="donut">
-        <activity android:name=".SetPinActivity"></activity>
+        <activity
+            android:name=".SettingsActivity"
+            android:label="Settings"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <activity android:name=".SetPinActivity" />
         <activity android:name=".PinActivity" />
         <activity
             android:name=".MainActivity"
