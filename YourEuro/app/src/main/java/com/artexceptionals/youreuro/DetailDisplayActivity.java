@@ -1,8 +1,12 @@
 package com.artexceptionals.youreuro;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
@@ -11,6 +15,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 import android.widget.ToggleButton;
 
 import com.artexceptionals.youreuro.adapter.CustomCategoryAdapter;
@@ -89,7 +94,7 @@ public class DetailDisplayActivity extends AppCompatActivity {
     }
 
     private void init() {
-        moneyControlManager = MoneyControlManager.getInstance(this);
+        moneyControlManager = MoneyControlManager.getInstance(getApplicationContext());
 
         if(Constants.CashRecordType.EXPENSE.equalsIgnoreCase(cashRecord.getCashRecordType())){
             expenseToggleButton.setBackgroundColor(getResources().getColor(R.color.colorAccent));
@@ -145,4 +150,49 @@ public class DetailDisplayActivity extends AppCompatActivity {
 
     }
 
+    private void launchDialog(CashRecord cashRecord) {
+        AlertDialog.Builder alertDialog = new AlertDialog.Builder(DetailDisplayActivity.this);
+        alertDialog.setTitle("Please confirm to Delete");
+
+        alertDialog.setPositiveButton("CONFIRM",
+                new DialogInterface.OnClickListener() {
+
+                    public void onClick(DialogInterface dialog, int which) {
+                        moneyControlManager.deleteCashRecord(cashRecord);
+                        onBackPressed();
+                        Toast.makeText(DetailDisplayActivity.this,
+                                "cashRecord Deleted", Toast.LENGTH_SHORT).show();
+                    }
+                });
+
+        alertDialog.setNegativeButton("CANCEL",
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.cancel();
+                    }
+                });
+
+        alertDialog.show();
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_details_delete, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up deleteButton, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+
+        //noinspection SimplifiableIfStatement
+        if (id == R.id.details_delete) {
+            launchDialog(cashRecord);
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
 }

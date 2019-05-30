@@ -81,6 +81,14 @@ public class CashRecordAdapter extends RecyclerView.Adapter<CashRecordAdapter.Ca
         cashRecordListListener.checkRecordList();
     }
 
+    //For deleting a cashRecord from adapter view
+    public void deleteCashRecord(CashRecord cashRecord){
+        recordList.remove(cashRecord);
+        searchRecordList.remove(cashRecord);
+        notifyDataSetChanged();
+        cashRecordListListener.checkRecordList();
+    }
+
     public void addCashRecords(List cashRecordList) {
         recordList.addAll(cashRecordList);
         searchRecordList.addAll(cashRecordList);
@@ -94,7 +102,6 @@ public class CashRecordAdapter extends RecyclerView.Adapter<CashRecordAdapter.Ca
         searchRecordList.removeAll(cashRecordList);
         notifyDataSetChanged();
         cashRecordListListener.checkRecordList();
-
     }
 
     public void removeAllCashRecords() {

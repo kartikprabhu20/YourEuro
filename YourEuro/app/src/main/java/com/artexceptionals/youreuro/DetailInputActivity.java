@@ -169,6 +169,10 @@ public class DetailInputActivity extends AppCompatActivity implements View.OnCli
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.details_ok) {
+            if (amountEditText.getText().toString().equalsIgnoreCase("")) {
+                amountEditText.setError("Amount cannot be empty");
+                return false;
+            }
             saveCashRecord();
             return true;
         }else if (id == R.id.details_cancel) {
@@ -216,11 +220,10 @@ public class DetailInputActivity extends AppCompatActivity implements View.OnCli
         cashRecord.setTimeStamp(new Date().getTime());
         cashRecord.setCurrency(CurrencyHelper.CurrencyType.EURO);// Save currency type in shared preference in settings, use same sharedpreference to get currency here
         cashRecord.setPaymentType(PaymentTypeHelper.getPaymentType(paymentTypeSpinner.getSelectedItem().toString()));
-        moneyControlManager.addCashRecord(cashRecord);
-
         cashRecord.setRecurringTransaction(recurringCheckBox.isChecked());
         cashRecord.setRecurringType(recurringCheckBox.isChecked()? scheduleSpinner.getSelectedItem().toString(): RecurringHelper.RecurringType.UNKNOWN);
 
+        moneyControlManager.addCashRecord(cashRecord);
         onBackPressed();
     }
 
@@ -258,11 +261,7 @@ public class DetailInputActivity extends AppCompatActivity implements View.OnCli
                     }
                 }, hour, minute, false);
                 timePickerDialog.show();
-
-
             }
-
-
         }
     }
 }

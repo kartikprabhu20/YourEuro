@@ -4,8 +4,10 @@ package com.artexceptionals.youreuro;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
@@ -89,11 +91,14 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        Bundle pinBundle = getIntent().getExtras();
+        Boolean enableStatus = getBooleanSharedPreferenceValues("disablePIN");
+        if (enableStatus) {
+            Bundle pinBundle = getIntent().getExtras();
 
-        if ( null == pinBundle || !pinBundle.getBoolean(PinActivity.CORRECT_PIN, false)) {
-            Intent intent = new Intent(this, PinActivity.class);
-            startActivity(intent);
+            if (null == pinBundle || !pinBundle.getBoolean(PinActivity.CORRECT_PIN, false)) {
+                Intent intent = new Intent(this, PinActivity.class);
+                startActivity(intent);
+            }
         }
         moneyControlManager =  MoneyControlManager.getInstance(this);
         mRecentsRecyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -130,7 +135,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
+        // automatically handle clicks on the Home/Up deleteButton, so long
         // as you specify a parent activity in AndroidManifest.xml.
 
 
@@ -139,6 +144,7 @@ public class MainActivity extends AppCompatActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
+            startActivity(new Intent(this, SettingsActivity.class));
             return true;
         }else if (id == R.id.history) {
             startActivity(new Intent(this, HistoryActivity.class));
@@ -148,5 +154,11 @@ public class MainActivity extends AppCompatActivity {
         return abdt.onOptionsItemSelected(item)|| super.onOptionsItemSelected(item);
     }
 
+
+    public Boolean getBooleanSharedPreferenceValues(String key){
+        SharedPreferences preferencesfragment = PreferenceManager.getDefaultSharedPreferences(this);
+        Boolean value = preferencesfragment.getBoolean(key,false);
+        return value;
+    }
 
 }
