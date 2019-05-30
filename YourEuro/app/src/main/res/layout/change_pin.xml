@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:id="@+id/change_pin_ll"
+    android:layout_marginTop="@dimen/unit2"
+    android:padding="@dimen/unit1">
+
+
+    <TextView
+        android:id="@+id/editText3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/old_pin"
+        android:padding="@dimen/unit1"
+        android:layout_margin="@dimen/unit1"
+        android:textSize="@dimen/unit3"/>
+
+    <EditText
+        android:id="@+id/oldPINEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/enter_old_pin"
+        android:inputType="numberPassword"
+        android:padding="@dimen/unit1"
+        android:layout_margin="@dimen/unit1"/>
+
+    <TextView
+        android:id="@+id/editText2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/new_pin"
+        android:padding="@dimen/unit1"
+        android:layout_margin="@dimen/unit1"
+        android:textSize="@dimen/unit3"/>
+
+    <EditText
+        android:id="@+id/newPINEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/enter_new_pin"
+        android:inputType="numberPassword"
+        android:padding="@dimen/unit1"
+        android:layout_margin="@dimen/unit1"/>
+</LinearLayout>

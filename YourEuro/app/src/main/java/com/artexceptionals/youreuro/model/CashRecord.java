@@ -11,6 +11,8 @@ import android.os.Parcelable;
 import com.artexceptionals.youreuro.helpers.CurrencyHelper;
 import com.artexceptionals.youreuro.helpers.PaymentTypeHelper;
 
+import java.util.Objects;
+
 @Entity(tableName = "cashrecord")
 public class CashRecord implements Parcelable {
 
@@ -190,5 +192,16 @@ public class CashRecord implements Parcelable {
         dest.writeString(recurringType);
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        CashRecord that = (CashRecord) o;
+        return uid == that.uid;
+    }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(uid);
+    }
 }

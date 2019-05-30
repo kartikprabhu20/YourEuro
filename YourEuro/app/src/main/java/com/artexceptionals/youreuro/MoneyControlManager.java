@@ -41,6 +41,12 @@ public class MoneyControlManager {
         cashRecordDatabase.cashRecordDao().insertAll(cashRecord);
     }
 
+    //For deleting a cashRecord from both database and adapter view
+    public synchronized void deleteCashRecord(CashRecord cashRecord){
+        cashRecordDatabase.cashRecordDao().delete(cashRecord);
+        cashRecordAdapter.deleteCashRecord(cashRecord);
+    }
+
     public synchronized void updateAllRecords() {
         List<CashRecord> cashRecords = cashRecordDatabase.cashRecordDao().getAll();
         cashRecordAdapter.removeAllCashRecords();

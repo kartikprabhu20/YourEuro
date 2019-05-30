@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory
+        android:title="Security">
+        <SwitchPreference
+            android:defaultValue="false"
+            android:key="disablePIN"
+            android:title="Disable PIN"
+            android:summary="Enable or Disable the PIN"/>
+        <Preference
+            android:dependency="disablePIN"
+            android:key="changePIN"
+            android:title="Change PIN"/>
+    </PreferenceCategory>
+
+</PreferenceScreen>
