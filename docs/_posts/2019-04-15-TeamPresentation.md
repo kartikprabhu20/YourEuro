@@ -4,7 +4,7 @@ title: "ISEE 2019 -- Team Presentation"
 date: 2019-04-15
 ---
 <html>
-<body>
+<body style="background-color:powderblue;">
 <h1>Project Team Presentation</h1><br>
 <h3><i>Hey folks! Welcome to the blog on "YourEuro - a Money Control app" worked upon by our diligent team.</i></h3>
   
@@ -15,9 +15,12 @@ date: 2019-04-15
   
   <div class="vl"><p><i>"Managing money is tedious, but it doesn't have to be anymore"</i></p></div>
  <br><br><hr><br>
-    
+
 <h1>App Logo</h1>
+ 
+
 <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/APP_logo.jpeg?raw=true" width="300" height="150">
+  
 
 <br><br><hr>
 
@@ -42,17 +45,21 @@ printf(“Deliver Awesome apps”);<br/>
 <br><br><hr>
 
 <h1>Team Members</h1><br/>
-<h3>Kartik Prabhu</h3>
+<div id="first">
+<h2>Kartik Prabhu</h2>
+  <div id="second">
 <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/karthik.jpeg?raw=true" width="200" height="200">
+    </div>
+      </div>
 <p>"Personally, I love coding and strive for optimisation and perfection. One of the core qualities which I lack Is knowledge sharing . I believe working in a team would help me bridge this skill and boost the overall team work. As the saying goes “Don’t just look at the end result, look at the intermediate process as well”, this course will make us learn A to Z of software engineering and not just the C for coding part".</p>
-<h3>Anitha Bhat Talagini Ashoka</h3>
+<h2>Anitha Bhat Talagini Ashoka</h2>
 <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/Anitha.jpeg?raw=true" width="200" height="200">
 <p>"Being a curious head I always loved learning new things. Developing an app in the Android operating system will not only enhance my coding skills but will also help me to explore new development environment. This course will nurture me to complete my zeal to become a good Software Engineer with boosting up my team working skills".</p>
-<h3>Madhu Gopal Sirivella</h3>
+<h2>Madhu Gopal Sirivella</h2>
 <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/Madhu.jpeg?raw=true" width="200" height="200">
 <p>"Coming from an Instrumentation engineering background I would like to gain the necessary skills required for Software Engineering. The motivation behind taking this course is I will get exposure to the various phases of developing an Android App. I believe by doing this course I can enhance my coding skills. I am excited to work in a team where we combine work to achieve a higher objective".</p>
 
-<h3>Avinash Ranjan</h3>
+<h2>Avinash Ranjan</h2>
 <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/Avinash.jpeg?raw=true" width="200" height="200">
 <p>"Honestly, my expertise in coding is basic. But I always had an interest in knowing how a particular app works and how to make a new app. Taking software engineering will really help me in knowing the background knowledge of making and working of an app. The Agile Manifesto here will promote simplification and individuals and interactions over processes and tools. So, taking up this course will not only help me making of an app but will also help me in presenting my app in front of people".</p>
 
