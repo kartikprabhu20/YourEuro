@@ -104,18 +104,23 @@ Toggles • allow the user to change a setting between two states • most effec
  <br><br><hr>
 <h1>User Control and Freedom</h1>
 <p>All dialogs have a cancel option where he can just cancel the operation if he doesn’t want to continue with the operation</p>
-Buttons: All buttons are given proper label which describes clearly what action will be performed by clicking it.
+<h1>Buttons</h1>
+<p>All buttons are given proper label which describes clearly what action will be performed by clicking it.</p>
 
-good graphic design • few, well-chosen colours and fonts • follow colour guidelines • group with whitespace • align controls sensibly
+• good graphic design 
+• few, well-chosen colours and fonts 
+• follow colour guidelines 
+• group with whitespace 
+• align controls sensibly
 
-Colour Theory:
+<h1>Colour Theory</h1>
 
-Summary of changes:
-In comparison to basic prototype there have been few changes and additions in the design. 
+<h1>Summary of changes</h1>
+<p>In comparison to basic prototype there have been few changes and additions in the design. 
 Changes: 
-Now the user can enable or disable the pin login option from settings window and change pin option have been shifted to settings screen. The option for selecting the currency have been added in the settings screen.  
-Additions: 
-Categories should be shown with both icon and name. User should be able create new categories
+Now the user can enable or disable the pin login option from settings window and change pin option have been shifted to settings screen. The option for selecting the currency have been added in the settings screen.  </p>
+<h1>Additions</h1>
+<h3>Categories should be shown with both icon and name. User should be able create new categories</h3>
 //TODO:Show class diagram change for cashrecord
 //Changes in database, created a separate db for category.
 //While adding custom category, suggest a predefined list of different icons for the new category.(can be user story)
