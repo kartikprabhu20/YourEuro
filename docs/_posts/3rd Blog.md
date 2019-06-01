@@ -1,13 +1,28 @@
-Design Pattern:
-The objective of our App is to keep track of money transactions on a daily basis and also to give the summarized report. 
-It is very difficult to create your User interfaces, Control logic and Databases together. We chose to follow MVC architecture in the development of our App to overcome this issue. MVC is an acronym for Model-View-Control. By following this architecture, we can separate our Model (database), Views (Activities), and Controller (Control logic) and it allows each to change without affecting the others. 
-The CashRecord class is our core entity and every transaction is an object of this class. The created objects will be saved in the database. 
-The CashRecordDatabase is our Model it extends RoomDatabase and will be used for interaction with the Database. 
-MoneyControlManager is our main controller. Based on the request from the user it will perform operations on the model and modify the display accordingly.
-Our controller follows singleton pattern, since it interacts with the database and we want this interaction to be synchronised. Meaning multiple objects of database should not interact with database simultaneously. 
+---
+layout: post
+title: "ISEE 2019 -- Advanced Prototype"
+date: 2019-06-04
+---
 
-Coding Conventions:
-Coding conventions will help in easing the understanding, readability and debugging of code. For having consistent data everyone should adhere to same coding conventions. “This project is in line with the standards provided in the Google Java Style Guide. “
+<html>
+        <body style="background-color:powderblue;">
+<h1>Design Pattern</h1><br>
+<h3>The objective of our App is to keep track of money transactions on a daily basis and also to give the summarized report.</h3> 
+                 <hr><br>
+                
+<h3>It is very difficult to create your User interfaces, Control logic and Databases together. We chose to follow MVC architecture in the development of our App to overcome this issue. MVC is an acronym for Model-View-Control. By following this architecture, we can separate our Model (database), Views (Activities), and Controller (Control logic) and it allows each to change without affecting the others. </h3>
+ 
+                  <hr><br> 
+ 
+<p>The CashRecord class is our core entity and every transaction is an object of this class. The created objects will be saved in the database. </p>
+<p>The CashRecordDatabase is our Model it extends RoomDatabase and will be used for interaction with the Database. </p>
+<p>MoneyControlManager is our main controller. Based on the request from the user it will perform operations on the model and modify the display accordingly.</p>
+<p>Our controller follows singleton pattern, since it interacts with the database and we want this interaction to be synchronised. Meaning multiple objects of database should not interact with database simultaneously. </p>
+
+<h1>Coding Conventions</h1>
+<p>Coding conventions will help in easing the understanding, readability and debugging of code. For having consistent data everyone should adhere to same coding conventions. “This project is in line with the standards provided in the Google Java Style Guide. " </p>
+
+
 1.	Packaging:
 a.	
 2.	File Names
@@ -17,6 +32,8 @@ b.	ResourceName: example: activity.main.xml
 a.	Indentations:// TODO: snippet
 b.	Comments: 
 i.	Description of class using java comments
+
+<br><br><hr>
 Example: /**
  * CashRecord is main model which represents each transaction.
  */
@@ -35,7 +52,7 @@ a.
 iv.	In case partial code is getting merged comment needs to have ‘Todo’
 Example: cashRecord.setTimeStamp(new Date().getTime());// TODO: Make sure to replace actual value instead of current value
 
-Variable declarations
+<h1>Variable declarations</h1>
 •	Descriptive variable names
 •	Camel case
 •	Names for: class,method,variable,functions,constants
@@ -53,32 +70,40 @@ b.	Colors and Dimensions
 public class PinActivity extends AppCompatActivity {
 
 
-Initially everyone is briefed up on what coding conventions that will be followed in our project and also after each developer raises a merge request, the reviewers will check the changes thoroughly and give necessary comments and actions to be taken care of before merging. Once the comments are taken care then the code will be merged into main branch. By this way we make sure that everyone follows the necessary coding conventions.
+<p>Initially everyone is briefed up on what coding conventions that will be followed in our project and also after each developer raises a merge request, the reviewers will check the changes thoroughly and give necessary comments and actions to be taken care of before merging. Once the comments are taken care then the code will be merged into main branch. By this way we make sure that everyone follows the necessary coding conventions.</p>
 
  
  
 
-Context of use:
-It is important to identify the target users for developing a relevant and useful application. It helps us in identifying what key features and functionalities need to be included in our app. Following are the two personas we have identified for our App who represents majority of our user group, by answering the following questions. 
+<h1>Context of use</h1>
+<p>It is important to identify the target users for developing a relevant and useful application. It helps us in identifying what key features and functionalities need to be included in our app. Following are the two personas we have identified for our App who represents majority of our user group, by answering the following questions. </p> 
 1.	What is the highest level of education this person has received?
 2.	What is the professional background of the user?
 3.	What is the purpose/goal of user to use our App?
 4.	When and where will the user use our App?
 5.	What are user’s expectations from the App?
 
-Design principles Implemented: 
-Good design makes a product useful • A product is bought to be used. It has to satisfy certain criteria, not only functional, but also psychological and aesthetic. Good design emphasizes the usefulness of a product whilst disregarding anything that could possibly detract from it.
-Good design is as little design as possible • Less, but better – because it concentrates on the essential aspects, and the products are not burdened with non-essentials.
-Error preventions: Drop down lists, Date and time pickers:
-In order to restrict any random inputs from user, wherever we need a specific format of inputs from user we implemented either a list of entries from dropdown or we included a time & date picker so that we get only the required input format.
+<h1>Design principles Implemented</h1>
+<p>Good design makes a product useful • A product is bought to be used. It has to satisfy certain criteria, not only functional, but also psychological and aesthetic. Good design emphasizes the usefulness of a product whilst disregarding anything that could possibly detract from it.</p>
+<p>Good design is as little design as possible • Less, but better – because it concentrates on the essential aspects, and the products are not burdened with non-essentials.</p>
 
-Error reporting: 
+<h1>Error preventions</h1>
+ <h3>Drop down lists, Date and time pickers</h3>
+<p>In order to restrict any random inputs from user, wherever we need a specific format of inputs from user we implemented either a list of entries from dropdown or we included a time & date picker so that we get only the required input format</p>
+
+<h1>Error reporting</h1>
 Tool tips: Tool tips are added where the user might unknowingly submit wrong data. Like when user tried to create record without amount then the tool tip “amount field cannot be empty” will appear on screen.
+
+<br><hr>
+
 Toast messages: Necessary Toast messages are provided either it is a successful action or if it’s a unsuccessful action then the message will tell what went wrong.
 
- 
+ <br><hr>
 Toggles • allow the user to change a setting between two states • most effective when the on/off states are visually distinct
-User Control and Freedom: All dialogs have a cancel option where he can just cancel the operation if he doesn’t want to continue with the operation
+
+ <br><br><hr>
+<h1>User Control and Freedom</h1>
+<p>All dialogs have a cancel option where he can just cancel the operation if he doesn’t want to continue with the operation</p>
 Buttons: All buttons are given proper label which describes clearly what action will be performed by clicking it.
 
 good graphic design • few, well-chosen colours and fonts • follow colour guidelines • group with whitespace • align controls sensibly
