@@ -25,13 +25,13 @@ date: 2019-06-04
 
 
 1.	Packaging:<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; a.	
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; a.	<br>
 2.	File Names<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; a.	ClassNames: example: CashRecord.java
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; b.	ResourceName: example: activity.main.xml
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; a.	ClassNames: example: CashRecord.java<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; b.	ResourceName: example: activity.main.xml<br>
 3.	Source file code<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; a.	Indentations:// TODO: snippet
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; b.	Comments: 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; a.	Indentations:// TODO: snippet<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; b.	Comments: <br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;i.	Description of class using java comments
 
 <br><br><hr>
