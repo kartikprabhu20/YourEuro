@@ -24,15 +24,15 @@ date: 2019-06-04
 <p>Coding conventions will help in easing the understanding, readability and debugging of code. For having consistent data everyone should adhere to same coding conventions. “This project is in line with the standards provided in the Google Java Style Guide. " </p>
 
 
-1.	Packaging:
+1.	Packaging:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; a.	
-2.	File Names
-a.	ClassNames: example: CashRecord.java
-b.	ResourceName: example: activity.main.xml
-3.	Source file code
-a.	Indentations:// TODO: snippet
-b.	Comments: 
-i.	Description of class using java comments
+2.	File Names<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; a.	ClassNames: example: CashRecord.java
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; b.	ResourceName: example: activity.main.xml
+3.	Source file code<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; a.	Indentations:// TODO: snippet
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; b.	Comments: 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;i.	Description of class using java comments
 
 <br><br><hr>
 Example: /**
