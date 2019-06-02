@@ -124,15 +124,15 @@ Changes:
 Now the user can enable or disable the pin login option from settings window and change pin option have been shifted to settings screen. The option for selecting the currency have been added in the settings screen.  </p>
 <h1>Additions</h1>
 <h3>Categories should be shown with both icon and name. User should be able create new categories</h3>
-//TODO:Show class diagram change for cashrecord
-//Changes in database, created a separate db for category.
-//While adding custom category, suggest a predefined list of different icons for the new category.(can be user story)
-User should be able to delete an existing record. 
+//TODO:Show class diagram change for cashrecord<br>
+//Changes in database, created a separate db for category.<br>
+//While adding custom category, suggest a predefined list of different icons for the new category.(can be user story)<br>
+User should be able to delete an existing record. <br><br>
 //TODO: screenshots of detail activity before and after delete option
 
-User should be able to set some threshold/limit for amount of money to be spent on each category. Beyond the threshold every transaction of that record should be shown in Red colour. It should also be reflected in graph.
-We need at least two charts for visualising the transactions
-//The layouts were changed to handle multiple charts/graphs
-Monthly summary need to be exported as PDF and should be sent in E-mail.
-//The MoneycontrolManager was added with another method to convert the database into pdf.
-monyeControllManager.getPdf();
+User should be able to set some threshold/limit for amount of money to be spent on each category. Beyond the threshold every transaction of that record should be shown in Red colour. It should also be reflected in graph.<br>
+We need at least two charts for visualising the transactions<br>
+//The layouts were changed to handle multiple charts/graphs<br>
+Monthly summary need to be exported as PDF and should be sent in E-mail.<br>
+//The MoneycontrolManager was added with another method to convert the database into pdf.<br>
+monyeControllManager.getPdf();<br>
