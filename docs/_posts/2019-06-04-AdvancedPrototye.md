@@ -15,6 +15,7 @@ date: 2019-06-04
                   <hr><br> 
  
 <p>The CashRecord class is our core entity and every transaction is an object of this class. The created objects will be saved in the database. </p>
+<hr><br> 
 <p>The CashRecordDatabase is our Model it extends RoomDatabase and will be used for interaction with the Database. </p>
 <p>MoneyControlManager is our main controller. Based on the request from the user it will perform operations on the model and modify the display accordingly.</p>
 <p>Our controller follows singleton pattern, since it interacts with the database and we want this interaction to be synchronised. Meaning multiple objects of database should not interact with database simultaneously. </p>
@@ -24,7 +25,7 @@ date: 2019-06-04
 
 
 1.	Packaging:
-a.	
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; a.	
 2.	File Names
 a.	ClassNames: example: CashRecord.java
 b.	ResourceName: example: activity.main.xml
