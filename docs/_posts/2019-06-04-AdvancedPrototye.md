@@ -73,10 +73,10 @@ public class PinActivity extends AppCompatActivity {
 
 <p>Initially everyone is briefed up on what coding conventions that will be followed in our project and also after each developer raises a merge request, the reviewers will check the changes thoroughly and give necessary comments and actions to be taken care of before merging. Once the comments are taken care then the code will be merged into main branch. By this way we make sure that everyone follows the necessary coding conventions.</p>
 
- <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/Advanced_Prototype1?raw=true" width="400" height="200">
+ <img src=" https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/Advanced_Prototype1.png?raw=true" width="400" height="200">
  
- <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/AdvancedPrototype2?raw=true" width="400" height="200">
- 
+ <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/AdvancedPrototype2.png?raw=true" width="400" height="200">
+ https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/Advanced_Prototype1.png
 
 <h1>Context of use</h1>
 <p>It is important to identify the target users for developing a relevant and useful application. It helps us in identifying what key features and functionalities need to be included in our app. Following are the two personas we have identified for our App who represents majority of our user group, by answering the following questions. </p> 
