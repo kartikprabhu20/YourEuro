@@ -19,11 +19,13 @@ date: 2019-06-04
 <p><b>Controller:</b> MoneyControlManager is our main controller. Based on the request from the user it will perform operations on the model and modify the display accordingly.</p>
 
 <p><b>View:</b> DetailInputActivity is our main view through which user gives the transaction details and it notifies MoneyControlManager when user presses save button. </p>
-<img src=" https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/MVCarchitecture.jpeg?raw=true" width="700" height="300"><br>
+<img src=" https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/MVCArchitecture.jpeg?raw=true" width="700" height="300"><br>
 <p><b>Builder pattern:</b> Alert dialogs are created using builder patterns. Using builder pattern multiple representations can be made using same construction method. We can include only the required fields while constructing a Alert dialog using builder pattern.</p>
 <img src=" https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/3.AlertDialog.PNG?raw=true" width="750" height="325">
 <br>
 <p><b>Adapter design pattern:</b> Adapter design pattern are used for setting recycler views. Adapter controls the Recycler view by getting data directly from the database. Our CashRecordAdapter will be used to set data in recycler views in MainActivity and it will get the data from CashRecordDatabase. MoneyControlManager will have CashRecordAdapter instance (MVC pattern).</p>
+
+<img src=" https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/3.AdapterviewFinal.jpeg?raw=true" width="750" height="325">
 <br>
 
 <p><b>Singleton pattern:</b> Our controller follows singleton pattern, since it interacts with the database and we want this interaction to be synchronised. Meaning multiple objects of the controller should not interact with database simultaneously. </p>
