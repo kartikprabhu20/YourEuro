@@ -8,6 +8,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
 import android.widget.EditText;
@@ -91,10 +92,14 @@ public class DetailDisplayActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         init();
+
+        getWindow().setSoftInputMode(
+                WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
+
     }
 
     private void init() {
-        moneyControlManager = MoneyControlManager.getInstance(getApplicationContext());
+        moneyControlManager = MoneyControlManager.getInstance(YourEuroApp.getAppContext());
 
         if(Constants.CashRecordType.EXPENSE.equalsIgnoreCase(cashRecord.getCashRecordType())){
             expenseToggleButton.setBackgroundColor(getResources().getColor(R.color.colorAccent));
@@ -183,12 +188,8 @@ public class DetailDisplayActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up deleteButton, so long
-        // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
         if (id == R.id.details_delete) {
             launchDialog(cashRecord);
             return true;

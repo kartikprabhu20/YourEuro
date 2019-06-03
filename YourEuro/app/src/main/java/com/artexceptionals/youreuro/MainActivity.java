@@ -1,11 +1,7 @@
 package com.artexceptionals.youreuro;
 
-
-import android.app.DatePickerDialog;
-import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
@@ -20,15 +16,10 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.DatePicker;
-import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.widget.TimePicker;
 
 import com.artexceptionals.youreuro.adapter.CashRecordAdapter;
-
-import java.util.Calendar;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -40,13 +31,13 @@ public class MainActivity extends AppCompatActivity {
     @BindView(R.id.recent_history_rv)
     RecyclerView mRecentsRecyclerView;
 
+    @BindView(R.id.balance_rv)
+    RecyclerView mBalanceRecyclerView;
+
     @BindView(R.id.noRecords_tv)
     TextView noRecordsTextView;
 
-
     private MoneyControlManager moneyControlManager;
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,7 +47,6 @@ public class MainActivity extends AppCompatActivity {
         drawerlay=(DrawerLayout)findViewById(R.id.drawerlay);
         abdt=new ActionBarDrawerToggle(this,drawerlay,R.string.Open,R.string.Close);
         abdt.setDrawerIndicatorEnabled(true);
-
 
         drawerlay.addDrawerListener(abdt);
         abdt.syncState();
@@ -100,10 +90,13 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         }
-        moneyControlManager =  MoneyControlManager.getInstance(this);
+        moneyControlManager =  MoneyControlManager.getInstance(YourEuroApp.getAppContext());
         mRecentsRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         mRecentsRecyclerView.setAdapter(moneyControlManager.getCashRecordAdapter());
         noRecordsTextView.setVisibility(moneyControlManager.getCashRecordAdapter().getItemCount() >0 ? View.GONE : View.VISIBLE);
+
+        mBalanceRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+        mBalanceRecyclerView.setAdapter(moneyControlManager.getBalanceAdapter());
 
         moneyControlManager.getCashRecordAdapter().attachCashRecordListListener(new CashRecordAdapter.CashRecordListListener() {
             @Override
@@ -120,8 +113,6 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(getApplication(), DetailInputActivity.class));
             }
         });
-
-
     }
 
     @Override
@@ -131,18 +122,10 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
 
-
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up deleteButton, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-
-
         int id = item.getItemId();
 
-
-        //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
             startActivity(new Intent(this, SettingsActivity.class));
             return true;
@@ -153,7 +136,6 @@ public class MainActivity extends AppCompatActivity {
 
         return abdt.onOptionsItemSelected(item)|| super.onOptionsItemSelected(item);
     }
-
 
     public Boolean getBooleanSharedPreferenceValues(String key){
         SharedPreferences preferencesfragment = PreferenceManager.getDefaultSharedPreferences(this);

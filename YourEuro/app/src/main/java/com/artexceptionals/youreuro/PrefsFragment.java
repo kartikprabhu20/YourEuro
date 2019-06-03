@@ -10,26 +10,33 @@ import android.support.v14.preference.PreferenceFragment;
 import android.support.v7.app.AlertDialog;
 import android.text.InputType;
 import android.text.method.PasswordTransformationMethod;
+import android.view.LayoutInflater;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
+import com.artexceptionals.youreuro.helpers.CurrencyHelper;
+
 public  class PrefsFragment extends PreferenceFragment {
 
+    private static final String DISABLE_PIN = "disablePIN";
+    private static final String CURRENCY_CHANGE = "changeCurrency";
     CustomSharedPreferences sharedPreferences;
-    //    SharedPreferences sharedPreferences;
-    Preference switchPreference, changePinPreference;
+    Preference switchPreference, changePinPreference, currencyPreference;
     private int enteredPIN,enteredOldPIN,enteredNewPIN;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         addPreferencesFromResource(R.xml.settings_preference);
-        sharedPreferences = CustomSharedPreferences.getInstance(getActivity());
-        switchPreference = findPreference("disablePIN");
+        sharedPreferences = CustomSharedPreferences.getInstance(YourEuroApp.getAppContext());
+        switchPreference = findPreference(DISABLE_PIN);
         changePinPreference = findPreference("changePIN");
+        currencyPreference = findPreference("changeCurrency");
         changePinPreference.setOnPreferenceClickListener(onClickPreference);
         switchPreference.setOnPreferenceChangeListener(preferenceChangeListener);
+        currencyPreference.setOnPreferenceChangeListener(preferenceChangeListener);
+        currencyPreference.setDefaultValue(sharedPreferences.genericGetString(CurrencyHelper.CURRENT_CURRENCY, CurrencyHelper.CurrencyType.EURO));
     }
 
     @Override
@@ -117,7 +124,9 @@ public  class PrefsFragment extends PreferenceFragment {
     private void launchDialogChangePIN() {
         AlertDialog.Builder alertDialog = new AlertDialog.Builder(getActivity());
         alertDialog.setTitle("CHANGE PIN");
-        LinearLayout linearLayout = (LinearLayout) getLayoutInflater().inflate(R.layout.change_pin,null);
+
+        LayoutInflater layoutInflater = LayoutInflater.from(getActivity());
+        LinearLayout linearLayout = (LinearLayout) layoutInflater.inflate(R.layout.change_pin,null);
         alertDialog.setView(linearLayout);
 
         EditText oldPIN = (EditText) linearLayout.findViewById(R.id.oldPINEditText);
@@ -160,11 +169,17 @@ public  class PrefsFragment extends PreferenceFragment {
 
         @Override
         public boolean onPreferenceChange(Preference preference, Object newValue) {
-            boolean switched = ((SwitchPreference) preference).isChecked();
-            if (switched) {
-                launchDialogDisable();
-            } else {
-                launchDialogEnable();
+            if (DISABLE_PIN.equalsIgnoreCase(preference.getKey())) {
+
+                boolean switched = ((SwitchPreference) preference).isChecked();
+                if (switched) {
+                    launchDialogDisable();
+                } else {
+                    launchDialogEnable();
+                }
+            }else if (CURRENCY_CHANGE.equalsIgnoreCase(preference.getKey())){
+                sharedPreferences.genericSetString(CurrencyHelper.CURRENT_CURRENCY, String.valueOf(newValue));
+                return true;
             }
             return false;
         }

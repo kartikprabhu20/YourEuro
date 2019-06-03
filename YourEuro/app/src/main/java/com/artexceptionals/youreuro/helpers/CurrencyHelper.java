@@ -6,13 +6,16 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 
 public class CurrencyHelper {
+    public static final String CURRENT_CURRENCY = "current_currency";
+
     public interface CurrencyType {
-        String DOLLAR = "Dollar";
-        String EURO = "Euro";
-        String RUPEE = "RUPEE";
+        String EURO = "1";
+        String DOLLAR = "2";
+        String RUPEE = "3";
+        String POUND = "4";
 
         @Retention(RetentionPolicy.SOURCE)
-        @StringDef({DOLLAR, EURO, RUPEE})
+        @StringDef({DOLLAR, EURO, RUPEE, POUND})
         @interface Values {
         }
     }
@@ -26,6 +29,8 @@ public class CurrencyHelper {
                 return "$";
             case CurrencyType.RUPEE:
                 return "₹";
+            case CurrencyType.POUND:
+                return "£";
             default:
                 return PaymentTypeHelper.PaymentType.UNKNOWN;
         }

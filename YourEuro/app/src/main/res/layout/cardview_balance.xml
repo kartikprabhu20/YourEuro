@@ -34,35 +34,10 @@
 
         </LinearLayout>
 
-
-
-        <LinearLayout
+        <android.support.v7.widget.RecyclerView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:weightSum="5"
-            android:background="@color/highlight_green"
-            android:id="@+id/net_balance_ll">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:padding="@dimen/unit3"
-                android:text="@string/net_balance"
-                android:layout_weight="4"/>
-
-            <TextView
-                android:id="@+id/cash_display"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:padding="@dimen/unit3"
-                android:text="Total"
-                android:textColor="@color/green"
-                android:textSize="@dimen/unit3"
-                android:layout_weight="1"
-                android:textAlignment="viewEnd"/>
-        </LinearLayout>
+            android:id="@+id/balance_rv"/>
 
 
         <LinearLayout

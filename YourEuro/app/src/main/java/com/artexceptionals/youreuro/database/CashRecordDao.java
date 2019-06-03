@@ -21,7 +21,7 @@ public interface CashRecordDao {
     List<CashRecord> getAll();
 
     @Insert
-    void insertAll(CashRecord... cashRecords);
+    long insert(CashRecord cashRecords);
 
     @Delete
     void delete(CashRecord cashRecord);
