@@ -108,7 +108,7 @@ c. <b>Constants:</b> All constants are written in UPPER_CASE </p>
 <br>
 <p><b>Keeping it brief:</b> Always keeping the messages and pop ups simple and short. User tends to skip reading long phrases.<br>
 Tool tips: Tool tips are added where the user might unknowingly submit wrong data. Like when user tried to create record without amount then the tool tip “amount field cannot be empty” will appear on screen.<br>
-Toast messages: Necessary Toast messages are provided either it is a successful action or if it’s a unsuccessful action then the message will tell what went wrong.</p>
+Toast messages: Necessary Toast messages are provided for execution of certain actions. This will help the user understand the cause of failure.</p>
 <br>
 <p><b>Only show what user need and when he needs it:</b> User will be overwhelmed if he sees too much of options at the first screen. So, break the tasks and hide the unnecessary options. Only show options which are really needed and slowly teach the user about advanced tasks as he progresses.</p>
 <br>
