@@ -19,7 +19,7 @@ date: 2019-06-04
 <p><b>Controller:</b> MoneyControlManager is our main controller. Based on the request from the user it will perform operations on the model and modify the display accordingly.</p>
 
 <p><b>View:</b> DetailInputActivity is our main view through which user gives the transaction details and it notifies MoneyControlManager when user presses save button. </p>
-<img src=" https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/MVCArchitecture.jpeg?raw=true" width="700" height="300"><br>
+<img src=" https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/MVCArchitecture.jpeg?raw=true" width="800" height="350"><br>
 <p><b>Builder pattern:</b> Alert dialogs are created using builder patterns. Using builder pattern multiple representations can be made using same construction method. We can include only the required fields while constructing a Alert dialog using builder pattern.</p>
 <img src=" https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/3.AlertDialog.PNG?raw=true" width="750" height="325">
 <br>
@@ -140,14 +140,32 @@ We are using pending intent to get triggered at specific time and using broadcas
 <p><b>Keeping it brief:</b> Always keeping the messages and pop ups simple and short. User tends to skip reading long phrases.<br>
 Tool tips: Tool tips are added where the user might unknowingly submit wrong data. Like, when user tries to save a transaction without inputting an amount, then the tool tip “amount field cannot be empty” will appear on screen.<br>
 Toast messages: Necessary Toast messages are provided for execution of certain actions. This will help the user understand the cause of any failures.</p>
+<div class="imageClass">
+	<img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/3.8.ToolTip.jpeg?raw=true" width="250" height="480">
+	<div class="imageClass">
+		<img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/3.9.Wrong password.jpeg?raw=true" width="250" height="480">
+	</div>
+	</div>
 <br>
 <p><b>Only show what user need and when he needs it:</b> User will be overwhelmed if he sees too much of options at the first screen. So, break the tasks and hide the unnecessary options. Only show options which are really needed and slowly teach the user about advanced tasks as he progresses.</p>
 <br>
 <p><b>Never lose any customization data created by user:</b> Always save the data what user took time to create. Always remember the settings like the login pin, currency selection set by user and personal touches like customised categories created by user.</p>
 <br>
 <p><b>Do the heavy lifting for users:</b> Let the user pick his input from dropdown list or by providing time & date pickers wherever necessary. Constrain to numerical pads instead of qwerty pad, where only number input are expected. This way we can also restrict any random inputs from user, wherever we need a specific format of inputs from user and user can successfully complete the task with minimal efforts.</p>
+<div class="imageClass">
+	<img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/3.10.TimePicker.jpeg?raw=true" width="250" height="480">
+	<div class="imageClass">
+		<img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/3.3.Datepicker.jpeg?raw=true" width="250" height="480">
+	</div>
+	</div>
 <br>
 <p><b>User Control and Freedom:</b> This application is provided with Navigation bar using which user can easily launch any activity. All dialogs have a cancel option where he can cancel if he doesn’t want to continue with the operation.</p>
+<div class="imageClass">
+	<img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/3.11.NavigationBar.jpeg?raw=true" width="250" height="480">
+	<div class="imageClass">
+		<img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/3.12CancelOption.jpeg?raw=true" width="250" height="480">
+	</div>
+	</div>
 <hr><br>
 
 <h1>Summary of changes</h1>
