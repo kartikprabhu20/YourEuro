@@ -21,7 +21,7 @@ date: 2019-06-04
 <p><b>View:</b> DetailInputActivity is our main view through which user gives the transaction details and it notifies MoneyControlManager when user presses save button. </p>
 <img src=" https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/MVCarchitecture.jpeg?raw=true" width="700" height="300"><br>
 <p><b>Builder pattern:</b> Alert dialogs are created using builder patterns. Using builder pattern multiple representations can be made using same construction method. You can include only the required fields while constructing a Aler dialog using builder pattern.</p>
-<img src=" https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/3.AlertDialog.PNG?raw=true" width="700" height="325">
+<img src=" https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/3.AlertDialog.PNG?raw=true" width="750" height="325">
 <br>
 <p><b>Adapter design pattern:</b> Adapter design pattern are used for setting recycler views. Adapter controls both Recycler view as well as database. Our CashRecordAdapter will be used to set data in recycler views in MainActivity and it will be used to set data in CashRecordDatabase. MoneyControlManager will have CashRecordAdapter instance (MVC pattern).</p>
 <br>
