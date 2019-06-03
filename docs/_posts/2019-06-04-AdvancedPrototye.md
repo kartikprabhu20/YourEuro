@@ -69,9 +69,9 @@ date: 2019-06-04
 
 <p>Initially everyone is briefed up on what coding conventions that will be followed in our project and also after each developer raises a merge request, the reviewers will check the changes thoroughly and give necessary comments and actions to be taken care of before merging. Once the comments are taken care then the code will be merged into main branch. By this way we make sure that everyone follows the necessary coding conventions.</p>
 
- <img src=" https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/Advanced_Prototype1.png?raw=true" width="800" height="400"><br><br>
+ <img src=" https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/Advanced_Prototype1.png?raw=true" width="800" height="300"><br><br>
  
- <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/AdvancedPrototype2.png?raw=true" width="800" height="400">
+ <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/AdvancedPrototype2.png?raw=true" width="800" height="300">
 <hr><br>
 
 <h1>Context of use</h1>
@@ -83,9 +83,9 @@ date: 2019-06-04
 5. What are user’s expectations from the App?</p>
 <br>
 <p><b>Persona 1:</b></p>
-<img src=" https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/3.persona1.png?raw=true" width="800" height="800"><br><br>
+<img src=" https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/3.persona1.PNG?raw=true" width="800" height="800"><br><br>
 <p><b>Persona 2:</b></p>
-<img src=" https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/3.persona2.png?raw=true" width="800" height="800"><br>
+<img src=" https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/3.persona2.PNG?raw=true" width="800" height="800"><br>
 <hr>
 
 <h1>Design principles Implemented</h1>
