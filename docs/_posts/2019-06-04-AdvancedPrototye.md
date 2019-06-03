@@ -19,7 +19,7 @@ date: 2019-06-04
 <p><b>Controller:</b> MoneyControlManager is our main controller. Based on the request from the user it will perform operations on the model and modify the display accordingly.</p>
 
 <p><b>View:</b> DetailInputActivity is our main view through which user gives the transaction details and it notifies MoneyControlManager when user presses save button. </p>
-<img src=" https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/MVCarchitecture.jpeg?raw=true" width="800" height="500"><br>
+<img src=" https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/MVCarchitecture.jpeg?raw=true" width="600" height="300"><br>
 
 <p><b>Singleton pattern:</b> Our controller follows singleton pattern, since it interacts with the database and we want this interaction to be synchronised. Meaning multiple objects of database should not interact with database simultaneously. </p>
 <hr><br>
