@@ -19,10 +19,20 @@ date: 2019-06-04
 <p><b>Controller:</b> MoneyControlManager is our main controller. Based on the request from the user it will perform operations on the model and modify the display accordingly.</p>
 
 <p><b>View:</b> DetailInputActivity is our main view through which user gives the transaction details and it notifies MoneyControlManager when user presses save button. </p>
-<img src=" https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/MVCarchitecture.jpeg?raw=true" width="600" height="300"><br>
+<img src=" https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/MVCarchitecture.jpeg?raw=true" width="700" height="300"><br>
+<p><b>Builder pattern:</b> Alert dialogs are created using builder patterns. Using builder pattern multiple representations can be made using same construction method. You can include only the required fields while constructing a Aler dialog using builder pattern.</p>
+<img src=" https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/3.AlertDialog.PNG?raw=true" width="650" height="350">
+<br>
+<p><b>Adapter design pattern:</b> Adapter design pattern are used for setting recycler views. Adapter controls both Recycler view as well as database. Our CashRecordAdapter will be used to set data in recycler views in MainActivity and it will be used to set data in CashRecordDatabase. MoneyControlManager will have CashRecordAdapter instance (MVC pattern).</p>
+<br>
 
 <p><b>Singleton pattern:</b> Our controller follows singleton pattern, since it interacts with the database and we want this interaction to be synchronised. Meaning multiple objects of database should not interact with database simultaneously. </p>
-<hr><br>
+<br>
+<p><b>Observer design pattern:</b> Observer design patterns are used whenever an event should be performed automatically. We are using this pattern for recording recurring events.<br>
+        <b>Broadcast receiver:</b> It can be used to register for a required event. All registered receivers will be notified by android runtime once the required event happens.<br>
+        <b>Pending intent:</b> It can be passed as a token to another application/event. This will give the permission for the other application to perform some predefined task.<br>
+We are using pending intent to set specific time and using broadcast receiver we can trigger recurring events.</p>
+
 
 <h1>Coding Conventions</h1>
 <p>Coding conventions will help in easing the understanding, readability and debugging of code. For having consistent data everyone should adhere to same coding conventions. We have followed Google Java Style Guide in our project.</p>
