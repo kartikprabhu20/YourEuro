@@ -27,8 +27,8 @@ date: 2019-06-04
 <p>Coding conventions will help in easing the understanding, readability and debugging of code. For having consistent data everyone should adhere to same coding conventions. We have followed Google Java Style Guide in our project.</p>
 
 <h2>File names</h2>
-<p><b>Class file names:</b> follows UpperCamelCase and with extension “.java” example: CashRecord.java</p>
-<p><b>Resource file names:</b> written in lower case example: activity.main.xml </p>
+<p><b>Class file names:</b> follows UpperCamelCase and with extension “.java” example: CashRecord.java<br>
+<b>Resource file names:</b> written in lower case example: activity.main.xml </p>
 <br>
 <h2>Source code</h2>
 <p><b>Indentations:</b> Whenever new block of code is opened, a proper indentation is provided and when the block ends, the indent returns to the previous indent level. This is applied for both code and comments throughout the block.</p>
@@ -40,9 +40,9 @@ date: 2019-06-04
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; d. In case partial code is getting merged comment needs to have ‘Todo’</p>
 <br>
 <p><b>Naming conventions:</b> <br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; a. <b>Variables:</b> All variable names are descriptive and written in lowerCamelCase<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; b. <b>Methods:</b> All method names are written lowerCamelCase<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; c. <b>Constants:</b> All constants are written in UPPER_CASE </p>
+a. <b>Variables:</b> All variable names are descriptive and written in lowerCamelCase<br>
+b. <b>Methods:</b> All method names are written lowerCamelCase<br>
+c. <b>Constants:</b> All constants are written in UPPER_CASE </p>
 <br>
         
 <h2>Packaging</h2> 
@@ -58,9 +58,9 @@ date: 2019-06-04
 <br>
 
 <h2>Generalisation</h2>
-<p><b>Strings:</b> All strings should be stored in strings.xml resource file and need to be referenced from there. example: R.string.euro, @string/app_name<br>
-<b>Colors:</b> All colors need to be stored in colors.xml resource file and need to be referenced from there. Example: @color/black<br>
-<b>Dimensions:</b> All dimensions used in project need to be saved in dimens.xml resource file and need to be referenced from there. Example: @dimen/unit1</p>
+<p><b>Strings:</b> All strings should be stored in strings.xml resource file and need to be referenced from there. <br>example: R.string.euro, @string/app_name<br>
+<b>Colors:</b> All colors need to be stored in colors.xml resource file and need to be referenced from there. <br>Example: @color/black<br>
+<b>Dimensions:</b> All dimensions used in project need to be saved in dimens.xml resource file and need to be referenced from there. <br>Example: @dimen/unit1</p>
 <br>
 
 <h2>File ownership</h2>
