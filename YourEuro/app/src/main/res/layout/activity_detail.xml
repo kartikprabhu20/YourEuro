@@ -86,7 +86,7 @@
                         android:layout_height="wrap_content"
                         android:gravity="center"
                         android:hint="@string/amount"
-                        android:inputType="number"
+                        android:inputType="numberDecimal"
                         android:textColor="@color/red"
                         android:textSize="@dimen/unit4" />
                 </android.support.design.widget.TextInputLayout>

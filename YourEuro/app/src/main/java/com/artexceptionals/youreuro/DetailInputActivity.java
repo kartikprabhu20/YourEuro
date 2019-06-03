@@ -235,7 +235,6 @@ public class DetailInputActivity extends AppCompatActivity implements View.OnCli
     public void onClick(View v) {
         if (v == idate) {
             Calendar c = Calendar.getInstance();
-            final String currentdate = DateFormat.getDateInstance().format(c.getTime());
             day = c.get(Calendar.DAY_OF_MONTH);
             month = c.get(Calendar.MONTH);
             year = c.get(Calendar.YEAR);
@@ -244,18 +243,30 @@ public class DetailInputActivity extends AppCompatActivity implements View.OnCli
             DatePickerDialog datePickerDialog = new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
                 @Override
                 public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
-                    //tdate.setText(dayOfMonth + "/" + (monthOfYear + 1) + "/" + year);
-                    tdate.setText(currentdate);
+                    tdate.setText(dayOfMonth + "/" + (monthOfYear + 1) + "/" + year);
+                    //tdate.setText(currentdate);
                 }
             }, day, month, year);
+            datePickerDialog.updateDate(year,month,day);
             datePickerDialog.show();
 
         }
         if (v == itime) {
             {
                 Calendar c = Calendar.getInstance();
+                Date date = new Date();
+
+
                 hour = c.get(Calendar.HOUR_OF_DAY);
                 minute = c.get(Calendar.MINUTE);
+//
+//                public String convertDate(int minute) {
+//                if (minute >= 10) {
+//                    return String.valueOf(minute);
+//                } else {
+//                    return "0" + String.valueOf(minute);
+//                }
+
 
                 TimePickerDialog timePickerDialog = new TimePickerDialog(this, new TimePickerDialog.OnTimeSetListener() {
                     @Override
@@ -264,7 +275,10 @@ public class DetailInputActivity extends AppCompatActivity implements View.OnCli
                     }
                 }, hour, minute, false);
                 timePickerDialog.show();
+
+
             }
+
         }
     }
 }
