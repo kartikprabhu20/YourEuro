@@ -72,7 +72,7 @@ We are using pending intent to get triggered at specific time and using broadcas
 <img src=" https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/3.packaging.PNG?raw=true" width="250" height="250">
 <br>
 <h2>Annotations</h2> 
-<p>Annotation applicable to a method or constructor appear right above the method declaration, and each annotation is listed on a line of its own. Example: A method is marked with the @Override annotation whenever a class method overriding a superclass method or class method implementing an interface method.</p>
+<p>Annotations applicable to a method or constructor appears right above the its declaration, and each annotation is listed on a line of its own. Example: A method is marked with the @Override annotation whenever a class method overriding a superclass method or class method implementing an interface method.</p>
 <img src=" https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/3.annotationFinal.PNG?raw=true" width="750" height="150">
 <br>
 
