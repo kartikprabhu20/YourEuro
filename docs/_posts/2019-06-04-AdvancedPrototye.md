@@ -19,6 +19,7 @@ date: 2019-06-04
 <p><b>Controller:</b> MoneyControlManager is our main controller. Based on the request from the user it will perform operations on the model and modify the display accordingly.</p>
 
 <p><b>View:</b> DetailInputActivity is our main view through which user gives the transaction details and it notifies MoneyControlManager when user presses save button. </p>
+<img src=" https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/MVCarchitecture.jpeg?raw=true" width="800" height="500"><br>
 
 <p><b>Singleton pattern:</b> Our controller follows singleton pattern, since it interacts with the database and we want this interaction to be synchronised. Meaning multiple objects of database should not interact with database simultaneously. </p>
 <hr><br>
@@ -40,9 +41,9 @@ date: 2019-06-04
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; d. In case partial code is getting merged comment needs to have ‘Todo’</p>
 <br>
 <p><b>Naming conventions:</b> <br>
-a. <b>Variables:</b> All variable names are descriptive and written in lowerCamelCase<br>
-b. <b>Methods:</b> All method names are written lowerCamelCase<br>
-c. <b>Constants:</b> All constants are written in UPPER_CASE </p>
+<b>Variables:</b> All variable names are descriptive and written in lowerCamelCase<br>
+<b>Methods:</b> All method names are written lowerCamelCase<br>
+<b>Constants:</b> All constants are written in UPPER_CASE </p>
 <br>
         
 <h2>Packaging</h2> 
