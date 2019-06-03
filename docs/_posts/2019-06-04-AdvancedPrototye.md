@@ -51,18 +51,17 @@ We are using pending intent to set specific time and using broadcast receiver we
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; c. In line comments to explain the code logic if necessary<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; d. In case partial code is getting merged comment needs to have ‘Todo’</p>
 <p>Class comments snapshot: </p>
-<img src=" https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/3.DescriptionClassFinal.PNG?raw=true" width="750" height="325">
+<img src=" https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/3.DescriptionClassFinal.PNG?raw=true" width="750" height="250">
 <p>Method comments snapshot: </p>
-<img src=" https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/3.DescriptionMethodFinal.PNG?raw=true" width="750" height="325">
+<img src=" https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/3.DescriptionMethodFinal.PNG?raw=true" width="750" height="300">
 <p>Partial comments snapshot: </p>
-<img src=" https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/3.partialcodeFinal.PNG?raw=true" width="750" height="325">
+<img src=" https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/3.partialcodeFinal.PNG?raw=true" width="750" height="250">
 <br>
-<p><b>Naming conventions:</b> <br>
-<b>Variables:</b> All variable names are descriptive and written in lowerCamelCase<br>
+<h2>Naming conventions:</h2>
+<p><b>Variables:</b> All variable names are descriptive and written in lowerCamelCase<br>
 <b>Methods:</b> All method names are written lowerCamelCase<br>
 <b>Constants:</b> All constants are written in UPPER_CASE </p>
-<br>
-        
+<br>       
 <h2>Packaging</h2> 
 <p>Similar classes will be grouped and will be packaged in one folder.<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; a.	All model classes are in one package<br>
@@ -85,7 +84,7 @@ We are using pending intent to set specific time and using broadcast receiver we
 
 <h2>File ownership</h2>
 <p>file ownership for each file is provided using Javadoc comments</p><br>
-<img src=" https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/3.OwnerShipFinal.PNG?raw=true" width="750" height="325">
+<img src=" https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/3.OwnerShipFinal.PNG?raw=true" width="750" height="250">
 <br>
 <p>Initially everyone is briefed up on what coding conventions that will be followed in our project and also after each developer raises a merge request, the reviewers will check the changes thoroughly and give necessary comments and actions to be taken care of before merging. Once the comments are taken care then the code will be merged into main branch. By this way we make sure that everyone follows the necessary coding conventions.</p>
 
