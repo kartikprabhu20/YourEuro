@@ -108,12 +108,8 @@ We are using pending intent to get triggered at specific time and using broadcas
 <hr>
 <h1>Design solutions</h1>
 <p>Find the design solutions provided for two user stories with sequence of screens</p>
-<p><b>Design solution 1: </b> User should be able to add new record<br>
-1. Click on add new record<br>
-2. Add transaction details in detail input screen<br> 
-3. set Amount, select Category, Payment type, Recurring<br>
-4. Click on save button to save record<br>
-5. New record should be visible in Home screen<br>
+<p><b>Design solution 1: User should be able to add new cash record. Click on add new cash record. Then add the transaction details and click on save button. User should be able to see new cash record displayed in home screen.</p>
+	
 <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/3.1.MainPage.jpeg?raw=true" width="250" height="480"> 
 <div class="imageClass">
 <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/3.2.DetailActivity.jpeg?raw=true" width="250" height="480" >
