@@ -156,6 +156,9 @@ Toast messages: Necessary Toast messages are provided for execution of certain a
 	<img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/3.10.TimePicker.jpeg?raw=true" width="250" height="480">
 	<div class="imageClass">
 		<img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/3.3.Datepicker.jpeg?raw=true" width="250" height="480">
+		<div class="imageClass">
+		<img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/3.13.Category.jpeg?raw=true" width="250" height="480">
+		</div>
 	</div>
 	</div>
 <br>
