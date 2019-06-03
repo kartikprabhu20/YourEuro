@@ -18,15 +18,15 @@ public class Category implements Parcelable {
     @ColumnInfo(name = "catagoryName")
     String catagoryName;
     @ColumnInfo(name = "imageID")
-    int imageID;
+    String imageID;
 
-    public Category(String  catagoryName, int imageID) {
+    public Category(String  catagoryName, String imageID) {
         this.catagoryName = catagoryName;
         this.imageID = imageID;
     }
 
     @Ignore
-    public Category(int categoryID, String catagoryName, int imageID) {
+    public Category(int categoryID, String catagoryName, String imageID) {
         this(catagoryName,imageID);
         this.categoryID = categoryID;
     }
@@ -34,7 +34,7 @@ public class Category implements Parcelable {
     protected Category(Parcel in) {
         categoryID = in.readInt();
         catagoryName = in.readString();
-        imageID = in.readInt();
+        imageID = in.readString();
     }
 
     public static final Creator<Category> CREATOR = new Creator<Category>() {
@@ -64,11 +64,11 @@ public class Category implements Parcelable {
         this.catagoryName = catagoryName;
     }
 
-    public int getImageID() {
+    public String getImageID() {
         return imageID;
     }
 
-    public void setImageID(int imageID) {
+    public void setImageID(String imageID) {
         this.imageID = imageID;
     }
 
@@ -81,7 +81,7 @@ public class Category implements Parcelable {
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeInt(categoryID);
         dest.writeString(catagoryName);
-        dest.writeInt(imageID);
+        dest.writeString(imageID);
     }
 
     @Override

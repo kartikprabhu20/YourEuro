@@ -188,38 +188,39 @@ public class FilterActivity  extends AppCompatActivity implements View.OnClickLi
     @Override
     public void onClick(View v) {
         if (v == istartdate) {
-            Calendar c=Calendar.getInstance();
-            day=c.get(Calendar.DAY_OF_MONTH);
-            month=c.get(Calendar.MONTH);
-            year=c.get(Calendar.YEAR);
+            Calendar c = Calendar.getInstance();
+            day = c.get(Calendar.DAY_OF_MONTH);
+            month = c.get(Calendar.MONTH);
+            year = c.get(Calendar.YEAR);
 
-            DatePickerDialog datePickerDialog= new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
+            DatePickerDialog datePickerDialog = new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
                 @Override
                 public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
-                    tstartdate.setText(dayOfMonth+"/"+(monthOfYear+1)+"/"+year);
+                    tstartdate.setText(dayOfMonth + "/" + (monthOfYear + 1) + "/" + year);
 
                 }
-            },day,month,year);
+            }, day, month, year);
+            datePickerDialog.updateDate(year, month, day);
             datePickerDialog.show();
 
 
         }
         if (v == ienddate) {
-            Calendar c=Calendar.getInstance();
-            day=c.get(Calendar.DAY_OF_MONTH);
-            month=c.get(Calendar.MONTH);
-            year=c.get(Calendar.YEAR);
+            Calendar c = Calendar.getInstance();
+            day = c.get(Calendar.DAY_OF_MONTH);
+            month = c.get(Calendar.MONTH);
+            year = c.get(Calendar.YEAR);
 
-            DatePickerDialog datePickerDialog= new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
+            DatePickerDialog datePickerDialog = new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
                 @Override
                 public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
-                    tenddate.setText(dayOfMonth+"/"+(monthOfYear+1)+"/"+year);
+                    tenddate.setText(dayOfMonth + "/" + (monthOfYear + 1) + "/" + year);
                 }
-            },day,month,year);
+            }, day, month, year);
+            datePickerDialog.updateDate(year, month, day);
             datePickerDialog.show();
 
 
         }
-
     }
 }

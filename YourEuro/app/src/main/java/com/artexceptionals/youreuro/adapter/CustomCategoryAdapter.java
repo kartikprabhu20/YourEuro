@@ -45,7 +45,7 @@ public class CustomCategoryAdapter extends ArrayAdapter<Category> {
         } else {
             mViewHolder = (ViewHolder) convertView.getTag();
         }
-        mViewHolder.categoryImage.setImageResource(categories.get(position).getImageID());
+        mViewHolder.categoryImage.setImageDrawable(mContext.getResources().getDrawable(mContext.getResources().getIdentifier(categories.get(position).getImageID(),"drawable", mContext.getPackageName())));
         mViewHolder.categoryName.setText(categories.get(position).getCatagoryName());
 
         return convertView;
