@@ -65,7 +65,7 @@ date: 2019-06-04
 
 <h2>File ownership</h2>
 <p>file ownership for each file is provided using Javadoc comments</p><br>
-<p>Examples:</p>
+<p>Sample screenshots</p>
 <p>Indentation and Inline comments:</p>
 <img src=" https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/3.Indentation.PNG?raw=true" width="650" height="400"><br>
 <p>Class comments:</p>
@@ -96,9 +96,9 @@ date: 2019-06-04
 4. When and where will the user use our App?<br>
 5. What are user’s expectations from the App?</p>
 <br>
-<p><b>Persona 1:</b></p>
+<p><b>Persona Student: John Snow</b></p>
 <img src=" https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/3.persona1.PNG?raw=true" width="600" height="600"><br><br>
-<p><b>Persona 2:</b></p>
+<p><b>Persona Professionals: Penny Hofstetter</b></p>
 <img src=" https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/3.persona2.PNG?raw=true" width="600" height="600"><br>
 <hr>
 
