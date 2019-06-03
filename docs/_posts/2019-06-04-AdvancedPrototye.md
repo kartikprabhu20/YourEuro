@@ -30,7 +30,6 @@ date: 2019-06-04
 <p><b>Class file names:</b> follows UpperCamelCase and with extension “.java” example: CashRecord.java</p>
 <p><b>Resource file names:</b> written in lower case example: activity.main.xml </p>
 <br>
-
 <h2>Source code</h2>
 <p><b>Indentations:</b> Whenever new block of code is opened, a proper indentation is provided and when the block ends, the indent returns to the previous indent level. This is applied for both code and comments throughout the block.</p>
 <br>
@@ -39,10 +38,6 @@ date: 2019-06-04
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; b. Description of methods along with their parameters written using Javadoc.<br>        
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; c. In line comments to explain the code logic if necessary<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; d. In case partial code is getting merged comment needs to have ‘Todo’</p>
-<img src=" https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/3.Indentation.PNG?raw=true" width="600" height="400"><br>
-<img src=" https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/3.Descriptionclass.PNG?raw=true" width="300" height="200"><br>
-<img src=" https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/3.Descriptionmethod.PNG?raw=true" width="600" height="400"><br>
-<img src=" https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/3.partialcode.PNG?raw=true" width="600" height="400">
 <br>
 <p><b>Naming conventions:</b> <br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; a. <b>Variables:</b> All variable names are descriptive and written in lowerCamelCase<br>
@@ -56,12 +51,10 @@ date: 2019-06-04
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; b.	All adapter classes are in one package<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; c.	All database classes are in one package<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; d.	All other classes will be kept in main package</p>
-<img src=" https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/3.packaging.PNG?raw=true" width="200" height="200">
 <br>
 
 <h2>Annotations</h2> 
 <p>Annotation applying to a method or constructor appear right above the method declaration, and each annotation is listed on a line of its own. Example: A method is marked with the @Override annotation whenever a class method overriding a superclass method or class method implementing an interface method.</p>
-<img src=" https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/3.annotation.PNG?raw=true" width="300" height="190">
 <br>
 
 <h2>Generalisation</h2>
@@ -71,10 +64,23 @@ date: 2019-06-04
 <br>
 
 <h2>File ownership</h2>
-<p>file ownership for each file is provided using Javadoc comments</p>
-<img src=" https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/3.OwnerShip.PNG?raw=true" width="250" height="180">
+<p>file ownership for each file is provided using Javadoc comments</p><br>
+<p>Examples:</p>
+<p>Indentation and Inline comments:</p>
+<img src=" https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/3.Indentation.PNG?raw=true" width="650" height="400"><br>
+<p>Class comments:</p>
+<img src=" https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/3.Descriptionclass.PNG?raw=true" width="350" height="180"><br>
+<p>Method comments:</p>
+<img src=" https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/3.Descriptionmethod.PNG?raw=true" width="650" height="400"><br>
+<p>Partial Code:</p>
+<img src=" https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/3.partialcode.PNG?raw=true" width="650" height="300">
+<p>Packaging:</p>
+<img src=" https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/3.packaging.PNG?raw=true" width="250" height="250">
+<p>Annotation:</p>
+<img src=" https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/3.annotation.PNG?raw=true" width="350" height="190">
+<p>Ownership:</p>
+<img src=" https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/3.OwnerShip.PNG?raw=true" width="300" height="150">
 <br>
-
 <p>Initially everyone is briefed up on what coding conventions that will be followed in our project and also after each developer raises a merge request, the reviewers will check the changes thoroughly and give necessary comments and actions to be taken care of before merging. Once the comments are taken care then the code will be merged into main branch. By this way we make sure that everyone follows the necessary coding conventions.</p>
 
  <img src=" https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/Advanced_Prototype1.png?raw=true" width="800" height="250"><br><br>
