@@ -71,9 +71,9 @@ date: 2019-06-04
 <p>Class comments:</p>
 <img src=" https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/3.Descriptionclass.PNG?raw=true" width="400" height="180"><br>
 <p>Method comments:</p>
-<img src=" https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/3.Descriptionmethod.PNG?raw=true" width="650" height="370"><br>
+<img src=" https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/3.Descriptionmethod.PNG?raw=true" width="650" height="350"><br>
 <p>Partial Code:</p>
-<img src=" https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/3.partialcode.PNG?raw=true" width="650" height="250">
+<img src=" https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/3.partialcode.PNG?raw=true" width="650" height="200">
 <p>Packaging:</p>
 <img src=" https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/3.packaging.PNG?raw=true" width="250" height="250">
 <p>Annotation:</p>
