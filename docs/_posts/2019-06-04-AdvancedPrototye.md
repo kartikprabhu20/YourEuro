@@ -10,7 +10,7 @@ date: 2019-06-04
                 <p> Hello, welcome to our third blog. In the previous blog we introduced about the requirements, class diagrams and development strategy. In this blog we discuss about our design pattern, Implementation and User interface design.</p><hr><br>
 <h1>Design Pattern</h1><br>
 <p>The objective of our App is to keep track of money transactions on a daily basis and also to give the summarized report.</p> 
-                <p><b>MVC architecture:</b> It is very difficult to create your User interfaces, Control logic and Databases together. We chose to follow MVC architecture in the development of our App to overcome this issue. MVC is an acronym for Model-View-Control. By following this architecture, we can separate our Model (database), Views (Activities), and Controller (Control logic) and it allows each to change without affecting the others. </p>
+                <p><b>MVC architecture:</b> It is very difficult to create the user interfaces, control logic and databases together. We chose to follow MVC architecture in the development of our App to overcome this issue. MVC is an acronym for Model-View-Controller. By following this architecture, we can separate our Model (database), Views (Activities), and Controller (Control logic) and it allows each to change without affecting the other. </p>
   
 <p> The CashRecord class is our core entity and every transaction is an object of this class. The created objects will be saved in the database. </p>
 
@@ -20,18 +20,18 @@ date: 2019-06-04
 
 <p><b>View:</b> DetailInputActivity is our main view through which user gives the transaction details and it notifies MoneyControlManager when user presses save button. </p>
 <img src=" https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/MVCarchitecture.jpeg?raw=true" width="700" height="300"><br>
-<p><b>Builder pattern:</b> Alert dialogs are created using builder patterns. Using builder pattern multiple representations can be made using same construction method. You can include only the required fields while constructing a Aler dialog using builder pattern.</p>
+<p><b>Builder pattern:</b> Alert dialogs are created using builder patterns. Using builder pattern multiple representations can be made using same construction method. We can include only the required fields while constructing a Alert dialog using builder pattern.</p>
 <img src=" https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/3.AlertDialog.PNG?raw=true" width="750" height="325">
 <br>
-<p><b>Adapter design pattern:</b> Adapter design pattern are used for setting recycler views. Adapter controls both Recycler view as well as database. Our CashRecordAdapter will be used to set data in recycler views in MainActivity and it will be used to set data in CashRecordDatabase. MoneyControlManager will have CashRecordAdapter instance (MVC pattern).</p>
+<p><b>Adapter design pattern:</b> Adapter design pattern are used for setting recycler views. Adapter controls the Recycler view by getting data directly from the database. Our CashRecordAdapter will be used to set data in recycler views in MainActivity and it will get the data from CashRecordDatabase. MoneyControlManager will have CashRecordAdapter instance (MVC pattern).</p>
 <br>
 
-<p><b>Singleton pattern:</b> Our controller follows singleton pattern, since it interacts with the database and we want this interaction to be synchronised. Meaning multiple objects of database should not interact with database simultaneously. </p>
+<p><b>Singleton pattern:</b> Our controller follows singleton pattern, since it interacts with the database and we want this interaction to be synchronised. Meaning multiple objects of the controller should not interact with database simultaneously. </p>
 <br>
-<p><b>Observer design pattern:</b> Observer design patterns are used whenever an event should be performed automatically. We are using this pattern for recording recurring events.<br>
+<p><b>Observer design pattern:</b> Observer design patterns are used whenever an event should be performed automatically. We are using this pattern for executing recurring events.<br>
         <b>Broadcast receiver:</b> It can be used to register for a required event. All registered receivers will be notified by android runtime once the required event happens.<br>
         <b>Pending intent:</b> It can be passed as a token to another application/event. This will give the permission for the other application to perform some predefined task.<br>
-We are using pending intent to set specific time and using broadcast receiver we can trigger recurring events.</p>
+We are using pending intent to get triggered at specific time and using broadcast receiver we can execute recurring events.</p>
 
 
 <h1>Coding Conventions</h1>
@@ -109,11 +109,13 @@ We are using pending intent to set specific time and using broadcast receiver we
 <h1>Design solutions</h1>
 <p>Find the design solutions provided for two user stories with sequence of screens</p>
 <div class="imageClass">
-<img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/3.1.MainPage.jpeg?raw=true" width="240" height="480"> 
+<img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/3.1.MainPage.jpeg?raw=true" width="230" height="480"> 
 <div class="imageClass">
-<img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/3.2.DetailActivity.jpeg?raw=true" width="240" height="480">
+<img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/3.2.DetailActivity.jpeg?raw=true" width="230" height="480" >
 	<div class="imageClass">
-<img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/3.4.Added.jpeg?raw=true" width="240" height="480">
+<img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/3.3.Datepicker.jpeg?raw=true" width="230" height="480"  >
+                <div class="imageClass">
+<img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/3.4.Added.jpeg?raw=true" width="230" height="480"  >
 </div>
 </div>
 </div>
