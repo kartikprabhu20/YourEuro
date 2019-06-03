@@ -10,8 +10,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.DatePicker;
 import android.widget.EditText;
@@ -94,11 +94,9 @@ public class DetailInputActivity extends AppCompatActivity implements View.OnCli
     MoneyControlManager moneyControlManager;
     ArrayAdapter<Category> categoryAdapter = null;
     CashRecord cashRecord;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
-
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
         ButterKnife.bind(this);
@@ -107,19 +105,23 @@ public class DetailInputActivity extends AppCompatActivity implements View.OnCli
         setSupportActionBar(toolbar);
 
         init();
+
+        getWindow().setSoftInputMode(
+                WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
     }
 
     private void init() {
-        moneyControlManager = MoneyControlManager.getInstance(this);
+        moneyControlManager = MoneyControlManager.getInstance(YourEuroApp.getAppContext());
         cashRecord = new CashRecord();
         cashRecord.setCashRecordType(Constants.CashRecordType.EXPENSE);
 
         ArrayAdapter<CharSequence> paymentTypesAdapter = ArrayAdapter.createFromResource(this,
                 R.array.paymenttypes_array, R.layout.spinner_item);
         paymentTypesAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
         paymentTypeSpinner.setAdapter(paymentTypesAdapter);
 
-         categoryAdapter = new CustomCategoryAdapter(this,moneyControlManager.getAllCategories());
+        categoryAdapter = new CustomCategoryAdapter(this,moneyControlManager.getAllCategories());
         categoryAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         categorySpinner.setAdapter(categoryAdapter);
 
@@ -150,6 +152,8 @@ public class DetailInputActivity extends AppCompatActivity implements View.OnCli
         ttime.setText(current_time);
         idate.setOnClickListener(this);
         itime.setOnClickListener(this);
+
+        currencySymbolTextView.setText(CurrencyHelper.getSymbol(moneyControlManager.getSharedPreference().genericGetString(CurrencyHelper.CURRENT_CURRENCY, CurrencyHelper.CurrencyType.EURO)));
 
     }
 
@@ -186,8 +190,6 @@ public class DetailInputActivity extends AppCompatActivity implements View.OnCli
         @Override
         public void onClick(View view) {
 
-
-
             switch (view.getId()){
                 case R.id.togglebutton_income:
                     incomeToggleButton.setBackgroundColor(getResources().getColor(R.color.colorAccent));
@@ -214,11 +216,12 @@ public class DetailInputActivity extends AppCompatActivity implements View.OnCli
     };
 
     private void saveCashRecord() {
-        cashRecord.setAmount(Float.parseFloat(String.valueOf(amountEditText.getText())));
+        float amount = Float.parseFloat(String.valueOf(amountEditText.getText()));
+        cashRecord.setAmount(cashRecord.getCashRecordType().equalsIgnoreCase(Constants.CashRecordType.INCOME)? amount : amount * -1);
         cashRecord.setCategory(categoryAdapter.getItem(categorySpinner.getSelectedItemPosition()));
         cashRecord.setNotes(String.valueOf(noteEditText.getText()));
         cashRecord.setTimeStamp(new Date().getTime());
-        cashRecord.setCurrency(CurrencyHelper.CurrencyType.EURO);// Save currency type in shared preference in settings, use same sharedpreference to get currency here
+        cashRecord.setCurrency(moneyControlManager.getSharedPreference().genericGetString(CurrencyHelper.CURRENT_CURRENCY, CurrencyHelper.CurrencyType.EURO));
         cashRecord.setPaymentType(PaymentTypeHelper.getPaymentType(paymentTypeSpinner.getSelectedItem().toString()));
         cashRecord.setRecurringTransaction(recurringCheckBox.isChecked());
         cashRecord.setRecurringType(recurringCheckBox.isChecked()? scheduleSpinner.getSelectedItem().toString(): RecurringHelper.RecurringType.UNKNOWN);

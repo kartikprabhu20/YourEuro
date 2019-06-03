@@ -11,8 +11,9 @@ android:layout_height="wrap_content"
         android:id="@+id/category_spinner_image"
         android:layout_width="@dimen/unit4"
         android:layout_height="@dimen/unit4"
-        android:src="@drawable/youreuro_square"
-        android:padding="@dimen/unit2"/>
+        android:layout_gravity="center_vertical"
+        android:padding="@dimen/unit2"
+        android:src="@drawable/youreuro_square" />
 
 
     <TextView

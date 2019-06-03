@@ -18,7 +18,7 @@ public class CashRecord implements Parcelable {
 
     public static final String CASHRECORD_DETAIL = "cashrecord_details";
     @PrimaryKey(autoGenerate = true)
-    private int uid;
+    private long uid;
 
     @ColumnInfo(name = "notes")
     String notes;
@@ -66,7 +66,7 @@ public class CashRecord implements Parcelable {
     }
 
     protected CashRecord(Parcel in) {
-        uid = in.readInt();
+        uid = in.readLong();
         notes = in.readString();
         timeStamp = in.readLong();
         amount = in.readFloat();
@@ -90,11 +90,11 @@ public class CashRecord implements Parcelable {
         }
     };
 
-    public int getUid() {
+    public long getUid() {
         return uid;
     }
 
-    public void setUid(int uid) {
+    public void setUid(long uid) {
         this.uid = uid;
     }
 
@@ -180,7 +180,7 @@ public class CashRecord implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        dest.writeInt(uid);
+        dest.writeLong(uid);
         dest.writeString(notes);
         dest.writeLong(timeStamp);
         dest.writeFloat(amount);

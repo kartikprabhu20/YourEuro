@@ -7,4 +7,5 @@
     android:layout_height="@dimen/unit4_5"
     android:ellipsize="marquee"
     android:textSize="@dimen/unit3_5"
-    android:textAlignment="inherit" />
+    android:textAlignment="inherit"
+    android:gravity="center_vertical"/>

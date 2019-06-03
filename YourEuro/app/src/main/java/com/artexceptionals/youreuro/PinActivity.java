@@ -23,7 +23,7 @@ public class PinActivity extends AppCompatActivity {
 
     public void Validation(View view) {
         enteredPIN = Integer.parseInt(pinEditText.getText().toString());
-        actualPIN = CustomSharedPreferences.getInstance(PinActivity.this).getInt("user_pin");
+        actualPIN = CustomSharedPreferences.getInstance(YourEuroApp.getAppContext()).getInt("user_pin");
         if (enteredPIN == actualPIN) {
             Intent intent = new Intent(PinActivity.this, MainActivity.class);
             intent.putExtra(CORRECT_PIN,true);

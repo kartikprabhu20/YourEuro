@@ -102,7 +102,7 @@ public class FilterActivity  extends AppCompatActivity implements View.OnClickLi
     }
 
     private void init() {
-        moneyControlManager = MoneyControlManager.getInstance(this);
+        moneyControlManager = MoneyControlManager.getInstance(YourEuroApp.getAppContext());
 
         ArrayAdapter<CharSequence> paymentTypesAdapter = ArrayAdapter.createFromResource(this,
                 R.array.paymenttypes_array, R.layout.spinner_item);

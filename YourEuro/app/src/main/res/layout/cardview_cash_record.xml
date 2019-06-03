@@ -90,25 +90,29 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:weightSum="7">
 
                 <TextView
                     android:id="@+id/currency_tv"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
                     android:text="$"
-                    android:textAlignment="viewStart"
                     android:textColor="@color/green"
-                    android:textSize="@dimen/unit3" />
+                    android:textSize="@dimen/unit3"
+                    android:layout_weight="1" />
 
                 <TextView
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:text="Amount"
                     android:textSize="@dimen/unit3"
                     android:paddingRight= "@dimen/unit3"
                     android:textColor="@color/green"
                     android:id="@+id/amount_tv"
+                    android:layout_weight="6"
                     android:textAlignment="viewEnd"/>
 
             </LinearLayout>
