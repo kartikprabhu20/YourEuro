@@ -108,16 +108,28 @@ We are using pending intent to get triggered at specific time and using broadcas
 <hr>
 <h1>Design solutions</h1>
 <p>Find the design solutions provided for two user stories with sequence of screens</p>
-<p><b>Design solution 1: User should be able to add new cash record. Click on add new cash record. Then add the transaction details and click on save button. User should be able to see new cash record displayed in home screen.</p>
-	
+<p><b>Design solution 1:</b> User should be able to add new cash record. Click on add new cash record. Then add the transaction details and click on save button. User should be able to see new cash record displayed in home screen.</p>
+<div class="imageClass">	
 <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/3.1.MainPage.jpeg?raw=true" width="250" height="480"> 
 <div class="imageClass">
 <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/3.2.DetailActivity.jpeg?raw=true" width="250" height="480">
 	<div class="imageClass">
 <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/3.4.Added.jpeg?raw=true" width="250" height="480">
 </div>
+	</div>
 </div>
-<p>a) Home Screen &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;b) Detail input screen &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; c)Added new record</p><br>
+
+<p><b>Design solution 2:</b> User should be able to configure app from Settings screen. First go to settings screen. Click on Enable Pin. Then set the desired pin in Set pin dialog. User should get "Your PIN has been set" message.</p>
+<div class="imageClass">
+	<img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/3.5.SettingsScreen.jpeg?raw=true" width="250" height="480">
+	<div class="imageClass">
+		<img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/3.6.SetPIN.jpeg?raw=true" width="250" height="480">
+		<div class="imageClass">
+			<img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/3.7.PINsetsuccesful.jpeg?raw=true" width="250" height="480">
+		</div>
+	</div>
+	</div>
+	
 <br>
 <h1>Design principles Implemented</h1>
 <p>We followed Android design principles developed by Android User Experience team whose main objective is to keep user’s best interests in mind. We implemented which ever design principles applicable to our project.</p>
