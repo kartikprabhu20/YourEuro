@@ -20,7 +20,7 @@ date: 2019-06-04
 
 <p><b>View:</b> DetailInputActivity is our main view through which user gives the transaction details and it notifies MoneyControlManager when user presses save button. </p>
 
-<p><b><Singleton pattern:</b> Our controller follows singleton pattern, since it interacts with the database and we want this interaction to be synchronised. Meaning multiple objects of database should not interact with database simultaneously. </p>
+<p><b>Singleton pattern:</b> Our controller follows singleton pattern, since it interacts with the database and we want this interaction to be synchronised. Meaning multiple objects of database should not interact with database simultaneously. </p>
 <hr><br>
 
 <h1>Coding Conventions</h1>
@@ -47,7 +47,7 @@ date: 2019-06-04
 <br>
         
 <h2>Packaging</h2> 
-<p>Similar classes will be grouped and will be packaged in one folder.  
+<p>Similar classes will be grouped and will be packaged in one folder.<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; a.	All model classes are in one package<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; b.	All adapter classes are in one package<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; c.	All database classes are in one package<br>
@@ -55,8 +55,7 @@ date: 2019-06-04
 <br>
 
 <h2>Annotations</h2> 
-<p>Annotation applying to a method or constructor appear right above the method declaration, and each annotation is listed on a line of its own.<br>
-Example: A method is marked with the @Override annotation whenever a class method overriding a superclass method or class method implementing an interface method.</p>
+<p>Annotation applying to a method or constructor appear right above the method declaration, and each annotation is listed on a line of its own. Example: A method is marked with the @Override annotation whenever a class method overriding a superclass method or class method implementing an interface method.</p>
 <br>
 
 <h2>Generalisation</h2>
@@ -76,7 +75,7 @@ Example: A method is marked with the @Override annotation whenever a class metho
 <hr><br>
 
 <h1>Context of use</h1>
-<p>It is important to identify the target users for developing a relevant and useful application. It helps us in identifying what key features and functionalities need to be included in our app. Following are the two personas we have identified for our App who represents majority of our user group, by answering the following questions. <br> 
+<p>It is important to identify the target users for developing a relevant and useful application. It helps us in identifying what key features and functionalities need to be included in our app. Following are the two personas we have identified for our App who represents majority of our user group, by answering the following questions. <br><br>
 1. What is the highest level of education this person has received?<br>
 2. What is the professional background of the user?<br>
 3. What is the objective of user to use our App?<br>
