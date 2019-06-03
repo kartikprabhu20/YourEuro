@@ -29,8 +29,8 @@ date: 2019-06-04
 <p><b>Singleton pattern:</b> Our controller follows singleton pattern, since it interacts with the database and we want this interaction to be synchronised. Meaning multiple objects of the controller should not interact with database simultaneously. </p>
 <br>
 <p><b>Observer design pattern:</b> Observer design patterns are used whenever an event should be performed automatically. We are using this pattern for executing recurring events.<br>
-        <b>Broadcast receiver:</b> It can be used to register for a required event. All registered receivers will be notified by android runtime once the required event happens.<br>
-        <b>Pending intent:</b> It can be passed as a token to another application/event. This will give the permission for the other application to perform some predefined task.<br>
+        Broadcast receiver: It can be used to register for a required event. All registered receivers will be notified by android runtime once the required event happens.<br>
+        Pending intent: It can be passed as a token to another application/event. This will give the permission for the other application to perform some predefined task.<br>
 We are using pending intent to get triggered at specific time and using broadcast receiver we can execute recurring events.</p>
 
 
