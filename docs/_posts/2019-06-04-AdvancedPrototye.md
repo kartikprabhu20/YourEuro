@@ -69,17 +69,17 @@ date: 2019-06-04
 <p>Indentation and Inline comments:</p>
 <img src=" https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/3.Indentation.PNG?raw=true" width="650" height="400"><br>
 <p>Class comments:</p>
-<img src=" https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/3.Descriptionclass.PNG?raw=true" width="350" height="180"><br>
+<img src=" https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/3.Descriptionclass.PNG?raw=true" width="400" height="180"><br>
 <p>Method comments:</p>
-<img src=" https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/3.Descriptionmethod.PNG?raw=true" width="650" height="400"><br>
+<img src=" https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/3.Descriptionmethod.PNG?raw=true" width="650" height="370"><br>
 <p>Partial Code:</p>
-<img src=" https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/3.partialcode.PNG?raw=true" width="650" height="300">
+<img src=" https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/3.partialcode.PNG?raw=true" width="650" height="250">
 <p>Packaging:</p>
 <img src=" https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/3.packaging.PNG?raw=true" width="250" height="250">
 <p>Annotation:</p>
 <img src=" https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/3.annotation.PNG?raw=true" width="350" height="190">
 <p>Ownership:</p>
-<img src=" https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/3.OwnerShip.PNG?raw=true" width="300" height="150">
+<img src=" https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/3.OwnerShip.PNG?raw=true" width="350" height="150">
 <br>
 <p>Initially everyone is briefed up on what coding conventions that will be followed in our project and also after each developer raises a merge request, the reviewers will check the changes thoroughly and give necessary comments and actions to be taken care of before merging. Once the comments are taken care then the code will be merged into main branch. By this way we make sure that everyone follows the necessary coding conventions.</p>
 
