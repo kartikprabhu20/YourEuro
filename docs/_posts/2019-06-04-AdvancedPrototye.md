@@ -148,6 +148,12 @@ Toast messages: Necessary Toast messages are provided for execution of certain a
 	</div>
 <br>
 <p><b>Only show what user need and when he needs it:</b> User will be overwhelmed if he sees too much of options at the first screen. So, break the tasks and hide the unnecessary options. Only show options which are really needed and slowly teach the user about advanced tasks as he progresses.</p>
+<div class="imageClass">
+	<img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/3.2.DetailActivity.jpeg?raw=true" width="250" height="480">
+	<div class="imageClass">
+		<img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/3.15Recurringactivity.jpeg?raw=true" width="250" height="480">
+	</div>
+	</div>
 <br>
 <p><b>Never lose any customization data created by user:</b> Always save the data what user took time to create. Always remember the settings like the login pin, currency selection set by user and personal touches like customised categories created by user.</p>
 <br>
