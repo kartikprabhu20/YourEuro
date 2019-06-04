@@ -81,7 +81,7 @@ We are using pending intent to get triggered at specific time and using broadcas
 <h2>Generalisation</h2>
 <p><b>Strings:</b> All strings should be stored in 'strings.xml' resource file and need to be referenced from there itself. Hard coding of strings needs to be avaoided. This will help when the application is globalised and multiple languages are supported. <br>Example: R.string.euro, @string/app_name<br>
 <b>Colors:</b> All colors need to be stored in 'colors.xml' resource file and need to be referenced from there. <br>Example: @color/black<br>
-<b>Dimensions:</b> All dimensions used in project need to be saved in 'dimens.xml' resource file and need to be referenced from there. <br>Example: @dimen/unit1</p>
+<b>Dimensions:</b> All dimensions used in project need to be saved in 'dimens.xml' resource file and need to be referenced from there. Example: @dimen/unit1</p>
 <br>
 
 <h2>File ownership</h2>
@@ -201,7 +201,7 @@ Toast messages: Necessary Toast messages are provided for execution of certain a
 1. Added long threshold in category class for setting threshold.<br>
 2. Added new class for category database<br>
 3. Added new mothods exportDbpdf() and getPDF() in MoneyControllerManager</p>
-<img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/3.NewClassDiagram.jpeg?raw=true" width="900" height="700"><br><hr>
+<img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/3.NewClassDiagram.jpeg?raw=true" width="900" height="650"><br><hr>
 <h1>App screenshots</h1>
 <p>Most of the actual app screen shots are already added above. Please find some extra app screenshots.</p>
 <p>First image shows history screen where user can see history of transactioins<br>In second screen user can visualise his transactions in the form of PIE graph.</p>
