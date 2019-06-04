@@ -203,6 +203,7 @@ Toast messages: Necessary Toast messages are provided for execution of certain a
   <p> Please find the downloadable application link here: <a href="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/releases/download/release/app-debug.apk">Downlaod</a></p>
 <br><hr>
 <h3><i><strong>Thank You for visiting our blog!! That’s all for Now. Stay tuned for more updates on our project!!</strong></i></h3>
+<p>First image shows history screen where user can see history of transactioins<br>In second chart user can visualise his transactions in the form of PIE graph.</p>
 <div class="imageClass">
 	<img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/3.14.History.jpeg?raw=true" width="250" height="480">
 	<div class="imageClass">
