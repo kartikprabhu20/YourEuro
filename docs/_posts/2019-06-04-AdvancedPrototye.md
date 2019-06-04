@@ -196,18 +196,17 @@ Toast messages: Necessary Toast messages are provided for execution of certain a
 1. Added long threshold in category class for setting threshold.<br>
 2. Added new class for category database<br>
 3. Added new mothods exportDbpdf() and getPDF() in MoneyControllerManager</p>
-<img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/3.ClassDiagram.jpeg?raw=true" width="400" height="500"><br><hr>
+<img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/3.ClassDiagram.jpg?raw=true" width="400" height="500"><br><hr>
 <h1>App screenshots</h1>
 <p>Most of the actual app screen shots are already added above. Please find some extra app screenshots.</p>
+<p>First image shows history screen where user can see history of transactioins<br>In second chart user can visualise his transactions in the form of PIE graph.</p>
+<div class="imageClass">
+	<img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/3.14.History.jpeg?raw=true" width="400" height="480">
+	<div class="imageClass">
+		<img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/3.PIEChart.jpeg?raw=true" width="400" height="480">
+	</div>
+	</div><hr><br>
 <h1>Working Prototype</h1>
   <p> Please find the downloadable application link here: <a href="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/releases/download/release/app-debug.apk">Downlaod</a></p>
 <br><hr>
 <h3><i><strong>Thank You for visiting our blog!! That’s all for Now. Stay tuned for more updates on our project!!</strong></i></h3>
-<p>First image shows history screen where user can see history of transactioins<br>In second chart user can visualise his transactions in the form of PIE graph.</p>
-<div class="imageClass">
-	<img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/3.14.History.jpeg?raw=true" width="250" height="480">
-	<div class="imageClass">
-		<img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/3.PIEChart.jpeg?raw=true" width="250" height="480">
-	</div>
-	</div>
-
