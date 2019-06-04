@@ -198,7 +198,7 @@ Toast messages: Necessary Toast messages are provided for execution of certain a
 <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/3.ClassDiagram.jpg?raw=true" width="600" height="700"><br><hr>
 <h1>App screenshots</h1>
 <p>Most of the actual app screen shots are already added above. Please find some extra app screenshots.</p>
-<p>First image shows history screen where user can see history of transactioins<br>In second chart user can visualise his transactions in the form of PIE graph.</p>
+<p>First image shows history screen where user can see history of transactioins<br>In second screen user can visualise his transactions in the form of PIE graph.</p>
 <div class="imageClass">
 	<img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/3.14.History.jpeg?raw=true" width="250" height="480">
 	<div class="imageClass">
