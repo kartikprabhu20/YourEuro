@@ -196,12 +196,12 @@ Toast messages: Necessary Toast messages are provided for execution of certain a
 
 <p>Because of these added features we have changes in our user stories and Class diagram</p>
 <p>Changes in User stories: There have been addition of few stories in user stories due to added requirements</p>
-<img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/3.UserStoriesChanged.png?raw=true" width="500" height="400">
+<img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/3.UserStoriesChanged.png?raw=true" width="550" height="450">
 <p>Changes in class Diagram: There have been some modifications and additions of classes<br>
 1. Added long threshold in category class for setting threshold.<br>
 2. Added new class for category database<br>
 3. Added new mothods exportDbpdf() and getPDF() in MoneyControllerManager</p>
-<img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/3.NewClassDiagram.jpeg?raw=true" width="800" height="700"><br><hr>
+<img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/3.NewClassDiagram.jpeg?raw=true" width="900" height="700"><br><hr>
 <h1>App screenshots</h1>
 <p>Most of the actual app screen shots are already added above. Please find some extra app screenshots.</p>
 <p>First image shows history screen where user can see history of transactioins<br>In second screen user can visualise his transactions in the form of PIE graph.</p>
