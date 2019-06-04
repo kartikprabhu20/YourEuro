@@ -182,21 +182,20 @@ Toast messages: Necessary Toast messages are provided for execution of certain a
 
 <h2>Additions</h2>
 <p>Newly added essential requirements:<br>
-1. Categories should be should be shown with name and icon<br>
+1. Categories should be shown with name and icon<br>
 2. User should be able to add new categories<br>
-3. Categories should be should be shown with name and icon<br>
-4. User should be able to delete existing records<br>
-5. Two charts are required for visualization of data<br>
-6. Monthly summary need to be exported as PDF</p>
+3. User should be able to delete existing records<br>
+4. Two charts are required for visualization of data<br>
+5. Monthly summary need to be exported as PDF</p>
 
 <p>Because of these added features we have changes in our user stories and Class diagram</p>
 <p>Changes in User stories: There have been addition of few stories in user stories due to added requirements</p>
-<img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/3.UserStoriesChanged.png?raw=true" width="400" height="500">
+<img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/3.UserStoriesChanged.png?raw=true" width="500" height="500">
 <p>Changes in class Diagram: There have been some modifications and additions of classes<br>
 1. Added long threshold in category class for setting threshold.<br>
 2. Added new class for category database<br>
 3. Added new mothods exportDbpdf() and getPDF() in MoneyControllerManager</p>
-<img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/3.ClassDiagram.jpg?raw=true" width="400" height="500"><br><hr>
+<img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/3.ClassDiagram.jpg?raw=true" width="600" height="700"><br><hr>
 <h1>App screenshots</h1>
 <p>Most of the actual app screen shots are already added above. Please find some extra app screenshots.</p>
 <p>First image shows history screen where user can see history of transactioins<br>In second chart user can visualise his transactions in the form of PIE graph.</p>
