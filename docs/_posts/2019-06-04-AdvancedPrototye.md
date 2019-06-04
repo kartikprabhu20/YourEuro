@@ -172,20 +172,26 @@ Toast messages: Necessary Toast messages are provided for execution of certain a
 <hr><br>
 
 <h1>Summary of changes</h1>
-<p>In comparison to basic prototype there have been few changes and additions in the design. 
-Changes: 
-Now the user can enable or disable the pin login option from settings window and change pin option have been shifted to settings screen. <p>The option for selecting the currency have been added in the settings screen.  </p>
-<h1>Additions</h1>
-<p>Categories should be shown with both icon and name. User should be able create new categories</p>
-//TODO:Show class diagram change for cashrecord<br>
-//Changes in database, created a separate db for category.<br>
-//While adding custom category, suggest a predefined list of different icons for the new category.(can be user story)<br>
-User should be able to delete an existing record. <br><br>
-//TODO: screenshots of detail activity before and after delete option
+<p>In comparison to basic prototype there have been few changes and additions in the design.</p> 
+<h2>Changes: </h2>
+<p>1. Now the user can enable or disable the pin login option from settings screen. <br> 
+2. Change pin option have been shifted to settings screen. <br>
+3. The option for selecting the currency have been added in the settings screen. <br>
+4. User can be able to set transaction as recurring in detail input screen. <br>
+5. User can view history of transactions in history page and filter based on Category, Payment type, Date range, Amount range.  </p>
 
-User should be able to set some threshold/limit for amount of money to be spent on each category. Beyond the threshold every transaction of that record should be shown in Red colour. It should also be reflected in graph.<br>
-We need at least two charts for visualising the transactions<br>
-//The layouts were changed to handle multiple charts/graphs<br>
-Monthly summary need to be exported as PDF and should be sent in E-mail.<br>
-//The MoneycontrolManager was added with another method to convert the database into pdf.<br>
-monyeControllManager.getPdf();<br></p>
+<h2>Additions</h2>
+<p>Newly added essential requirements:<br>
+1. Categories should be should be shown with name and icon<br>
+2. User should be able to add new categories<br>
+3. Categories should be should be shown with name and icon<br>
+4. User should be able to delete existing records<br>
+5. Two charts are required for visualization of data<br>
+6. Monthly summary need to be exported as PDF</p>
+
+<p>Because of these added features we have changes in our user stories and Class diagram</p>
+<p>Changes in User stories</p>
+<img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/3.UserStoriesChanged.png?raw=true" width="400" height="500">
+<p>Changes in class Diagram:</p>
+<img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/3.ClassDiagram.jpeg?raw=true" width="400" height="500">
+
