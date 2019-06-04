@@ -133,6 +133,7 @@ We are using pending intent to get triggered at specific time and using broadcas
 	</div>
 	
 <br>
+<hr>
 <h1>Design principles Implemented</h1>
 <p>We followed Android design principles developed by Android User Experience team whose main objective is to keep user’s best interests in mind. We implemented which ever design principles applicable to our project.</p>
 <p>Its not just about creating an application that works and serves the purpose but also, we must consider keeping user happy and satisfied with the application.</p>
