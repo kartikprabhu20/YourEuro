@@ -74,6 +74,15 @@ public class DetailDisplayActivity extends AppCompatActivity {
     @BindView(R.id.togglebutton_income)
     ToggleButton incomeToggleButton;
 
+    @BindView(R.id.category_selected_image)
+    ImageView categorySelectedImageView;
+
+    @BindView(R.id.category_selected_Name)
+    TextView categorySelectedTextView;
+
+    @BindView(R.id.selected_paymenttype)
+    TextView paymentSelectedTextView;
+
     MoneyControlManager moneyControlManager;
     ArrayAdapter<Category> categoryAdapter = null;
     CashRecord cashRecord;
@@ -114,18 +123,11 @@ public class DetailDisplayActivity extends AppCompatActivity {
             amountEditText.setTextColor(getResources().getColor(R.color.green));
         }
 
-        ArrayAdapter<CharSequence> paymentTypesAdapter = ArrayAdapter.createFromResource(this,
-                R.array.paymenttypes_array, R.layout.spinner_item);
-        paymentTypesAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        paymentTypeSpinner.setAdapter(paymentTypesAdapter);
-        paymentTypeSpinner.setSelection(paymentTypesAdapter.getPosition(cashRecord.getPaymentType()));
-        paymentTypeSpinner.setEnabled(false);
-
-        categoryAdapter = new CustomCategoryAdapter(this,moneyControlManager.getAllCategories());
-        categoryAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        categorySpinner.setAdapter(categoryAdapter);
-        categorySpinner.setSelection(categoryAdapter.getPosition(cashRecord.getCategory()));
-        categorySpinner.setEnabled(false);
+        paymentTypeSpinner.setVisibility(View.GONE);
+        categorySpinner.setVisibility(View.GONE);
+        categorySelectedImageView.setImageDrawable(getApplicationContext().getResources().getDrawable(getApplicationContext().getResources().getIdentifier(cashRecord.getCategory().getImageID(),"drawable", getApplicationContext().getPackageName())));
+        categorySelectedTextView.setText(cashRecord.getCategory().getCatagoryName());
+        paymentSelectedTextView.setText(cashRecord.getPaymentType());
 
         recurringCheckBox.setChecked(cashRecord.isRecurringTransaction());
         recurringCheckBox.setEnabled(false);

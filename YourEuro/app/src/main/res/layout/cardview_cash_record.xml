@@ -17,15 +17,27 @@
         android:orientation="horizontal"
         android:weightSum="7">
 
-        <com.mikhaellopez.circularimageview.CircularImageView
-            android:id="@+id/category_image"
-            android:layout_width="@dimen/unit5"
-            android:layout_height="@dimen/unit5"
-            android:padding="@dimen/unit2"
-            android:scaleType="centerInside"
-            android:layout_gravity="center_vertical"
-            android:src="@drawable/ic_baseline_shopping"/>
+        <android.support.v7.widget.CardView
+            android:id="@+id/parent_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="@dimen/unit4"
+            android:layout_margin="@dimen/unit1"
+            app:cardBackgroundColor="@color/highlight_blue"
+            android:outlineSpotShadowColor="@color/black"
+            android:elevation="@dimen/unit4"
+            android:layout_gravity="center_vertical">
 
+            <ImageView
+                android:id="@+id/category_image"
+                android:layout_width="@dimen/unit5"
+                android:layout_height="@dimen/unit5"
+                android:layout_gravity="center"
+                android:padding="@dimen/unit2"
+                android:scaleType="centerCrop"
+                android:src="@drawable/ic_baseline_shopping" />
+
+        </android.support.v7.widget.CardView>
 
         <LinearLayout
             android:layout_width="wrap_content"
