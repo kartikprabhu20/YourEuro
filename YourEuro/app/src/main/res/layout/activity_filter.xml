@@ -48,12 +48,16 @@
                 android:text="@string/category"
                 android:layout_weight="2"/>
 
-            <Spinner
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/category_filter_spinner"
-                android:layout_weight="1"/>
         </LinearLayout>
+
+        <ListView
+            android:paddingLeft="@dimen/unit5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/category_filter_listView"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:choiceMode="multipleChoice" />
 
         <LinearLayout
             android:layout_width="match_parent"

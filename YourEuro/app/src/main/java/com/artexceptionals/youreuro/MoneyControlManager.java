@@ -13,6 +13,7 @@ import com.artexceptionals.youreuro.model.CashRecordFilter;
 import com.artexceptionals.youreuro.model.Category;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 public class MoneyControlManager {
@@ -82,11 +83,22 @@ public class MoneyControlManager {
 
     public void loadCashRecords(CashRecordFilter cashRecordFilter) {
 
-        Category category = cashRecordFilter.getCategory();
+        List<Category> filterCategories = cashRecordFilter.getCategories();
+
+        StringBuilder categories  = new StringBuilder();
+        Iterator<Category> iter = filterCategories.iterator();
+        while(iter.hasNext())
+        {
+            categories.append(iter.next().getCategoryID());
+            if(iter.hasNext()){
+                categories.append(",");
+            }
+        }
+
         SimpleSQLiteQuery simpleSQLiteQuery = new SimpleSQLiteQuery("SELECT * FROM cashrecord WHERE uid NOT NULL "+
-                (cashRecordFilter.isAmountRangeFilter()?"AND amount BETWEEN '"+cashRecordFilter.getStartAmount()+"' AND '"+cashRecordFilter.getEndAmount()+"' ":"")+
-                (cashRecordFilter.isDateRangeFilter()?"AND timeStamp BETWEEN '"+cashRecordFilter.getStartTimeStamp()+"' AND '"+cashRecordFilter.getEndTimeStamp()+"' ":"")+
-                (cashRecordFilter.isCategoryFilter()?"AND categoryID = '"+category.getCategoryID()+"' AND catagoryName = '"+category.getCatagoryName()+"' AND imageID = '"+category.getImageID()+"' ":"")+
+                (cashRecordFilter.isAmountRangeFilter()?"AND amount BETWEEN "+cashRecordFilter.getStartAmount()+" AND "+cashRecordFilter.getEndAmount()+" ":"")+
+                (cashRecordFilter.isDateRangeFilter()?"AND timeStamp BETWEEN "+cashRecordFilter.getStartTimeStamp()+" AND "+cashRecordFilter.getEndTimeStamp()+" ":"")+
+                (cashRecordFilter.isCategoryFilter()?"AND categoryID IN ("+categories.toString()+") ":"")+
                 (cashRecordFilter.isPaymentFilter()?"AND paymenttype = '"+ cashRecordFilter.getPaymentType()+"'":""));
 
         List<CashRecord> cashRecords = cashRecordDatabase.cashRecordDao().getCashRecords(simpleSQLiteQuery);

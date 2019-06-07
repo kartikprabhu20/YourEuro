@@ -2,6 +2,9 @@ package com.artexceptionals.youreuro.model;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import java.util.ArrayList;
+import java.util.List;
+
 
 public class CashRecordFilter implements Parcelable {
 
@@ -9,24 +12,68 @@ public class CashRecordFilter implements Parcelable {
 
     long startTimeStamp=0, endTimeStamp=0;
     float startAmount = 0, endAmount = 0;
-    Category category;
+    List<Category> categories = new ArrayList<>();
     String paymentType;
     boolean categoryFilter,dateRangeFilter, paymentFilter, amountRangeFilter;
 
     public CashRecordFilter(long startTimeStamp, long endTimeStamp, float startAmount, float endAmount,
-                            Category category, String paymentType, boolean categoryFilter, boolean dateRangeFilter,
+                            List<Category> categories, String paymentType, boolean categoryFilter, boolean dateRangeFilter,
                             boolean paymentFilter, boolean amountRangeFilter) {
         this.startTimeStamp = startTimeStamp;
         this.endTimeStamp = endTimeStamp;
         this.startAmount = startAmount;
         this.endAmount = endAmount;
-        this.category = category;
+        this.categories.addAll(categories);
         this.paymentType = paymentType;
         this.categoryFilter = categoryFilter;
         this.dateRangeFilter = dateRangeFilter;
         this.paymentFilter = paymentFilter;
         this.amountRangeFilter = amountRangeFilter;
     }
+
+    protected CashRecordFilter(Parcel in) {
+        startTimeStamp = in.readLong();
+        endTimeStamp = in.readLong();
+        startAmount = in.readFloat();
+        endAmount = in.readFloat();
+        categories = in.createTypedArrayList(Category.CREATOR);
+        paymentType = in.readString();
+        categoryFilter = in.readByte() != 0;
+        dateRangeFilter = in.readByte() != 0;
+        paymentFilter = in.readByte() != 0;
+        amountRangeFilter = in.readByte() != 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeLong(startTimeStamp);
+        dest.writeLong(endTimeStamp);
+        dest.writeFloat(startAmount);
+        dest.writeFloat(endAmount);
+        dest.writeTypedList(categories);
+        dest.writeString(paymentType);
+        dest.writeByte((byte) (categoryFilter ? 1 : 0));
+        dest.writeByte((byte) (dateRangeFilter ? 1 : 0));
+        dest.writeByte((byte) (paymentFilter ? 1 : 0));
+        dest.writeByte((byte) (amountRangeFilter ? 1 : 0));
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    public static final Creator<CashRecordFilter> CREATOR = new Creator<CashRecordFilter>() {
+        @Override
+        public CashRecordFilter createFromParcel(Parcel in) {
+            return new CashRecordFilter(in);
+        }
+
+        @Override
+        public CashRecordFilter[] newArray(int size) {
+            return new CashRecordFilter[size];
+        }
+    };
 
     public long getStartTimeStamp() {
         return startTimeStamp;
@@ -60,12 +107,12 @@ public class CashRecordFilter implements Parcelable {
         this.endAmount = endAmount;
     }
 
-    public Category getCategory() {
-        return category;
+    public List<Category> getCategories() {
+        return categories;
     }
 
-    public void setCategory(Category category) {
-        this.category = category;
+    public void setCategories(List<Category> categories) {
+        this.categories.addAll(categories);
     }
 
     public String getPaymentType() {
@@ -108,47 +155,4 @@ public class CashRecordFilter implements Parcelable {
         this.amountRangeFilter = amountRangeFilter;
     }
 
-    protected CashRecordFilter(Parcel in) {
-        startTimeStamp = in.readLong();
-        endTimeStamp = in.readLong();
-        startAmount = in.readFloat();
-        endAmount = in.readFloat();
-        category = in.readParcelable(Category.class.getClassLoader());
-        paymentType = in.readString();
-        categoryFilter = in.readByte() != 0;
-        dateRangeFilter = in.readByte() != 0;
-        paymentFilter = in.readByte() != 0;
-        amountRangeFilter = in.readByte() != 0;
-    }
-
-    @Override
-    public void writeToParcel(Parcel dest, int flags) {
-        dest.writeLong(startTimeStamp);
-        dest.writeLong(endTimeStamp);
-        dest.writeFloat(startAmount);
-        dest.writeFloat(endAmount);
-        dest.writeParcelable(category, flags);
-        dest.writeString(paymentType);
-        dest.writeByte((byte) (categoryFilter ? 1 : 0));
-        dest.writeByte((byte) (dateRangeFilter ? 1 : 0));
-        dest.writeByte((byte) (paymentFilter ? 1 : 0));
-        dest.writeByte((byte) (amountRangeFilter ? 1 : 0));
-    }
-
-    @Override
-    public int describeContents() {
-        return 0;
-    }
-
-    public static final Creator<CashRecordFilter> CREATOR = new Creator<CashRecordFilter>() {
-        @Override
-        public CashRecordFilter createFromParcel(Parcel in) {
-            return new CashRecordFilter(in);
-        }
-
-        @Override
-        public CashRecordFilter[] newArray(int size) {
-            return new CashRecordFilter[size];
-        }
-    };
 }
