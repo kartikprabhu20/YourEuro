@@ -11,6 +11,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.WindowManager;
 import android.view.inputmethod.EditorInfo;
 import android.widget.TextView;
 
@@ -28,6 +29,8 @@ public class HistoryActivity  extends AppCompatActivity {
 
     @BindView(R.id.noRecords_tv)
     TextView noRecordsTextView;
+
+    SearchView searchView;
 
     private MoneyControlManager moneyControlManager;
 
@@ -60,7 +63,7 @@ public class HistoryActivity  extends AppCompatActivity {
             inflater.inflate(R.menu.history_search_menu, menu);
 
             MenuItem searchItem = menu.findItem(R.id.action_search);
-            SearchView searchView = (SearchView) searchItem.getActionView();
+            searchView = (SearchView) searchItem.getActionView();
             searchView.setImeOptions(EditorInfo.IME_ACTION_DONE);
             searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
                 @Override
@@ -94,6 +97,7 @@ public class HistoryActivity  extends AppCompatActivity {
                 Bundle bundle = data.getExtras();
                 if (bundle.containsKey(CashRecordFilter.FILTER)) {
                     filterResults((CashRecordFilter) bundle.getParcelable(CashRecordFilter.FILTER));
+                    searchView.clearFocus();
                 }
             }
         }
@@ -110,4 +114,9 @@ public class HistoryActivity  extends AppCompatActivity {
         moneyControlManager.clearCacheCashRecords();
         moneyControlManager.loadCashRecords(cashRecordFilter);
     }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);         }
 }

@@ -13,12 +13,12 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
 
-import com.artexceptionals.youreuro.adapter.CustomCategoryAdapter;
+import com.artexceptionals.youreuro.adapter.CategoryFilterAdapter;
 import com.artexceptionals.youreuro.model.CashRecordFilter;
-import com.artexceptionals.youreuro.model.Category;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -36,11 +36,6 @@ public class FilterActivity  extends AppCompatActivity implements View.OnClickLi
 
     private int day,month,year;
 
-
-
-    @BindView(R.id.category_filter_spinner)
-    Spinner categorySpinner;
-
     @BindView(R.id.paymentype_filter_spinner)
     Spinner paymentTypeSpinner;
 
@@ -49,13 +44,6 @@ public class FilterActivity  extends AppCompatActivity implements View.OnClickLi
 
     @BindView(R.id.cancel_filter)
     Button cancelFilterButton;
-
-    //@BindView(R.id.start_date_tv)
-    //TextView startDateTextView;
-
-    //@BindView(R.id.end_date_tv)
-    //TextView endDateTextView;
-
 
     @BindView(R.id.start_amount_et)
     EditText startAmountEditText;
@@ -82,15 +70,15 @@ public class FilterActivity  extends AppCompatActivity implements View.OnClickLi
     @BindView(R.id.payment_filter_checkbox)
     CheckBox paymentFilterCheckbox;
 
+    @BindView(R.id.category_filter_listView)
+    ListView categoryListView;
 
     MoneyControlManager moneyControlManager;
-    ArrayAdapter<Category> categoryAdapter = null;
+    CategoryFilterAdapter categoryAdapter = null;
     private CashRecordFilter cashRecordFilter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_filter);
         ButterKnife.bind(this);
@@ -109,24 +97,18 @@ public class FilterActivity  extends AppCompatActivity implements View.OnClickLi
         paymentTypesAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         paymentTypeSpinner.setAdapter(paymentTypesAdapter);
 
-        categoryAdapter = new CustomCategoryAdapter(this,moneyControlManager.getAllCategories());
-        categoryAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        categorySpinner.setAdapter(categoryAdapter);
+        categoryAdapter = new CategoryFilterAdapter(this,moneyControlManager.getAllCategories());
+        categoryListView.setAdapter(categoryAdapter);
 
         cancelFilterButton.setOnClickListener(onClickListener);
         saveFilterButton.setOnClickListener(onClickListener);
-
-
-        //Default setting to current date
-        //startDateTextView.setText(DateFormat.getDateInstance(DateFormat.SHORT).format(new Date().getTime()));
-        //endDateTextView.setText(DateFormat.getDateInstance(DateFormat.SHORT).format(new Date().getTime()));
 
         categoryFilterCheckbox.setOnClickListener(onClickListener);
         rangeFilterCheckbox.setOnClickListener(onClickListener);
         paymentFilterCheckbox.setOnClickListener(onClickListener);
         dateFilterCheckbox.setOnClickListener(onClickListener);
 
-        categorySpinner.setVisibility(View.GONE);
+        categoryListView.setVisibility(View.GONE);
         dateRangeLinearLayout.setVisibility(View.GONE);
         amountRangeLinearLayout.setVisibility(View.GONE);
         paymentTypeSpinner.setVisibility(View.GONE);
@@ -154,7 +136,7 @@ public class FilterActivity  extends AppCompatActivity implements View.OnClickLi
                     String endAmount = String.valueOf(endAmountEditText.getText());
                     cashRecordFilter = new CashRecordFilter(new Date().getTime(), new Date().getTime(),
                             Float.valueOf(startAmount.isEmpty()? "0": startAmount),Float.valueOf(endAmount.isEmpty()? "100000000000":endAmount),
-                            categoryAdapter.getItem(categorySpinner.getSelectedItemPosition()),paymentTypeSpinner.getSelectedItem().toString(),
+                            categoryAdapter.getSelectedItems(),paymentTypeSpinner.getSelectedItem().toString(),
                             categoryFilterCheckbox.isChecked(),dateFilterCheckbox.isChecked(),paymentFilterCheckbox.isChecked(),rangeFilterCheckbox.isChecked());
                     Intent returnIntent = new Intent();
                     returnIntent.putExtra(CashRecordFilter.FILTER, cashRecordFilter);
@@ -170,7 +152,7 @@ public class FilterActivity  extends AppCompatActivity implements View.OnClickLi
                     break;
 
                 case R.id.category_filter_checkbox:
-                        categorySpinner.setVisibility(categoryFilterCheckbox.isChecked()? View.VISIBLE:View.GONE);
+                        categoryListView.setVisibility(categoryFilterCheckbox.isChecked()? View.VISIBLE:View.GONE);
                     break;
                 case R.id.date_filter_checkbox:
                     dateRangeLinearLayout.setVisibility(dateFilterCheckbox.isChecked()? View.VISIBLE:View.GONE);
