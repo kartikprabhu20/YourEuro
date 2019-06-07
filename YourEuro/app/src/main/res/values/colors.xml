@@ -8,6 +8,7 @@
     <color name="red">#ff0000</color>
     <color name="highlight_red">#ffaaaa</color>
     <color name="highlight_green">#BFFDC1</color>
+    <color name="highlight_blue"> #ccdfff</color>
     <color name="white">#FFFF</color>
 
     <color name="grey">#DDDDDD</color>

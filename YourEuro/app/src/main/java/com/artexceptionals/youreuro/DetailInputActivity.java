@@ -11,6 +11,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
 import android.widget.DatePicker;
@@ -91,6 +93,12 @@ public class DetailInputActivity extends AppCompatActivity implements View.OnCli
     @BindView(R.id.togglebutton_income)
     ToggleButton incomeToggleButton;
 
+    @BindView(R.id.category_selected_ll)
+    LinearLayout categoryLinearLayout;
+
+    @BindView(R.id.selected_paymenttype)
+    TextView paymentTypeTextView;
+
     MoneyControlManager moneyControlManager;
     ArrayAdapter<Category> categoryAdapter = null;
     CashRecord cashRecord;
@@ -115,10 +123,11 @@ public class DetailInputActivity extends AppCompatActivity implements View.OnCli
         cashRecord = new CashRecord();
         cashRecord.setCashRecordType(Constants.CashRecordType.EXPENSE);
 
+        categoryLinearLayout.setVisibility(View.GONE);
+        paymentTypeTextView.setVisibility(View.GONE);
         ArrayAdapter<CharSequence> paymentTypesAdapter = ArrayAdapter.createFromResource(this,
                 R.array.paymenttypes_array, R.layout.spinner_item);
         paymentTypesAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-
         paymentTypeSpinner.setAdapter(paymentTypesAdapter);
 
         categoryAdapter = new CustomCategoryAdapter(this,moneyControlManager.getAllCategories());
@@ -127,8 +136,6 @@ public class DetailInputActivity extends AppCompatActivity implements View.OnCli
 
         ArrayAdapter<CharSequence> scheduleTypesAdapter = ArrayAdapter.createFromResource(this,
                 R.array.schedule_array, R.layout.spinner_item);
-        new ArrayAdapter<String>(this,
-                android.R.layout.simple_spinner_item);
         scheduleTypesAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         scheduleSpinner.setAdapter(scheduleTypesAdapter);
 
@@ -166,15 +173,27 @@ public class DetailInputActivity extends AppCompatActivity implements View.OnCli
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
+        Animation shake = AnimationUtils.loadAnimation(this, R.anim.shake);
         if (id == R.id.details_ok) {
             if (amountEditText.getText().toString().equalsIgnoreCase("")) {
                 amountEditText.setError("Amount cannot be empty");
+                amountEditText.requestFocus();
+                amountEditText.startAnimation(shake);
+                return false;
+            }
+            if (categorySpinner.getSelectedItemPosition() == 0) {
+                categorySpinner.startAnimation(shake);
+                categorySpinner.requestFocus();
+                ((TextView)categorySpinner.getSelectedView().findViewById(R.id.category_spinner_Name)).setTextColor(getResources().getColor(R.color.red));
+                ((ImageView)categorySpinner.getSelectedView().findViewById(R.id.category_spinner_image)).setBackgroundColor(getResources().getColor(R.color.highlight_red));
+                return false;
+            }
+            if (paymentTypeSpinner.getSelectedItemPosition() == 0) {
+                paymentTypeSpinner.startAnimation(shake);
+                paymentTypeSpinner.requestFocus();
+                ((TextView)paymentTypeSpinner.getSelectedView()).setTextColor(getResources().getColor(R.color.red));
                 return false;
             }
             saveCashRecord();

@@ -41,6 +41,7 @@
     <string name="empty_pin">PIN is empty</string>
 
     <string-array name="paymenttypes_array">
+        <item>Select payment type</item>
         <item>Cash</item>
         <item>Credit Card</item>
         <item>Debit Card</item>

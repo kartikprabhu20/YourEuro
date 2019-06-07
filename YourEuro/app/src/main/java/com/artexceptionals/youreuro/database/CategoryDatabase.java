@@ -34,14 +34,13 @@ public abstract class CategoryDatabase extends RoomDatabase {
                                         @Override
                                         public void run() {
                                             List<Category> categoryList = new ArrayList<>();
+                                            categoryList.add(new Category("Select category", context.getResources().getResourceEntryName(R.drawable.ic_add_black_24dp)));
                                             categoryList.add(new Category("Shopping", context.getResources().getResourceEntryName(R.drawable.ic_baseline_shopping)));
                                             categoryList.add(new Category("Transportation",context.getResources().getResourceEntryName(R.drawable.ic_baseline_directions_car)));
                                             categoryList.add(new Category("Education", context.getResources().getResourceEntryName(R.drawable.ic_baseline_cast_for_education)));
                                             categoryList.add(new Category("Entertainment", context.getResources().getResourceEntryName(R.drawable.ic_baseline_movie_filter)));
                                             categoryList.add(new Category("Bills",context.getResources().getResourceEntryName(R.drawable.ic_baseline_local_atm)));
                                             categoryList.add(new Category(" Health",context.getResources().getResourceEntryName(R.drawable.ic_add_medical)));
-
-
                                             getCategoryDatabase(context).categoryDao().insertAll(categoryList);
                                         }
                                     });
