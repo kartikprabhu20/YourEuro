@@ -13,6 +13,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.view.Gravity;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -65,15 +66,15 @@ public class MainActivity extends AppCompatActivity {
                 int id = menuItem.getItemId();
 
                 if (id == R.id.home) {
-                    Toast.makeText(MainActivity.this, "Home", Toast.LENGTH_SHORT).show();
+                    drawerlay.closeDrawer(Gravity.LEFT);
                 } else if (id == R.id.statistics) {
                     Toast.makeText(MainActivity.this, "Statistics", Toast.LENGTH_SHORT).show();
                 } else if (id == R.id.history) {
                     startActivity(new Intent(MainActivity.this, HistoryActivity.class));
-
-
+                } else if (id == R.id.recurring) {
+                    startActivity(new Intent(MainActivity.this, RecurringActivity.class));
                 } else if (id == R.id.settings) {
-                    Toast.makeText(MainActivity.this, "Settings", Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent(MainActivity.this, SettingsActivity.class));
                 } else if (id == R.id.aboutus) {
                     Toast.makeText(MainActivity.this, "About Us", Toast.LENGTH_SHORT).show();
                 }

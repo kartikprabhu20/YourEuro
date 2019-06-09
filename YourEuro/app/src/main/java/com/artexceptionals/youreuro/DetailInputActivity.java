@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -34,6 +35,7 @@ import com.artexceptionals.youreuro.model.Constants;
 
 import java.sql.Time;
 import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -144,7 +146,7 @@ public class DetailInputActivity extends AppCompatActivity implements View.OnCli
         recurringCheckBox.setOnClickListener(onClickListener);
 
 
-        String current_date = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault()).format(new Date());
+        String current_date = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new Date());
 
         Calendar c = Calendar.getInstance();
         hour = c.get(Calendar.HOUR_OF_DAY);
@@ -236,15 +238,22 @@ public class DetailInputActivity extends AppCompatActivity implements View.OnCli
 
     private void saveCashRecord() {
         float amount = Float.parseFloat(String.valueOf(amountEditText.getText()));
-        cashRecord.setAmount(cashRecord.getCashRecordType().equalsIgnoreCase(Constants.CashRecordType.INCOME)? amount : amount * -1);
+        cashRecord.setAmount(cashRecord.getCashRecordType().equalsIgnoreCase(Constants.CashRecordType.INCOME) ? amount : amount * -1);
         cashRecord.setCategory(categoryAdapter.getItem(categorySpinner.getSelectedItemPosition()));
         cashRecord.setNotes(String.valueOf(noteEditText.getText()));
-        cashRecord.setTimeStamp(new Date().getTime());
+
+        Date timeStamp = new Date();
+        try {
+            timeStamp = new SimpleDateFormat("dd-MM-yyyy hh:mm").parse(tdate.getText() + " " + ttime.getText());
+        } catch (ParseException e) {
+            Log.e("YourEuro", "ParseException in dateformating");
+        }
+        cashRecord.setTimeStamp(timeStamp.getTime());
         cashRecord.setCurrency(moneyControlManager.getSharedPreference().genericGetString(CurrencyHelper.CURRENT_CURRENCY, CurrencyHelper.CurrencyType.EURO));
         cashRecord.setPaymentType(PaymentTypeHelper.getPaymentType(paymentTypeSpinner.getSelectedItem().toString()));
         cashRecord.setRecurringTransaction(recurringCheckBox.isChecked());
-        cashRecord.setRecurringType(recurringCheckBox.isChecked()? scheduleSpinner.getSelectedItem().toString(): RecurringHelper.RecurringType.UNKNOWN);
-
+        cashRecord.setRecurringType(recurringCheckBox.isChecked() ? scheduleSpinner.getSelectedItem().toString() : RecurringHelper.RecurringType.UNKNOWN);
+        cashRecord.setRecurred(!recurringCheckBox.isChecked());
         moneyControlManager.addCashRecord(cashRecord);
         onBackPressed();
     }
@@ -262,8 +271,7 @@ public class DetailInputActivity extends AppCompatActivity implements View.OnCli
             DatePickerDialog datePickerDialog = new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
                 @Override
                 public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
-                    tdate.setText(dayOfMonth + "/" + (monthOfYear + 1) + "/" + year);
-                    //tdate.setText(currentdate);
+                    tdate.setText(dayOfMonth + "-" + (monthOfYear + 1) + "-" + year);
                 }
             }, day, month, year);
             datePickerDialog.updateDate(year,month,day);
@@ -294,7 +302,6 @@ public class DetailInputActivity extends AppCompatActivity implements View.OnCli
                     }
                 }, hour, minute, false);
                 timePickerDialog.show();
-
 
             }
 
