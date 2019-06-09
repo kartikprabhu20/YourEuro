@@ -118,5 +118,6 @@ public class HistoryActivity  extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);         }
+        this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
+    }
 }

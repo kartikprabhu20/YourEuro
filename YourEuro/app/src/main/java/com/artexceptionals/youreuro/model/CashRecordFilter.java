@@ -14,7 +14,7 @@ public class CashRecordFilter implements Parcelable {
     float startAmount = 0, endAmount = 0;
     List<Category> categories = new ArrayList<>();
     String paymentType;
-    boolean categoryFilter,dateRangeFilter, paymentFilter, amountRangeFilter;
+    boolean categoryFilter,dateRangeFilter, paymentFilter, amountRangeFilter, recurryingFilter;
 
     public CashRecordFilter(long startTimeStamp, long endTimeStamp, float startAmount, float endAmount,
                             List<Category> categories, String paymentType, boolean categoryFilter, boolean dateRangeFilter,
@@ -42,6 +42,10 @@ public class CashRecordFilter implements Parcelable {
         dateRangeFilter = in.readByte() != 0;
         paymentFilter = in.readByte() != 0;
         amountRangeFilter = in.readByte() != 0;
+    }
+
+    public CashRecordFilter() {
+
     }
 
     @Override
@@ -153,6 +157,14 @@ public class CashRecordFilter implements Parcelable {
 
     public void setAmountRangeFilter(boolean amountRangeFilter) {
         this.amountRangeFilter = amountRangeFilter;
+    }
+
+    public boolean isRecurryingFilter() {
+        return recurryingFilter;
+    }
+
+    public void setRecurryingFilter(boolean recurryingFilter) {
+        this.recurryingFilter = recurryingFilter;
     }
 
 }

@@ -13,34 +13,39 @@ import com.artexceptionals.youreuro.model.CashRecordFilter;
 import com.artexceptionals.youreuro.model.Category;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 
 public class MoneyControlManager {
     private static MoneyControlManager instance;
+    private static Context mContext;
     private final CustomSharedPreferences sharedPreference;
+    private final RecurringManager recurringManager;
     private CashRecordAdapter cashRecordAdapter;
     private BalanceAdapter balanceAdapter;
     private CashRecordDatabase cashRecordDatabase;
     private CategoryDatabase categoryDatabase;
 
     public MoneyControlManager(CashRecordAdapter cashRecordAdapter, BalanceAdapter balanceAdapter, CashRecordDatabase cashRecordDatabase,
-                               CategoryDatabase categoryDatabase, CustomSharedPreferences customSharedPreferences) {
+                               CategoryDatabase categoryDatabase, CustomSharedPreferences customSharedPreferences,RecurringManager recurringManager) {
         this.cashRecordAdapter = cashRecordAdapter;
         this.balanceAdapter = balanceAdapter;
         this.cashRecordDatabase = cashRecordDatabase;
         this.categoryDatabase = categoryDatabase;
         this.sharedPreference = customSharedPreferences;
-
+        this.recurringManager = recurringManager;
     }
 
     public static MoneyControlManager getInstance(Context context) {
+        mContext = context;
         if (instance == null) {
             instance = new MoneyControlManager(new CashRecordAdapter(context),
                     new BalanceAdapter(context),
                     CashRecordDatabase.getCashRecordDatabase(context),
                     CategoryDatabase.getCategoryDatabase(context),
-                    CustomSharedPreferences.getInstance(context));
+                    CustomSharedPreferences.getInstance(context),
+                    RecurringManager.getInstance(context));
         }
 
         return instance;
@@ -52,6 +57,9 @@ public class MoneyControlManager {
         cashRecordAdapter.addCashRecord(cashRecord);
         balanceAdapter.updateAccount(new Account(cashRecord.getCurrency(),cashRecord.getAmount()));
 
+        if (cashRecord.isRecurringTransaction())
+            recurringManager.initialiseNextEvent(cashRecord, listener);
+
     }
 
     //For deleting a cashRecord from both database and adapter view
@@ -59,6 +67,9 @@ public class MoneyControlManager {
         cashRecordDatabase.cashRecordDao().delete(cashRecord);
         cashRecordAdapter.deleteCashRecord(cashRecord);
         balanceAdapter.deleteAccount(new Account(cashRecord.getCurrency(),cashRecord.getAmount()));
+
+        if (cashRecord.isRecurringTransaction())
+            recurringManager.cancelPendingIntents(cashRecord);
     }
 
     public synchronized void updateAllRecords() {
@@ -98,6 +109,7 @@ public class MoneyControlManager {
         SimpleSQLiteQuery simpleSQLiteQuery = new SimpleSQLiteQuery("SELECT * FROM cashrecord WHERE uid NOT NULL "+
                 (cashRecordFilter.isAmountRangeFilter()?"AND amount BETWEEN "+cashRecordFilter.getStartAmount()+" AND "+cashRecordFilter.getEndAmount()+" ":"")+
                 (cashRecordFilter.isDateRangeFilter()?"AND timeStamp BETWEEN "+cashRecordFilter.getStartTimeStamp()+" AND "+cashRecordFilter.getEndTimeStamp()+" ":"")+
+                (cashRecordFilter.isRecurryingFilter()?"AND recurringTransaction = " +(cashRecordFilter.isRecurryingFilter()? 1 : 0):"")+
                 (cashRecordFilter.isCategoryFilter()?"AND categoryID IN ("+categories.toString()+") ":"")+
                 (cashRecordFilter.isPaymentFilter()?"AND paymenttype = '"+ cashRecordFilter.getPaymentType()+"'":""));
 
@@ -112,10 +124,6 @@ public class MoneyControlManager {
 
     public BalanceAdapter getBalanceAdapter() {
         return balanceAdapter;
-    }
-
-    public synchronized void addAccount(Account account) {
-        balanceAdapter.addAccount(account);
     }
 
     public synchronized void updateAllAccounts() {
@@ -134,4 +142,21 @@ public class MoneyControlManager {
 
         balanceAdapter.updateAccounts(accountList);
     }
+
+    RecurringReceiver.ReceiverListener listener = new RecurringReceiver.ReceiverListener() {
+        @Override
+        public void listen(long cashRecordID) {
+            CashRecord cashRecord = cashRecordDatabase.cashRecordDao().getCashRecord(cashRecordID);
+            cashRecord.setRecurred(true);
+            cashRecord.setRecurringTransaction(false);
+            cashRecordDatabase.cashRecordDao().update(cashRecord);
+
+            CashRecord newCashRecord = new CashRecord(cashRecord);
+            newCashRecord.setTimeStamp(new Date().getTime());
+            newCashRecord.setRecurringTransaction(true);
+            newCashRecord.setRecurred(false);
+
+            addCashRecord(newCashRecord);
+        }
+    };
 }
