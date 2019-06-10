@@ -18,6 +18,14 @@
         android:icon="@drawable/ic_history_black_24dp">
 
     </item>
+
+    <item
+        android:id="@+id/recurring"
+        android:title="Recurring records"
+        android:icon="@drawable/ic_history_black_24dp">
+
+    </item>
+
     <item
         android:id="@+id/settings"
         android:title="Settings"

@@ -53,6 +53,8 @@ public class CashRecordAdapter extends RecyclerView.Adapter<CashRecordAdapter.Ca
             CashRecord cashRecord =  searchRecordList.get(index);
 
             holder.categoryName.setText(cashRecord.getCategory().getCatagoryName());
+            holder.categoryImage.setImageDrawable(context.getResources().getDrawable(context.getResources().getIdentifier(cashRecord.getCategory().getImageID(),"drawable", context.getPackageName())));
+
             holder.paymentType.setText(cashRecord.getPaymentType());
             holder.note.setText(cashRecord.getNotes());
             holder.date.setText(DateFormat.getDateTimeInstance(DateFormat.SHORT, DateFormat.SHORT).format(new Date(cashRecord.getTimeStamp())));

@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -16,13 +17,15 @@ import com.artexceptionals.youreuro.model.Category;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CustomCategoryAdapter extends ArrayAdapter<Category> {
+public class CategoryFilterAdapter extends ArrayAdapter<Category> {
 
     private final List<Category> categories = new ArrayList<>();
+    private final List<Category> filterCategories = new ArrayList<>();
     private Context mContext;
 
-    public CustomCategoryAdapter(Context context, List<Category> categories) {
-        super(context, R.layout.custom_spinner_row);
+    public CategoryFilterAdapter(Context context, List<Category> categories) {
+        super(context, R.layout.category_checkbox);
+        categories.remove(0);
         this.categories.addAll(categories);
         this.mContext = context;
     }
@@ -36,11 +39,24 @@ public class CustomCategoryAdapter extends ArrayAdapter<Category> {
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
         ViewHolder mViewHolder = new ViewHolder();
+
         if (convertView == null) {
             LayoutInflater mInflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            convertView = mInflater.inflate(R.layout.custom_spinner_row, parent, false);
+            convertView = mInflater.inflate(R.layout.category_checkbox, parent, false);
             mViewHolder.categoryImage = (ImageView) convertView.findViewById(R.id.category_spinner_image);
             mViewHolder.categoryName = (TextView) convertView.findViewById(R.id.category_spinner_Name);
+            mViewHolder.checkBox = (CheckBox)convertView.findViewById(R.id.category_checkbox);
+            mViewHolder.checkBox.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+
+                    if (((CheckBox)view).isChecked()) {
+                        filterCategories.add(categories.get(position));
+                    }else {
+                        filterCategories.remove(categories.get(position));
+                    }
+                }
+            });
             convertView.setTag(mViewHolder);
         } else {
             mViewHolder = (ViewHolder) convertView.getTag();
@@ -51,14 +67,10 @@ public class CustomCategoryAdapter extends ArrayAdapter<Category> {
         return convertView;
     }
 
-    @Override
-    public View getDropDownView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
-        return getView(position, convertView, parent);
-    }
-
     private static class ViewHolder {
         ImageView categoryImage;
         TextView categoryName;
+        CheckBox checkBox;
     }
 
     @Nullable
@@ -70,5 +82,9 @@ public class CustomCategoryAdapter extends ArrayAdapter<Category> {
     @Override
     public int getPosition(@Nullable Category item) {
         return categories.indexOf(item);
+    }
+
+    public List<Category> getSelectedItems(){
+        return filterCategories;
     }
 }

@@ -1,11 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-xmlns:app="http://schemas.android.com/apk/res-auto"
-android:layout_width="match_parent"
-android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
     android:orientation="horizontal"
     android:paddingLeft="@dimen/unit2">
 
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:gravity="right|center_vertical"
+        android:id="@+id/category_checkbox"/>
 
     <ImageView
         android:id="@+id/category_spinner_image"
@@ -26,4 +32,5 @@ android:layout_height="wrap_content"
         android:textSize="@dimen/unit3"
         android:layout_gravity="center_vertical"
         android:padding="@dimen/unit2"/>
+
 </LinearLayout>

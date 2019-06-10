@@ -29,7 +29,7 @@ public class SetPinActivity extends AppCompatActivity {
     }
 
     public void setPIN(){
-        CustomSharedPreferences.getInstance(SetPinActivity.this).setInt("user_pin", Integer.parseInt(GivenPIN.getText().toString()));
+        CustomSharedPreferences.getInstance(YourEuroApp.getAppContext()).setInt("user_pin", Integer.parseInt(GivenPIN.getText().toString()));
         Toast.makeText(this,"Your PIN has been set.",Toast.LENGTH_LONG).show();
     }
 

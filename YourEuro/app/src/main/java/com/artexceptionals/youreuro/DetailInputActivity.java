@@ -7,11 +7,14 @@ import android.os.Bundle;
 import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.WindowManager;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.DatePicker;
 import android.widget.EditText;
@@ -32,6 +35,7 @@ import com.artexceptionals.youreuro.model.Constants;
 
 import java.sql.Time;
 import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -91,14 +95,18 @@ public class DetailInputActivity extends AppCompatActivity implements View.OnCli
     @BindView(R.id.togglebutton_income)
     ToggleButton incomeToggleButton;
 
+    @BindView(R.id.category_selected_ll)
+    LinearLayout categoryLinearLayout;
+
+    @BindView(R.id.selected_paymenttype)
+    TextView paymentTypeTextView;
+
     MoneyControlManager moneyControlManager;
     ArrayAdapter<Category> categoryAdapter = null;
     CashRecord cashRecord;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
-
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
         ButterKnife.bind(this);
@@ -107,26 +115,29 @@ public class DetailInputActivity extends AppCompatActivity implements View.OnCli
         setSupportActionBar(toolbar);
 
         init();
+
+        getWindow().setSoftInputMode(
+                WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
     }
 
     private void init() {
-        moneyControlManager = MoneyControlManager.getInstance(this);
+        moneyControlManager = MoneyControlManager.getInstance(YourEuroApp.getAppContext());
         cashRecord = new CashRecord();
         cashRecord.setCashRecordType(Constants.CashRecordType.EXPENSE);
 
+        categoryLinearLayout.setVisibility(View.GONE);
+        paymentTypeTextView.setVisibility(View.GONE);
         ArrayAdapter<CharSequence> paymentTypesAdapter = ArrayAdapter.createFromResource(this,
                 R.array.paymenttypes_array, R.layout.spinner_item);
         paymentTypesAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         paymentTypeSpinner.setAdapter(paymentTypesAdapter);
 
-         categoryAdapter = new CustomCategoryAdapter(this,moneyControlManager.getAllCategories());
+        categoryAdapter = new CustomCategoryAdapter(this,moneyControlManager.getAllCategories());
         categoryAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         categorySpinner.setAdapter(categoryAdapter);
 
         ArrayAdapter<CharSequence> scheduleTypesAdapter = ArrayAdapter.createFromResource(this,
                 R.array.schedule_array, R.layout.spinner_item);
-        new ArrayAdapter<String>(this,
-                android.R.layout.simple_spinner_item);
         scheduleTypesAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         scheduleSpinner.setAdapter(scheduleTypesAdapter);
 
@@ -135,7 +146,7 @@ public class DetailInputActivity extends AppCompatActivity implements View.OnCli
         recurringCheckBox.setOnClickListener(onClickListener);
 
 
-        String current_date = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault()).format(new Date());
+        String current_date = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new Date());
 
         Calendar c = Calendar.getInstance();
         hour = c.get(Calendar.HOUR_OF_DAY);
@@ -151,6 +162,8 @@ public class DetailInputActivity extends AppCompatActivity implements View.OnCli
         idate.setOnClickListener(this);
         itime.setOnClickListener(this);
 
+        currencySymbolTextView.setText(CurrencyHelper.getSymbol(moneyControlManager.getSharedPreference().genericGetString(CurrencyHelper.CURRENT_CURRENCY, CurrencyHelper.CurrencyType.EURO)));
+
     }
 
     @Override
@@ -162,15 +175,27 @@ public class DetailInputActivity extends AppCompatActivity implements View.OnCli
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
+        Animation shake = AnimationUtils.loadAnimation(this, R.anim.shake);
         if (id == R.id.details_ok) {
             if (amountEditText.getText().toString().equalsIgnoreCase("")) {
                 amountEditText.setError("Amount cannot be empty");
+                amountEditText.requestFocus();
+                amountEditText.startAnimation(shake);
+                return false;
+            }
+            if (categorySpinner.getSelectedItemPosition() == 0) {
+                categorySpinner.startAnimation(shake);
+                categorySpinner.requestFocus();
+                ((TextView)categorySpinner.getSelectedView().findViewById(R.id.category_spinner_Name)).setTextColor(getResources().getColor(R.color.red));
+                ((ImageView)categorySpinner.getSelectedView().findViewById(R.id.category_spinner_image)).setBackgroundColor(getResources().getColor(R.color.highlight_red));
+                return false;
+            }
+            if (paymentTypeSpinner.getSelectedItemPosition() == 0) {
+                paymentTypeSpinner.startAnimation(shake);
+                paymentTypeSpinner.requestFocus();
+                ((TextView)paymentTypeSpinner.getSelectedView()).setTextColor(getResources().getColor(R.color.red));
                 return false;
             }
             saveCashRecord();
@@ -185,8 +210,6 @@ public class DetailInputActivity extends AppCompatActivity implements View.OnCli
     private View.OnClickListener onClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
-
-
 
             switch (view.getId()){
                 case R.id.togglebutton_income:
@@ -214,15 +237,23 @@ public class DetailInputActivity extends AppCompatActivity implements View.OnCli
     };
 
     private void saveCashRecord() {
-        cashRecord.setAmount(Float.parseFloat(String.valueOf(amountEditText.getText())));
+        float amount = Float.parseFloat(String.valueOf(amountEditText.getText()));
+        cashRecord.setAmount(cashRecord.getCashRecordType().equalsIgnoreCase(Constants.CashRecordType.INCOME) ? amount : amount * -1);
         cashRecord.setCategory(categoryAdapter.getItem(categorySpinner.getSelectedItemPosition()));
         cashRecord.setNotes(String.valueOf(noteEditText.getText()));
-        cashRecord.setTimeStamp(new Date().getTime());
-        cashRecord.setCurrency(CurrencyHelper.CurrencyType.EURO);// Save currency type in shared preference in settings, use same sharedpreference to get currency here
+
+        Date timeStamp = new Date();
+        try {
+            timeStamp = new SimpleDateFormat("dd-MM-yyyy hh:mm").parse(tdate.getText() + " " + ttime.getText());
+        } catch (ParseException e) {
+            Log.e("YourEuro", "ParseException in dateformating");
+        }
+        cashRecord.setTimeStamp(timeStamp.getTime());
+        cashRecord.setCurrency(moneyControlManager.getSharedPreference().genericGetString(CurrencyHelper.CURRENT_CURRENCY, CurrencyHelper.CurrencyType.EURO));
         cashRecord.setPaymentType(PaymentTypeHelper.getPaymentType(paymentTypeSpinner.getSelectedItem().toString()));
         cashRecord.setRecurringTransaction(recurringCheckBox.isChecked());
-        cashRecord.setRecurringType(recurringCheckBox.isChecked()? scheduleSpinner.getSelectedItem().toString(): RecurringHelper.RecurringType.UNKNOWN);
-
+        cashRecord.setRecurringType(recurringCheckBox.isChecked() ? scheduleSpinner.getSelectedItem().toString() : RecurringHelper.RecurringType.UNKNOWN);
+        cashRecord.setRecurred(!recurringCheckBox.isChecked());
         moneyControlManager.addCashRecord(cashRecord);
         onBackPressed();
     }
@@ -232,7 +263,6 @@ public class DetailInputActivity extends AppCompatActivity implements View.OnCli
     public void onClick(View v) {
         if (v == idate) {
             Calendar c = Calendar.getInstance();
-            final String currentdate = DateFormat.getDateInstance().format(c.getTime());
             day = c.get(Calendar.DAY_OF_MONTH);
             month = c.get(Calendar.MONTH);
             year = c.get(Calendar.YEAR);
@@ -241,18 +271,29 @@ public class DetailInputActivity extends AppCompatActivity implements View.OnCli
             DatePickerDialog datePickerDialog = new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
                 @Override
                 public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
-                    //tdate.setText(dayOfMonth + "/" + (monthOfYear + 1) + "/" + year);
-                    tdate.setText(currentdate);
+                    tdate.setText(dayOfMonth + "-" + (monthOfYear + 1) + "-" + year);
                 }
             }, day, month, year);
+            datePickerDialog.updateDate(year,month,day);
             datePickerDialog.show();
 
         }
         if (v == itime) {
             {
                 Calendar c = Calendar.getInstance();
+                Date date = new Date();
+
+
                 hour = c.get(Calendar.HOUR_OF_DAY);
                 minute = c.get(Calendar.MINUTE);
+//
+//                public String convertDate(int minute) {
+//                if (minute >= 10) {
+//                    return String.valueOf(minute);
+//                } else {
+//                    return "0" + String.valueOf(minute);
+//                }
+
 
                 TimePickerDialog timePickerDialog = new TimePickerDialog(this, new TimePickerDialog.OnTimeSetListener() {
                     @Override
@@ -261,7 +302,9 @@ public class DetailInputActivity extends AppCompatActivity implements View.OnCli
                     }
                 }, hour, minute, false);
                 timePickerDialog.show();
+
             }
+
         }
     }
 }

@@ -8,6 +8,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
 import android.widget.EditText;
@@ -73,6 +74,15 @@ public class DetailDisplayActivity extends AppCompatActivity {
     @BindView(R.id.togglebutton_income)
     ToggleButton incomeToggleButton;
 
+    @BindView(R.id.category_selected_image)
+    ImageView categorySelectedImageView;
+
+    @BindView(R.id.category_selected_Name)
+    TextView categorySelectedTextView;
+
+    @BindView(R.id.selected_paymenttype)
+    TextView paymentSelectedTextView;
+
     MoneyControlManager moneyControlManager;
     ArrayAdapter<Category> categoryAdapter = null;
     CashRecord cashRecord;
@@ -91,10 +101,14 @@ public class DetailDisplayActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         init();
+
+        getWindow().setSoftInputMode(
+                WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
+
     }
 
     private void init() {
-        moneyControlManager = MoneyControlManager.getInstance(getApplicationContext());
+        moneyControlManager = MoneyControlManager.getInstance(YourEuroApp.getAppContext());
 
         if(Constants.CashRecordType.EXPENSE.equalsIgnoreCase(cashRecord.getCashRecordType())){
             expenseToggleButton.setBackgroundColor(getResources().getColor(R.color.colorAccent));
@@ -109,18 +123,11 @@ public class DetailDisplayActivity extends AppCompatActivity {
             amountEditText.setTextColor(getResources().getColor(R.color.green));
         }
 
-        ArrayAdapter<CharSequence> paymentTypesAdapter = ArrayAdapter.createFromResource(this,
-                R.array.paymenttypes_array, R.layout.spinner_item);
-        paymentTypesAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        paymentTypeSpinner.setAdapter(paymentTypesAdapter);
-        paymentTypeSpinner.setSelection(paymentTypesAdapter.getPosition(cashRecord.getPaymentType()));
-        paymentTypeSpinner.setEnabled(false);
-
-        categoryAdapter = new CustomCategoryAdapter(this,moneyControlManager.getAllCategories());
-        categoryAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        categorySpinner.setAdapter(categoryAdapter);
-        categorySpinner.setSelection(categoryAdapter.getPosition(cashRecord.getCategory()));
-        categorySpinner.setEnabled(false);
+        paymentTypeSpinner.setVisibility(View.GONE);
+        categorySpinner.setVisibility(View.GONE);
+        categorySelectedImageView.setImageDrawable(getApplicationContext().getResources().getDrawable(getApplicationContext().getResources().getIdentifier(cashRecord.getCategory().getImageID(),"drawable", getApplicationContext().getPackageName())));
+        categorySelectedTextView.setText(cashRecord.getCategory().getCatagoryName());
+        paymentSelectedTextView.setText(cashRecord.getPaymentType());
 
         recurringCheckBox.setChecked(cashRecord.isRecurringTransaction());
         recurringCheckBox.setEnabled(false);
@@ -183,12 +190,8 @@ public class DetailDisplayActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up deleteButton, so long
-        // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
         if (id == R.id.details_delete) {
             launchDialog(cashRecord);
             return true;

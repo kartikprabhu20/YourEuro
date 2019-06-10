@@ -18,7 +18,7 @@ public class CashRecord implements Parcelable {
 
     public static final String CASHRECORD_DETAIL = "cashrecord_details";
     @PrimaryKey(autoGenerate = true)
-    private int uid;
+    private long uid;
 
     @ColumnInfo(name = "notes")
     String notes;
@@ -48,9 +48,12 @@ public class CashRecord implements Parcelable {
     @ColumnInfo(name = "recurringType")
     String recurringType;
 
+    @ColumnInfo(name = "recurred")
+    boolean recurred = false;
+
     public CashRecord(String notes, long timeStamp, float amount,
                       String currency, String cashRecordType, String paymentType,
-                      Category category) {
+                      Category category, boolean recurred) {
         this.notes = notes;
         this.timeStamp = timeStamp;
         this.amount = amount;
@@ -58,6 +61,18 @@ public class CashRecord implements Parcelable {
         this.cashRecordType = cashRecordType;
         this.paymentType = paymentType;
         this.category = category;
+        this.recurred = recurred;
+    }
+
+    public CashRecord(CashRecord cashRecord) {
+        notes = cashRecord.notes;
+        amount = cashRecord.amount;
+        currency = cashRecord.currency;
+        cashRecordType = cashRecord.cashRecordType;
+        paymentType = cashRecord.paymentType;
+        category = cashRecord.category;
+        recurringTransaction = cashRecord.recurringTransaction;
+        recurringType = cashRecord.recurringType;
     }
 
     @Ignore
@@ -65,8 +80,8 @@ public class CashRecord implements Parcelable {
 
     }
 
-    protected CashRecord(Parcel in) {
-        uid = in.readInt();
+    public CashRecord(Parcel in) {
+        uid = in.readLong();
         notes = in.readString();
         timeStamp = in.readLong();
         amount = in.readFloat();
@@ -76,6 +91,7 @@ public class CashRecord implements Parcelable {
         category = in.readParcelable(Category.class.getClassLoader());
         recurringTransaction = in.readByte() != 0;
         recurringType = in.readString();
+        recurred = in.readByte() != 0;
     }
 
     public static final Creator<CashRecord> CREATOR = new Creator<CashRecord>() {
@@ -90,11 +106,11 @@ public class CashRecord implements Parcelable {
         }
     };
 
-    public int getUid() {
+    public long getUid() {
         return uid;
     }
 
-    public void setUid(int uid) {
+    public void setUid(long uid) {
         this.uid = uid;
     }
 
@@ -173,6 +189,14 @@ public class CashRecord implements Parcelable {
         this.recurringType = recurringType;
     }
 
+    public boolean isRecurred() {
+        return recurred;
+    }
+
+    public void setRecurred(boolean recurred) {
+        this.recurred = recurred;
+    }
+
     @Override
     public int describeContents() {
         return 0;
@@ -180,7 +204,7 @@ public class CashRecord implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        dest.writeInt(uid);
+        dest.writeLong(uid);
         dest.writeString(notes);
         dest.writeLong(timeStamp);
         dest.writeFloat(amount);
@@ -190,6 +214,7 @@ public class CashRecord implements Parcelable {
         dest.writeParcelable(category, flags);
         dest.writeByte((byte) (recurringTransaction ? 1 : 0));
         dest.writeString(recurringType);
+        dest.writeByte((byte) (recurred ? 1 : 0));
     }
 
     @Override

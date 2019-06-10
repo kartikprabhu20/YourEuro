@@ -21,7 +21,7 @@ public interface CashRecordDao {
     List<CashRecord> getAll();
 
     @Insert
-    void insertAll(CashRecord... cashRecords);
+    long insert(CashRecord cashRecords);
 
     @Delete
     void delete(CashRecord cashRecord);
@@ -29,16 +29,10 @@ public interface CashRecordDao {
     @Update
     void update(CashRecord cashRecord);
 
-    @Query("SELECT * FROM cashrecord WHERE amount BETWEEN :startAmount AND :endAmount " +
-//            "AND timeStamp BETWEEN :startTimeStamp AND :endTimeStamp " +
-            "AND categoryID = :categoryID AND catagoryName LIKE :catagoryName AND imageID =  :imageID " +
-            "AND paymenttype LIKE :paymentType")
-    List<CashRecord> getCashRecords(int categoryID, String catagoryName, int imageID, String paymentType, float startAmount, float endAmount
-//            , long startTimeStamp, long endTimeStamp
-    );
-
-
     @RawQuery
     List<CashRecord> getCashRecords(SupportSQLiteQuery query);
 
+
+    @Query("SELECT * FROM cashrecord WHERE uid = :uid")
+    CashRecord getCashRecord(long uid);
 }

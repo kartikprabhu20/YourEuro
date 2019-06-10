@@ -1,29 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="horizontal">
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:weightSum="5"
+    android:id="@+id/net_balance_ll"
+    android:padding="@dimen/unit1">
 
     <TextView
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
+        android:id="@+id/total_balance"
         android:layout_gravity="center_horizontal"
-        android:padding="@dimen/unit3"
-        android:text="account1"
-        android:layout_weight="4"
-        android:id="@+id/account_name_display" />
+        android:padding="@dimen/unit2"
+        android:text="@string/net_balance"
+        android:layout_weight="3"
+        android:background="@color/highlight_green"
+        />
 
     <TextView
-        android:id="@+id/account_amount_display"
+        android:id="@+id/net_balance"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:padding="@dimen/unit3"
+        android:padding="@dimen/unit2"
         android:text="Total"
-        android:textColor="@color/green"
         android:textSize="@dimen/unit3"
-        android:layout_weight="1"
-        android:textAlignment="viewEnd"/>
+        android:layout_weight="2"
+        android:textAlignment="viewEnd"
+        android:background="@color/highlight_green"
+        />
 
+    <TextView
+        android:id="@+id/currency_symbol"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/unit2"
+        android:text="$"
+        android:textSize="@dimen/unit3"
+        android:layout_weight="2"
+        android:textAlignment="viewEnd"
+        android:background="@color/highlight_green"
+        />
 </LinearLayout>

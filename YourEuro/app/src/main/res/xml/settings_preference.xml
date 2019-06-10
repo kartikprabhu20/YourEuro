@@ -16,4 +16,16 @@
             android:title="Change PIN"/>
     </PreferenceCategory>
 
+    <PreferenceCategory
+        android:title="Currency">
+        <ListPreference
+            android:key="changeCurrency"
+            android:title="Change currency"
+            android:summary="%s"
+            android:defaultValue="Euro(€)"
+            android:entries="@array/currencies"
+            android:entryValues="@array/currencyValues" />
+    </PreferenceCategory>
+
+
 </PreferenceScreen>
