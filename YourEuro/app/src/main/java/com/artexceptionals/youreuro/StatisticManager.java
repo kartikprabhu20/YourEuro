@@ -2,10 +2,10 @@ package com.artexceptionals.youreuro;
 
 import android.content.Context;
 
+
 import com.artexceptionals.youreuro.database.CashRecordDatabase;
 import com.artexceptionals.youreuro.model.CashRecord;
-import com.artexceptionals.youreuro.model.Category;
-import com.github.mikephil.charting.charts.PieChart;
+import com.github.mikephil.charting.components.LimitLine;
 import com.github.mikephil.charting.data.BarData;
 import com.github.mikephil.charting.data.BarDataSet;
 import com.github.mikephil.charting.data.BarEntry;
@@ -44,11 +44,11 @@ public class StatisticManager {
         for (CashRecord cashRecord : cashRecords) {
             String categoryName = cashRecord.getCategory().getCatagoryName();
             if (!categoryAmount.keySet().contains(categoryName)) {
-                categoryAmount.put(categoryName, cashRecord.getAmount());
+                categoryAmount.put(categoryName, Math.abs(cashRecord.getAmount()));
             } else {
                 float oldvalue = categoryAmount.get(categoryName);
                 categoryAmount.remove(categoryName);
-                categoryAmount.put(categoryName, oldvalue + cashRecord.getAmount());
+                categoryAmount.put(categoryName, oldvalue + Math.abs(cashRecord.getAmount()));
             }
         }
 
@@ -57,9 +57,8 @@ public class StatisticManager {
         }
         PieDataSet dataSet = new PieDataSet(pieEntries, "#MoneyControl");
         dataSet.setColors(ColorTemplate.COLORFUL_COLORS);
-        PieData data = new PieData(dataSet);
         dataSet.setXValuePosition(PieDataSet.ValuePosition.OUTSIDE_SLICE);
-
+        PieData data = new PieData(dataSet);
 
         return data;
     }
@@ -82,14 +81,27 @@ public class StatisticManager {
 
         int i = 0;
         for (String key : categoryAmount.keySet()) {
-            barEntries.add(new BarEntry(categoryAmount.get(key), i));
+            barEntries.add(new BarEntry(i,categoryAmount.get(key)));
             i++;
         }
-            BarDataSet barSet = new BarDataSet(barEntries, "#MoneyControl");
-            barSet.setColors(ColorTemplate.COLORFUL_COLORS);
-            BarData data = new BarData(barSet);
-            return data;
-        }
+        BarDataSet barSet = new BarDataSet(barEntries, "#MoneyControl");
+        barSet.setColors(ColorTemplate.COLORFUL_COLORS);
+        BarData data = new BarData(barSet);
+        return data;
+    }
+
+    public LimitLine getBarLimit(){
+        int maxCapacity = 20;
+        LimitLine ll = new LimitLine(maxCapacity, "Max Limit");
+        return ll;
+    }
+
+    public LimitLine getBarLimit2(){
+        int maxCapacity = -20;
+        LimitLine ll = new LimitLine(maxCapacity, "Min Limit");
+        return ll;
+    }
+
 }
 
 
