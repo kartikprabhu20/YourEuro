@@ -2,6 +2,7 @@ package com.artexceptionals.youreuro;
 
 import android.arch.persistence.db.SimpleSQLiteQuery;
 import android.content.Context;
+import android.support.v7.widget.RecyclerView;
 
 import com.artexceptionals.youreuro.adapter.BalanceAdapter;
 import com.artexceptionals.youreuro.adapter.CashRecordAdapter;
@@ -20,32 +21,38 @@ import java.util.List;
 public class MoneyControlManager {
     private static MoneyControlManager instance;
     private static Context mContext;
-    private final CustomSharedPreferences sharedPreference;
+    private final StatisticManager statisticsManager;
     private final RecurringManager recurringManager;
     private CashRecordAdapter cashRecordAdapter;
     private BalanceAdapter balanceAdapter;
     private CashRecordDatabase cashRecordDatabase;
     private CategoryDatabase categoryDatabase;
+    private CustomSharedPreferences sharedPreference;
 
     public MoneyControlManager(CashRecordAdapter cashRecordAdapter, BalanceAdapter balanceAdapter, CashRecordDatabase cashRecordDatabase,
-                               CategoryDatabase categoryDatabase, CustomSharedPreferences customSharedPreferences,RecurringManager recurringManager) {
+                               CategoryDatabase categoryDatabase, CustomSharedPreferences customSharedPreferences,RecurringManager recurringManager,
+                               StatisticManager statisticManager) {
         this.cashRecordAdapter = cashRecordAdapter;
         this.balanceAdapter = balanceAdapter;
         this.cashRecordDatabase = cashRecordDatabase;
         this.categoryDatabase = categoryDatabase;
-        this.sharedPreference = customSharedPreferences;
+        this.statisticsManager = statisticManager;
         this.recurringManager = recurringManager;
+        this.sharedPreference = customSharedPreferences;
+
     }
 
     public static MoneyControlManager getInstance(Context context) {
         mContext = context;
+        CashRecordDatabase cashRecordDatabase = CashRecordDatabase.getCashRecordDatabase(context);
         if (instance == null) {
             instance = new MoneyControlManager(new CashRecordAdapter(context),
                     new BalanceAdapter(context),
-                    CashRecordDatabase.getCashRecordDatabase(context),
+                    cashRecordDatabase,
                     CategoryDatabase.getCategoryDatabase(context),
                     CustomSharedPreferences.getInstance(context),
-                    RecurringManager.getInstance(context));
+                    RecurringManager.getInstance(context),
+                    StatisticManager.getInstance(context, cashRecordDatabase));
         }
 
         return instance;
@@ -159,4 +166,8 @@ public class MoneyControlManager {
             addCashRecord(newCashRecord);
         }
     };
+
+    public StatisticManager getStatisticsManager() {
+        return statisticsManager;
+    }
 }
