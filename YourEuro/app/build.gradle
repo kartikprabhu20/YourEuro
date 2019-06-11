@@ -39,6 +39,10 @@ dependencies {
     //Piccasso
     implementation 'com.squareup.picasso:picasso:2.5.2'
 
+    //stats
+
+    implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
+
     //butterknife
     implementation 'com.jakewharton:butterknife:9.0.0'
     annotationProcessor 'com.jakewharton:butterknife-compiler:9.0.0'
