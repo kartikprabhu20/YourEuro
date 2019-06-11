@@ -1,26 +1,17 @@
 package com.artexceptionals.youreuro;
 
-import java.util.ArrayList;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import com.github.mikephil.charting.charts.BarChart;
-import com.github.mikephil.charting.components.AxisBase;
-import com.github.mikephil.charting.components.XAxis;
-import com.github.mikephil.charting.data.BarData;
-import com.github.mikephil.charting.data.BarDataSet;
-import com.github.mikephil.charting.data.BarEntry;
+
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
@@ -34,21 +25,12 @@ import android.widget.Toast;
 
 import com.artexceptionals.youreuro.adapter.CashRecordAdapter;
 import com.github.mikephil.charting.charts.PieChart;
-import com.github.mikephil.charting.formatter.IAxisValueFormatter;
-import com.github.mikephil.charting.formatter.IndexAxisValueFormatter;
-import com.github.mikephil.charting.formatter.ValueFormatter;
-import com.github.mikephil.charting.interfaces.datasets.IBarDataSet;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class MainActivity extends AppCompatActivity {
 
-//        BarChart chart;
-//    ArrayList<BarEntry> barEntries;
-//    ArrayList<String> BarEntryLabels ;
-//    BarDataSet Bardataset ;
-//    BarData barData;
     private DrawerLayout drawerlay;
     private ActionBarDrawerToggle abdt;
 
@@ -60,6 +42,12 @@ public class MainActivity extends AppCompatActivity {
 
     @BindView(R.id.noRecords_tv)
     TextView noRecordsTextView;
+
+    @BindView(R.id.pieChart)
+    PieChart pieChart;
+
+    @BindView(R.id.barChart)
+    BarChart barChart;
 
     private MoneyControlManager moneyControlManager;
 
@@ -117,6 +105,8 @@ public class MainActivity extends AppCompatActivity {
             }
         }
         moneyControlManager =  MoneyControlManager.getInstance(YourEuroApp.getAppContext());
+        moneyControlManager.setStatisticsListener(statisticsListener);
+
         mRecentsRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         mRecentsRecyclerView.setAdapter(moneyControlManager.getCashRecordAdapter());
         noRecordsTextView.setVisibility(moneyControlManager.getCashRecordAdapter().getItemCount() >0 ? View.GONE : View.VISIBLE);
@@ -140,76 +130,8 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
-        //Statistics
-        //Piechart:
-        PieChart piechart = (PieChart) findViewById(R.id.chart);
-//        chart = (BarChart) findViewById(R.id.chart1);
-
-        piechart.setData(moneyControlManager.getStatisticsManager().setupPieChart());
-//        chart.setData(moneyControlManager.getStatisticsManager().setupBarChart());
-        piechart.invalidate();
-        piechart.setDrawEntryLabels(false);
-
-//        barEntries = new ArrayList<>();
-//        BarEntryLabels = new ArrayList<String>();
-//
-////        AddValuesToBARENTRY();
-////
-//        AddValuesToBarEntryLabels();
-//
-//        IBarDataSet barDataSet = new BarDataSet(barEntries, "Projects");
-////        IBarDataSet barDataSet2 = new BarDataSet(BarEntryLabels,"test");
-//
-//        barData = new BarData(barDataSet);
-//
-//        ((BarDataSet) barDataSet).setColor(this.getResources().getColor(R.color.colorAccent));
-//        chart.setData(barData);
-//        chart.animateY(3000);
-//
-//        XAxis xAxis = chart.getXAxis();
-//        xAxis.setPosition(XAxis.XAxisPosition.TOP);
-//        xAxis.setDrawGridLines(true);
-//        xAxis.setValueFormatter(new IndexAxisValueFormatter(BarEntryLabels));
-//
-//        chart.setVisibleXRangeMaximum(12);
-//        chart.moveViewToX(12);
-//        chart.setDragEnabled(true);
-    }
-
-//    public void AddValuesToBARENTRY(){ // As fetching data from User.
-//
-//        barEntries.add(new BarEntry(2f, 0));
-//        barEntries.add(new BarEntry(4f, 1));
-//        barEntries.add(new BarEntry(6f, 2));
-//        barEntries.add(new BarEntry(8f, 3));
-//        barEntries.add(new BarEntry(7f, 4));
-//        barEntries.add(new BarEntry(3f, 4));
-//
-//
-//
-//    }
-
-
-//    public void AddValuesToBarEntryLabels(){
-//
-//        BarEntryLabels.add("March");
-//        BarEntryLabels.add("April");
-//        BarEntryLabels.add("May");
-//        BarEntryLabels.add("June");
-//        BarEntryLabels.add("July");
-//        BarEntryLabels.add("August");
-//
-//
-//
-//    }
-
-private void setupBarChart(){
-
-}
-
-    private void setupPieChart() {
-
+        //Statistica
+        statisticsListener.listen();
     }
 
     @Override
@@ -237,4 +159,22 @@ private void setupBarChart(){
         return value;
     }
 
+    MoneyControlManager.StatisticsListener statisticsListener = new MoneyControlManager.StatisticsListener() {
+        @Override
+        public void listen() {
+
+            //Statistics
+            //Piechart:
+            pieChart.setData(moneyControlManager.getStatisticsManager().setupPieChart());
+            pieChart.invalidate();
+            pieChart.setDrawEntryLabels(false);
+
+            //Barchart:
+
+            barChart.setData(moneyControlManager.getStatisticsManager().setupBarChart());
+            barChart.getAxisLeft().addLimitLine(moneyControlManager.getStatisticsManager().getBarLimit());
+            barChart.getAxisLeft().addLimitLine(moneyControlManager.getStatisticsManager().getBarLimit2());
+            barChart.invalidate();
+        }
+    };
 }
