@@ -77,8 +77,6 @@ public class MainActivity extends AppCompatActivity {
                     startActivity(new Intent(MainActivity.this, SettingsActivity.class));
                 } else if (id == R.id.aboutus) {
                     Toast.makeText(MainActivity.this, "About Us", Toast.LENGTH_SHORT).show();
-                } else if (id == R.id.exportingpdf){
-                    startActivity(new Intent(MainActivity.this, ExportPdfActivity.class));
                 }
                 return true;
             }
