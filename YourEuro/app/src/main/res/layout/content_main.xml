@@ -24,6 +24,7 @@
 
             <include layout="@layout/cardview_recent_history" />
 
+            <include layout="@layout/cardview_statistics" />
         </LinearLayout>
 
     </ScrollView>

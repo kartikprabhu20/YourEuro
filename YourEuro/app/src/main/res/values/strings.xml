@@ -39,6 +39,7 @@
     <string name="new_pin">New PIN:</string>
     <string name="wrong_pin">Wrong pin</string>
     <string name="empty_pin">PIN is empty</string>
+    <string name="statistic">Statistics</string>
 
     <string-array name="paymenttypes_array">
         <item>Select payment type</item>
