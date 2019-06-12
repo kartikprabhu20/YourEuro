@@ -1,1 +1,40 @@
+Weekly Report 9
 
+Section 1: What we were supposed to do.
+1. Apply filters for statistics similar to history of transaction - Avinash
+2. Add filter icon in history search menu-Anitha
+3. Export as database(sqlite) as pdf-Madhu
+4. Add currency selection in settings and depending on this selection set the currency text field
+to corresponding symbol - Kartik
+5. Work on recurring transaction - Kartik
+
+Section 2: What we did
+1. {Bug} Throw error in filter, when end time is smaller than start time - Anitha
+2. Converted Sqlite database into pdf format - Madhu
+3. Synced the transactions with the pie chart
+4. Added currency selection and created an field to display balance of each currency - Kartik
+5. Recurring transaction (daily, weekly,monthly, yearly) - Kartik
+
+Section 3: What we will do
+1. Prompt dialog when user presess cancel in detail input - Anitha
+2. Change default icons to suitable icons - Avinash
+3. Send the generated pdf report via mail - Madhu
+4. Custom category in settings, add and delete - Kartik
+5. Filters in statistical chart - Kartik
+
+Section 4: Meeting with the TA/Client
+1. Updated changes mentioned in previous meet
+  a) Throw error when user doesnt select category, payment type date, etc - Done
+  b) Multiple category selection in filter
+2. More feedback:
+  a) Throw error all at once for missing fields
+  b) Let date and time be empty by default too.
+  c) Add legends to bargraph
+  d) No need to show all filters for all graphs 
+  e) Add total in export pdf
+3. Somce clarifications from Clients:
+  a) Piechart : negative values?
+  b) For charts: multiple filters? Like category = shopping, payment type = debit card, or just category, payment type
+  c) Filter for charts? How date and amount range?
+  d) Threshold/limit for each category or overall 1 threshold?
+  e) Different charts for different currencies?
