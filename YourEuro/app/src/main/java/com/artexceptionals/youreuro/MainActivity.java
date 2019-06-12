@@ -1,15 +1,17 @@
 package com.artexceptionals.youreuro;
 
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import com.github.mikephil.charting.charts.BarChart;
+
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
@@ -20,12 +22,15 @@ import android.view.MenuItem;
 import android.widget.TextView;
 import android.widget.Toast;
 
+
 import com.artexceptionals.youreuro.adapter.CashRecordAdapter;
+import com.github.mikephil.charting.charts.PieChart;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class MainActivity extends AppCompatActivity {
+
     private DrawerLayout drawerlay;
     private ActionBarDrawerToggle abdt;
 
@@ -37,6 +42,12 @@ public class MainActivity extends AppCompatActivity {
 
     @BindView(R.id.noRecords_tv)
     TextView noRecordsTextView;
+
+    @BindView(R.id.pieChart)
+    PieChart pieChart;
+
+    @BindView(R.id.barChart)
+    BarChart barChart;
 
     private MoneyControlManager moneyControlManager;
 
@@ -92,6 +103,8 @@ public class MainActivity extends AppCompatActivity {
             }
         }
         moneyControlManager =  MoneyControlManager.getInstance(YourEuroApp.getAppContext());
+        moneyControlManager.setStatisticsListener(statisticsListener);
+
         mRecentsRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         mRecentsRecyclerView.setAdapter(moneyControlManager.getCashRecordAdapter());
         noRecordsTextView.setVisibility(moneyControlManager.getCashRecordAdapter().getItemCount() >0 ? View.GONE : View.VISIBLE);
@@ -114,6 +127,9 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(getApplication(), DetailInputActivity.class));
             }
         });
+
+        //Statistica
+        statisticsListener.listen();
     }
 
     @Override
@@ -141,4 +157,22 @@ public class MainActivity extends AppCompatActivity {
         return value;
     }
 
+    MoneyControlManager.StatisticsListener statisticsListener = new MoneyControlManager.StatisticsListener() {
+        @Override
+        public void listen() {
+
+            //Statistics
+            //Piechart:
+            pieChart.setData(moneyControlManager.getStatisticsManager().setupPieChart());
+            pieChart.invalidate();
+            pieChart.setDrawEntryLabels(false);
+
+            //Barchart:
+
+            barChart.setData(moneyControlManager.getStatisticsManager().setupBarChart());
+            barChart.getAxisLeft().addLimitLine(moneyControlManager.getStatisticsManager().getBarLimit());
+            barChart.getAxisLeft().addLimitLine(moneyControlManager.getStatisticsManager().getBarLimit2());
+            barChart.invalidate();
+        }
+    };
 }
