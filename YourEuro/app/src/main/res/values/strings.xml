@@ -40,6 +40,12 @@
     <string name="wrong_pin">Wrong pin</string>
     <string name="empty_pin">PIN is empty</string>
     <string name="statistic">Statistics</string>
+    <string name="selectIcon">Icon</string>
+    <string name="category_settings">Category Settings</string>
+    <string name="list_of_categories">List of Categories:</string>
+    <string name="new_category">New Category:</string>
+    <string name="enter_new_category">Enter new category</string>
+    <string name="edit_icon">Edit icon</string>
 
     <string-array name="paymenttypes_array">
         <item>Select payment type</item>

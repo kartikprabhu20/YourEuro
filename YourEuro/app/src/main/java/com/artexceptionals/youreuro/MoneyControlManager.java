@@ -100,6 +100,14 @@ public class MoneyControlManager {
         return categoryDatabase.categoryDao().getAll();
     }
 
+    public void addCategory(Category category) {
+         categoryDatabase.categoryDao().insert(category);
+    }
+
+    public void removeCategory(Category category) {
+        categoryDatabase.categoryDao().delete(category);
+    }
+
     public void clearCacheCashRecords() {
         cashRecordAdapter.removeAllCashRecords();
     }

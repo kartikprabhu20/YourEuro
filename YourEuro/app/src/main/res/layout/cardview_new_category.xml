@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/new_category_cardview"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/unit2"
+    android:elevation="@dimen/unit2"
+    android:padding="@dimen/unit1"
+    app:cardElevation="@dimen/unit4">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/unit2"
+            android:text="@string/new_category"
+            android:textSize="@dimen/unit3_5"
+            android:layout_marginBottom="@dimen/unit1"/>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="@dimen/unit1">
+
+            <EditText
+                android:id="@+id/new_catergory_name"
+                android:layout_width="fill_parent"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:hint="@string/enter_new_category"/>
+
+            <ImageView
+                android:layout_width="@dimen/unit4"
+                android:layout_height="@dimen/unit4"
+                android:layout_gravity="center"
+                android:id="@+id/selectedIcon"
+                android:text="@string/selectIcon"
+                android:scaleType="centerCrop"
+                android:background="@color/highlight_blue"
+                android:src="@drawable/ic_baseline_shopping"/>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:id="@+id/select_icon_button"
+                android:text="@string/selectIcon"/>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:id="@+id/save_category"
+                android:text="@string/save"/>
+        </LinearLayout>
+    </LinearLayout>
+
+
+</android.support.v7.widget.CardView>
