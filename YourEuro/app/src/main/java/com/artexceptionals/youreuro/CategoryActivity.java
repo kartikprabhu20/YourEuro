@@ -98,6 +98,7 @@ public class CategoryActivity extends AppCompatActivity implements IconDialog.Ca
                 selectIconButton.setText(R.string.selectIcon);
                 categoryImageView.setVisibility(View.GONE);
                 categoryAdapter.add(category);
+                newCategoryEditText.getText().clear();
             }
         });
 
