@@ -29,6 +29,7 @@ public class Category implements Parcelable {
         this.isDefault = isDefault;
     }
 
+    @Ignore
     public Category(String  catagoryName, String imageID) {
         this(catagoryName,imageID, true);
     }

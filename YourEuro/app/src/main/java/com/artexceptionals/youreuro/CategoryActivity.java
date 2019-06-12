@@ -4,6 +4,8 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -51,6 +53,7 @@ public class CategoryActivity extends AppCompatActivity implements IconDialog.Ca
         setSupportActionBar(toolbar);
 
         categoryImageView.setVisibility(View.GONE);
+        saveCategoryButton.setEnabled(false);
 
         iconDialog = new IconDialog();
 
@@ -67,6 +70,24 @@ public class CategoryActivity extends AppCompatActivity implements IconDialog.Ca
             }
         });
 
+        newCategoryEditText.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                if(!newCategoryEditText.getText().toString().isEmpty() && categoryImageView.getVisibility() == View.VISIBLE){
+                    saveCategoryButton.setEnabled(true);
+                }else {
+                    saveCategoryButton.setEnabled(false);
+                }
+            }
+        });
         saveCategoryButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -77,6 +98,7 @@ public class CategoryActivity extends AppCompatActivity implements IconDialog.Ca
                 selectIconButton.setText(R.string.selectIcon);
                 categoryImageView.setVisibility(View.GONE);
                 categoryAdapter.add(category);
+                newCategoryEditText.getText().clear();
             }
         });
 
@@ -99,5 +121,11 @@ public class CategoryActivity extends AppCompatActivity implements IconDialog.Ca
         categoryImageView.setImageDrawable(selectedIcons[0].getDrawable(this));
         categoryImageView.setVisibility(View.VISIBLE);
         selectIconButton.setText(R.string.edit_icon);
+
+        if(!newCategoryEditText.getText().toString().isEmpty() && categoryImageView.getVisibility() == View.VISIBLE){
+            saveCategoryButton.setEnabled(true);
+        }else {
+            saveCategoryButton.setEnabled(false);
+        }
     }
 }
