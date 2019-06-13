@@ -1,7 +1,9 @@
 package com.artexceptionals.youreuro;
 
+import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
+import android.content.DialogInterface;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.RequiresApi;
@@ -33,8 +35,6 @@ import com.artexceptionals.youreuro.model.CashRecord;
 import com.artexceptionals.youreuro.model.Category;
 import com.artexceptionals.youreuro.model.Constants;
 
-import java.sql.Time;
-import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -203,9 +203,9 @@ public class DetailInputActivity extends AppCompatActivity implements View.OnCli
         }else if (id == R.id.details_cancel) {
             onBackPressed();
         }
-
         return super.onOptionsItemSelected(item);
     }
+
 
     private View.OnClickListener onClickListener = new View.OnClickListener() {
         @Override
@@ -257,6 +257,26 @@ public class DetailInputActivity extends AppCompatActivity implements View.OnCli
         moneyControlManager.addCashRecord(cashRecord);
         onBackPressed();
     }
+    @Override
+    public void onBackPressed(){
+        final AlertDialog.Builder builder = new AlertDialog.Builder(DetailInputActivity.this);
+        builder.setMessage("Are you sure you want to cancel?");
+        builder.setCancelable(true);
+        builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                dialogInterface.cancel();
+            }
+        });
+        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                finish();
+            }
+        });
+        AlertDialog alertDialog = builder.create();
+        alertDialog.show();
+    }
 
     @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
@@ -298,7 +318,11 @@ public class DetailInputActivity extends AppCompatActivity implements View.OnCli
                 TimePickerDialog timePickerDialog = new TimePickerDialog(this, new TimePickerDialog.OnTimeSetListener() {
                     @Override
                     public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
-                        ttime.setText(hourOfDay + ":" + minute);
+                        ttime.setText(hourOfDay + ":" + checkDigit(minute));
+                    }
+
+                    public String checkDigit(int minute) {
+                        return minute <= 9 ? "0" + minute : String.valueOf(minute);
                     }
                 }, hour, minute, false);
                 timePickerDialog.show();
