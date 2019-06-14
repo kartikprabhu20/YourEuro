@@ -20,18 +20,9 @@ public class Category implements Parcelable {
     @ColumnInfo(name = "imageID")
     String imageID;
 
-    @ColumnInfo(name = "isDefault")
-    public boolean isDefault;
-
-    public Category(String  catagoryName, String imageID, boolean isDefault) {
+    public Category(String  catagoryName, String imageID) {
         this.catagoryName = catagoryName;
         this.imageID = imageID;
-        this.isDefault = isDefault;
-    }
-
-    @Ignore
-    public Category(String  catagoryName, String imageID) {
-        this(catagoryName,imageID, true);
     }
 
     @Ignore
@@ -44,7 +35,6 @@ public class Category implements Parcelable {
         categoryID = in.readInt();
         catagoryName = in.readString();
         imageID = in.readString();
-        isDefault = in.readByte() != 0;
     }
 
     public static final Creator<Category> CREATOR = new Creator<Category>() {
@@ -92,8 +82,6 @@ public class Category implements Parcelable {
         dest.writeInt(categoryID);
         dest.writeString(catagoryName);
         dest.writeString(imageID);
-        dest.writeString(imageID);
-        dest.writeByte((byte) (isDefault ? 1 : 0));
     }
 
     @Override

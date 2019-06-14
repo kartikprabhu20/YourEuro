@@ -27,11 +27,5 @@
             android:entryValues="@array/currencyValues" />
     </PreferenceCategory>
 
-    <PreferenceCategory
-        android:title="Category">
-        <Preference
-            android:key="modifyCategory"
-            android:title="Modify Categories"/>
-    </PreferenceCategory>
 
 </PreferenceScreen>

@@ -20,39 +20,32 @@ import java.util.List;
 public class MoneyControlManager {
     private static MoneyControlManager instance;
     private static Context mContext;
-    private final StatisticManager statisticsManager;
+    private final CustomSharedPreferences sharedPreference;
     private final RecurringManager recurringManager;
     private CashRecordAdapter cashRecordAdapter;
     private BalanceAdapter balanceAdapter;
     private CashRecordDatabase cashRecordDatabase;
     private CategoryDatabase categoryDatabase;
-    private CustomSharedPreferences sharedPreference;
-    private StatisticsListener statisticsListener;
 
     public MoneyControlManager(CashRecordAdapter cashRecordAdapter, BalanceAdapter balanceAdapter, CashRecordDatabase cashRecordDatabase,
-                               CategoryDatabase categoryDatabase, CustomSharedPreferences customSharedPreferences,RecurringManager recurringManager,
-                               StatisticManager statisticManager) {
+                               CategoryDatabase categoryDatabase, CustomSharedPreferences customSharedPreferences,RecurringManager recurringManager) {
         this.cashRecordAdapter = cashRecordAdapter;
         this.balanceAdapter = balanceAdapter;
         this.cashRecordDatabase = cashRecordDatabase;
         this.categoryDatabase = categoryDatabase;
-        this.statisticsManager = statisticManager;
-        this.recurringManager = recurringManager;
         this.sharedPreference = customSharedPreferences;
-
+        this.recurringManager = recurringManager;
     }
 
     public static MoneyControlManager getInstance(Context context) {
         mContext = context;
-        CashRecordDatabase cashRecordDatabase = CashRecordDatabase.getCashRecordDatabase(context);
         if (instance == null) {
             instance = new MoneyControlManager(new CashRecordAdapter(context),
                     new BalanceAdapter(context),
-                    cashRecordDatabase,
+                    CashRecordDatabase.getCashRecordDatabase(context),
                     CategoryDatabase.getCategoryDatabase(context),
                     CustomSharedPreferences.getInstance(context),
-                    RecurringManager.getInstance(context),
-                    StatisticManager.getInstance(context, cashRecordDatabase));
+                    RecurringManager.getInstance(context));
         }
 
         return instance;
@@ -67,7 +60,6 @@ public class MoneyControlManager {
         if (cashRecord.isRecurringTransaction())
             recurringManager.initialiseNextEvent(cashRecord, listener);
 
-        statisticsListener.listen();
     }
 
     //For deleting a cashRecord from both database and adapter view
@@ -78,8 +70,6 @@ public class MoneyControlManager {
 
         if (cashRecord.isRecurringTransaction())
             recurringManager.cancelPendingIntents(cashRecord);
-
-        statisticsListener.listen();
     }
 
     public synchronized void updateAllRecords() {
@@ -88,8 +78,6 @@ public class MoneyControlManager {
         cashRecordAdapter.addCashRecords(cashRecords);
 
         updateAllAccounts();
-
-        statisticsListener.listen();
     }
 
     public CashRecordAdapter getCashRecordAdapter() {
@@ -98,14 +86,6 @@ public class MoneyControlManager {
 
     public List<Category> getAllCategories() {
         return categoryDatabase.categoryDao().getAll();
-    }
-
-    public void addCategory(Category category) {
-         categoryDatabase.categoryDao().insert(category);
-    }
-
-    public void removeCategory(Category category) {
-        categoryDatabase.categoryDao().delete(category);
     }
 
     public void clearCacheCashRecords() {
@@ -161,7 +141,6 @@ public class MoneyControlManager {
         }
 
         balanceAdapter.updateAccounts(accountList);
-        statisticsListener.listen();
     }
 
     RecurringReceiver.ReceiverListener listener = new RecurringReceiver.ReceiverListener() {
@@ -180,16 +159,4 @@ public class MoneyControlManager {
             addCashRecord(newCashRecord);
         }
     };
-
-    public StatisticManager getStatisticsManager() {
-        return statisticsManager;
-    }
-
-    public void setStatisticsListener(StatisticsListener listener) {
-        this.statisticsListener = listener;
-    }
-
-    public interface StatisticsListener {
-        void listen();
-    }
 }

@@ -15,8 +15,6 @@ public interface CategoryDao {
     @Query("SELECT * FROM category")
     List<Category> getAll();
 
-    @Insert
-    void insert(Category categories);
 
     @Insert
     void insertAll(List<Category> categories);

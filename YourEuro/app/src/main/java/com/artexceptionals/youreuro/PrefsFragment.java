@@ -2,7 +2,6 @@ package com.artexceptionals.youreuro;
 
 import android.annotation.SuppressLint;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v14.preference.SwitchPreference;
 import android.support.v7.preference.Preference;
@@ -23,7 +22,7 @@ public  class PrefsFragment extends PreferenceFragment {
     private static final String DISABLE_PIN = "disablePIN";
     private static final String CURRENCY_CHANGE = "changeCurrency";
     CustomSharedPreferences sharedPreferences;
-    Preference switchPreference, changePinPreference, currencyPreference, addCategoryPreference;
+    Preference switchPreference, changePinPreference, currencyPreference;
     private int enteredPIN,enteredOldPIN,enteredNewPIN;
 
     @Override
@@ -34,9 +33,7 @@ public  class PrefsFragment extends PreferenceFragment {
         switchPreference = findPreference(DISABLE_PIN);
         changePinPreference = findPreference("changePIN");
         currencyPreference = findPreference("changeCurrency");
-        addCategoryPreference = findPreference("modifyCategory");
         changePinPreference.setOnPreferenceClickListener(onClickPreference);
-        addCategoryPreference.setOnPreferenceClickListener(onClickPreference);
         switchPreference.setOnPreferenceChangeListener(preferenceChangeListener);
         currencyPreference.setOnPreferenceChangeListener(preferenceChangeListener);
         currencyPreference.setDefaultValue(sharedPreferences.genericGetString(CurrencyHelper.CURRENT_CURRENCY, CurrencyHelper.CurrencyType.EURO));
@@ -191,13 +188,7 @@ public  class PrefsFragment extends PreferenceFragment {
     private Preference.OnPreferenceClickListener onClickPreference = new Preference.OnPreferenceClickListener() {
         @Override
         public boolean onPreferenceClick(Preference preference) {
-
-            if ("changePIN".equalsIgnoreCase(preference.getKey())) {
-                launchDialogChangePIN();
-            }else if("modifyCategory".equalsIgnoreCase(preference.getKey())){
-                startActivity(new Intent(YourEuroApp.getAppContext(), CategoryActivity.class));
-
-            }
+            launchDialogChangePIN();
             return false;
         }
     };

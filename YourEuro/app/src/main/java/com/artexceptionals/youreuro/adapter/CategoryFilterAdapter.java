@@ -13,7 +13,6 @@ import android.widget.TextView;
 
 import com.artexceptionals.youreuro.R;
 import com.artexceptionals.youreuro.model.Category;
-import com.maltaisn.icondialog.IconHelper;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -39,38 +38,30 @@ public class CategoryFilterAdapter extends ArrayAdapter<Category> {
     @NonNull
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
-        final ViewHolder mViewHolder = new ViewHolder();
+        ViewHolder mViewHolder = new ViewHolder();
 
-        LayoutInflater mInflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        convertView = mInflater.inflate(R.layout.category_checkbox, parent, false);
-        mViewHolder.categoryImage = (ImageView) convertView.findViewById(R.id.category_spinner_image);
-        mViewHolder.categoryName = (TextView) convertView.findViewById(R.id.category_spinner_Name);
-        mViewHolder.checkBox = (CheckBox)convertView.findViewById(R.id.category_checkbox);
-        mViewHolder.checkBox.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                if (((CheckBox)view).isChecked()) {
-                    filterCategories.add(categories.get(position));
-                }else {
-                    filterCategories.remove(categories.get(position));
-                }
-            }
-        });
-        convertView.setTag(mViewHolder);
-
-        IconHelper iconHelper = IconHelper.getInstance(mContext);
-        if(categories.get(position).isDefault) {
-            mViewHolder.categoryImage.setImageDrawable(mContext.getResources().getDrawable(mContext.getResources().getIdentifier(categories.get(position).getImageID(), "drawable", mContext.getPackageName())));
-        }else{
-            iconHelper.addLoadCallback(new IconHelper.LoadCallback() {
+        if (convertView == null) {
+            LayoutInflater mInflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            convertView = mInflater.inflate(R.layout.category_checkbox, parent, false);
+            mViewHolder.categoryImage = (ImageView) convertView.findViewById(R.id.category_spinner_image);
+            mViewHolder.categoryName = (TextView) convertView.findViewById(R.id.category_spinner_Name);
+            mViewHolder.checkBox = (CheckBox)convertView.findViewById(R.id.category_checkbox);
+            mViewHolder.checkBox.setOnClickListener(new View.OnClickListener() {
                 @Override
-                public void onDataLoaded() {
-                    mViewHolder.categoryImage.setImageDrawable(iconHelper.getIcon(Integer.parseInt(categories.get(position).getImageID())).getDrawable(mContext));
+                public void onClick(View view) {
+
+                    if (((CheckBox)view).isChecked()) {
+                        filterCategories.add(categories.get(position));
+                    }else {
+                        filterCategories.remove(categories.get(position));
+                    }
                 }
             });
-
+            convertView.setTag(mViewHolder);
+        } else {
+            mViewHolder = (ViewHolder) convertView.getTag();
         }
+        mViewHolder.categoryImage.setImageDrawable(mContext.getResources().getDrawable(mContext.getResources().getIdentifier(categories.get(position).getImageID(),"drawable", mContext.getPackageName())));
         mViewHolder.categoryName.setText(categories.get(position).getCatagoryName());
 
         return convertView;

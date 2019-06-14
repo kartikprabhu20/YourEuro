@@ -39,9 +39,6 @@ dependencies {
     //Piccasso
     implementation 'com.squareup.picasso:picasso:2.5.2'
 
-    //stats
-    implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
-
     //butterknife
     implementation 'com.jakewharton:butterknife:9.0.0'
     annotationProcessor 'com.jakewharton:butterknife-compiler:9.0.0'
@@ -54,15 +51,4 @@ dependencies {
     implementation "android.arch.persistence.room:runtime:$room_version"
     annotationProcessor "android.arch.persistence.room:compiler:$room_version"
     testImplementation "android.arch.persistence.room:testing:$room_version"
-    
-    //itextPdf
-    implementation 'com.itextpdf:itextg:5.5.10'
-
-    //icons
-    compile 'com.maltaisn:icondialog:2.0.2'
 }
-
-repositories {
-    maven { url "https://jitpack.io" }
-}
-
