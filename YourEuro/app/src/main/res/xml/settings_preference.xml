@@ -34,4 +34,11 @@
             android:title="Modify Categories"/>
     </PreferenceCategory>
 
+    <PreferenceCategory
+        android:title="Email">
+        <Preference
+            android:key="setEmailAccount"
+            android:title="User Email Account"/>
+    </PreferenceCategory>
+
 </PreferenceScreen>
