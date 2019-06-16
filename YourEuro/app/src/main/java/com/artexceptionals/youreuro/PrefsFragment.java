@@ -23,8 +23,9 @@ public  class PrefsFragment extends PreferenceFragment {
     private static final String DISABLE_PIN = "disablePIN";
     private static final String CURRENCY_CHANGE = "changeCurrency";
     CustomSharedPreferences sharedPreferences;
-    Preference switchPreference, changePinPreference, currencyPreference, addCategoryPreference;
+    Preference switchPreference, changePinPreference, currencyPreference, addCategoryPreference, setEmailAccountPreference;
     private int enteredPIN,enteredOldPIN,enteredNewPIN;
+    private String enteredEmail;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -35,16 +36,23 @@ public  class PrefsFragment extends PreferenceFragment {
         changePinPreference = findPreference("changePIN");
         currencyPreference = findPreference("changeCurrency");
         addCategoryPreference = findPreference("modifyCategory");
+        setEmailAccountPreference = findPreference("setEmailAccount");
         changePinPreference.setOnPreferenceClickListener(onClickPreference);
         addCategoryPreference.setOnPreferenceClickListener(onClickPreference);
+        setEmailAccountPreference.setOnPreferenceClickListener(onClickPreference);
         switchPreference.setOnPreferenceChangeListener(preferenceChangeListener);
         currencyPreference.setOnPreferenceChangeListener(preferenceChangeListener);
         currencyPreference.setDefaultValue(sharedPreferences.genericGetString(CurrencyHelper.CURRENT_CURRENCY, CurrencyHelper.CurrencyType.EURO));
+        emailPreferenceSetSummary();
     }
 
     @Override
     public void onCreatePreferences(Bundle bundle, String s) {
 
+    }
+
+    private void emailPreferenceSetSummary(){
+        setEmailAccountPreference.setSummary(sharedPreferences.genericGetString("user_Email","Not Set"));
     }
 
     @SuppressLint("RestrictedApi")
@@ -168,6 +176,40 @@ public  class PrefsFragment extends PreferenceFragment {
         alertDialog.show();
     }
 
+    @SuppressLint("RestrictedApi")
+    private void launchDialogSetEmail() {
+        AlertDialog.Builder alertDialog = new AlertDialog.Builder(getActivity());
+        alertDialog.setTitle("SET Email Account");
+        alertDialog.setMessage("Enter mail id");
+
+        final EditText input = new EditText(getActivity());
+        LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.MATCH_PARENT,
+                LinearLayout.LayoutParams.MATCH_PARENT);
+        int dim = (int) getResources().getDimension(R.dimen.unit1);
+        lp.setMargins(dim,dim,dim,dim);
+        input.setLayoutParams(lp);
+        alertDialog.setView(input, 50,0,50,0);
+
+        alertDialog.setPositiveButton("SET",
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        enteredEmail = input.getText().toString();
+                        sharedPreferences.genericSetString("user_Email",enteredEmail);
+                        Toast.makeText(getActivity(),"Your Email account has been set.",Toast.LENGTH_LONG).show();
+                        emailPreferenceSetSummary();
+                    }
+                });
+
+        alertDialog.setNegativeButton("CANCEL",
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.cancel();
+                    }
+                });
+        alertDialog.show();
+    }
+
     Preference.OnPreferenceChangeListener preferenceChangeListener = new Preference.OnPreferenceChangeListener() {
 
         @Override
@@ -196,7 +238,8 @@ public  class PrefsFragment extends PreferenceFragment {
                 launchDialogChangePIN();
             }else if("modifyCategory".equalsIgnoreCase(preference.getKey())){
                 startActivity(new Intent(YourEuroApp.getAppContext(), CategoryActivity.class));
-
+            }else if("setEmailAccount".equalsIgnoreCase(preference.getKey())){
+                launchDialogSetEmail();
             }
             return false;
         }

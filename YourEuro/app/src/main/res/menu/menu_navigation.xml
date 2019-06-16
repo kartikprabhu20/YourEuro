@@ -39,4 +39,10 @@
 
     </item>
 
+    <item
+        android:id="@+id/exportingpdf"
+        android:title="Export PDF">
+
+    </item>
+
 </menu>
