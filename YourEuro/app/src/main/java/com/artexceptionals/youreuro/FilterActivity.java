@@ -147,10 +147,10 @@ public class FilterActivity  extends AppCompatActivity implements View.OnClickLi
                         Log.e("YourEuro", "ParseException in dateformating");
                     }
 
-                    if(!checkDates(tstartdate.getText().toString(),tenddate.getText().toString())) {
+                    if(dateFilterCheckbox.isChecked() && !checkDates(tstartdate.getText().toString(),tenddate.getText().toString())) {
                         break;
                     }
-                    cashRecordFilter = new CashRecordFilter(startTimeStamp.getTime(),endTimeStamp.getTime(),
+                    cashRecordFilter = new CashRecordFilter(startTimeStamp.getTime(), endTimeStamp.getTime(),
                             Float.valueOf(startAmount.isEmpty()? "0": startAmount),Float.valueOf(endAmount.isEmpty()? "100000000000":endAmount),
                             categoryAdapter.getSelectedItems(),paymentTypeSpinner.getSelectedItem().toString(),
                             categoryFilterCheckbox.isChecked(),dateFilterCheckbox.isChecked(),paymentFilterCheckbox.isChecked(),rangeFilterCheckbox.isChecked());

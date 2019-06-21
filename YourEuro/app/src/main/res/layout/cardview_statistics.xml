@@ -48,6 +48,18 @@
                 android:layout_weight="1"/>
 
             <ImageView
+                android:id="@+id/piechart_refresh"
+                android:layout_width="@dimen/unit5"
+                android:layout_height="@dimen/unit4_5"
+                android:padding="@dimen/unit3"
+                android:scaleType="center"
+                android:src="@drawable/ic_refresh_black_24dp"
+                android:tint="@color/black"
+                android:layout_gravity="center"
+                android:layout_weight="0"
+                android:clickable="true"/>
+
+            <ImageView
                 android:id="@+id/piechart_filter"
                 android:layout_width="@dimen/unit5"
                 android:layout_height="@dimen/unit4_5"
@@ -62,10 +74,14 @@
         </LinearLayout>
 
 
+
+
         <com.github.mikephil.charting.charts.PieChart
             android:id="@+id/pieChart"
             android:layout_width="match_parent"
             android:layout_height="360dp" />
+
+
 
 
         <View
@@ -87,6 +103,18 @@
                 android:layout_weight="1"/>
 
             <ImageView
+                android:id="@+id/barchart_refresh"
+                android:layout_width="@dimen/unit5"
+                android:layout_height="@dimen/unit4_5"
+                android:padding="@dimen/unit3"
+                android:scaleType="center"
+                android:src="@drawable/ic_refresh_black_24dp"
+                android:tint="@color/black"
+                android:layout_gravity="center"
+                android:layout_weight="0"
+                android:clickable="true"/>
+
+            <ImageView
                 android:id="@+id/barchart_filter"
                 android:layout_width="@dimen/unit5"
                 android:layout_height="@dimen/unit4_5"
@@ -99,11 +127,36 @@
                 android:clickable="true"/>
 
         </LinearLayout>
-        <com.github.mikephil.charting.charts.BarChart
-            android:padding="@dimen/unit2"
+
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="360dp"
-            android:id="@+id/barChart"/>
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:rotation="270"
+                android:text="Amount"
+                android:textSize="@dimen/unit2_5"
+                android:gravity="center"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <com.github.mikephil.charting.charts.BarChart
+                    android:padding="@dimen/unit2"
+                    android:layout_width="match_parent"
+                    android:layout_height="360dp"
+                    android:id="@+id/barChart"/>
+                <!--<TextView-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:text="Amount"-->
+                    <!--android:gravity="center"/>-->
+            </LinearLayout>
+        </LinearLayout>
 
     </LinearLayout>
 

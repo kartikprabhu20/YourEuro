@@ -217,7 +217,7 @@ public class DetailInputActivity extends AppCompatActivity implements View.OnCli
             return result;
 
         }else if (id == R.id.details_cancel) {
-            onBackPressed();
+            cancelDialog();
         }
         return super.onOptionsItemSelected(item);
     }
@@ -262,7 +262,7 @@ public class DetailInputActivity extends AppCompatActivity implements View.OnCli
         try {
             timeStamp = new SimpleDateFormat("dd-MM-yyyy hh:mm").parse(dateTextView.getText() + " " + timeTextView.getText());
         } catch (ParseException e) {
-            Log.e("YourEuro", "ParseException in dateformating");
+            Log.e("YourEuro", "ParseException in date formatting");
         }
         cashRecord.setTimeStamp(timeStamp.getTime());
         cashRecord.setCurrency(moneyControlManager.getSharedPreference().genericGetString(CurrencyHelper.CURRENT_CURRENCY, CurrencyHelper.CurrencyType.EURO));
@@ -273,8 +273,8 @@ public class DetailInputActivity extends AppCompatActivity implements View.OnCli
         moneyControlManager.addCashRecord(cashRecord);
         onBackPressed();
     }
-    @Override
-    public void onBackPressed(){
+
+    private void cancelDialog() {
         final AlertDialog.Builder builder = new AlertDialog.Builder(DetailInputActivity.this);
         builder.setMessage("Are you sure you want to cancel?");
         builder.setCancelable(true);
@@ -287,7 +287,7 @@ public class DetailInputActivity extends AppCompatActivity implements View.OnCli
         builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                finish();
+                onBackPressed();
             }
         });
         AlertDialog alertDialog = builder.create();
