@@ -2,6 +2,8 @@ package com.artexceptionals.youreuro;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import com.artexceptionals.youreuro.model.CashRecordFilter;
 import com.github.mikephil.charting.charts.BarChart;
 
 import android.content.Intent;
@@ -19,6 +21,7 @@ import android.view.Gravity;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -29,7 +32,10 @@ import com.github.mikephil.charting.charts.PieChart;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class MainActivity extends AppCompatActivity {
+import static com.artexceptionals.youreuro.model.CashRecordFilter.FILTER_REQUEST_CODE_BARCHART;
+import static com.artexceptionals.youreuro.model.CashRecordFilter.FILTER_REQUEST_CODE_PIECHART;
+
+public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
     private DrawerLayout drawerlay;
     private ActionBarDrawerToggle abdt;
@@ -48,6 +54,12 @@ public class MainActivity extends AppCompatActivity {
 
     @BindView(R.id.barChart)
     BarChart barChart;
+
+    @BindView(R.id.piechart_filter)
+    ImageView pieChartFilter;
+
+    @BindView(R.id.barchart_filter)
+    ImageView barChartFilter;
 
     private MoneyControlManager moneyControlManager;
 
@@ -132,6 +144,9 @@ public class MainActivity extends AppCompatActivity {
 
         //Statistica
         statisticsListener.listen();
+        barChartFilter.setOnClickListener(this);
+        pieChartFilter.setOnClickListener(this);
+
     }
 
     @Override
@@ -177,4 +192,41 @@ public class MainActivity extends AppCompatActivity {
             barChart.invalidate();
         }
     };
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode == RESULT_OK) {
+            Bundle bundle = data.getExtras();
+            if (bundle.containsKey(CashRecordFilter.FILTER)) {
+                if (requestCode == FILTER_REQUEST_CODE_PIECHART) {
+                    filterResults(bundle.getParcelable(CashRecordFilter.FILTER), true);
+                } else if (requestCode == FILTER_REQUEST_CODE_BARCHART) {
+                    filterResults(bundle.getParcelable(CashRecordFilter.FILTER), false);
+                }
+            }
+        }
+    }
+
+    private void filterResults(CashRecordFilter cashRecordFilter, boolean isPieChart) {
+        if (isPieChart){
+            //Piechart:
+            pieChart.setData(moneyControlManager.getStatisticsManager().setupPieChart(cashRecordFilter));
+            pieChart.invalidate();
+            pieChart.setDrawEntryLabels(false);
+        }
+    }
+
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case  R.id.barchart_filter:
+                startActivityForResult(new Intent(this, FilterActivity.class), CashRecordFilter.FILTER_REQUEST_CODE_BARCHART);
+                break;
+            case  R.id.piechart_filter:
+                startActivityForResult(new Intent(this, FilterActivity.class), CashRecordFilter.FILTER_REQUEST_CODE_PIECHART);
+                break;
+        }
+    }
+
 }

@@ -92,7 +92,6 @@ public class Category implements Parcelable {
         dest.writeInt(categoryID);
         dest.writeString(catagoryName);
         dest.writeString(imageID);
-        dest.writeString(imageID);
         dest.writeByte((byte) (isDefault ? 1 : 0));
     }
 

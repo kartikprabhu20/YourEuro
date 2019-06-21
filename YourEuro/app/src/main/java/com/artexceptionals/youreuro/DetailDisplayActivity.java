@@ -19,11 +19,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
 
-import com.artexceptionals.youreuro.adapter.CustomCategoryAdapter;
 import com.artexceptionals.youreuro.helpers.CurrencyHelper;
 import com.artexceptionals.youreuro.model.CashRecord;
 import com.artexceptionals.youreuro.model.Category;
 import com.artexceptionals.youreuro.model.Constants;
+import com.maltaisn.icondialog.IconHelper;
 
 import java.text.DateFormat;
 
@@ -125,7 +125,18 @@ public class DetailDisplayActivity extends AppCompatActivity {
 
         paymentTypeSpinner.setVisibility(View.GONE);
         categorySpinner.setVisibility(View.GONE);
-        categorySelectedImageView.setImageDrawable(getApplicationContext().getResources().getDrawable(getApplicationContext().getResources().getIdentifier(cashRecord.getCategory().getImageID(),"drawable", getApplicationContext().getPackageName())));
+        if(cashRecord.getCategory().isDefault) {
+            categorySelectedImageView.setImageDrawable(this.getResources().getDrawable(this.getResources().getIdentifier(cashRecord.getCategory().getImageID(), "drawable", this.getPackageName())));
+        }else{
+            IconHelper iconHelper = IconHelper.getInstance(this);
+            iconHelper.addLoadCallback(new IconHelper.LoadCallback() {
+                @Override
+                public void onDataLoaded() {
+                    categorySelectedImageView.setImageDrawable(iconHelper.getIcon(Integer.parseInt(cashRecord.getCategory().getImageID())).getDrawable(getApplicationContext()));
+                }
+            });
+        }
+
         categorySelectedTextView.setText(cashRecord.getCategory().getCatagoryName());
         paymentSelectedTextView.setText(cashRecord.getPaymentType());
 

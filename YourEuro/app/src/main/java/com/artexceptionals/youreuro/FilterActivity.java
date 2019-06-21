@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -114,9 +115,8 @@ public class FilterActivity  extends AppCompatActivity implements View.OnClickLi
         dateRangeLinearLayout.setVisibility(View.GONE);
         amountRangeLinearLayout.setVisibility(View.GONE);
         paymentTypeSpinner.setVisibility(View.GONE);
-
-
-            String current_date = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new Date());
+        
+        String current_date = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new Date());
 
         istartdate = (ImageView) findViewById(R.id.start_date_iv);
         ienddate = (ImageView) findViewById(R.id.end_date_iv);
@@ -137,10 +137,20 @@ public class FilterActivity  extends AppCompatActivity implements View.OnClickLi
                     String startAmount = String.valueOf(startAmountEditText.getText());
                     String endAmount = String.valueOf(endAmountEditText.getText());
 
+                    Date startTimeStamp = new Date();
+                    Date endTimeStamp = new Date();
+                    try {
+                        startTimeStamp = new SimpleDateFormat("dd-MM-yyyy").parse(tstartdate.getText().toString());
+                        endTimeStamp = new SimpleDateFormat("dd-MM-yyyy").parse(tstartdate.getText().toString());
+
+                    } catch (ParseException e) {
+                        Log.e("YourEuro", "ParseException in dateformating");
+                    }
+
                     if(!checkDates(tstartdate.getText().toString(),tenddate.getText().toString())) {
                         break;
                     }
-                    cashRecordFilter = new CashRecordFilter(new Date().getTime(), new Date().getTime(),
+                    cashRecordFilter = new CashRecordFilter(startTimeStamp.getTime(),endTimeStamp.getTime(),
                             Float.valueOf(startAmount.isEmpty()? "0": startAmount),Float.valueOf(endAmount.isEmpty()? "100000000000":endAmount),
                             categoryAdapter.getSelectedItems(),paymentTypeSpinner.getSelectedItem().toString(),
                             categoryFilterCheckbox.isChecked(),dateFilterCheckbox.isChecked(),paymentFilterCheckbox.isChecked(),rangeFilterCheckbox.isChecked());

@@ -23,7 +23,6 @@ import butterknife.ButterKnife;
 
 public class HistoryActivity  extends AppCompatActivity {
 
-    private static final int FILTER_REQUEST_CODE = 123;
     @BindView(R.id.recent_history_rv)
     RecyclerView mRecentsRecyclerView;
 
@@ -83,7 +82,7 @@ public class HistoryActivity  extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (R.id.action_filter == item.getItemId()){
-            startActivityForResult(new Intent(this, FilterActivity.class), FILTER_REQUEST_CODE);
+            startActivityForResult(new Intent(this, FilterActivity.class), CashRecordFilter.FILTER_REQUEST_CODE);
         }
         return true;
     }
@@ -92,7 +91,7 @@ public class HistoryActivity  extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        if (requestCode == FILTER_REQUEST_CODE) {
+        if (requestCode == CashRecordFilter.FILTER_REQUEST_CODE) {
             if (resultCode == RESULT_OK) {
                 Bundle bundle = data.getExtras();
                 if (bundle.containsKey(CashRecordFilter.FILTER)) {
