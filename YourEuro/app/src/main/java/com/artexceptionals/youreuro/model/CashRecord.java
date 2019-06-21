@@ -7,6 +7,7 @@ import android.arch.persistence.room.Ignore;
 import android.arch.persistence.room.PrimaryKey;
 import android.os.Parcel;
 import android.os.Parcelable;
+import android.support.annotation.NonNull;
 
 import com.artexceptionals.youreuro.helpers.CurrencyHelper;
 import com.artexceptionals.youreuro.helpers.PaymentTypeHelper;
@@ -14,7 +15,7 @@ import com.artexceptionals.youreuro.helpers.PaymentTypeHelper;
 import java.util.Objects;
 
 @Entity(tableName = "cashrecord")
-public class CashRecord implements Parcelable {
+public class CashRecord implements Parcelable, Comparable<CashRecord> {
 
     public static final String CASHRECORD_DETAIL = "cashrecord_details";
     @PrimaryKey(autoGenerate = true)
@@ -228,5 +229,12 @@ public class CashRecord implements Parcelable {
     @Override
     public int hashCode() {
         return Objects.hash(uid);
+    }
+
+
+    @Override
+    public int compareTo(@NonNull CashRecord object) {
+        long timeStamp = ((CashRecord) object).getTimeStamp();
+        return new Long(this.timeStamp).compareTo(new Long(timeStamp));
     }
 }

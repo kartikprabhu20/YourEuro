@@ -14,6 +14,7 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
@@ -28,6 +29,7 @@ import android.widget.Toast;
 
 import com.artexceptionals.youreuro.adapter.CashRecordAdapter;
 import com.github.mikephil.charting.charts.PieChart;
+import com.github.mikephil.charting.components.Legend;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -60,6 +62,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @BindView(R.id.barchart_filter)
     ImageView barChartFilter;
+
+    @BindView(R.id.piechart_refresh)
+    ImageView pieChartRefresh;
+
+    @BindView(R.id.barchart_refresh)
+    ImageView barChartRefresh;
+
+    @BindView(R.id.statistic_cardview)
+    CardView statisticsCardView;
 
     private MoneyControlManager moneyControlManager;
 
@@ -121,7 +132,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         mRecentsRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         mRecentsRecyclerView.setAdapter(moneyControlManager.getCashRecordAdapter());
-        noRecordsTextView.setVisibility(moneyControlManager.getCashRecordAdapter().getItemCount() >0 ? View.GONE : View.VISIBLE);
+        noRecordsTextView.setVisibility(moneyControlManager.getCashRecordAdapter().getItemCount() > 0 ? View.GONE : View.VISIBLE);
+        statisticsCardView.setVisibility(moneyControlManager.getCashRecordAdapter().getItemCount() > 0 ? View.GONE : View.VISIBLE);
 
         mBalanceRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         mBalanceRecyclerView.setAdapter(moneyControlManager.getBalanceAdapter());
@@ -129,7 +141,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         moneyControlManager.getCashRecordAdapter().attachCashRecordListListener(new CashRecordAdapter.CashRecordListListener() {
             @Override
             public void checkRecordList() {
-                noRecordsTextView.setVisibility(moneyControlManager.getCashRecordAdapter().getItemCount() >0 ? View.GONE : View.VISIBLE);
+                noRecordsTextView.setVisibility(moneyControlManager.getCashRecordAdapter().getItemCount() > 0 ? View.GONE : View.VISIBLE);
+                statisticsCardView.setVisibility(moneyControlManager.getCashRecordAdapter().getItemCount() > 0 ? View.GONE : View.VISIBLE);
             }
         });
         moneyControlManager.updateAllRecords();
@@ -146,7 +159,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         statisticsListener.listen();
         barChartFilter.setOnClickListener(this);
         pieChartFilter.setOnClickListener(this);
-
+        barChartRefresh.setOnClickListener(this);
+        pieChartRefresh.setOnClickListener(this);
     }
 
     @Override
@@ -164,7 +178,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             startActivity(new Intent(this, SettingsActivity.class));
             return true;
         }
-
         return abdt.onOptionsItemSelected(item)|| super.onOptionsItemSelected(item);
     }
 
@@ -177,19 +190,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     MoneyControlManager.StatisticsListener statisticsListener = new MoneyControlManager.StatisticsListener() {
         @Override
         public void listen() {
-
             //Statistics
             //Piechart:
-            pieChart.setData(moneyControlManager.getStatisticsManager().setupPieChart());
-            pieChart.invalidate();
-            pieChart.setDrawEntryLabels(false);
-
+            filterResults(new CashRecordFilter(), true);
             //Barchart:
+            filterResults(new CashRecordFilter(), false);
 
-            barChart.setData(moneyControlManager.getStatisticsManager().setupBarChart());
-            barChart.getAxisLeft().addLimitLine(moneyControlManager.getStatisticsManager().getBarLimit());
-            barChart.getAxisLeft().addLimitLine(moneyControlManager.getStatisticsManager().getBarLimit2());
-            barChart.invalidate();
         }
     };
 
@@ -214,6 +220,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             pieChart.setData(moneyControlManager.getStatisticsManager().setupPieChart(cashRecordFilter));
             pieChart.invalidate();
             pieChart.setDrawEntryLabels(false);
+            pieChart.getDescription().setEnabled(false);
+
+        }else{
+            barChart.setData(moneyControlManager.getStatisticsManager().setupBarChart(cashRecordFilter));
+            Legend legend = barChart.getLegend();
+            legend.resetCustom();
+            barChart.notifyDataSetChanged();
+            legend.setCustom(moneyControlManager.getStatisticsManager().getLegends(cashRecordFilter));
+            legend.setWordWrapEnabled(true);
+            barChart.getDescription().setEnabled(false);
+            barChart.notifyDataSetChanged();
+            barChart.invalidate();
         }
     }
 
@@ -225,6 +243,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case  R.id.piechart_filter:
                 startActivityForResult(new Intent(this, FilterActivity.class), CashRecordFilter.FILTER_REQUEST_CODE_PIECHART);
+                break;
+            case  R.id.piechart_refresh:
+                filterResults(new CashRecordFilter(), true);
+                break;
+            case  R.id.barchart_refresh:
+                filterResults(new CashRecordFilter(), false);
                 break;
         }
     }

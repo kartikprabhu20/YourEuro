@@ -21,6 +21,7 @@ import com.maltaisn.icondialog.IconHelper;
 
 import java.text.DateFormat;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 
@@ -87,8 +88,11 @@ public class CashRecordAdapter extends RecyclerView.Adapter<CashRecordAdapter.Ca
     }
 
     public void addCashRecord(CashRecord cashRecord) {
-        recordList.add(cashRecord);
-        searchRecordList.add(cashRecord);
+        recordList.add(0,cashRecord);
+        searchRecordList.add(0,cashRecord);
+
+        Collections.sort(searchRecordList, Collections.reverseOrder());
+
         notifyDataSetChanged();
         cashRecordListListener.checkRecordList();
     }
