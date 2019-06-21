@@ -46,6 +46,8 @@
     <string name="new_category">New Category:</string>
     <string name="enter_new_category">Enter new category</string>
     <string name="edit_icon">Edit icon</string>
+    <string name="piechart">Pie chart</string>
+    <string name="barchart">Bar chart</string>
 
     <string-array name="paymenttypes_array">
         <item>Select payment type</item>

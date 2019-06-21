@@ -1,7 +1,10 @@
 package com.artexceptionals.youreuro.model;
 import android.os.Parcel;
 import android.os.Parcelable;
+import android.support.annotation.IntDef;
 
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,6 +12,9 @@ import java.util.List;
 public class CashRecordFilter implements Parcelable {
 
     public static final String FILTER = "cashrecordfilter";
+    public static final int FILTER_REQUEST_CODE = 123;
+    public static final int FILTER_REQUEST_CODE_PIECHART = 456;
+    public static final int FILTER_REQUEST_CODE_BARCHART = 789;
 
     long startTimeStamp=0, endTimeStamp=0;
     float startAmount = 0, endAmount = 0;
@@ -42,6 +48,7 @@ public class CashRecordFilter implements Parcelable {
         dateRangeFilter = in.readByte() != 0;
         paymentFilter = in.readByte() != 0;
         amountRangeFilter = in.readByte() != 0;
+        recurryingFilter = in.readByte() != 0;
     }
 
     public CashRecordFilter() {
@@ -60,6 +67,7 @@ public class CashRecordFilter implements Parcelable {
         dest.writeByte((byte) (dateRangeFilter ? 1 : 0));
         dest.writeByte((byte) (paymentFilter ? 1 : 0));
         dest.writeByte((byte) (amountRangeFilter ? 1 : 0));
+        dest.writeByte((byte) (recurryingFilter ? 1 : 0));
     }
 
     @Override
@@ -165,6 +173,25 @@ public class CashRecordFilter implements Parcelable {
 
     public void setRecurryingFilter(boolean recurryingFilter) {
         this.recurryingFilter = recurryingFilter;
+    }
+
+    public int getFilterType(String currencyType ){
+        return FilterType.ONLY_AMOUNT;
+    }
+
+    public interface FilterType {
+        int ONLY_CATEGORY = 1;
+        int ONLY_PAYMENT_TYPE = 2;
+        int ONLY_AMOUNT = 3;
+        int ONLY_DATE = 4;
+
+        int SINGLE_CATEGORY = 5;
+        int SINGLE_PAYMENT_TYPE = 6;
+
+        @Retention(RetentionPolicy.SOURCE)
+        @IntDef({ONLY_CATEGORY, ONLY_PAYMENT_TYPE,ONLY_AMOUNT, ONLY_DATE, SINGLE_CATEGORY,SINGLE_PAYMENT_TYPE})
+        @interface Values {
+        }
     }
 
 }

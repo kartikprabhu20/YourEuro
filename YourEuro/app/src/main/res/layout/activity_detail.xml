@@ -270,6 +270,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/time"
+                        android:paddingLeft="@dimen/unit2"
                         android:textSize="@dimen/unit3_5" />
 
                     <LinearLayout
@@ -285,7 +286,8 @@
                             android:id="@+id/time_tv"
                             android:text="test"
                             android:layout_weight="3"
-                            android:layout_gravity="center"/>
+                            android:layout_gravity="center"
+                            android:paddingLeft="@dimen/unit2"/>
 
                         <ImageView
                             android:layout_weight="1"

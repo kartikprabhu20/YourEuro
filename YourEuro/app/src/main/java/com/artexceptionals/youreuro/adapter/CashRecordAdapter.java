@@ -17,6 +17,7 @@ import com.artexceptionals.youreuro.R;
 import com.artexceptionals.youreuro.helpers.CurrencyHelper;
 import com.artexceptionals.youreuro.model.CashRecord;
 import com.artexceptionals.youreuro.model.Constants;
+import com.maltaisn.icondialog.IconHelper;
 
 import java.text.DateFormat;
 import java.util.ArrayList;
@@ -53,8 +54,17 @@ public class CashRecordAdapter extends RecyclerView.Adapter<CashRecordAdapter.Ca
             CashRecord cashRecord =  searchRecordList.get(index);
 
             holder.categoryName.setText(cashRecord.getCategory().getCatagoryName());
-            holder.categoryImage.setImageDrawable(context.getResources().getDrawable(context.getResources().getIdentifier(cashRecord.getCategory().getImageID(),"drawable", context.getPackageName())));
-
+            if(searchRecordList.get(index).getCategory().isDefault) {
+                holder.categoryImage.setImageDrawable(context.getResources().getDrawable(context.getResources().getIdentifier(searchRecordList.get(index).getCategory().getImageID(), "drawable", context.getPackageName())));
+            }else{
+                IconHelper iconHelper = IconHelper.getInstance(context);
+                iconHelper.addLoadCallback(new IconHelper.LoadCallback() {
+                    @Override
+                    public void onDataLoaded() {
+                        holder.categoryImage.setImageDrawable(iconHelper.getIcon(Integer.parseInt(searchRecordList.get(index).getCategory().getImageID())).getDrawable(context));
+                    }
+                });
+            }
             holder.paymentType.setText(cashRecord.getPaymentType());
             holder.note.setText(cashRecord.getNotes());
             holder.date.setText(DateFormat.getDateTimeInstance(DateFormat.SHORT, DateFormat.SHORT).format(new Date(cashRecord.getTimeStamp())));
