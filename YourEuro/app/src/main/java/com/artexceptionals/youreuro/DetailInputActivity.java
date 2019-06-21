@@ -1,8 +1,10 @@
 package com.artexceptionals.youreuro;
 
+import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.graphics.Color;
+import android.content.DialogInterface;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.RequiresApi;
@@ -217,9 +219,9 @@ public class DetailInputActivity extends AppCompatActivity implements View.OnCli
         }else if (id == R.id.details_cancel) {
             onBackPressed();
         }
-
         return super.onOptionsItemSelected(item);
     }
+
 
     private View.OnClickListener onClickListener = new View.OnClickListener() {
         @Override
@@ -271,6 +273,26 @@ public class DetailInputActivity extends AppCompatActivity implements View.OnCli
         moneyControlManager.addCashRecord(cashRecord);
         onBackPressed();
     }
+    @Override
+    public void onBackPressed(){
+        final AlertDialog.Builder builder = new AlertDialog.Builder(DetailInputActivity.this);
+        builder.setMessage("Are you sure you want to cancel?");
+        builder.setCancelable(true);
+        builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                dialogInterface.cancel();
+            }
+        });
+        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                finish();
+            }
+        });
+        AlertDialog alertDialog = builder.create();
+        alertDialog.show();
+    }
 
     @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
@@ -301,25 +323,20 @@ public class DetailInputActivity extends AppCompatActivity implements View.OnCli
 
             hour = c.get(Calendar.HOUR_OF_DAY);
             minute = c.get(Calendar.MINUTE);
-//
-//                public String convertDate(int minute) {
-//                if (minute >= 10) {
-//                    return String.valueOf(minute);
-//                } else {
-//                    return "0" + String.valueOf(minute);
-//                }
 
+                TimePickerDialog timePickerDialog = new TimePickerDialog(this, new TimePickerDialog.OnTimeSetListener() {
+                    @Override
+                    public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+                        timeTextView.setTextColor(getResources().getColor(R.color.black));
+                        timeImageView.setBackgroundColor(Color.TRANSPARENT);
+                        timeTextView.setText(hourOfDay + ":" + checkDigit(minute));
+                    }
 
-            TimePickerDialog timePickerDialog = new TimePickerDialog(this, new TimePickerDialog.OnTimeSetListener() {
-                @Override
-                public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
-                    timeTextView.setTextColor(getResources().getColor(R.color.black));
-                    timeImageView.setBackgroundColor(Color.TRANSPARENT);
-
-                    timeTextView.setText(hourOfDay + ":" + minute);
-                }
-            }, hour, minute, false);
-            timePickerDialog.show();
+                    public String checkDigit(int minute) {
+                        return minute <= 9 ? "0" + minute : String.valueOf(minute);
+                    }
+                }, hour, minute, false);
+                timePickerDialog.show();
         }
     }
 }

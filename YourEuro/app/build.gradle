@@ -59,11 +59,10 @@ dependencies {
     implementation 'com.itextpdf:itextg:5.5.10'
 
     //icons
-    compile 'com.maltaisn:icondialog:2.0.2'
+    implementation 'com.maltaisn:icondialog:2.0.2'
 
 }
 
 repositories {
     maven { url "https://jitpack.io" }
 }
-

@@ -17,10 +17,12 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.artexceptionals.youreuro.adapter.CategoryFilterAdapter;
 import com.artexceptionals.youreuro.model.CashRecordFilter;
 
+import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -113,8 +115,8 @@ public class FilterActivity  extends AppCompatActivity implements View.OnClickLi
         dateRangeLinearLayout.setVisibility(View.GONE);
         amountRangeLinearLayout.setVisibility(View.GONE);
         paymentTypeSpinner.setVisibility(View.GONE);
-
-        String current_date = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault()).format(new Date());
+        
+        String current_date = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new Date());
 
         istartdate = (ImageView) findViewById(R.id.start_date_iv);
         ienddate = (ImageView) findViewById(R.id.end_date_iv);
@@ -145,6 +147,9 @@ public class FilterActivity  extends AppCompatActivity implements View.OnClickLi
                         Log.e("YourEuro", "ParseException in dateformating");
                     }
 
+                    if(!checkDates(tstartdate.getText().toString(),tenddate.getText().toString())) {
+                        break;
+                    }
                     cashRecordFilter = new CashRecordFilter(startTimeStamp.getTime(),endTimeStamp.getTime(),
                             Float.valueOf(startAmount.isEmpty()? "0": startAmount),Float.valueOf(endAmount.isEmpty()? "100000000000":endAmount),
                             categoryAdapter.getSelectedItems(),paymentTypeSpinner.getSelectedItem().toString(),
@@ -180,6 +185,7 @@ public class FilterActivity  extends AppCompatActivity implements View.OnClickLi
 
     @Override
     public void onClick(View v) {
+
         if (v == istartdate) {
             Calendar c = Calendar.getInstance();
             day = c.get(Calendar.DAY_OF_MONTH);
@@ -189,15 +195,13 @@ public class FilterActivity  extends AppCompatActivity implements View.OnClickLi
             DatePickerDialog datePickerDialog = new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
                 @Override
                 public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
-                    tstartdate.setText(dayOfMonth + "/" + (monthOfYear + 1) + "/" + year);
-
+                    tstartdate.setText(dayOfMonth + "-" + (monthOfYear + 1) + "-" + year);
                 }
             }, day, month, year);
             datePickerDialog.updateDate(year, month, day);
             datePickerDialog.show();
-
-
         }
+
         if (v == ienddate) {
             Calendar c = Calendar.getInstance();
             day = c.get(Calendar.DAY_OF_MONTH);
@@ -207,13 +211,29 @@ public class FilterActivity  extends AppCompatActivity implements View.OnClickLi
             DatePickerDialog datePickerDialog = new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
                 @Override
                 public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
-                    tenddate.setText(dayOfMonth + "/" + (monthOfYear + 1) + "/" + year);
+                    tenddate.setText(dayOfMonth + "-" + (monthOfYear + 1) + "-" + year);
                 }
             }, day, month, year);
             datePickerDialog.updateDate(year, month, day);
             datePickerDialog.show();
-
-
         }
+    }
+
+    public boolean checkDates(String tstartdate, String tenddate) {
+        SimpleDateFormat dfDate = new SimpleDateFormat("dd-MM-yyyy");
+
+        boolean b = true;
+
+        try {
+            if (dfDate.parse(tstartdate).before(dfDate.parse(tenddate))) {
+                return true;//If start date is before end date
+            } else {
+                Toast toast = Toast.makeText(getApplicationContext(), "End date is before Start date", Toast.LENGTH_LONG);
+                toast.show();
+            }
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return false;
     }
 }
