@@ -30,7 +30,11 @@ public class StatisticManager {
     private static StatisticManager instance;
     private final Context context;
     private final CashRecordDatabase cashRecordDatabase;
-
+    int [] color={ Color.rgb(100,221,23), Color.rgb(128,0,128), Color.rgb(255,136,0),
+            Color.rgb(255,0,0), Color.rgb(255,127,80), Color.rgb(47,95,255),Color.rgb(192, 255, 140), Color.rgb(255, 247, 140), Color.rgb(255, 208, 140),
+            Color.rgb(140, 234, 255), Color.rgb(255, 140, 157), Color.rgb(193, 37, 82), Color.rgb(255, 102, 0), Color.rgb(245, 199, 0),
+            Color.rgb(106, 150, 31), Color.rgb(179, 100, 53) //multiple colors need to check if working.
+    };
 
     public StatisticManager(Context context, CashRecordDatabase cashRecordDatabase) {
         this.context = context;
