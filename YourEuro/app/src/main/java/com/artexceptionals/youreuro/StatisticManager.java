@@ -11,13 +11,20 @@ import com.artexceptionals.youreuro.model.CashRecordFilter;
 import com.artexceptionals.youreuro.model.Category;
 import com.github.mikephil.charting.components.Legend;
 import com.github.mikephil.charting.components.LegendEntry;
+import com.github.mikephil.charting.components.LimitLine;
+import com.github.mikephil.charting.components.YAxis;
 import com.github.mikephil.charting.data.BarData;
 import com.github.mikephil.charting.data.BarDataSet;
 import com.github.mikephil.charting.data.BarEntry;
+import com.github.mikephil.charting.data.CombinedData;
+import com.github.mikephil.charting.data.LineData;
+import com.github.mikephil.charting.data.LineDataSet;
 import com.github.mikephil.charting.data.PieData;
 import com.github.mikephil.charting.data.PieDataSet;
 import com.github.mikephil.charting.data.PieEntry;
 import com.github.mikephil.charting.utils.ColorTemplate;
+import com.github.mikephil.charting.data.Entry;
+
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -173,6 +180,62 @@ public class StatisticManager {
             i++;
         }
         return legendEntries;
+    }
+
+    public CombinedData setupCombinedChart(CashRecordFilter cashRecordFilter, List<Category> allCategories) {
+        CombinedData data = new CombinedData();
+        data.setData(setupBarChart(cashRecordFilter));
+        data.setData(setupLineChart(cashRecordFilter, allCategories));
+        return data;
+    }
+
+    private LineData setupLineChart(CashRecordFilter cashRecordFilter, List<Category> allCategories) {
+
+        LineData lineData = new LineData();
+
+        ArrayList<Category> filterCategories = new ArrayList<>();
+        ArrayList<Entry> entries = new ArrayList<>();
+        Map<String, Float> categoryAmount = getCategoryAmount(cashRecordDatabase.cashRecordDao().getCashRecords(getQuery(cashRecordFilter)));
+
+        if (cashRecordFilter.isCategoryFilter()) {
+            if (cashRecordFilter.getCategories().size() > 1) {
+                filterCategories.addAll(cashRecordFilter.getCategories());
+            }else {
+                return lineData;
+            }
+        }else {
+            for (Category category: allCategories) {
+                if (categoryAmount.keySet().contains(category.getCatagoryName()))
+                     filterCategories.add(category);
+            }
+        }
+
+        int index = 0;
+        for (Category category: filterCategories) {
+            entries.add(new Entry(index, category.getThreshold()));
+            index++;
+        }
+
+        LineDataSet set = new LineDataSet(entries, "Line DataSet");
+        set.setColor(Color.RED);
+        set.setLineWidth(2.5f);
+        set.setCircleColor(Color.RED);
+        set.setCircleRadius(5f);
+        set.setFillColor(Color.rgb(240, 238, 70));
+        set.setMode(LineDataSet.Mode.CUBIC_BEZIER);
+        set.setDrawValues(true);
+        set.setValueTextSize(10f);
+        set.setValueTextColor(Color.RED);
+
+        set.setAxisDependency(YAxis.AxisDependency.LEFT);
+        lineData.addDataSet(set);
+
+        return lineData;
+
+    }
+
+    public LimitLine getThresholdLimit(Category category){
+        return new LimitLine((int)category.getThreshold(), "Threshold - " + category.getCatagoryName());
     }
 }
 
