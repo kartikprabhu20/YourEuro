@@ -3,10 +3,13 @@ package com.artexceptionals.youreuro.adapter;
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -21,20 +24,26 @@ public class CategorySettingsAdapter extends ArrayAdapter<Category> {
 
     private final List<Category> categories = new ArrayList<>();
     private final IconHelper iconHelper;
+    private final boolean isAddCategory;
     private Context mContext;
     private CategoryListener categoryListener;
 
-    public CategorySettingsAdapter(Context context, IconHelper iconHelper, List<Category> categories) {
+    public CategorySettingsAdapter(Context context, IconHelper iconHelper, List<Category> categories, boolean isAddCategory) {
         super(context, R.layout.category_delete);
         categories.remove(0);
         this.iconHelper = iconHelper;
         this.categories.addAll(categories);
         this.mContext = context;
+        this.isAddCategory = isAddCategory;
     }
 
     @Override
     public int getCount() {
         return categories.size();
+    }
+
+    public List<Category> getCategories() {
+        return categories;
     }
 
     @NonNull
@@ -47,12 +56,38 @@ public class CategorySettingsAdapter extends ArrayAdapter<Category> {
             mViewHolder.categoryImage = (ImageView) convertView.findViewById(R.id.category_image_in_settings);
             mViewHolder.categoryName = (TextView) convertView.findViewById(R.id.category_name_in_settings);
             mViewHolder.categoryDelete = (ImageView) convertView.findViewById(R.id.category_delete_in_settings);
-            mViewHolder.categoryDelete.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    categoryListener.listen(position);
-                }
-            });
+            mViewHolder.categoryThreshold = convertView.findViewById(R.id.category_threshold_et);
+
+            if (isAddCategory) {
+                mViewHolder.categoryThreshold.setVisibility(View.GONE);
+                mViewHolder.categoryDelete.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        categoryListener.listen(position);
+                    }
+                });
+            }else {
+                mViewHolder.categoryThreshold.setText(String.valueOf(categories.get(position).getThreshold()));
+                mViewHolder.categoryDelete.setVisibility(View.GONE);
+
+                mViewHolder.categoryThreshold.addTextChangedListener(new TextWatcher() {
+                    @Override
+                    public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+                    }
+
+                    @Override
+                    public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+                    }
+
+                    @Override
+                    public void afterTextChanged(Editable s) {
+                        String value = mViewHolder.categoryThreshold.getText().toString();
+                        categories.get(position).setThreshold(Long.parseLong(value.isEmpty()? "0": value));
+                    }
+                });
+            }
 
         if(categories.get(position).isDefault) {
             mViewHolder.categoryImage.setImageDrawable(mContext.getResources().getDrawable(mContext.getResources().getIdentifier(categories.get(position).getImageID(), "drawable", mContext.getPackageName())));
@@ -65,7 +100,7 @@ public class CategorySettingsAdapter extends ArrayAdapter<Category> {
                 }
             });
 
-            mViewHolder.categoryDelete.setVisibility(View.VISIBLE);
+            mViewHolder.categoryDelete.setVisibility(isAddCategory ? View.VISIBLE : View.GONE);
 
         }
         mViewHolder.categoryName.setText(categories.get(position).getCatagoryName());
@@ -77,6 +112,7 @@ public class CategorySettingsAdapter extends ArrayAdapter<Category> {
         ImageView categoryImage;
         TextView categoryName;
         ImageView categoryDelete;
+        EditText categoryThreshold;
     }
 
     @Nullable

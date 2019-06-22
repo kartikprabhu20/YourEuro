@@ -108,6 +108,10 @@ public class MoneyControlManager {
         categoryDatabase.categoryDao().delete(category);
     }
 
+    public void updateAllCategories(List<Category> categories) {
+        categoryDatabase.categoryDao().updateAll(categories);
+    }
+
     public void clearCacheCashRecords() {
         cashRecordAdapter.removeAllCashRecords();
     }

@@ -23,7 +23,7 @@ public  class PrefsFragment extends PreferenceFragment {
     private static final String DISABLE_PIN = "disablePIN";
     private static final String CURRENCY_CHANGE = "changeCurrency";
     CustomSharedPreferences sharedPreferences;
-    Preference switchPreference, changePinPreference, currencyPreference, addCategoryPreference, setEmailAccountPreference;
+    Preference switchPreference, changePinPreference, currencyPreference, addCategoryPreference, setEmailAccountPreference, addCategoryThreshold;
     private int enteredPIN,enteredOldPIN,enteredNewPIN;
     private String enteredEmail;
 
@@ -36,9 +36,11 @@ public  class PrefsFragment extends PreferenceFragment {
         changePinPreference = findPreference("changePIN");
         currencyPreference = findPreference("changeCurrency");
         addCategoryPreference = findPreference("modifyCategory");
+        addCategoryThreshold = findPreference("modifyThreshold");
         setEmailAccountPreference = findPreference("setEmailAccount");
         changePinPreference.setOnPreferenceClickListener(onClickPreference);
         addCategoryPreference.setOnPreferenceClickListener(onClickPreference);
+        addCategoryThreshold.setOnPreferenceClickListener(onClickPreference);
         setEmailAccountPreference.setOnPreferenceClickListener(onClickPreference);
         switchPreference.setOnPreferenceChangeListener(preferenceChangeListener);
         currencyPreference.setOnPreferenceChangeListener(preferenceChangeListener);
@@ -237,9 +239,15 @@ public  class PrefsFragment extends PreferenceFragment {
             if ("changePIN".equalsIgnoreCase(preference.getKey())) {
                 launchDialogChangePIN();
             }else if("modifyCategory".equalsIgnoreCase(preference.getKey())){
-                startActivity(new Intent(YourEuroApp.getAppContext(), CategoryActivity.class));
+                Intent intent = new Intent(YourEuroApp.getAppContext(), CategoryActivity.class);
+                intent.putExtra(CategoryActivity.TYPE, CategoryActivity.ADD_CATEGORY);
+                startActivity(intent);
             }else if("setEmailAccount".equalsIgnoreCase(preference.getKey())){
                 launchDialogSetEmail();
+            }else if("modifyThreshold".equalsIgnoreCase(preference.getKey())){
+                Intent intent = new Intent(YourEuroApp.getAppContext(), CategoryActivity.class);
+                intent.putExtra(CategoryActivity.TYPE, CategoryActivity.ADD_THRESHOLD);
+                startActivity(intent);
             }
             return false;
         }

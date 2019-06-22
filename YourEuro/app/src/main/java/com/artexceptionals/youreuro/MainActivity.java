@@ -133,7 +133,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mRecentsRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         mRecentsRecyclerView.setAdapter(moneyControlManager.getCashRecordAdapter());
         noRecordsTextView.setVisibility(moneyControlManager.getCashRecordAdapter().getItemCount() > 0 ? View.GONE : View.VISIBLE);
-        statisticsCardView.setVisibility(moneyControlManager.getCashRecordAdapter().getItemCount() > 0 ? View.GONE : View.VISIBLE);
+        statisticsCardView.setVisibility(!(moneyControlManager.getCashRecordAdapter().getItemCount() > 0) ? View.GONE : View.VISIBLE);
 
         mBalanceRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         mBalanceRecyclerView.setAdapter(moneyControlManager.getBalanceAdapter());
@@ -142,7 +142,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             @Override
             public void checkRecordList() {
                 noRecordsTextView.setVisibility(moneyControlManager.getCashRecordAdapter().getItemCount() > 0 ? View.GONE : View.VISIBLE);
-                statisticsCardView.setVisibility(moneyControlManager.getCashRecordAdapter().getItemCount() > 0 ? View.GONE : View.VISIBLE);
+                statisticsCardView.setVisibility(!(moneyControlManager.getCashRecordAdapter().getItemCount() > 0) ? View.GONE : View.VISIBLE);
             }
         });
         moneyControlManager.updateAllRecords();
