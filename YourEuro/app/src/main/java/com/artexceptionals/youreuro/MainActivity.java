@@ -4,7 +4,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.artexceptionals.youreuro.model.CashRecordFilter;
-import com.github.mikephil.charting.charts.BarChart;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -28,6 +27,7 @@ import android.widget.Toast;
 
 
 import com.artexceptionals.youreuro.adapter.CashRecordAdapter;
+import com.github.mikephil.charting.charts.CombinedChart;
 import com.github.mikephil.charting.charts.PieChart;
 import com.github.mikephil.charting.components.Legend;
 
@@ -54,8 +54,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @BindView(R.id.pieChart)
     PieChart pieChart;
 
-    @BindView(R.id.barChart)
-    BarChart barChart;
+    @BindView(R.id.combinedChart)
+    CombinedChart combinedChart;
 
     @BindView(R.id.piechart_filter)
     ImageView pieChartFilter;
@@ -223,15 +223,23 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             pieChart.getDescription().setEnabled(false);
 
         }else{
-            barChart.setData(moneyControlManager.getStatisticsManager().setupBarChart(cashRecordFilter));
-            Legend legend = barChart.getLegend();
+            combinedChart.setData(moneyControlManager.getStatisticsManager().setupCombinedChart(cashRecordFilter, moneyControlManager.getAllCategories()));
+            Legend legend = combinedChart.getLegend();
             legend.resetCustom();
-            barChart.notifyDataSetChanged();
+            combinedChart.notifyDataSetChanged();
             legend.setCustom(moneyControlManager.getStatisticsManager().getLegends(cashRecordFilter));
             legend.setWordWrapEnabled(true);
-            barChart.getDescription().setEnabled(false);
-            barChart.notifyDataSetChanged();
-            barChart.invalidate();
+
+            if (cashRecordFilter.isCategoryFilter() && cashRecordFilter.getCategories().size() == 1){
+                combinedChart.getAxisLeft().removeAllLimitLines();
+                combinedChart.getAxisLeft().addLimitLine(moneyControlManager.getStatisticsManager().getThresholdLimit(cashRecordFilter.getCategories().get(0)));
+            }else {
+                combinedChart.getAxisLeft().removeAllLimitLines();
+            }
+            combinedChart.getDescription().setEnabled(false);
+            combinedChart.fitScreen();
+            combinedChart.notifyDataSetChanged();
+            combinedChart.invalidate();
         }
     }
 
