@@ -31,7 +31,10 @@
         android:title="Category">
         <Preference
             android:key="modifyCategory"
-            android:title="Modify Categories"/>
+            android:title="Modify categories"/>
+        <Preference
+            android:key="modifyThreshold"
+            android:title="Modify threshold"/>
     </PreferenceCategory>
 
     <PreferenceCategory
