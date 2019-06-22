@@ -26,4 +26,7 @@ public interface CategoryDao {
 
     @Update
     void update(Category category);
+
+    @Update
+    void updateAll(List<Category> categories);
 }
