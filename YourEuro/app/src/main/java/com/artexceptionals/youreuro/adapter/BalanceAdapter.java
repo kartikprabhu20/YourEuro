@@ -68,6 +68,9 @@ public class BalanceAdapter extends RecyclerView.Adapter<BalanceAdapter.BalanceV
         return 0;
     }
 
+    public List<Account> getBalanceList(){
+        return balanceList;
+    }
     public void addAccount(Account account) {
         balanceList.add(account);
         notifyDataSetChanged();
