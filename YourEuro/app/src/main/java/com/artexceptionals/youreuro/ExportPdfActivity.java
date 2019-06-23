@@ -8,6 +8,7 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Environment;
 import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.FileProvider;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -16,6 +17,7 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.artexceptionals.youreuro.database.CashRecordDatabase;
+import com.artexceptionals.youreuro.model.Account;
 import com.artexceptionals.youreuro.model.CashRecord;
 import com.itextpdf.text.BaseColor;
 import com.itextpdf.text.Document;
@@ -42,12 +44,14 @@ public class ExportPdfActivity extends AppCompatActivity {
     final private int RequestPermission = 111;
     private File pdfFile;
     List<CashRecord> cashRecords;
+    CustomSharedPreferences sharedPreferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_export_pdf);
         cashRecordDatabase = CashRecordDatabase.getCashRecordDatabase(ExportPdfActivity.this);
+        sharedPreferences = CustomSharedPreferences.getInstance(YourEuroApp.getAppContext());
     }
 
     public void ExportPdf(View view) {
@@ -149,11 +153,15 @@ public class ExportPdfActivity extends AppCompatActivity {
         document.open();
         Font f = new Font(Font.FontFamily.TIMES_ROMAN, 30.0f, Font.UNDERLINE, BaseColor.BLUE);
         Font g = new Font(Font.FontFamily.TIMES_ROMAN, 20.0f, Font.NORMAL, BaseColor.BLUE);
-        document.add(new Paragraph("Monthly Summary \n\n", f));
-        document.add(new Paragraph("YourEuro", g));
+        document.add(new Paragraph("Expenses Summary", f));
+        document.add(new Paragraph("Detail records of your Transactions", g));
+        document.add(new Paragraph("\n",g));
         document.add(table);
         document.close();
-//        Log.e("Madhu", cashRecords.toString());
+
+        Uri myUri = FileProvider.getUriForFile(getApplicationContext(), getApplicationContext().getPackageName() + ".MyFileProvider",pdfFile);
+        this.grantUriPermission("com.artexceptionals.youreuro", myUri, Intent.FLAG_GRANT_WRITE_URI_PERMISSION | Intent.FLAG_GRANT_READ_URI_PERMISSION);
+
         previewPdf();
     }
 
@@ -171,6 +179,26 @@ public class ExportPdfActivity extends AppCompatActivity {
             ExportPdfActivity.this.startActivity(intent);
         } else {
             Toast.makeText(ExportPdfActivity.this, "Download a PDF Viewer to see the generated PDF", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    public void sendEmail(View view) {
+        String filename="monthlySummary.pdf";
+        File file = new File(Environment.getExternalStorageDirectory().getAbsolutePath()+File.separator+"Documents", filename);
+        Uri myUri = FileProvider.getUriForFile(getApplicationContext(), getApplicationContext().getPackageName() + ".MyFileProvider",file);
+        this.grantUriPermission("com.artexceptionals.youreuro", myUri, Intent.FLAG_GRANT_WRITE_URI_PERMISSION | Intent.FLAG_GRANT_READ_URI_PERMISSION);
+
+        if (file.exists()) {
+            Intent emailIntent = new Intent(Intent.ACTION_SEND);
+            emailIntent.setType("application/pdf");
+            String to = sharedPreferences.genericGetString("user_Email");
+            emailIntent.putExtra(Intent.EXTRA_EMAIL, new String[]{to});
+            // the attachment
+            emailIntent.putExtra(Intent.EXTRA_STREAM, myUri);
+            // the mail subject
+            emailIntent.putExtra(Intent.EXTRA_SUBJECT, "summary PDF");
+            emailIntent.putExtra(Intent.EXTRA_TEXT, "Summary from YourEuro Money Control App");
+            startActivity(emailIntent);
         }
     }
 }
