@@ -8,7 +8,7 @@
         <SwitchPreference
             android:defaultValue="false"
             android:key="disablePIN"
-            android:title="Disable PIN"
+            android:title="PIN"
             android:summary="Enable or Disable the PIN"/>
         <Preference
             android:dependency="disablePIN"

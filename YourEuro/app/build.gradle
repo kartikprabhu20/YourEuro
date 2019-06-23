@@ -21,6 +21,10 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+
+    testOptions {
+        unitTests.returnDefaultValues = true
+    }
 }
 
 dependencies {
@@ -60,6 +64,9 @@ dependencies {
 
     //icons
     implementation 'com.maltaisn:icondialog:2.0.2'
+
+    // Unit testing dependencies
+    testImplementation 'junit:junit:4.12'
 
 }
 
