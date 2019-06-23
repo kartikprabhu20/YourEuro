@@ -64,6 +64,10 @@ public class Category implements Parcelable {
         }
     };
 
+    public Category() {
+
+    }
+
     public int getCategoryID() {
         return categoryID;
     }
