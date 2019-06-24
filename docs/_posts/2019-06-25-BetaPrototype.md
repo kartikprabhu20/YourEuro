@@ -77,8 +77,8 @@ To summarise testing phases:</p>
 </div>
 
 <figure>
-    <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/4_modelClassesTested.PNG?raw=true" width="550" height="200" class="center">
-     <figcaption>Fig: Class and line coverage of model package</figcaption>
+    <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/4_modelClassesTested.PNG?raw=true" width="400" height="100" class="center">
+     <figcaption class="center" >Fig: Class and line coverage of model package</figcaption>
 </figure><br>
 
 <p>Trello is used to log a bug found during any phase of testing by the tester in black-box testing. Each bug is given priority level depending on the severity of the issue.</p> 
