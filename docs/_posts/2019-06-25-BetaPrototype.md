@@ -58,15 +58,29 @@ In a team of 4, one of the members will be the developer for a feature while two
 <p>To summarise testing phases:</p>
 <img src=" https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/4_testing_phases.png?raw=true" width="700" height="300" class="center">
 
-<p><b>Unit testing in Android Studio:</b>
-Android studio shows the coverage of unit test line-by-line. The red colour on the margins tells us that the corresponding line number is not covered by unit testing. After covering the line the coverage turns green as in the next image. We try to cover 70% of the class under testing so that we don’t overfit the test cases. Under packages we even get class coverage once we run the entire unit test cases.</p>
-<div class="row">
-  <div class="column">
-    <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/4_UntestedCategory.PNG?raw=true" alt="Snow" style="width:125%" width="650" height="300">
+<h1>Unit testing in Android Studio</h1><br>
+<p>Android studio shows the coverage of unit test line-by-line. The red colour on the margins tells us that the corresponding line number is not covered by unit testing. After covering the line the coverage turns green as in the next image. We try to cover 70% of the class under testing so that we don’t overfit the test cases. Under packages we even get class coverage once we run the entire unit test cases.</p>
+<div>
+  <div class="row">
+    <div class="column">
+         <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/4_UntestedCategory.PNG?raw=true" style="width:125%" width="650" height="300">
+    </div>
+    <div class="column">
+        <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/4_testedCategory.PNG?raw=true" style="width:125%" width="650" height="300">
+    </div>
   </div>
-  <div class="column">
-    <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/4_testedCategory.PNG?raw=true" alt="Forest" style="width:125%" width="650" height="300">
+  <div class="row">
+       <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/4_modelClassesTested.PNG?raw=true" width="400" height="200">
   </div>
 </div>
 
+<p>Trello is used to log a bug found during any phase of testing by the tester in black-box testing. Each bug is given priority level depending on the severity of the issue. 
+    <ul>
+        <li><p>P0 are blockers or crashes which under no circumstances be present in release version.</p></li>
+        <li><p>P1 are slightly lower issues, which also needs to be resolved before releasing the product</p></li>
+        <li><p>P2 are least priority bugs, over which features can take precedence.</p></li>
+        <li><p>System Testing</p></li>
+        <li><p>Acceptance Testing</p></li>
+    </ul><br>
+But in the end, everyone would expect a bug-free flawless app and all the bugs in resolved status.</p>
                 
