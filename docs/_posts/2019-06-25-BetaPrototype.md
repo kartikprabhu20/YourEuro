@@ -64,13 +64,15 @@ To summarise testing phases:</p>
 <div class="row" style="width:100%">
     <div class="column" style="float:left">
          <figure>
-             <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/4_UntestedCategory.PNG?raw=true" width="350" height="250">
+             <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/4_UntestedCategory.PNG?raw=true" width="450" height="250">
               <figcaption>Fig: Untested class</figcaption>
         </figure>
     </div>
+    <div class="column" style="float:left" width="20">
+    </div>
     <div class="column" style="float:left">
         <figure>
-            <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/4_testedCategory.PNG?raw=true" width="350" height="250">
+            <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/4_testedCategory.PNG?raw=true" width="450" height="250">
             <figcaption>Fig: Tested class</figcaption>
         </figure>
     </div>
@@ -97,22 +99,22 @@ To summarise testing phases:</p>
 <h1>White box testing </h1>
 <p>White box testing is testing process where the tester knows the internal structure of the code. The test coverage can be done by statement-by-statement or branch-by-branch basis. The following are the 5 scenarios which was tested using white-box testing.</p>
 
-<h3>1.PinActivity: Validation of user credential</h3>
+<h3>1. PinActivity: Validation of user credential</h3>
 <div class="row" style="width:100%">
     <div class="column">
          <figure>
-             <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/4_whitebox_testing_1.png?raw=true" style="width:100%">
+             <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/4_whitebox_testing_1.png?raw=true" style="width:100%"  width="500">
         </figure>
     </div>
     <div class="column">
         <figure>
-            <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/4_line_flow_1.png?raw=true" width="400" height="100">
+            <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/4_line_flow_1.png?raw=true">
         </figure>
     </div>
 </div>
 <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/4_wbt_test_1.png?raw=true" style="width:100%">
 
-<h3>2.DetailsInputActivity: Field inputs</h3>
+<h3>2. DetailsInputActivity: Field inputs</h3>
 <div class="row" style="width:100%">
     <div class="column">
          <figure>
@@ -126,7 +128,7 @@ To summarise testing phases:</p>
     </div>
 </div>
 
-<h3>3.CategoryActivity: New custom category name</h3>
+<h3>3. CategoryActivity: New custom category name</h3>
 <div class="row" style="width:100%">
     <div class="column">
          <figure>
@@ -140,7 +142,7 @@ To summarise testing phases:</p>
     </div>
 </div>
 
-<h3>4.Security Settings: Setting new PIN</h3>
+<h3>4. Security Settings: Setting new PIN</h3>
 <div class="row" style="width:100%">
     <div class="column">
          <figure>
@@ -154,7 +156,7 @@ To summarise testing phases:</p>
     </div>
 </div>
 
-<h3>4.Statistics Filter: Changing filter fo charts</h3>
+<h3>5. Statistics Filter: Changing filter fo charts</h3>
 <div class="row" style="width:100%">
     <div class="column">
          <figure>
@@ -176,7 +178,7 @@ To summarise testing phases:</p>
 <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/4_black_box_testing.png?raw=true"  class="center" style="width:100%"><br>
  <ul>
         <li><p>Scenarios 1,2 and 4 describes equivalence class where the Data input 1 column are valid inputs  and Data input 2 column are invalid input(example: empty input)</p></li>
-        <li>Scenario 5 is Boundary value tests, where adding a range which is not present will give empty list to view.</li>
+        <li><p>Scenario 5 is Boundary value tests, where adding a range which is not present will give empty list to view.</p></li>
     </ul>
 
                 
