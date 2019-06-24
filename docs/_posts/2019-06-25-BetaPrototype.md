@@ -11,7 +11,7 @@ date: 2019-06-25
   box-sizing: border-box;
 }
 
-.column1 {
+.column{
   float: left;
   width: 50%;
   padding: 0px;
@@ -133,7 +133,7 @@ To summarise testing phases:</p>
         <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/4_whitebox_testing_1.png?raw=true" style="width:100%">
     </div>
     <div class="column2" style="width:100%">
-        <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/4_line_flow_1.png?raw=true"">
+        <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/4_line_flow_1.png?raw=true">
     </div>
 </div>
 <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/4_wbt_test_1.png?raw=true" style="width:100%">
