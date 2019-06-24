@@ -17,4 +17,13 @@ In a team of 4, one of the members will be the developer for a feature while two
 </p> 
 
 <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/4_tester.png?raw=true" width="400" height="150"><br>
+
+<p>We followed standard industrial norms of testing a product, and following were the different types of testing we executed.
+<ul>
+  <li>Unit Testing</li>
+  <li>Integration Testing</li>
+  <li>Functional Testing</li>
+  <li>System Testing</li>
+  <li>Acceptance Testing</li>
+</ul></p><br>
                 
