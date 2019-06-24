@@ -70,7 +70,7 @@ In a team of 4, one of the members will be the developer for a feature while two
     </div>
   </div>
   <div class="row">
-       <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/4_modelClassesTested.PNG?raw=true" width="400" height="200">
+       <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/4_modelClassesTested.PNG?raw=true" width="500" height="200">
   </div>
 </div>
 
