@@ -45,7 +45,7 @@ In a team of 4, one of the members will be the developer for a feature while two
 
 <b>Functional Testing:</b>  The product development process followed our user stories and functional test cases were derived from the same user stories. While one of our developers worked on implementing the features, another team member would design the test cases following black box testing.<br>
 <i>Example: As a user I want to set my transactions as recurring.</i>
-<br>
+<br><br>
 
 <b>System Testing:</b>  The product is tested in different environments and devices.<br>
 <i>Example: UI testing was done on devices of different screen size and different android version using emulators.</i>
@@ -56,8 +56,22 @@ In a team of 4, one of the members will be the developer for a feature while two
 <br><br>
 
 To summarise testing phases:</p>
-<img src=" https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/4_testing_phases.png?raw=true" width="675" height="300" class="center"><hr>
+<img src=" https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/4_testing_phases.png?raw=true" width="675" height="300" class="center">
 
+<p>Trello is used to log a bug found during any phase of testing by the tester in black-box testing. Each bug is given priority level depending on the severity of the issue.</p> 
+    <ul>
+        <li><p><b><i>P0</i></b> are blockers or crashes which under no circumstances be present in release version.</p></li>
+        <li><p><b><i>P1</i></b> are slightly lower issues, which also needs to be resolved before releasing the product</p></li>
+        <li><p><b><i>P2</i></b> are least priority bugs, over which features can take precedence.</p></li>
+    </ul>
+<p>But in the end, everyone would expect a bug-free flawless app and all the bugs in resolved status.</p>
+
+<figure>
+     <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/4_Trello_bugs.png?raw=true" style="width:100%">
+      <figcaption>Fig: Logged bugs in Trello</figcaption>
+</figure>
+
+<hr>
 <h1>Unit testing in Android Studio</h1><br>
 <p>Android studio shows the coverage of unit test line-by-line. The red colour on the margins tells us that the corresponding line number is not covered by unit testing. After covering the line the coverage turns green as in the next image. We try to cover 70% of the class under testing so that we don’t overfit the test cases. Under packages we even get class coverage once we run the entire unit test cases.</p>
 
@@ -80,19 +94,6 @@ To summarise testing phases:</p>
     <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/4_modelClassesTested.PNG?raw=true" width="400" height="100" class="center">
      <figcaption class="center" >Fig: Class and line coverage of model package</figcaption>
 </figure><br>
-
-<p>Trello is used to log a bug found during any phase of testing by the tester in black-box testing. Each bug is given priority level depending on the severity of the issue.</p> 
-    <ul>
-        <li><p><b><i>P0</i></b> are blockers or crashes which under no circumstances be present in release version.</p></li>
-        <li><p><b><i>P1</i></b> are slightly lower issues, which also needs to be resolved before releasing the product</p></li>
-        <li><p><b><i>P2</i></b> are least priority bugs, over which features can take precedence.</p></li>
-    </ul>
-<p>But in the end, everyone would expect a bug-free flawless app and all the bugs in resolved status.</p>
-
-<figure>
-     <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/4_Trello_bugs.png?raw=true" style="width:100%">
-      <figcaption>Fig: Logged bugs in Trello</figcaption>
-</figure>
                                                                                                                                <hr>        
 <h1>White box testing </h1>
 <p>White box testing is testing process where the tester knows the internal structure of the code. The test coverage can be done by statement-by-statement or branch-by-branch basis. The following are the 5 scenarios which was tested using white-box testing.</p>
@@ -100,12 +101,12 @@ To summarise testing phases:</p>
 <h3>1. PinActivity: Validation of user credential</h3>
 <div class="row" style="width:100%" margin= "0">
     <div class="column" style="float:left" margin= "0">
-         <figure>
+         <figure style="float:left" margin= "0">
              <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/4_whitebox_testing_1.png?raw=true" style="width:100%"  width="500" height ="250">
         </figure>
     </div>
     <div class="column" style="float:left" margin= "0">
-        <figure>
+        <figure style="float:left" margin= "0">
             <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/4_line_flow_1.png?raw=true" width="150" height ="300">
         </figure>
     </div>
