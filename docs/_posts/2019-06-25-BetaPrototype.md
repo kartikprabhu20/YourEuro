@@ -97,7 +97,7 @@ To summarise testing phases:</p>
 <h1>White box testing </h1>
 <p>White box testing is testing process where the tester knows the internal structure of the code. The test coverage can be done by statement-by-statement or branch-by-branch basis. The following are the 5 scenarios which was tested using white-box testing.</p>
 
-<h2>PinActivity: Validation of user credential</h2>
+<h3>1.PinActivity: Validation of user credential</h3>
 <div class="row" style="width:100%">
     <div class="column">
          <figure>
@@ -111,7 +111,7 @@ To summarise testing phases:</p>
     </div>
 </div>
 
-
+<h3>2.DetailsInputActivity: Field inputs</h3>
 <div class="row" style="width:100%">
     <div class="column">
          <figure>
@@ -125,7 +125,47 @@ To summarise testing phases:</p>
     </div>
 </div>
 
+<h2>3.CategoryActivity: New custom category name</h2>
+<div class="row" style="width:100%">
+    <div class="column">
+         <figure>
+             <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/4_whitebox_testing_1.png?raw=true" style="width:100%">
+        </figure>
+    </div>
+    <div class="column">
+        <figure>
+            <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/4_line_flow_1.png?raw=true" style="width:100%">
+        </figure>
+    </div>
+</div>
 
+<h2>4.Security Settings: Setting new PIN</h2>
+<div class="row" style="width:100%">
+    <div class="column">
+         <figure>
+             <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/4_whitebox_testing_2.png?raw=true" style="width:100%">
+        </figure>
+    </div>
+    <div class="column">
+        <figure>
+            <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/4_line_flow_2.png?raw=true" style="width:100%">
+        </figure>
+    </div>
+</div>
+
+<h2>4.Statistics Filter: Changing filter fo charts</h2>
+<div class="row" style="width:100%">
+    <div class="column">
+         <figure>
+             <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/4_whitebox_testing_2.png?raw=true" style="width:100%">
+        </figure>
+    </div>
+    <div class="column">
+        <figure>
+            <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/4_line_flow_2.png?raw=true" style="width:100%">
+        </figure>
+    </div>
+</div>
 
 
 <hr>
