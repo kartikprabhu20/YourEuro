@@ -28,6 +28,16 @@ date: 2019-06-25
   padding: 0px;
 }
 
+.column4 {
+  float: left;
+  width: 90%;
+  padding: 0px;
+}
+.column5 {
+  float: left;
+  width: 10%;
+  padding: 0px;
+}
 /* Clearfix (clear floats) */
 .row::after {
   display: table;
@@ -106,16 +116,12 @@ To summarise testing phases:</p>
 
 <div class="row">
     <div class="column">
-         <figure>
              <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/4_UntestedCategory.PNG?raw=true" style="width:100%">
-              <figcaption>Fig: Untested class</figcaption>
-        </figure>
+    </div>
+    <div class="column" width="20">
     </div>
     <div class="column">
-        <figure>
             <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/4_testedCategory.PNG?raw=true" style="width:100%">
-            <figcaption>Fig: Tested class</figcaption>
-        </figure>
     </div>
 </div>
 
@@ -141,7 +147,9 @@ To summarise testing phases:</p>
         <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/4_line_flow_1.png?raw=true" style="width:100%">
     </div>
 </div>
-<img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/4_wbt_test_1.png?raw=true" style="width:100%">
+
+
+<img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/4_wbt_1.png?raw=true" style="width:100%">
 
 <h3>2. DetailsInputActivity: Field inputs</h3>
 <div class="row">
