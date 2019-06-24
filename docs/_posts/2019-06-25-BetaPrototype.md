@@ -34,7 +34,7 @@ Hello and welcome to our penultimate blog for the series of ‘YourEuro’ - A m
 In a team of 4, one of the members will be the developer for a feature while two other will be the code reviewer. The fourth person will not participate in the code review and thereby be ignorant of the structure of the source code. He will act as a tester and write test cases for blackbox testing. And the same is repeated with different developer and tester for different features.
 </p> 
 
-<img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/4_tester.png?raw=true" width="350" height="250" class="center"><br>
+<img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/4_tester.png?raw=true" width="350" height="280" class="center"><br>
 
 <p>We followed standard industrial norms of testing a product, and following were the different types of testing we executed.
     <ul>
@@ -112,23 +112,23 @@ To summarise testing phases:</p>
 <h1>White box testing </h1>
 <p>White box testing is testing process where the tester knows the internal structure of the code. The test coverage can be done by statement-by-statement or branch-by-branch basis. The following are the 5 scenarios which was tested using white-box testing.</p>
 
-<h3>1. PinActivity: Validation of user credential</h3><br>
+<h2>1. PinActivity: Validation of user credential</h2>
 <p>PinActivity is the screen where the user enters the security pin to enter the app. We have tested 3 scenarios with empty pin, correct pin and invalid pin. We have restricted the input to be number and we get a number pad so that user doesn't enter any random strings.</p>
 <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/4_wbt_1.png?raw=true" style="width:100%">
 
-<h3>2. DetailsInputActivity: Field inputs</h3><br>
+<h2>2. DetailsInputActivity: Field inputs</h2>
 <p>The core page of our app where user enters the transaction details. Since we do not have edit screen as of now, we want to make sure user enters all the mandatory fields before saving it. In case any field is untouched, then we throw an error and indicate to the user to fill it. We have five mandatory fields and for simplicity sake we have tested 2 scenarios where all the details are filled in one case and some of the fields are not changed in the other case. </p>
 <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/4_wbt_2.jpeg?raw=true" style="width:100%">
 
-<h3>3. CategoryActivity: New custom category name</h3><br>
+<h2>3. CategoryActivity: New custom category name</h2>
 <p>This is a unique scenario where the 'Save' button is enabled or disabled dynamically with respect to the custom category name. The save button is enabled only when the text field is not empty and an icon is selected. Thus we have 2 test scenarios for the same.</p> 
 <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/4_wbt_3.jpeg?raw=true" style="width:100%">
 
-<h3>4. Security Settings: Setting new PIN</h3><br>
+<h2>4. Security Settings: Setting new PIN</h2>
 <p>In this test case we have considered a parallel event. While settings a new pin, the user can either select 'SET' or 'CANCEL' button. Hence it is the parallel representation. We have executed 3 test cases for this feature. For empty pin, for any pin and for cancel selection.</p>
 <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/4_wbt_4.jpeg?raw=true" style="width:100%">
 
-<h3>5. Statistics Filter: Changing filter fo charts</h3><br>
+<h2>5. Statistics Filter: Changing filter fo charts</h2>
 <p>Even though this part of the code has a nested IF statements, we consider only the one line in the deepest part that decides which filter to modify. Since we have 2 charts we tested it with 2 test cases.</p>
 <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/4_wbt_5.jpeg?raw=true" style="width:100%">
 
@@ -145,14 +145,14 @@ To summarise testing phases:</p>
 <hr>
 <h1>Summary of changes</h1>
 
-<h3>New features introduced after Advanced prototype:</h3>
+<h2>New features introduced after Advanced prototype:</h2>
 <ul>
      <li><p>Threshold set for categories</p></li>
      <li><p>Export transaction summary pdf via e-mail</p></li>
       <li><p>Recurring transactions</p></li>
 </ul>
     
-<h3>Modifications after Advanced prototype:</h3>
+<h2>Modifications after Advanced prototype:</h2>
 <ul>
         <li><p>Category thresholds are represented as line graph over existing bar graph</p></li>
         <li><p>The axis values for charts changes depending on filter selection</p></li>
