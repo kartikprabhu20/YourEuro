@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Beta Prototype"
-date: 2019-06-04
+date: 2019-06-25
 ---
 
 <html>
