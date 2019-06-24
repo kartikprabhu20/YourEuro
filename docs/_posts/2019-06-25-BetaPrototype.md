@@ -5,6 +5,35 @@ date: 2019-06-25
 ---
 
 <html>
+<head>
+<style>
+* {
+  box-sizing: border-box;
+}
+
+.column1 {
+  float: left;
+  width: 50%;
+  padding: 0px;
+}
+.column2 {
+  float: left;
+  width: 20%;
+  padding: 0px;
+}
+
+.column3 {
+  float: left;
+  width: 80%;
+  padding: 0px;
+}
+
+/* Clearfix (clear floats) */
+.row::after {
+  display: table;
+}
+</style>
+</head>
     <body style="background-color:powderblue;">
                 
 <h1>Overview</h1>
@@ -75,16 +104,16 @@ To summarise testing phases:</p>
 <h1>Unit testing in Android Studio</h1><br>
 <p>Android studio shows the coverage of unit test line-by-line. The red colour on the margins tells us that the corresponding line number is not covered by unit testing. After covering the line the coverage turns green as in the next image. We try to cover 70% of the class under testing so that we don’t overfit the test cases. Under packages we even get class coverage once we run the entire unit test cases.</p>
 
-<div class="row" style="width:100%" margin= "0">
-    <div class="column" style="float:left" margin= "0">
+<div class="row">
+    <div class="column" style="width:100%">
          <figure>
-             <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/4_UntestedCategory.PNG?raw=true" width="400" height="225">
+             <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/4_UntestedCategory.PNG?raw=true" >
               <figcaption>Fig: Untested class</figcaption>
         </figure>
     </div>
-    <div class="column" style="float:left" margin= "0">
+    <div class="column" style="width:100%">
         <figure>
-            <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/4_testedCategory.PNG?raw=true" width="400" height="225">
+            <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/4_testedCategory.PNG?raw=true">
             <figcaption>Fig: Tested class</figcaption>
         </figure>
     </div>
@@ -99,16 +128,12 @@ To summarise testing phases:</p>
 <p>White box testing is testing process where the tester knows the internal structure of the code. The test coverage can be done by statement-by-statement or branch-by-branch basis. The following are the 5 scenarios which was tested using white-box testing.</p>
 
 <h3>1. PinActivity: Validation of user credential</h3>
-<div class="row" style="width:100%" margin= "0">
-    <div class="column" style="float:left" margin= "0">
-         <figure style="float:left" margin= "0">
-             <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/4_whitebox_testing_1.png?raw=true" style="width:100%"  width="500" height ="250">
-        </figure>
+<div class="row">
+    <div class="column3" style="width:100%">
+        <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/4_whitebox_testing_1.png?raw=true" style="width:100%">
     </div>
-    <div class="column" style="float:left" margin= "0">
-        <figure style="float:left" margin= "0">
-            <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/4_line_flow_1.png?raw=true" width="150" height ="300">
-        </figure>
+    <div class="column2" style="width:100%">
+        <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/4_line_flow_1.png?raw=true"">
     </div>
 </div>
 <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/4_wbt_test_1.png?raw=true" style="width:100%">
@@ -116,56 +141,40 @@ To summarise testing phases:</p>
 <h3>2. DetailsInputActivity: Field inputs</h3>
 <div class="row" style="width:100%">
     <div class="column">
-         <figure>
-             <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/4_whitebox_testing_2.png?raw=true">
-        </figure>
+         <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/4_whitebox_testing_2.png?raw=true">
     </div>
     <div class="column">
-        <figure>
-            <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/4_line_flow_2.png?raw=true">
-        </figure>
+        <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/4_line_flow_2.png?raw=true">
     </div>
 </div>
 
 <h3>3. CategoryActivity: New custom category name</h3>
 <div class="row" style="width:100%">
     <div class="column">
-         <figure>
-             <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/4_whitebox_testing_3.png?raw=true">
-        </figure>
+         <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/4_whitebox_testing3.png?raw=true">
     </div>
     <div class="column">
-        <figure>
-            <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/4_line_flow_3.png?raw=true">
-        </figure>
+         <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/4_line_flow_3.png?raw=true">
     </div>
 </div>
 
 <h3>4. Security Settings: Setting new PIN</h3>
 <div class="row" style="width:100%">
     <div class="column">
-         <figure>
-             <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/4_whiteboxtesting_4.png?raw=true">
-        </figure>
+         <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/4_whiteboxtesting_4.png?raw=true">
     </div>
     <div class="column">
-        <figure>
-            <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/4_line_flow_4.png?raw=true">
-        </figure>
+        <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/4_line_flow_4.png?raw=true">
     </div>
 </div>
 
 <h3>5. Statistics Filter: Changing filter fo charts</h3>
 <div class="row">
     <div class="column">
-         <figure>
-             <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/4_whiteboxtesting_5.png?raw=true">
-        </figure>
+         <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/4_whiteboxtesting_5.png?raw=true">
     </div>
     <div class="column">
-        <figure>
-            <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/4_line_flow_5.png?raw=true">
-        </figure>
+        <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/4_line_flow_5.png?raw=true">
     </div>
 </div>
 
