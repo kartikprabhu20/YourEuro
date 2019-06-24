@@ -153,3 +153,5 @@ To summarise testing phases:</p>
         <li><p>The axis values for charts changes depending on filter selection</p></li>
     </ul>
                 
+<br><hr>
+<h3><i><strong>Thank You for visiting our blog!! That’s all for Now. Stay tuned for our final blog where we reflect on our journey in creating a dream app!!!</strong></i></h3>
