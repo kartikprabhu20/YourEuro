@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "ISEE 2019 -- Team Presentation"
+title: "Team Presentation"
 date: 2019-04-15
 ---
 <html>
