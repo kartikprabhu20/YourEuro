@@ -16,7 +16,7 @@ Hello and welcome to our penultimate blog for the series of ‘YourEuro’ - A m
 In a team of 4, one of the members will be the developer for a feature while two other will be the code reviewer. The fourth person will not participate in the code review and thereby be ignorant of the structure of the source code. He will act as a tester and write test cases for blackbox testing. And the same is repeated with different developer and tester for different features.
 </p> 
 
-<img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/4_tester.png?raw=true" width="375" height="250" class="center"><br>
+<img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/4_tester.png?raw=true" width="350" height="250" class="center"><br>
 
 <p>We followed standard industrial norms of testing a product, and following were the different types of testing we executed.
     <ul>
@@ -56,21 +56,21 @@ In a team of 4, one of the members will be the developer for a feature while two
 <br><br>
 
 To summarise testing phases:</p>
-<img src=" https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/4_testing_phases.png?raw=true" width="650" height="300" class="center"><hr>
+<img src=" https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/4_testing_phases.png?raw=true" width="675" height="300" class="center"><hr>
 
 <h1>Unit testing in Android Studio</h1><br>
 <p>Android studio shows the coverage of unit test line-by-line. The red colour on the margins tells us that the corresponding line number is not covered by unit testing. After covering the line the coverage turns green as in the next image. We try to cover 70% of the class under testing so that we don’t overfit the test cases. Under packages we even get class coverage once we run the entire unit test cases.</p>
 
 <div class="row" style="width:100%">
-    <div class="column">
+    <div class="column" style="float:left">
          <figure>
-             <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/4_UntestedCategory.PNG?raw=true" style="width:100%">
+             <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/4_UntestedCategory.PNG?raw=true" width="350" height="250">
               <figcaption>Fig: Untested class</figcaption>
         </figure>
     </div>
-    <div class="column">
+    <div class="column" style="float:left">
         <figure>
-            <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/4_testedCategory.PNG?raw=true" style="width:100%">
+            <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/4_testedCategory.PNG?raw=true" width="350" height="250">
             <figcaption>Fig: Tested class</figcaption>
         </figure>
     </div>
@@ -90,7 +90,7 @@ To summarise testing phases:</p>
 <p>But in the end, everyone would expect a bug-free flawless app and all the bugs in resolved status.</p>
 
 <figure>
-     <img src=https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/4_Trello_bugs.png?raw=true" style="width:100%">
+     <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/4_Trello_bugs.png?raw=true" style="width:100%">
       <figcaption>Fig: Logged bugs in Trello</figcaption>
 </figure>
                                                                                                                                <hr>        
@@ -106,10 +106,11 @@ To summarise testing phases:</p>
     </div>
     <div class="column">
         <figure>
-            <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/4_line_flow_1.png?raw=true" style="width:100%">
+            <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/4_line_flow_1.png?raw=true" width="400" height="100">
         </figure>
     </div>
 </div>
+<img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/4_wbt_test_1.png?raw=true" style="width:100%">
 
 <h3>2.DetailsInputActivity: Field inputs</h3>
 <div class="row" style="width:100%">
@@ -125,7 +126,7 @@ To summarise testing phases:</p>
     </div>
 </div>
 
-<h2>3.CategoryActivity: New custom category name</h2>
+<h3>3.CategoryActivity: New custom category name</h3>
 <div class="row" style="width:100%">
     <div class="column">
          <figure>
@@ -139,7 +140,7 @@ To summarise testing phases:</p>
     </div>
 </div>
 
-<h2>4.Security Settings: Setting new PIN</h2>
+<h3>4.Security Settings: Setting new PIN</h3>
 <div class="row" style="width:100%">
     <div class="column">
          <figure>
@@ -153,7 +154,7 @@ To summarise testing phases:</p>
     </div>
 </div>
 
-<h2>4.Statistics Filter: Changing filter fo charts</h2>
+<h3>4.Statistics Filter: Changing filter fo charts</h3>
 <div class="row" style="width:100%">
     <div class="column">
          <figure>
