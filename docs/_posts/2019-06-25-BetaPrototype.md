@@ -76,7 +76,7 @@ In a team of 4, one of the members will be the developer for a feature while two
 To summarise testing phases:</p>
 <img src=" https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/4_testing_phases.png?raw=true" width="675" height="300" class="center">
 
-<p>Trello is used to log a bug found during any phase of testing by the tester in black-box testing. Each bug is given priority level depending on the severity of the issue.</p> 
+<p>All these testing needs to be documented so that we avoid duplicate efforts and at the same time with newer versions the same test cases can be executed again to make sure the features are still functioning as desired. Since we did not have any access to a test management tool, we used whatsapp to share the excel files in which test cases were return module-wise. Moving further we will share all the files in GIT so that the test cases are visible globally. Trello is used to log a bug found during any phase of testing by the tester in black-box testing. Each bug is given priority level depending on the severity of the issue.</p> 
     <ul>
         <li><p><b><i>P0</i></b> are blockers or crashes which under no circumstances be present in release version.</p></li>
         <li><p><b><i>P1</i></b> are slightly lower issues, which also needs to be resolved before releasing the product</p></li>
@@ -112,19 +112,24 @@ To summarise testing phases:</p>
 <h1>White box testing </h1>
 <p>White box testing is testing process where the tester knows the internal structure of the code. The test coverage can be done by statement-by-statement or branch-by-branch basis. The following are the 5 scenarios which was tested using white-box testing.</p>
 
-<h3>1. PinActivity: Validation of user credential</h3>
+<h3>1. PinActivity: Validation of user credential</h3><br>
+<p>PinActivity is the screen where the user enters the security pin to enter the app. We have tested 3 scenarios with empty pin, correct pin and invalid pin. We have restricted the input to be number and we get a number pad so that user doesn't enter any random strings.</p>
 <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/4_wbt_1.png?raw=true" style="width:100%">
 
-<h3>2. DetailsInputActivity: Field inputs</h3>
+<h3>2. DetailsInputActivity: Field inputs</h3><br>
+<p>The core page of out app where user enters the transaction details. Since we do not have edit screen as of now, we want to make sure user enters all the mandatory field before saving it. In case any field is untouched, then we throw and error and indicate to the user to fill it. We have five mandatory fields and for simplicity sake we have tested 2 scenarios where all the details are filled in one case and some of the fields are not changed in the other case. </p>
 <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/4_wbt_2.jpeg?raw=true" style="width:100%">
 
-<h3>3. CategoryActivity: New custom category name</h3>
+<h3>3. CategoryActivity: New custom category name</h3><br>
+<p>This is a unique scenario where the 'Save' but is enabled or disabled dynamically with respect to the custom category name. The save button is enabled only when the text field is not empty and an icon is selected. Thus we have 2 test scenarios for the same.</p> 
 <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/4_wbt_3.jpeg?raw=true" style="width:100%">
 
-<h3>4. Security Settings: Setting new PIN</h3>
+<h3>4. Security Settings: Setting new PIN</h3><br>
+<p>In this test case we have considered a parallel event. While settings a new pin, the user can either select 'SET' or 'CANCEL' button. Hence it the parallel representation. We have executed 3 test cases for this feature. For empty pin, for any pin and for cancel selection.</p>
 <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/4_wbt_4.jpeg?raw=true" style="width:100%">
 
-<h3>5. Statistics Filter: Changing filter fo charts</h3>
+<h3>5. Statistics Filter: Changing filter fo charts</h3><br>
+<p>Even though this part of the code has a nested IF statements, we consider only the one line in the deepest part which decides which filter to modify. Since we have 2 charts we tested it with 2 test cases.</p>
 <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/4_wbt_5.jpeg?raw=true" style="width:100%">
 
 
@@ -134,7 +139,7 @@ To summarise testing phases:</p>
 
 <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/4_black_box_testing.png?raw=true"  class="center" style="width:100%"><br>
  <ul>
-        <li><p>Scenarios 1,2 and 4 describes equivalence class where the Data input 1 column are valid inputs  and Data input 2 column are invalid input(example: empty input)</p></li>
+        <li><p>Scenarios 1, 2 and 4 describes equivalence class where the Data input 1 column are valid inputs  and Data input 2 column are invalid input(example: empty input)</p></li>
         <li><p>Scenario 5 is Boundary value tests, where adding a range which is not present will give empty list to view.</p></li>
     </ul>
 <hr>
