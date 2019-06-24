@@ -45,7 +45,7 @@ In a team of 4, one of the members will be the developer for a feature while two
 
 <p><b>Functional Testing:</b>  The product development process followed our user stories and functional test cases were derived from the same user stories. While one of our developers worked on implementing the features, another team member would design the test cases following black box testing.<br>
 <i>Example: As a user I want to set my transactions as recurring.</i>
-</p><br><br>
+</p><br>
 
 <p><b>System Testing:</b>  The product is tested in different environments and devices.<br>
 <i>Example: UI testing was done on devices of different screen size and different android version using emulators.</i>
@@ -77,8 +77,8 @@ In a team of 4, one of the members will be the developer for a feature while two
         <li><p><b><i>P0</i></b> are blockers or crashes which under no circumstances be present in release version.</p></li>
         <li><p><b><i>P1</i></b> are slightly lower issues, which also needs to be resolved before releasing the product</p></li>
         <li><p><b><i>P2</i></b> are least priority bugs, over which features can take precedence.</p></li>
-    </ul><br>
-<p>But in the end, everyone would expect a bug-free flawless app and all the bugs in resolved status.</p><hr><br>
+    </ul>
+<p>But in the end, everyone would expect a bug-free flawless app and all the bugs in resolved status.</p><hr>
 
 <h1>White box testing </h1>
 <p>White box testing is testing process where the tester knows the internal structure of the code. The test coverage can be done by statement-by-statement or branch-by-branch basis. The following are the 5 scenarios which was tested using white-box testing.</p>
