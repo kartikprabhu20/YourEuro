@@ -16,28 +16,7 @@ date: 2019-06-25
   width: 50%;
   padding: 0px;
 }
-.column2 {
-  float: left;
-  width: 20%;
-  padding: 0px;
-}
 
-.column3 {
-  float: left;
-  width: 80%;
-  padding: 0px;
-}
-
-.column4 {
-  float: left;
-  width: 90%;
-  padding: 0px;
-}
-.column5 {
-  float: left;
-  width: 10%;
-  padding: 0px;
-}
 /* Clearfix (clear floats) */
 .row::after {
   display: table;
@@ -75,23 +54,23 @@ In a team of 4, one of the members will be the developer for a feature while two
  </p><br>
 
 <p><b>Unit Testing:</b>  Unit testing is the foundation of testing process. This can be executed in parallel while the feature is implemented by the developer. And since the developer is expected to know A-Z of what he has written in the source code, white-box testing was followed. Android supports many libraries that support unit testing. In YourEuro app we have used JUnit and Mockito.<br>
-<i>Example: A simple model class like the CashRecord has multiple fields to be set before saving it to database. Using Mockito the values in constructor is called and JUnit helps to assert the set values.</i>
+<i>Example:</i> A simple model class like the CashRecord has multiple fields to be set before saving it to database. Using Mockito the values in constructor is called and JUnit helps to assert the set values.
 <br><br>
 
 <b>Integration Testing:</b>  In this phase we test combination of basic unit of the app. In the previous blog we discussed about MVC pattern and how our MoneyControlManager(which is a controller) acts as a mediator between models and Views. Testing the controller would cover more than 50% of our integration testing. We used Robolectric framework along with Mockito to execute the same. Robolectric helps us mock the methods of dependency classes and thus integration of several components in the controller can be tested. Apart from this white box testing, one of our team members who didn’t participate in the code review would do a blackbox testing.<br>
-<i>Example: Validating category threshold with the statistics charts.</i>
+<i>Example:</i> Validating category threshold with the statistics charts.
 <br><br>
 
 <b>Functional Testing:</b>  The product development process followed our user stories and functional test cases were derived from the same user stories. While one of our developers worked on implementing the features, another team member would design the test cases following black box testing.<br>
-<i>Example: As a user I want to set my transactions as recurring.</i>
+<i>Example:</i> As a user I want to set my transactions as recurring.
 <br><br>
 
 <b>System Testing:</b>  The product is tested in different environments and devices.<br>
-<i>Example: UI testing was done on devices of different screen size and different android version using emulators.</i>
+<i>Example:</i> UI testing was done on devices of different screen size and different android version using emulators.
 <br><br>
 
 <b>Acceptance Testing:</b>  Prototype was created for each user story/feature and demonstrated to the client in weekly meetings. Starting from UI to different features, client feedback was taken as acceptance. Any changes from the developer was immediately notified to the client and any requests from the client was taken into consideration and implemented in the following development sprint planning.<br>
- <i>Example: Filters for history was created with single category, while the customer feedback was to have multiple selection of categories.</i>
+ <i>Example:</i> Filters for history was created with single category, while the customer feedback was to have multiple selection of categories.
 <br><br>
 
 To summarise testing phases:</p>
@@ -158,5 +137,19 @@ To summarise testing phases:</p>
         <li><p>Scenarios 1,2 and 4 describes equivalence class where the Data input 1 column are valid inputs  and Data input 2 column are invalid input(example: empty input)</p></li>
         <li><p>Scenario 5 is Boundary value tests, where adding a range which is not present will give empty list to view.</p></li>
     </ul>
+<hr>
+<h1>Summary of changes</h1>
 
+<h1>New features introduced after Advanced prototype</h1>
+<ul>
+        <li><p>Threshold set for categories</p></li>
+        <li><p>Export transaction summary pdf via e-mail</p></li>
+        <li><p>Recurring transactions</p></li>
+
+    </ul>
+<h1>Modifications after Advanced prototype</h1>
+<ul>
+        <li><p>Category thresholds are represented as line graph over existing bar graph</p></li>
+        <li><p>The axis values for charts changes depending on filter selection</p></li>
+    </ul>
                 
