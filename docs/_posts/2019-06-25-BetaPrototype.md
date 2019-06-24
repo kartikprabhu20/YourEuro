@@ -137,10 +137,10 @@ To summarise testing phases:</p>
 <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/4_wbt_1.png?raw=true" style="width:100%">
 
 <h3>2. DetailsInputActivity: Field inputs</h3>
-
+<img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/4_wbt_2.png?raw=true" style="width:100%">
 
 <h3>3. CategoryActivity: New custom category name</h3>
-
+<img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/4_wbt_3.png?raw=true" style="width:100%">
 
 <h3>4. Security Settings: Setting new PIN</h3>
 
