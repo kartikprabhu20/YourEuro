@@ -129,51 +129,51 @@ To summarise testing phases:</p>
 
 <h3>1. PinActivity: Validation of user credential</h3>
 <div class="row">
-    <div class="column3" style="width:100%">
+    <div class="column3">
         <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/4_whitebox_testing_1.png?raw=true" style="width:100%">
     </div>
-    <div class="column2" style="width:100%">
+    <div class="column2">
         <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/4_line_flow_1.png?raw=true">
     </div>
 </div>
 <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/4_wbt_test_1.png?raw=true" style="width:100%">
 
 <h3>2. DetailsInputActivity: Field inputs</h3>
-<div class="row" style="width:100%">
-    <div class="column">
+<div class="row">
+    <div class="column3">
          <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/4_whitebox_testing_2.png?raw=true">
     </div>
-    <div class="column">
+    <div class="column2">
         <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/4_line_flow_2.png?raw=true">
     </div>
 </div>
 
 <h3>3. CategoryActivity: New custom category name</h3>
-<div class="row" style="width:100%">
-    <div class="column">
+<div class="row">
+    <div class="column3">
          <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/4_whitebox_testing3.png?raw=true">
     </div>
-    <div class="column">
+    <div class="column2">
          <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/4_line_flow_3.png?raw=true">
     </div>
 </div>
 
 <h3>4. Security Settings: Setting new PIN</h3>
-<div class="row" style="width:100%">
-    <div class="column">
+<div class="row">
+    <div class="column3">
          <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/4_whiteboxtesting_4.png?raw=true">
     </div>
-    <div class="column">
+    <div class="column2">
         <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/4_line_flow_4.png?raw=true">
     </div>
 </div>
 
 <h3>5. Statistics Filter: Changing filter fo charts</h3>
 <div class="row">
-    <div class="column">
+    <div class="column3">
          <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/4_whiteboxtesting_5.png?raw=true">
     </div>
-    <div class="column">
+    <div class="column2">
         <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/4_line_flow_5.png?raw=true">
     </div>
 </div>
