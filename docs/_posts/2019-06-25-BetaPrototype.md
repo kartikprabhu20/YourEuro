@@ -138,15 +138,15 @@ To summarise testing phases:</p>
         <li><p>Scenario 5 is Boundary value tests, where adding a range which is not present will give empty list to view.</p></li>
     </ul>
 <hr>
-<h3>Summary of changes</h3>
+<h1>Summary of changes</h1>
 
-<h1>New features introduced after Advanced prototype:</h1>
+<h3>New features introduced after Advanced prototype:</h3>
 <ul>
-        <li><p>Threshold set for categories</p></li>
-        <li><p>Export transaction summary pdf via e-mail</p></li>
-        <li><p>Recurring transactions</p></li>
-
-    </ul>
+     <li><p>Threshold set for categories</p></li>
+     <li><p>Export transaction summary pdf via e-mail</p></li>
+      <li><p>Recurring transactions</p></li>
+</ul>
+    
 <h3>Modifications after Advanced prototype:</h3>
 <ul>
         <li><p>Category thresholds are represented as line graph over existing bar graph</p></li>
