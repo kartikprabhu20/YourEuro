@@ -60,19 +60,17 @@ In a team of 4, one of the members will be the developer for a feature while two
 
 <h1>Unit testing in Android Studio</h1><br>
 <p>Android studio shows the coverage of unit test line-by-line. The red colour on the margins tells us that the corresponding line number is not covered by unit testing. After covering the line the coverage turns green as in the next image. We try to cover 70% of the class under testing so that we don’t overfit the test cases. Under packages we even get class coverage once we run the entire unit test cases.</p>
-<div>
-  <div class="row">
+
+<div class="row">
     <div class="column">
          <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/4_UntestedCategory.PNG?raw=true" style="width:125%" width="650" height="300">
     </div>
     <div class="column">
         <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/4_testedCategory.PNG?raw=true" style="width:125%" width="650" height="300">
     </div>
-  </div>
-  <div class="row">
-       <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/4_modelClassesTested.PNG?raw=true" width="550" height="200" class="center">
-  </div>
 </div>
+
+<img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/4_modelClassesTested.PNG?raw=true" width="550" height="200" class="center"><br>
 
 <p>Trello is used to log a bug found during any phase of testing by the tester in black-box testing. Each bug is given priority level depending on the severity of the issue.</p> 
     <ul>
@@ -80,5 +78,16 @@ In a team of 4, one of the members will be the developer for a feature while two
         <li><p><b><i>P1</i></b> are slightly lower issues, which also needs to be resolved before releasing the product</p></li>
         <li><p><b><i>P2</i></b> are least priority bugs, over which features can take precedence.</p></li>
     </ul><br>
-<p>But in the end, everyone would expect a bug-free flawless app and all the bugs in resolved status.</p>
+<p>But in the end, everyone would expect a bug-free flawless app and all the bugs in resolved status.</p><hr><br>
+
+<h1>White box testing </h1>
+<p>White box testing is testing process where the tester knows the internal structure of the code. The test coverage can be done by statement-by-statement or branch-by-branch basis. The following are the 5 scenarios which was tested using white-box testing.</p>
+
+<hr>
+<h1>Black box testing</h1>
+<p>Black box testing is a testing process where the tester is not familiar with the internal structure or flow of the source code. He will just be familiar with the input and expected output and using them will create various test cases covering simple and edge cases.As explained earlier one of our team members will be a tester for a particular feature. But along with that person, we even asked some of our friends to use the app and give us feedback on the same. We concentrated on the below 5 features which covers different aspects of our product.</p>
+
+<img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/4_black_box_testing.png?raw=true"  class="center"><br>
+
+
                 
