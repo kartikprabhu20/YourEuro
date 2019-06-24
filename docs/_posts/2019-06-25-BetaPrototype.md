@@ -63,14 +63,23 @@ To summarise testing phases:</p>
 
 <div class="row">
     <div class="column">
-         <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/4_UntestedCategory.PNG?raw=true" width="500" height="250">
+         <figure>
+             <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/4_UntestedCategory.PNG?raw=true" width="500" height="250">
+              <figcaption>Fig: Untested class</figcaption>
+        </figure>
     </div>
     <div class="column">
-        <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/4_testedCategory.PNG?raw=true" width="500" height="250">
+        <figure>
+            <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/4_testedCategory.PNG?raw=true" width="500" height="250">
+            <figcaption>Fig: Tested class</figcaption>
+        </figure>
     </div>
 </div>
 
-<img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/4_modelClassesTested.PNG?raw=true" width="550" height="200" class="center"><br>
+<figure>
+    <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/4_modelClassesTested.PNG?raw=true" width="550" height="200" class="center">
+     <figcaption>Fig: Class and line coverage of model package</figcaption>
+</figure><br>
 
 <p>Trello is used to log a bug found during any phase of testing by the tester in black-box testing. Each bug is given priority level depending on the severity of the issue.</p> 
     <ul>
