@@ -143,8 +143,10 @@ To summarise testing phases:</p>
 <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/4_wbt_3.jpeg?raw=true" style="width:100%">
 
 <h3>4. Security Settings: Setting new PIN</h3>
+<img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/4_wbt_4.jpeg?raw=true" style="width:100%">
 
 <h3>5. Statistics Filter: Changing filter fo charts</h3>
+<img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/4_wbt_5.jpeg?raw=true" style="width:100%">
 
 
 <hr>
