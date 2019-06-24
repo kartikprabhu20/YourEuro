@@ -8,7 +8,7 @@ date: 2019-06-25
     <body style="background-color:powderblue;">
                 
 <h1>Overview</h1>
-<p> “It’s time for some testing!”<br>
+<p> <i>“It’s time for some testing!”</i><br>
 Hello and welcome to our penultimate blog for the series of ‘YourEuro’ - A money control app. In this blog we discuss in detail the process of testing which we followed to make our app flawless and make it Playstore ready.</p><hr><br>
 
 <h1>Test Case Design</h1><br>
@@ -63,10 +63,10 @@ In a team of 4, one of the members will be the developer for a feature while two
 
 <div class="row">
     <div class="column">
-         <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/4_UntestedCategory.PNG?raw=true" width="650" height="300">
+         <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/4_UntestedCategory.PNG?raw=true" width="500" height="250">
     </div>
     <div class="column">
-        <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/4_testedCategory.PNG?raw=true" width="650" height="300">
+        <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/4_testedCategory.PNG?raw=true" width="500" height="250">
     </div>
 </div>
 
