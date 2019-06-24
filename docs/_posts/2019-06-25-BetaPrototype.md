@@ -62,10 +62,10 @@ In a team of 4, one of the members will be the developer for a feature while two
 Android studio shows the coverage of unit test line-by-line. The red colour on the margins tells us that the corresponding line number is not covered by unit testing. After covering the line the coverage turns green as in the next image. We try to cover 70% of the class under testing so that we don’t overfit the test cases. Under packages we even get class coverage once we run the entire unit test cases.</p>
 <div class="row">
   <div class="column">
-    <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/4_UntestedCategory.PNG?raw=true" alt="Snow" style="width:100%" width="650" height="300">
+    <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/4_UntestedCategory.PNG?raw=true" alt="Snow" style="width:150%" width="650" height="300">
   </div>
   <div class="column">
-    <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/4_testedCategory.PNG?raw=true" alt="Forest" style="width:100%" width="650" height="300">
+    <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/4_testedCategory.PNG?raw=true" alt="Forest" style="width:150%" width="650" height="300">
   </div>
 </div>
 
