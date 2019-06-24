@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "ISEE 2019 -- Basic Prototype"
+title: "Basic Prototype"
 date: 2019-05-13
 ---
 <html>
