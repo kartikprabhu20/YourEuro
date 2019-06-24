@@ -101,12 +101,12 @@ To summarise testing phases:</p>
 <div class="row" style="width:100%">
     <div class="column">
          <figure>
-             <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/4_whitebox_testing_1.png?raw=true" style="width:80%">
+             <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/4_whitebox_testing_1.png?raw=true" style="width:100%">
         </figure>
     </div>
     <div class="column">
         <figure>
-            <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/4_line_flow_1.png?raw=true" style="width:20%">
+            <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/4_line_flow_1.png?raw=true" style="width:100%">
         </figure>
     </div>
 </div>
@@ -115,12 +115,12 @@ To summarise testing phases:</p>
 <div class="row" style="width:100%">
     <div class="column">
          <figure>
-             <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/4_whitebox_testing_2.png?raw=true" style="width:80%">
+             <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/4_whitebox_testing_2.png?raw=true" style="width:100%">
         </figure>
     </div>
     <div class="column">
         <figure>
-            <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/4_line_flow_2.png?raw=true" style="width:20%">
+            <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/4_line_flow_2.png?raw=true" style="width:100%">
         </figure>
     </div>
 </div>
