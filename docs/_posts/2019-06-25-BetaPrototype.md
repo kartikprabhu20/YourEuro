@@ -16,7 +16,7 @@ Hello and welcome to our penultimate blog for the series of ‘YourEuro’ - A m
 In a team of 4, one of the members will be the developer for a feature while two other will be the code reviewer. The fourth person will not participate in the code review and thereby be ignorant of the structure of the source code. He will act as a tester and write test cases for blackbox testing. And the same is repeated with different developer and tester for different features.
 </p> 
 
-<img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/4_tester.png?raw=true" width="400" height="250" class="center"><br>
+<img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/4_tester.png?raw=true" width="375" height="250" class="center"><br>
 
 <p>We followed standard industrial norms of testing a product, and following were the different types of testing we executed.
     <ul>
@@ -56,16 +56,16 @@ In a team of 4, one of the members will be the developer for a feature while two
 </p><br><br>
 
 <p>To summarise testing phases:</p>
-<img src=" https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/4_testing_phases.png?raw=true" width="650" height="300" class="center">
+<img src=" https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/4_testing_phases.png?raw=true" width="700" height="300" class="center">
 
 <p><b>Unit testing in Android Studio:</b>
 Android studio shows the coverage of unit test line-by-line. The red colour on the margins tells us that the corresponding line number is not covered by unit testing. After covering the line the coverage turns green as in the next image. We try to cover 70% of the class under testing so that we don’t overfit the test cases. Under packages we even get class coverage once we run the entire unit test cases.</p>
 <div class="row">
   <div class="column">
-    <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/4_UntestedCategory.PNG?raw=true" alt="Snow" style="width:100%">
+    <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/4_UntestedCategory.PNG?raw=true" alt="Snow" style="width:100%" width="650" height="300">
   </div>
   <div class="column">
-    <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/4_testedCategory.PNG?raw=true" alt="Forest" style="width:100%">
+    <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/4_testedCategory.PNG?raw=true" alt="Forest" style="width:100%" width="650" height="300">
   </div>
 </div>
 
