@@ -132,8 +132,8 @@ public class FilterActivity  extends AppCompatActivity implements View.OnClickLi
         istartdate.setOnClickListener(this);
         ienddate.setOnClickListener(this);
 
-        startAmountEditText.setFilters(new InputFilter[]{new CurrencyInputFilter(14,2)});
-        endAmountEditText.setFilters(new InputFilter[]{new CurrencyInputFilter(14,2)});
+        startAmountEditText.setFilters(new InputFilter[]{new CurrencyInputFilter(10,2)});
+        endAmountEditText.setFilters(new InputFilter[]{new CurrencyInputFilter(10,2)});
     }
 
     View.OnClickListener onClickListener =  new View.OnClickListener() {

@@ -5,7 +5,9 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.Toolbar;
+import android.util.DisplayMetrics;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -80,6 +82,8 @@ public class StatisticsActivity extends AppCompatActivity implements View.OnClic
         filterResults(new CashRecordFilter(), true);
         filterResults(new CashRecordFilter(), false);
 
+        setChartHeight();
+
     }
 
     @Override
@@ -107,6 +111,7 @@ public class StatisticsActivity extends AppCompatActivity implements View.OnClic
             pieChart.invalidate();
             pieChart.setDrawEntryLabels(false);
             pieChart.getDescription().setEnabled(false);
+            pieChart.getLegend().setWordWrapEnabled(true);
 
         }else{
             combinedChart.setData(moneyControlManager.getStatisticsManager().setupCombinedChart(cashRecordFilter, moneyControlManager.getAllCategories()));
@@ -122,6 +127,7 @@ public class StatisticsActivity extends AppCompatActivity implements View.OnClic
             }else {
                 combinedChart.getAxisLeft().removeAllLimitLines();
             }
+            combinedChart.getXAxis().setEnabled(false);
             combinedChart.getDescription().setEnabled(false);
             combinedChart.fitScreen();
             combinedChart.notifyDataSetChanged();
@@ -144,4 +150,14 @@ public class StatisticsActivity extends AppCompatActivity implements View.OnClic
         }
     }
 
+    private void setChartHeight() {
+        DisplayMetrics displayMetrics = new DisplayMetrics();
+        getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
+        ViewGroup.LayoutParams params = pieChart.getLayoutParams();
+        params.height = displayMetrics.widthPixels - 100;
+        pieChart.setLayoutParams(params);
+        params = combinedChart.getLayoutParams();
+        params.height = displayMetrics.widthPixels - 100;
+        pieChart.setLayoutParams(params);
+    }
 }

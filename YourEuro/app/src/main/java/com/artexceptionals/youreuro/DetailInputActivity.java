@@ -159,7 +159,7 @@ public class DetailInputActivity extends AppCompatActivity implements View.OnCli
 
         currencySymbolTextView.setText(CurrencyHelper.getSymbol(moneyControlManager.getSharedPreference().genericGetString(CurrencyHelper.CURRENT_CURRENCY, CurrencyHelper.CurrencyType.EURO)));
 
-        amountEditText.setFilters(new InputFilter[]{new CurrencyInputFilter(14,2)});
+        amountEditText.setFilters(new InputFilter[]{new CurrencyInputFilter(10,2)});
 
     }
 

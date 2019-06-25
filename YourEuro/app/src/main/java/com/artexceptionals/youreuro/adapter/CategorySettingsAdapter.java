@@ -4,6 +4,7 @@ import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.text.Editable;
+import android.text.InputFilter;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,6 +15,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.artexceptionals.youreuro.R;
+import com.artexceptionals.youreuro.helpers.CurrencyInputFilter;
 import com.artexceptionals.youreuro.model.Category;
 import com.maltaisn.icondialog.IconHelper;
 
@@ -57,6 +59,7 @@ public class CategorySettingsAdapter extends ArrayAdapter<Category> {
             mViewHolder.categoryName = (TextView) convertView.findViewById(R.id.category_name_in_settings);
             mViewHolder.categoryDelete = (ImageView) convertView.findViewById(R.id.category_delete_in_settings);
             mViewHolder.categoryThreshold = convertView.findViewById(R.id.category_threshold_et);
+            mViewHolder.categoryThreshold.setFilters(new InputFilter[]{new CurrencyInputFilter(8,2)});
 
             if (isAddCategory) {
                 mViewHolder.categoryThreshold.setVisibility(View.GONE);
