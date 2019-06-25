@@ -21,7 +21,13 @@ public class PinActivity extends AppCompatActivity {
         pinEditText = (EditText) findViewById(R.id.AppPIN);
     }
 
-    public void Validation(View view) {
+    public void validation(View view) {
+
+        if (pinEditText.getText().toString().isEmpty()){
+            Toast.makeText(this,"PIN can't be empty",Toast.LENGTH_LONG).show();
+            return;
+        }
+
         enteredPIN = Integer.parseInt(pinEditText.getText().toString());
         actualPIN = CustomSharedPreferences.getInstance(YourEuroApp.getAppContext()).getInt("user_pin");
         if (enteredPIN == actualPIN) {
@@ -33,7 +39,7 @@ public class PinActivity extends AppCompatActivity {
         }
     }
 
-    public void CreatePIN(View view) {
+    public void createPIN(View view) {
         Intent intent1 = new Intent(PinActivity.this, SetPinActivity.class);
         startActivity(intent1);
     }
