@@ -177,6 +177,8 @@ public  class PrefsFragment extends PreferenceFragment {
                                 Toast.makeText(getActivity(),"Your New PIN has been set.",Toast.LENGTH_LONG).show();
                             }else {
                                 oldPIN.setError(getResources().getString(R.string.wrong_pin));
+                                Toast.makeText(getActivity(),"Entered wrong Old PIN",Toast.LENGTH_LONG).show();
+                                launchDialogChangePIN();
                             }
                          }else {
                             launchDialogChangePIN();

@@ -54,10 +54,12 @@ public class ExportPdfActivity extends AppCompatActivity {
         sharedPreferences = CustomSharedPreferences.getInstance(YourEuroApp.getAppContext());
     }
 
-    public void ExportPdf(View view) {
+    public void emailPdf(View view) {
         cashRecords = cashRecordDatabase.cashRecordDao().getAll();
         try {
             createPdfWrapper();
+            createPdf();
+            sendEmail();
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (DocumentException e) {
@@ -182,23 +184,25 @@ public class ExportPdfActivity extends AppCompatActivity {
         }
     }
 
-    public void sendEmail(View view) {
+    public void sendEmail() {
         String filename="monthlySummary.pdf";
         File file = new File(Environment.getExternalStorageDirectory().getAbsolutePath()+File.separator+"Documents", filename);
         Uri myUri = FileProvider.getUriForFile(getApplicationContext(), getApplicationContext().getPackageName() + ".MyFileProvider",file);
         this.grantUriPermission("com.artexceptionals.youreuro", myUri, Intent.FLAG_GRANT_WRITE_URI_PERMISSION | Intent.FLAG_GRANT_READ_URI_PERMISSION);
-
+        String to = sharedPreferences.genericGetString("user_Email","Not Set");
         if (file.exists()) {
-            Intent emailIntent = new Intent(Intent.ACTION_SEND);
-            emailIntent.setType("application/pdf");
-            String to = sharedPreferences.genericGetString("user_Email");
-            emailIntent.putExtra(Intent.EXTRA_EMAIL, new String[]{to});
-            // the attachment
-            emailIntent.putExtra(Intent.EXTRA_STREAM, myUri);
-            // the mail subject
-            emailIntent.putExtra(Intent.EXTRA_SUBJECT, "summary PDF");
-            emailIntent.putExtra(Intent.EXTRA_TEXT, "Summary from YourEuro Money Control App");
-            startActivity(emailIntent);
+            if(!("Not Set".equalsIgnoreCase(to))) {
+                Intent emailIntent = new Intent(Intent.ACTION_SEND);
+                emailIntent.setType("application/pdf");
+
+                emailIntent.putExtra(Intent.EXTRA_EMAIL, new String[]{to});
+                // the attachment
+                emailIntent.putExtra(Intent.EXTRA_STREAM, myUri);
+                // the mail subject
+                emailIntent.putExtra(Intent.EXTRA_SUBJECT, "summary PDF");
+                emailIntent.putExtra(Intent.EXTRA_TEXT, "Summary from YourEuro Money Control App");
+                startActivity(emailIntent);
+            }else Toast.makeText(ExportPdfActivity.this,"Set user Email in settings",Toast.LENGTH_LONG).show();
         }
     }
 }
