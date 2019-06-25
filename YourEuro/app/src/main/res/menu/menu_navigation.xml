@@ -22,7 +22,7 @@
     <item
         android:id="@+id/recurring"
         android:title="Recurring records"
-        android:icon="@drawable/baseline_repeat_black_18dp">
+        android:icon="@drawable/ic_history_black_24dp">
 
     </item>
 
@@ -35,7 +35,13 @@
     <item
         android:id="@+id/aboutus"
         android:title="About Us"
-        android:icon="@drawable/baseline_supervised_user_circle_black_18dp">
+        android:icon="@drawable/ic_settings_backup_restore_black_24dp">
+
+    </item>
+
+    <item
+        android:id="@+id/exportingpdf"
+        android:title="Export PDF">
 
     </item>
 
