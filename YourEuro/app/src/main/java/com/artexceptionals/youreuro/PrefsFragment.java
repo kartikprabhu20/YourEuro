@@ -74,13 +74,19 @@ public  class PrefsFragment extends PreferenceFragment {
 
         alertDialog.setPositiveButton("YES", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int which) {
-                int enteredPIN = Integer.parseInt(input.getText().toString());
-                if (sharedPreferences.getInt("user_pin") == enteredPIN) {
-                    Toast.makeText(getActivity(), "Password Matched", Toast.LENGTH_SHORT).show();
-                    ((SwitchPreference) switchPreference).setChecked(false);
-                    dialog.dismiss();
+
+                if (!input.getText().toString().isEmpty()) {
+                    int enteredPIN = Integer.parseInt(input.getText().toString());
+                    if (sharedPreferences.getInt("user_pin") == enteredPIN) {
+                        Toast.makeText(getActivity(), "Password Matched", Toast.LENGTH_SHORT).show();
+                        ((SwitchPreference) switchPreference).setChecked(false);
+                        dialog.dismiss();
+                    }else {
+                        Toast.makeText(getActivity(), "Wrong Password!", Toast.LENGTH_SHORT).show();
+                        launchDialogDisable();
+                    }
                 }else {
-                    Toast.makeText(getActivity(), "Wrong Password!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(), "Pin can't be empty", Toast.LENGTH_SHORT).show();
                     launchDialogDisable();
                 }
             }
@@ -155,23 +161,26 @@ public  class PrefsFragment extends PreferenceFragment {
 
                     public void onClick(DialogInterface dialog, int which) {
 
-                        if (oldPIN.getText() == null || oldPIN.getText().toString().equalsIgnoreCase(""))
-                            oldPIN.setError(getResources().getString(R.string.empty_pin));
+                        if (oldPIN.getText() == null || oldPIN.getText().toString().isEmpty())
+                            Toast.makeText(getActivity(),"Old PIN can't be empty.",Toast.LENGTH_LONG).show();
 
-                        if (newPIN.getText() == null || newPIN.getText().toString().equalsIgnoreCase(""))
-                            newPIN.setError(getResources().getString(R.string.empty_pin));
+                        if (newPIN.getText() == null || newPIN.getText().toString().isEmpty())
+                            Toast.makeText(getActivity(),"New PIN can't be empty.",Toast.LENGTH_LONG).show();
+
 
                         if(oldPIN.getText() != null && newPIN.getText() != null && !newPIN.getText().toString().equalsIgnoreCase("")
                                 && !oldPIN.getText().toString().equalsIgnoreCase("")){
-                        enteredOldPIN = Integer.parseInt(oldPIN.getText().toString());
-                        enteredNewPIN = Integer.parseInt(newPIN.getText().toString());
-                        if(sharedPreferences.getInt("user_pin") == enteredOldPIN){
-                            sharedPreferences.setInt("user_pin",enteredNewPIN);
-                            Toast.makeText(getActivity(),"Your New PIN has been set.",Toast.LENGTH_LONG).show();
-                        }else {
-                            oldPIN.setError(getResources().getString(R.string.wrong_pin));
+                            enteredOldPIN = Integer.parseInt(oldPIN.getText().toString());
+                            enteredNewPIN = Integer.parseInt(newPIN.getText().toString());
+                            if(sharedPreferences.getInt("user_pin") == enteredOldPIN){
+                                sharedPreferences.setInt("user_pin",enteredNewPIN);
+                                Toast.makeText(getActivity(),"Your New PIN has been set.",Toast.LENGTH_LONG).show();
+                            }else {
+                                oldPIN.setError(getResources().getString(R.string.wrong_pin));
+                            }
+                         }else {
+                            launchDialogChangePIN();
                         }
-                    }
                     }
                 });
 

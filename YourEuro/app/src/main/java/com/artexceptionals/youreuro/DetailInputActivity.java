@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.text.InputFilter;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -30,6 +31,7 @@ import android.widget.ToggleButton;
 
 import com.artexceptionals.youreuro.adapter.CustomCategoryAdapter;
 import com.artexceptionals.youreuro.helpers.CurrencyHelper;
+import com.artexceptionals.youreuro.helpers.CurrencyInputFilter;
 import com.artexceptionals.youreuro.helpers.PaymentTypeHelper;
 import com.artexceptionals.youreuro.helpers.RecurringHelper;
 import com.artexceptionals.youreuro.model.CashRecord;
@@ -156,6 +158,8 @@ public class DetailInputActivity extends AppCompatActivity implements View.OnCli
         timeImageView.setOnClickListener(this);
 
         currencySymbolTextView.setText(CurrencyHelper.getSymbol(moneyControlManager.getSharedPreference().genericGetString(CurrencyHelper.CURRENT_CURRENCY, CurrencyHelper.CurrencyType.EURO)));
+
+        amountEditText.setFilters(new InputFilter[]{new CurrencyInputFilter(14,2)});
 
     }
 

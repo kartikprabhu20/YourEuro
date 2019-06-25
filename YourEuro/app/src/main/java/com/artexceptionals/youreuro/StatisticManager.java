@@ -38,6 +38,10 @@ public class StatisticManager {
     private final Context context;
     private final CashRecordDatabase cashRecordDatabase;
 
+    int [] color={ ColorTemplate.rgb("#ea5b19"),ColorTemplate.rgb("#eaca18"),ColorTemplate.rgb("#086000"),ColorTemplate.rgb("#02258c"),
+            ColorTemplate.rgb("#8c0142"),ColorTemplate.rgb("#8e8c04"),ColorTemplate.rgb("#8401bc"), ColorTemplate.rgb("#ffb744"),
+            ColorTemplate.rgb("#44ffa1"),ColorTemplate.rgb("#b500b5"),ColorTemplate.rgb("#936a76"), ColorTemplate.rgb("#fcea85"),
+            ColorTemplate.rgb("#91fff7"),ColorTemplate.rgb("#e191ff"),ColorTemplate.rgb("#fc5353"),ColorTemplate.rgb("#00ffdd")};
 
     public StatisticManager(Context context, CashRecordDatabase cashRecordDatabase) {
         this.context = context;
@@ -94,9 +98,11 @@ public class StatisticManager {
         }
 
         PieDataSet dataSet = new PieDataSet(pieEntries, "#YourEuro");
-        dataSet.setColors(ColorTemplate.COLORFUL_COLORS);
+        dataSet.setColors(color);
         dataSet.setXValuePosition(PieDataSet.ValuePosition.OUTSIDE_SLICE);
+        dataSet.setYValuePosition(PieDataSet.ValuePosition.OUTSIDE_SLICE);
         PieData data = new PieData(dataSet);
+        data.setValueTextSize(10f);
         return data;
     }
 
@@ -122,7 +128,7 @@ public class StatisticManager {
         }
 
         BarDataSet barSet = new BarDataSet(barEntries, "#YourEuro");
-        barSet.setColors(ColorTemplate.COLORFUL_COLORS);
+        barSet.setColors(color);
         BarData data = new BarData(barSet);
         return data;
     }
@@ -236,6 +242,29 @@ public class StatisticManager {
 
     public LimitLine getThresholdLimit(Category category){
         return new LimitLine((int)category.getThreshold(), "Threshold - " + category.getCatagoryName());
+    }
+
+    public List<Integer> getColors(){
+        ArrayList<Integer> colors = new ArrayList<>();
+
+        for (int c : ColorTemplate.VORDIPLOM_COLORS)
+            colors.add(c);
+
+        for (int c : ColorTemplate.JOYFUL_COLORS)
+            colors.add(c);
+
+        for (int c : ColorTemplate.COLORFUL_COLORS)
+            colors.add(c);
+
+        for (int c : ColorTemplate.LIBERTY_COLORS)
+            colors.add(c);
+
+        for (int c : ColorTemplate.PASTEL_COLORS)
+            colors.add(c);
+
+        colors.add(ColorTemplate.getHoloBlue());
+
+        return colors;
     }
 }
 

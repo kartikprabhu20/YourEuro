@@ -5,8 +5,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.text.InputFilter;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -14,12 +16,14 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.artexceptionals.youreuro.adapter.CategoryFilterAdapter;
+import com.artexceptionals.youreuro.helpers.CurrencyInputFilter;
 import com.artexceptionals.youreuro.model.CashRecordFilter;
 
 import java.text.DateFormat;
@@ -102,6 +106,7 @@ public class FilterActivity  extends AppCompatActivity implements View.OnClickLi
 
         categoryAdapter = new CategoryFilterAdapter(this,moneyControlManager.getAllCategories());
         categoryListView.setAdapter(categoryAdapter);
+        setListViewHeightBasedOnChildren(categoryListView);
 
         cancelFilterButton.setOnClickListener(onClickListener);
         saveFilterButton.setOnClickListener(onClickListener);
@@ -127,6 +132,8 @@ public class FilterActivity  extends AppCompatActivity implements View.OnClickLi
         istartdate.setOnClickListener(this);
         ienddate.setOnClickListener(this);
 
+        startAmountEditText.setFilters(new InputFilter[]{new CurrencyInputFilter(14,2)});
+        endAmountEditText.setFilters(new InputFilter[]{new CurrencyInputFilter(14,2)});
     }
 
     View.OnClickListener onClickListener =  new View.OnClickListener() {
@@ -235,5 +242,27 @@ public class FilterActivity  extends AppCompatActivity implements View.OnClickLi
             e.printStackTrace();
         }
         return false;
+    }
+
+    public static void setListViewHeightBasedOnChildren(ListView listView) {
+        ListAdapter listAdapter = listView.getAdapter();
+        if (listAdapter == null) return;
+        int desiredWidth = View.MeasureSpec.makeMeasureSpec(listView.getWidth(),
+                View.MeasureSpec.UNSPECIFIED);
+        int totalHeight = 0;
+        View view = null;
+        for (int i = 0; i < listAdapter.getCount(); i++) {
+            view = listAdapter.getView(i, view, listView);
+            if (i == 0) view.setLayoutParams(new ViewGroup.LayoutParams(desiredWidth, ViewGroup.LayoutParams.WRAP_CONTENT));
+            view.measure(desiredWidth, View.MeasureSpec.UNSPECIFIED);
+            totalHeight += view.getMeasuredHeight();
+        }
+
+        ViewGroup.LayoutParams params = listView.getLayoutParams();
+
+        params.height = totalHeight + (listView.getDividerHeight() * (listAdapter.getCount() - 1));
+
+        listView.setLayoutParams(params);
+        listView.requestLayout();
     }
 }
