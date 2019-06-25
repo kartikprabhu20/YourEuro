@@ -102,7 +102,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 if (id == R.id.home) {
                     drawerlay.closeDrawer(Gravity.LEFT);
                 } else if (id == R.id.statistics) {
-                    Toast.makeText(MainActivity.this, "Statistics", Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent(MainActivity.this, StatisticsActivity.class));
                 } else if (id == R.id.history) {
                     startActivity(new Intent(MainActivity.this, HistoryActivity.class));
                 } else if (id == R.id.recurring) {
@@ -155,7 +155,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
         });
 
-        //Statistica
+        //Statistics
         statisticsListener.listen();
         barChartFilter.setOnClickListener(this);
         pieChartFilter.setOnClickListener(this);
@@ -221,6 +221,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             pieChart.invalidate();
             pieChart.setDrawEntryLabels(false);
             pieChart.getDescription().setEnabled(false);
+            pieChart.getLegend().setWordWrapEnabled(true);
+
 
         }else{
             combinedChart.setData(moneyControlManager.getStatisticsManager().setupCombinedChart(cashRecordFilter, moneyControlManager.getAllCategories()));

@@ -21,9 +21,9 @@
 
     </android.support.design.widget.AppBarLayout>
 
-    <ScrollView
+    <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -258,6 +258,7 @@
                                 android:layout_height="wrap_content"
                                 android:id="@+id/start_amount_et"
                                 android:hint="0"
+                                android:inputType="numberDecimal"
                                 android:layout_weight="3"
                                 android:layout_gravity="center"/>
 
@@ -289,6 +290,7 @@
                                 android:layout_height="wrap_content"
                                 android:id="@+id/end_amount_et"
                                 android:hint="5000"
+                                android:inputType="numberDecimal"
                                 android:layout_weight="3"
                                 android:layout_gravity="center"/>
 
@@ -327,7 +329,7 @@
         </LinearLayout>
 
 
-    </ScrollView>
+    </android.support.v4.widget.NestedScrollView>
 
 </android.support.design.widget.CoordinatorLayout>
 

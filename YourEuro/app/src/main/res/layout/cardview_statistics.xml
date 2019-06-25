@@ -24,6 +24,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:id="@+id/statistic_title"
             android:padding="@dimen/unit3"
             android:text="@string/statistic"
             android:textSize="@dimen/unit3_5" />
