@@ -117,10 +117,16 @@ public  class PrefsFragment extends PreferenceFragment {
                 new DialogInterface.OnClickListener() {
 
                     public void onClick(DialogInterface dialog, int which) {
-                        enteredPIN = Integer.parseInt(input.getText().toString());
-                        sharedPreferences.setInt("user_pin",enteredPIN);
-                        Toast.makeText(getActivity(),"Your PIN has been set.",Toast.LENGTH_LONG).show();
-                        ((SwitchPreference) switchPreference).setChecked(true);
+
+                        if (!input.getText().toString().isEmpty()) {
+                            enteredPIN = Integer.parseInt(input.getText().toString());
+                            sharedPreferences.setInt("user_pin", enteredPIN);
+                            Toast.makeText(getActivity(), "Your PIN has been set.", Toast.LENGTH_LONG).show();
+                            ((SwitchPreference) switchPreference).setChecked(true);
+                        }else{
+                            Toast.makeText(getActivity(), "PIN can't be empty", Toast.LENGTH_SHORT).show();
+                            launchDialogEnable();
+                        }
                     }
                 });
 
