@@ -17,10 +17,12 @@ import android.support.v7.widget.CardView;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.util.DisplayMetrics;
 import android.view.Gravity;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -161,6 +163,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         pieChartFilter.setOnClickListener(this);
         barChartRefresh.setOnClickListener(this);
         pieChartRefresh.setOnClickListener(this);
+        setChartHeight();
     }
 
     @Override
@@ -238,6 +241,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }else {
                 combinedChart.getAxisLeft().removeAllLimitLines();
             }
+
+            combinedChart.getXAxis().setEnabled(false);
             combinedChart.getDescription().setEnabled(false);
             combinedChart.fitScreen();
             combinedChart.notifyDataSetChanged();
@@ -261,6 +266,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 filterResults(new CashRecordFilter(), false);
                 break;
         }
+    }
+
+    private void setChartHeight() {
+        DisplayMetrics displayMetrics = new DisplayMetrics();
+        getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
+        ViewGroup.LayoutParams params = pieChart.getLayoutParams();
+        params.height = displayMetrics.widthPixels - 100;
+        pieChart.setLayoutParams(params);
+        params = combinedChart.getLayoutParams();
+        params.height = displayMetrics.widthPixels - 100;
+        pieChart.setLayoutParams(params);
     }
 
 }
