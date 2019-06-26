@@ -37,7 +37,7 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/AppPIN"
-        app:layout_constraintVertical_bias="0.161" />
+        app:layout_constraintVertical_bias="0.172" />
 
     <ImageView
         android:id="@+id/imageView"
@@ -54,20 +54,4 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/youreuro" />
 
-    <Button
-        android:id="@+id/SetPIN"
-        android:layout_width="wrap_content"
-        android:layout_height="51dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
-        android:onClick="createPIN"
-        android:text="CREATE PIN"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/AppLogin"
-        app:layout_constraintVertical_bias="0.062" />
 </android.support.constraint.ConstraintLayout>

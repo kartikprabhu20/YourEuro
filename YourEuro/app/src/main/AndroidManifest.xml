@@ -22,7 +22,6 @@
             android:name=".SettingsActivity"
             android:label="Settings"
             android:theme="@style/AppTheme.NoActionBar"></activity>
-        <activity android:name=".SetPinActivity" />
         <activity android:name=".PinActivity" />
         <activity
             android:name=".MainActivity"
@@ -31,7 +30,7 @@
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
         <activity
@@ -62,6 +61,14 @@
             android:name=".StatisticsActivity"
             android:label="@string/statistic"
             android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
+            android:name=".AppIntroActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <provider
             android:name="android.support.v4.content.FileProvider"
             android:authorities="${applicationId}.MyFileProvider"

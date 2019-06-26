@@ -38,10 +38,5 @@ public class PinActivity extends AppCompatActivity {
             Toast.makeText(this,"PIN entered was wrong",Toast.LENGTH_LONG).show();
         }
     }
-
-    public void createPIN(View view) {
-        Intent intent1 = new Intent(PinActivity.this, SetPinActivity.class);
-        startActivity(intent1);
-    }
 }
 
