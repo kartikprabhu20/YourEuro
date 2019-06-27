@@ -99,6 +99,8 @@ public class DetailDisplayActivity extends AppCompatActivity {
         }
         Toolbar toolbar = findViewById(R.id.detail_toolbar);
         setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         init();
 

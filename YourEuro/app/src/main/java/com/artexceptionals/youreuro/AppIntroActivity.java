@@ -36,6 +36,7 @@ public class AppIntroActivity extends AppIntro {
         super.onSkipPressed(currentFragment);
         Intent intent = new Intent(getApplicationContext(),MainActivity.class);
         startActivity(intent);
+        finish();
     }
 
     @Override
@@ -43,5 +44,6 @@ public class AppIntroActivity extends AppIntro {
         super.onDonePressed(currentFragment);
         Intent intent = new Intent(getApplicationContext(),MainActivity.class);
         startActivity(intent);
+        finish();
     }
 }

@@ -21,7 +21,11 @@
         <activity
             android:name=".SettingsActivity"
             android:label="Settings"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/SettingsTheme">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity"/>
+        </activity>
         <activity android:name=".PinActivity" />
         <activity
             android:name=".MainActivity"
@@ -40,19 +44,31 @@
         <activity
             android:name=".DetailDisplayActivity"
             android:label="@string/details"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity"/>
+        </activity>
         <activity
             android:name=".HistoryActivity"
             android:label="@string/history"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity"/>
+        </activity>
         <activity
             android:name=".FilterActivity"
             android:label="@string/filter"
             android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
             android:name=".RecurringActivity"
-            android:label="@string/filter"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:label="@string/recurring_records"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity"/>
+        </activity>
         <activity
             android:name=".CategoryActivity"
             android:label="@string/category_settings"
@@ -60,7 +76,11 @@
         <activity
             android:name=".StatisticsActivity"
             android:label="@string/statistic"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity"/>
+        </activity>
         <activity
             android:name=".AppIntroActivity">
             <intent-filter>
