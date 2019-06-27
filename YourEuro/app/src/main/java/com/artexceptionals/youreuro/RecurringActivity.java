@@ -33,6 +33,7 @@ public class RecurringActivity  extends AppCompatActivity {
 
         Toolbar toolbar = findViewById(R.id.history_toolbar);
         setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         moneyControlManager =  MoneyControlManager.getInstance(YourEuroApp.getAppContext());
         mRecentsRecyclerView.setLayoutManager(new LinearLayoutManager(this));

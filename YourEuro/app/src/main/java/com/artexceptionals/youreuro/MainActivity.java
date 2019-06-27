@@ -127,6 +127,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             if (null == pinBundle || !pinBundle.getBoolean(PinActivity.CORRECT_PIN, false)) {
                 Intent intent = new Intent(this, PinActivity.class);
                 startActivity(intent);
+                finish();
             }
         }
         moneyControlManager =  MoneyControlManager.getInstance(YourEuroApp.getAppContext());
@@ -225,8 +226,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             pieChart.setDrawEntryLabels(false);
             pieChart.getDescription().setEnabled(false);
             pieChart.getLegend().setWordWrapEnabled(true);
-
-
+            pieChart.setCenterText((cashRecordFilter.isCategoryFilter() && cashRecordFilter.getCategories().size() == 1)? cashRecordFilter.getCategories().get(0).getCatagoryName():"Categories");
+            pieChart.setCenterTextSize(14f);
         }else{
             combinedChart.setData(moneyControlManager.getStatisticsManager().setupCombinedChart(cashRecordFilter, moneyControlManager.getAllCategories()));
             Legend legend = combinedChart.getLegend();

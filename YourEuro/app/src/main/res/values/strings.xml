@@ -48,6 +48,7 @@
     <string name="edit_icon">Edit icon</string>
     <string name="piechart">Pie chart</string>
     <string name="barchart">Bar chart</string>
+    <string name="recurring_records">Recurring Records</string>
 
     <string-array name="paymenttypes_array">
         <item>Select payment type</item>

@@ -141,14 +141,14 @@ public class FilterActivity  extends AppCompatActivity implements View.OnClickLi
         public void onClick(View view) {
             switch (view.getId()){
                 case  R.id.save_filter:
-                    String startAmount = String.valueOf(startAmountEditText.getText());
-                    String endAmount = String.valueOf(endAmountEditText.getText());
+                    String startAmount = startAmountEditText.getText().toString();
+                    String endAmount = endAmountEditText.getText().toString();
 
                     Date startTimeStamp = new Date();
                     Date endTimeStamp = new Date();
                     try {
                         startTimeStamp = new SimpleDateFormat("dd-MM-yyyy").parse(tstartdate.getText().toString());
-                        endTimeStamp = new SimpleDateFormat("dd-MM-yyyy").parse(tstartdate.getText().toString());
+                        endTimeStamp = new SimpleDateFormat("dd-MM-yyyy").parse(tenddate.getText().toString());
 
                     } catch (ParseException e) {
                         Log.e("YourEuro", "ParseException in dateformating");

@@ -66,6 +66,7 @@ public class StatisticsActivity extends AppCompatActivity implements View.OnClic
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         moneyControlManager =  MoneyControlManager.getInstance(YourEuroApp.getAppContext());
         statisticsCardView.setVisibility(!(moneyControlManager.getCashRecordAdapter().getItemCount() > 0) ? View.GONE : View.VISIBLE);
@@ -112,7 +113,8 @@ public class StatisticsActivity extends AppCompatActivity implements View.OnClic
             pieChart.setDrawEntryLabels(false);
             pieChart.getDescription().setEnabled(false);
             pieChart.getLegend().setWordWrapEnabled(true);
-
+            pieChart.setCenterText((cashRecordFilter.isCategoryFilter() && cashRecordFilter.getCategories().size() == 1)? cashRecordFilter.getCategories().get(0).getCatagoryName():"Categories");
+            pieChart.setCenterTextSize(14f);
         }else{
             combinedChart.setData(moneyControlManager.getStatisticsManager().setupCombinedChart(cashRecordFilter, moneyControlManager.getAllCategories()));
             Legend legend = combinedChart.getLegend();

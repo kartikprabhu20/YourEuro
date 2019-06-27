@@ -68,8 +68,8 @@ public class StatisticManager {
         }
 
         SimpleSQLiteQuery simpleSQLiteQuery = new SimpleSQLiteQuery("SELECT * FROM cashrecord WHERE uid NOT NULL " +
-                (cashRecordFilter.isAmountRangeFilter() ? "AND amount BETWEEN " + cashRecordFilter.getStartAmount() + " AND " + cashRecordFilter.getEndAmount() + " " : "") +
-//                (cashRecordFilter.isAmountRangeFilter()?"AND amount BETWEEN "+cashRecordFilter.getStartAmount() * -1+" AND "+cashRecordFilter.getEndAmount() * -1+" ":"")+
+                (cashRecordFilter.isAmountRangeFilter() ? "AND amount BETWEEN " + (int)cashRecordFilter.getStartAmount() + " AND " + (int)cashRecordFilter.getEndAmount() + " " : "") +
+                (cashRecordFilter.isAmountRangeFilter()?"OR amount BETWEEN "+(int)cashRecordFilter.getEndAmount() * -1+" AND "+ (int)cashRecordFilter.getStartAmount() * -1+" ":"")+
                 (cashRecordFilter.isDateRangeFilter() ? "AND timeStamp BETWEEN " + cashRecordFilter.getStartTimeStamp() + " AND " + cashRecordFilter.getEndTimeStamp() + " " : "") +
                 (cashRecordFilter.isRecurryingFilter() ? "AND recurringTransaction = " + (cashRecordFilter.isRecurryingFilter() ? 1 : 0) : "") +
                 (cashRecordFilter.isCategoryFilter() ? "AND categoryID IN (" + categories.toString() + ") " : "") +

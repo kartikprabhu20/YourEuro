@@ -34,6 +34,7 @@ public class PinActivity extends AppCompatActivity {
             Intent intent = new Intent(PinActivity.this, MainActivity.class);
             intent.putExtra(CORRECT_PIN,true);
             startActivity(intent);
+            finish();
         } else{
             Toast.makeText(this,"PIN entered was wrong",Toast.LENGTH_LONG).show();
         }
