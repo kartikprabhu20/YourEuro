@@ -41,7 +41,7 @@
 
     <item
         android:id="@+id/exportingpdf"
-        android:title="Email Summary PDF"
+        android:title="Email Summary"
         android:icon="@drawable/ic_mail">
 
     </item>

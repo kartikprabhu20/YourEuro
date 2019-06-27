@@ -7,6 +7,7 @@ import android.support.v7.widget.CardView;
 import android.support.v7.widget.Toolbar;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -58,6 +59,7 @@ public class CategoryActivity extends AppCompatActivity implements IconDialog.Ca
 
         Toolbar toolbar = findViewById(R.id.toolbarCategory);
         setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         categoryImageView.setVisibility(View.GONE);
         saveCategoryButton.setEnabled(false);
@@ -146,5 +148,13 @@ public class CategoryActivity extends AppCompatActivity implements IconDialog.Ca
         super.onBackPressed();
 
         moneyControlManager.updateAllCategories(categoryAdapter.getCategories());
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == android.R.id.home){
+            onBackPressed();
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

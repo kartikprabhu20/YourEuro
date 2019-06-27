@@ -116,6 +116,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 } else if (id == R.id.exportingpdf){
                     startActivity(new Intent(MainActivity.this, ExportPdfActivity.class));
                 }
+                drawerlay.closeDrawers();
                 return true;
             }
         });
