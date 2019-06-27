@@ -25,7 +25,7 @@ public class Category implements Parcelable {
     public boolean isDefault;
 
     @ColumnInfo(name = "threshold")
-    public long threshold;
+    public float threshold;
 
     public Category(String  catagoryName, String imageID, boolean isDefault) {
         this.catagoryName = catagoryName;
@@ -49,7 +49,7 @@ public class Category implements Parcelable {
         catagoryName = in.readString();
         imageID = in.readString();
         isDefault = in.readByte() != 0;
-        threshold = in.readLong();
+        threshold = in.readFloat();
     }
 
     public static final Creator<Category> CREATOR = new Creator<Category>() {
@@ -91,11 +91,11 @@ public class Category implements Parcelable {
         this.imageID = imageID;
     }
 
-    public long getThreshold() {
+    public float getThreshold() {
         return threshold;
     }
 
-    public void setThreshold(long threshold) {
+    public void setThreshold(float threshold) {
         this.threshold = threshold;
     }
 
@@ -110,7 +110,7 @@ public class Category implements Parcelable {
         dest.writeString(catagoryName);
         dest.writeString(imageID);
         dest.writeByte((byte) (isDefault ? 1 : 0));
-        dest.writeLong(threshold);
+        dest.writeFloat(threshold);
     }
 
     @Override

@@ -87,7 +87,7 @@ public class CategorySettingsAdapter extends ArrayAdapter<Category> {
                     @Override
                     public void afterTextChanged(Editable s) {
                         String value = mViewHolder.categoryThreshold.getText().toString();
-                        categories.get(position).setThreshold(Long.parseLong(value.isEmpty()? "0": value));
+                        categories.get(position).setThreshold(Float.parseFloat(value.isEmpty()? "0": value));
                     }
                 });
             }
