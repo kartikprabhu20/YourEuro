@@ -76,6 +76,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private MoneyControlManager moneyControlManager;
 
+    CustomSharedPreferences sharedPreferences;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -84,6 +86,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         drawerlay=(DrawerLayout)findViewById(R.id.drawerlay);
         abdt=new ActionBarDrawerToggle(this,drawerlay,R.string.Open,R.string.Close);
         abdt.setDrawerIndicatorEnabled(true);
+        sharedPreferences = CustomSharedPreferences.getInstance(MainActivity.this);
 
         drawerlay.addDrawerListener(abdt);
         abdt.syncState();
@@ -95,6 +98,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         final NavigationView nav_View=(NavigationView)findViewById(R.id.nav_view);
+
+        boolean firstStart = sharedPreferences.getBoolean("firstStart");
+        if(!firstStart){
+             startActivity(new Intent(MainActivity.this,AppIntroActivity.class));
+             sharedPreferences.setBoolean("firstStart",true);
+        }
 
         nav_View.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -112,7 +121,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 } else if (id == R.id.settings) {
                     startActivity(new Intent(MainActivity.this, SettingsActivity.class));
                 } else if (id == R.id.aboutus) {
-                    Toast.makeText(MainActivity.this, "About Us", Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent(MainActivity.this,AboutUsActivity.class));
                 } else if (id == R.id.exportingpdf){
                     startActivity(new Intent(MainActivity.this, ExportPdfActivity.class));
                 }
