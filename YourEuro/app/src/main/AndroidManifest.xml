@@ -17,6 +17,13 @@
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning"
         tools:targetApi="donut">
+        <activity
+            android:name=".AboutUsActivity"
+            android:label="About Us">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
         <activity android:name=".ExportPdfActivity"></activity>
         <activity
             android:name=".SettingsActivity"
@@ -35,7 +42,7 @@
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
@@ -86,14 +93,7 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity"/>
         </activity>
-        <activity
-            android:name=".AppIntroActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+        <activity android:name=".AppIntroActivity"></activity>
         <provider
             android:name="android.support.v4.content.FileProvider"
             android:authorities="${applicationId}.MyFileProvider"
