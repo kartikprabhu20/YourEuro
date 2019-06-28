@@ -16,7 +16,7 @@
         <ImageView
             android:layout_width="fill_parent"
             android:layout_height="270dp"
-            android:background="@drawable/about_us_youreuro_square"
+            android:background="@drawable/youreuro_square"
             android:orientation="vertical"
             android:layout_margin="5dp"
             app:layout_constraintEnd_toEndOf="parent" />
@@ -35,7 +35,7 @@
             android:layout_height="wrap_content"
             android:padding="@dimen/unit2"
             android:layout_margin="5dp"
-            android:text="Authors:\nKartik(Founder/Android developer)\nMadhu(Android developer)\nAnitha(Backend developer/Graphic designer)\nAvinash(QA/infrastructure)"
+            android:text="Authors:\nKartik Prabhu\nMadhu Gopal Sirivella\nAvinash Ranjan\nAnitha Bhat Talagini Ashoka"
             android:textSize="18dp" />
 
         <Button
