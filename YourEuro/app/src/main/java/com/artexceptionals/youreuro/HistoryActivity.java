@@ -84,6 +84,8 @@ public class HistoryActivity  extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         if (R.id.action_filter == item.getItemId()){
             startActivityForResult(new Intent(this, FilterActivity.class), CashRecordFilter.FILTER_REQUEST_CODE);
+        }if (android .R.id.home == item.getItemId()){
+            onBackPressed();
         }
         return true;
     }
