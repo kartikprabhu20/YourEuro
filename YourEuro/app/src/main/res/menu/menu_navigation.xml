@@ -1,49 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <item
-        android:id="@+id/home"
-        android:title="Home"
-        android:icon="@drawable/ic_home_black_24dp">
+    <group android:id="@+id/group1">
 
-    </item>
-    <item
-        android:id="@+id/statistics"
-        android:title="Statistics"
-        android:icon="@drawable/ic_graph">
+        <item
+            android:id="@+id/home"
+            android:title="Home"
+            android:icon="@drawable/ic_home_black_24dp">
 
-    </item>
-    <item
-        android:id="@+id/history"
-        android:title="History"
-        android:icon="@drawable/ic_history_black_24dp">
+        </item>
+        <item
+            android:id="@+id/statistics"
+            android:title="Statistics"
+            android:icon="@drawable/ic_graph">
 
-    </item>
+        </item>
+        <item
+            android:id="@+id/history"
+            android:title="History"
+            android:icon="@drawable/ic_history_black_24dp">
 
-    <item
-        android:id="@+id/recurring"
-        android:title="Recurring records"
-        android:icon="@drawable/ic_history_black_24dp">
+        </item>
 
-    </item>
+        <item
+            android:id="@+id/recurring"
+            android:title="Recurring records"
+            android:icon="@drawable/ic_repeat_black_24dp">
 
-    <item
-        android:id="@+id/settings"
-        android:title="Settings"
-        android:icon="@drawable/ic_setting">
+        </item>
 
-    </item>
-    <item
-        android:id="@+id/aboutus"
-        android:title="About Us"
-        android:icon="@drawable/ic_settings_backup_restore_black_24dp">
+        <item
+            android:id="@+id/exportingpdf"
+            android:title="Email Summary"
+            android:icon="@drawable/ic_mail">
 
-    </item>
+        </item>
 
-    <item
-        android:id="@+id/exportingpdf"
-        android:title="Email Summary"
-        android:icon="@drawable/ic_mail">
+    </group>
 
-    </item>
+    <group android:id="@+id/group2">
+
+        <item
+            android:id="@+id/settings"
+            android:title="Settings"
+            android:icon="@drawable/ic_setting">
+
+        </item>
+        <item
+            android:id="@+id/aboutus"
+            android:title="About Us"
+            android:icon="@drawable/ic_supervisor_account_black_24dp">
+
+        </item>
+
+        <item
+            android:id="@+id/signin"
+            android:title="SignIn"
+            android:icon="@drawable/ic_input_black_24dp">
+
+        </item>
+
+        <item
+            android:id="@+id/signout"
+            android:title="SignOut"
+            android:icon="@drawable/ic_input_black_24dp">
+
+        </item>
+    </group>
+
+
 
 </menu>

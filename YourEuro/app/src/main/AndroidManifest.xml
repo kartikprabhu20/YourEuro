@@ -17,6 +17,10 @@
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning"
         tools:targetApi="donut">
+        <meta-data
+            android:name="com.google.android.backup.api_key"
+            android:value="AEdPqrEAAAAIRUH2GH77z2j5nh0CUgUaNiK8-HVYXUFTv9M8Jg" />
+
         <activity
             android:name=".AboutUsActivity"
             android:label="About Us">
@@ -94,6 +98,7 @@
                 android:value=".MainActivity"/>
         </activity>
         <activity android:name=".AppIntroActivity"></activity>
+        <activity android:name=".SignInActivity"></activity>
         <provider
             android:name="android.support.v4.content.FileProvider"
             android:authorities="${applicationId}.MyFileProvider"
