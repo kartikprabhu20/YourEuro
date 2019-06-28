@@ -38,7 +38,7 @@ public class StatisticManager {
     private final Context context;
     private final CashRecordDatabase cashRecordDatabase;
 
-    int [] color={ ColorTemplate.rgb("#ea5b19"),ColorTemplate.rgb("#eaca18"),ColorTemplate.rgb("#086000"),ColorTemplate.rgb("#02258c"),
+    int [] customColors ={ ColorTemplate.rgb("#ea5b19"),ColorTemplate.rgb("#eaca18"),ColorTemplate.rgb("#086000"),ColorTemplate.rgb("#02258c"),
             ColorTemplate.rgb("#8c0142"),ColorTemplate.rgb("#8e8c04"),ColorTemplate.rgb("#8401bc"), ColorTemplate.rgb("#ffb744"),
             ColorTemplate.rgb("#44ffa1"),ColorTemplate.rgb("#b500b5"),ColorTemplate.rgb("#936a76"), ColorTemplate.rgb("#fcea85"),
             ColorTemplate.rgb("#91fff7"),ColorTemplate.rgb("#e191ff"),ColorTemplate.rgb("#fc5353"),ColorTemplate.rgb("#00ffdd")};
@@ -98,7 +98,7 @@ public class StatisticManager {
         }
 
         PieDataSet dataSet = new PieDataSet(pieEntries, "#YourEuro");
-        dataSet.setColors(color);
+        dataSet.setColors(customColors);
         dataSet.setXValuePosition(PieDataSet.ValuePosition.OUTSIDE_SLICE);
         dataSet.setYValuePosition(PieDataSet.ValuePosition.OUTSIDE_SLICE);
         PieData data = new PieData(dataSet);
@@ -128,7 +128,7 @@ public class StatisticManager {
         }
 
         BarDataSet barSet = new BarDataSet(barEntries, "#YourEuro");
-        barSet.setColors(color);
+        barSet.setColors(customColors);
         BarData data = new BarData(barSet);
         return data;
     }
@@ -181,7 +181,7 @@ public class StatisticManager {
         List<LegendEntry> legendEntries = new ArrayList<>();
         int i = 0;
         for (String key : mapAmount.keySet()) {
-            LegendEntry legendEntry = new LegendEntry(key, Legend.LegendForm.SQUARE, 8f, 8f, null, ColorTemplate.COLORFUL_COLORS[i%5]);
+            LegendEntry legendEntry = new LegendEntry(key, Legend.LegendForm.SQUARE, 8f, 8f, null, customColors[i]);
             legendEntries.add(legendEntry);
             i++;
         }
@@ -241,7 +241,11 @@ public class StatisticManager {
     }
 
     public LimitLine getThresholdLimit(Category category){
-        return new LimitLine((int)category.getThreshold(), "Threshold - " + category.getCatagoryName());
+
+        LimitLine limitLine = new LimitLine((int)category.getThreshold(), "Threshold - " + category.getCatagoryName());
+        limitLine.setLineColor(Color.RED);
+        limitLine.setLineWidth(2.5f);
+        return limitLine;
     }
 
     public List<Integer> getColors(){

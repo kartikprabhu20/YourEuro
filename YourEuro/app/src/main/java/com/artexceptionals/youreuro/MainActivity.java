@@ -25,8 +25,6 @@ import android.view.MenuItem;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
-
 
 import com.artexceptionals.youreuro.adapter.CashRecordAdapter;
 import com.github.mikephil.charting.charts.CombinedChart;
@@ -253,6 +251,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 combinedChart.getAxisLeft().removeAllLimitLines();
             }
 
+            combinedChart.getAxisLeft().setAxisMinimum(0f);
+            combinedChart.getAxisRight().setAxisMinimum(0f);
             combinedChart.getXAxis().setEnabled(false);
             combinedChart.getDescription().setEnabled(false);
             combinedChart.fitScreen();
