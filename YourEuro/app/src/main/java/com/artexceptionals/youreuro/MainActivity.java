@@ -3,6 +3,7 @@ package com.artexceptionals.youreuro;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
+import com.artexceptionals.youreuro.helpers.SignInHelper;
 import com.artexceptionals.youreuro.model.CashRecordFilter;
 
 import android.content.Intent;
@@ -72,6 +73,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @BindView(R.id.statistic_cardview)
     CardView statisticsCardView;
 
+    NavigationView nav_View;
+
     private MoneyControlManager moneyControlManager;
 
     CustomSharedPreferences sharedPreferences;
@@ -95,7 +98,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_menu_black_24dp);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        final NavigationView nav_View=(NavigationView)findViewById(R.id.nav_view);
+        nav_View = (NavigationView)findViewById(R.id.nav_view);
+        Menu nav_Menu = nav_View.getMenu();
+        nav_Menu.findItem(R.id.signin).setVisible(!SignInHelper.isLoggedIn());
+        nav_Menu.findItem(R.id.signout).setVisible(SignInHelper.isLoggedIn());
 
         boolean firstStart = sharedPreferences.getBoolean("firstStart");
         if(!firstStart){
@@ -122,6 +128,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     startActivity(new Intent(MainActivity.this,AboutUsActivity.class));
                 } else if (id == R.id.exportingpdf){
                     startActivity(new Intent(MainActivity.this, ExportPdfActivity.class));
+                } else if (id == R.id.signin) {
+                    startActivity(new Intent(MainActivity.this, SignInActivity.class));
+                }else if (id == R.id.signout){
+                    Intent intent = new Intent(MainActivity.this,SignInActivity.class);
+                    intent.putExtra(SignInActivity.LOGOUT, true);
+                    startActivity(intent);
                 }
                 drawerlay.closeDrawers();
                 return true;
@@ -290,4 +302,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         pieChart.setLayoutParams(params);
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Menu nav_Menu = nav_View.getMenu();
+        nav_Menu.findItem(R.id.signin).setVisible(!SignInHelper.isLoggedIn());
+        nav_Menu.findItem(R.id.signout).setVisible(SignInHelper.isLoggedIn());
+
+    }
 }
