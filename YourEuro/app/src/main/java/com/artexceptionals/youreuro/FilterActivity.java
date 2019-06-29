@@ -36,6 +36,8 @@ import java.util.Locale;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
+import static com.artexceptionals.youreuro.RecurringManager.HOURS_24_MILLISECOND;
+
 public class FilterActivity  extends AppCompatActivity implements View.OnClickListener {
 
     ImageView istartdate,ienddate;
@@ -157,7 +159,7 @@ public class FilterActivity  extends AppCompatActivity implements View.OnClickLi
                     if(dateFilterCheckbox.isChecked() && !checkDates(tstartdate.getText().toString(),tenddate.getText().toString())) {
                         break;
                     }
-                    cashRecordFilter = new CashRecordFilter(startTimeStamp.getTime(), endTimeStamp.getTime(),
+                    cashRecordFilter = new CashRecordFilter(startTimeStamp.getTime(), endTimeStamp.getTime()+ HOURS_24_MILLISECOND,
                             Float.valueOf(startAmount.isEmpty()? "0": startAmount),Float.valueOf(endAmount.isEmpty()? "100000000000":endAmount),
                             categoryAdapter.getSelectedItems(),paymentTypeSpinner.getSelectedItem().toString(),
                             categoryFilterCheckbox.isChecked(),dateFilterCheckbox.isChecked(),paymentFilterCheckbox.isChecked(),rangeFilterCheckbox.isChecked());
@@ -229,10 +231,8 @@ public class FilterActivity  extends AppCompatActivity implements View.OnClickLi
     public boolean checkDates(String tstartdate, String tenddate) {
         SimpleDateFormat dfDate = new SimpleDateFormat("dd-MM-yyyy");
 
-        boolean b = true;
-
         try {
-            if (dfDate.parse(tstartdate).before(dfDate.parse(tenddate))) {
+            if (dfDate.parse(tstartdate).before(dfDate.parse(tenddate)) || dfDate.parse(tstartdate).equals(dfDate.parse(tenddate))) {
                 return true;//If start date is before end date
             } else {
                 Toast toast = Toast.makeText(getApplicationContext(), "End date is before Start date", Toast.LENGTH_LONG);
