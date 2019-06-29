@@ -37,8 +37,8 @@ public class AppIntroActivity extends AppIntro {
         SliderPage sliderPage = new SliderPage();
         sliderPage.setTitle(title);
         sliderPage.setDescription(description);
-        sliderPage.setImageDrawable( R.drawable.home_screen_intro);
-        sliderPage.setBgColor(ContextCompat.getColor(getApplicationContext(), R.color.colorPrimary));
+        sliderPage.setImageDrawable(imageId);
+        sliderPage.setBgColor(color);
 
         return sliderPage;
     }
