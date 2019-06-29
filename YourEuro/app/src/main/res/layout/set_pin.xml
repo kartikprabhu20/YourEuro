@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:id="@+id/change_pin_ll"
+    android:layout_marginTop="@dimen/unit2"
+    android:padding="@dimen/unit1">
+
+
+    <TextView
+        android:id="@+id/editText3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="User PIN:"
+        android:padding="@dimen/unit1"
+        android:layout_margin="@dimen/unit1"
+        android:textSize="@dimen/unit3"/>
+
+    <EditText
+        android:id="@+id/PINEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter PIN"
+        android:inputType="numberPassword"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="@dimen/unit1">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:labelFor="@+id/security_questions_spinner_1"
+            android:paddingBottom="@dimen/unit1"
+            android:text="@string/select_security_question"
+            android:textSize="@dimen/unit3"/>
+
+        <Spinner
+            android:id="@+id/security_questions_spinner_1"
+            style="@style/Widget.AppCompat.DropDownItem.Spinner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:scrollbarSize="@dimen/unit3_5" />
+
+        <EditText
+            android:id="@+id/securityAnswerEditText_1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Answer" />
+    </LinearLayout>
+</LinearLayout>
