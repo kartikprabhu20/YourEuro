@@ -29,6 +29,7 @@ public class HistoryActivity  extends AppCompatActivity {
     @BindView(R.id.noRecords_tv)
     TextView noRecordsTextView;
 
+    @BindView(R.id.history_search)
     SearchView searchView;
 
     private MoneyControlManager moneyControlManager;
@@ -41,7 +42,7 @@ public class HistoryActivity  extends AppCompatActivity {
 
         Toolbar toolbar = findViewById(R.id.history_toolbar);
         setSupportActionBar(toolbar);
-//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         moneyControlManager =  MoneyControlManager.getInstance(YourEuroApp.getAppContext());
         mRecentsRecyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -62,8 +63,8 @@ public class HistoryActivity  extends AppCompatActivity {
             MenuInflater inflater = getMenuInflater();
             inflater.inflate(R.menu.history_search_menu, menu);
 
-            MenuItem searchItem = menu.findItem(R.id.action_search);
-            searchView = (SearchView) searchItem.getActionView();
+//            MenuItem searchItem = menu.findItem(R.id.action_search);
+//            searchView = (SearchView) searchItem.getActionView();
             searchView.setImeOptions(EditorInfo.IME_ACTION_DONE);
             searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
                 @Override
