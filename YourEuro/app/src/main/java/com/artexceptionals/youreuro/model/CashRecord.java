@@ -26,7 +26,7 @@ public class CashRecord implements Parcelable, Comparable<CashRecord> {
     @ColumnInfo(name = "timeStamp")
     long timeStamp;
     @ColumnInfo(name = "amount")
-    float amount;
+    double amount;
 
     @ColumnInfo(name = "currency")
     @CurrencyHelper.CurrencyType.Values
@@ -52,7 +52,7 @@ public class CashRecord implements Parcelable, Comparable<CashRecord> {
     @ColumnInfo(name = "recurred")
     boolean recurred = false;
 
-    public CashRecord(String notes, long timeStamp, float amount,
+    public CashRecord(String notes, long timeStamp, double amount,
                       String currency, String cashRecordType, String paymentType,
                       Category category, boolean recurred) {
         this.notes = notes;
@@ -85,7 +85,7 @@ public class CashRecord implements Parcelable, Comparable<CashRecord> {
         uid = in.readLong();
         notes = in.readString();
         timeStamp = in.readLong();
-        amount = in.readFloat();
+        amount = in.readDouble();
         currency = in.readString();
         cashRecordType = in.readString();
         paymentType = in.readString();
@@ -115,11 +115,11 @@ public class CashRecord implements Parcelable, Comparable<CashRecord> {
         this.uid = uid;
     }
 
-    public float getAmount() {
+    public double getAmount() {
         return amount;
     }
 
-    public void setAmount(float amount) {
+    public void setAmount(double amount) {
         this.amount = amount;
     }
 
@@ -208,7 +208,7 @@ public class CashRecord implements Parcelable, Comparable<CashRecord> {
         dest.writeLong(uid);
         dest.writeString(notes);
         dest.writeLong(timeStamp);
-        dest.writeFloat(amount);
+        dest.writeDouble(amount);
         dest.writeString(currency);
         dest.writeString(cashRecordType);
         dest.writeString(paymentType);

@@ -93,13 +93,13 @@ public class StatisticManager {
     public PieData setupPieChart(List<CashRecord> cashRecords, CashRecordFilter cashRecordFilter) {
         List<PieEntry> pieEntries = new ArrayList<>();
 
-        Map<String, Float> mapAmount = (cashRecordFilter.isCategoryFilter() && cashRecordFilter.getCategories().size() == 1) ?
+        Map<String, Double> mapAmount = (cashRecordFilter.isCategoryFilter() && cashRecordFilter.getCategories().size() == 1) ?
                 getMonthAmount(cashRecords) : getCategoryAmount(cashRecords);
 
-        mapAmount = new TreeMap<String, Float>(mapAmount);
+        mapAmount = new TreeMap<String, Double>(mapAmount);
 
         for (String key : mapAmount.keySet()) {
-            pieEntries.add(new PieEntry(mapAmount.get(key), key));
+            pieEntries.add(new PieEntry(Float.valueOf(String.valueOf(mapAmount.get(key))), key));
         }
 
         PieDataSet dataSet = new PieDataSet(pieEntries, "#YourEuro");
@@ -122,14 +122,14 @@ public class StatisticManager {
 
     public BarData setupBarChart(List<CashRecord> cashRecords, CashRecordFilter cashRecordFilter) {
         List<BarEntry> barEntries = new ArrayList<>();
-        Map<String, Float> mapAmount = (cashRecordFilter.isCategoryFilter() && cashRecordFilter.getCategories().size() == 1) ?
+        Map<String, Double> mapAmount = (cashRecordFilter.isCategoryFilter() && cashRecordFilter.getCategories().size() == 1) ?
                 getMonthAmount(cashRecords) : getCategoryAmount(cashRecords);
 
-        mapAmount = new TreeMap<String, Float>(mapAmount);
+        mapAmount = new TreeMap<String, Double>(mapAmount);
 
         int i = 0;
         for (String key : mapAmount.keySet()) {
-            BarEntry barEntry = new BarEntry(i, mapAmount.get(key));
+            BarEntry barEntry = new BarEntry(i,Float.valueOf(String.valueOf(mapAmount.get(key))));
             barEntries.add(barEntry);
             i++;
         }
@@ -140,14 +140,14 @@ public class StatisticManager {
         return data;
     }
 
-    private Map<String, Float> getCategoryAmount(List<CashRecord> cashRecords) {
-        Map<String, Float> categoryAmount = new HashMap<>();
+    private Map<String, Double> getCategoryAmount(List<CashRecord> cashRecords) {
+        Map<String, Double> categoryAmount = new HashMap<>();
         for (CashRecord cashRecord : cashRecords) {
             String categoryName = cashRecord.getCategory().getCatagoryName();
             if (!categoryAmount.keySet().contains(categoryName)) {
                 categoryAmount.put(categoryName, Math.abs(cashRecord.getAmount()));
             } else {
-                float oldvalue = categoryAmount.get(categoryName);
+                double oldvalue = categoryAmount.get(categoryName);
                 categoryAmount.remove(categoryName);
                 categoryAmount.put(categoryName, oldvalue + Math.abs(cashRecord.getAmount()));
             }
@@ -155,8 +155,8 @@ public class StatisticManager {
         return categoryAmount;
     }
 
-    private Map<String, Float> getMonthAmount(List<CashRecord> cashRecords) {
-        Map<String, Float> monthAmount = new HashMap<>();
+    private Map<String, Double> getMonthAmount(List<CashRecord> cashRecords) {
+        Map<String, Double> monthAmount = new HashMap<>();
         for (CashRecord cashRecord : cashRecords) {
 
             Calendar calendar = Calendar.getInstance();
@@ -165,7 +165,7 @@ public class StatisticManager {
             if (!monthAmount.keySet().contains(month)) {
                 monthAmount.put(month, Math.abs(cashRecord.getAmount()));
             } else {
-                float oldvalue = monthAmount.get(month);
+                double oldvalue = monthAmount.get(month);
                 monthAmount.remove(month);
                 monthAmount.put(month, oldvalue + Math.abs(cashRecord.getAmount()));
             }
@@ -181,10 +181,10 @@ public class StatisticManager {
     public List<LegendEntry> getLegends(CashRecordFilter cashRecordFilter) {
         List<CashRecord> cashRecords = cashRecordDatabase.cashRecordDao().getCashRecords(getQuery(cashRecordFilter));
 
-        Map<String, Float> mapAmount = (cashRecordFilter.isCategoryFilter() && cashRecordFilter.getCategories().size() == 1) ?
+        Map<String, Double> mapAmount = (cashRecordFilter.isCategoryFilter() && cashRecordFilter.getCategories().size() == 1) ?
                 getMonthAmount(cashRecords) : getCategoryAmount(cashRecords);
 
-        mapAmount = new TreeMap<String, Float>(mapAmount);
+        mapAmount = new TreeMap<String, Double>(mapAmount);
 
         List<LegendEntry> legendEntries = new ArrayList<>();
         int i = 0;
@@ -209,9 +209,9 @@ public class StatisticManager {
 
         ArrayList<Category> filterCategories = new ArrayList<>();
         ArrayList<Entry> entries = new ArrayList<>();
-        Map<String, Float> categoryAmount = getCategoryAmount(cashRecordDatabase.cashRecordDao().getCashRecords(getQuery(cashRecordFilter)));
+        Map<String, Double> categoryAmount = getCategoryAmount(cashRecordDatabase.cashRecordDao().getCashRecords(getQuery(cashRecordFilter)));
 
-        categoryAmount = new TreeMap<String, Float>(categoryAmount);
+        categoryAmount = new TreeMap<String, Double>(categoryAmount);
 
         if (cashRecordFilter.isCategoryFilter()) {
             if (cashRecordFilter.getCategories().size() > 1) {

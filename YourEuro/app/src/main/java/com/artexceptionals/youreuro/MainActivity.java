@@ -1,10 +1,15 @@
 package com.artexceptionals.youreuro;
 
+import android.Manifest;
+import android.annotation.TargetApi;
 import android.content.pm.PackageManager;
+import android.os.Build;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.artexceptionals.youreuro.helpers.SignInHelper;
+import com.artexceptionals.youreuro.model.CashRecord;
 import com.artexceptionals.youreuro.model.CashRecordFilter;
 
 import android.content.Intent;
@@ -37,6 +42,7 @@ import com.github.mikephil.charting.components.Legend;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
+import static com.artexceptionals.youreuro.ExportManager.STORAGE_PERMISSION_REQUEST_CODE;
 import static com.artexceptionals.youreuro.model.CashRecordFilter.FILTER_REQUEST_CODE_BARCHART;
 import static com.artexceptionals.youreuro.model.CashRecordFilter.FILTER_REQUEST_CODE_PIECHART;
 
@@ -112,6 +118,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
 
         nav_View.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @TargetApi(Build.VERSION_CODES.M)
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
                 int id = menuItem.getItemId();
@@ -130,7 +137,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     startActivity(new Intent(MainActivity.this,AboutUsActivity.class));
                 } else if (id == R.id.exportingpdf){
 //                    startActivity(new Intent(MainActivity.this, ExportPdfActivity.class));
-                    ExportManager.getInstance(MainActivity.this).emailPdf();
+
+                    ExportManager exportManager = ExportManager.getInstance(MainActivity.this);
+
+                    if(ContextCompat.checkSelfPermission(MainActivity.this, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED
+                            && Build.VERSION.SDK_INT >= Build.VERSION_CODES.M
+//                            && MainActivity.this.shouldShowRequestPermissionRationale(Manifest.permission.WRITE_EXTERNAL_STORAGE)
+ ) {
+                        MainActivity.this.requestPermissions(new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, STORAGE_PERMISSION_REQUEST_CODE);
+                    } else {
+                        exportManager.createPdf();
+                    }
+
                 } else if (id == R.id.signin) {
                     startActivity(new Intent(MainActivity.this, SignInActivity.class));
                 }else if (id == R.id.signout){
@@ -159,14 +177,23 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         moneyControlManager.setStatisticsListener(statisticsListener);
 
         mRecentsRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-        mRecentsRecyclerView.setAdapter(moneyControlManager.getCashRecordAdapter());
-        noRecordsTextView.setVisibility(moneyControlManager.getCashRecordAdapter().getItemCount() > 0 ? View.GONE : View.VISIBLE);
-        statisticsCardView.setVisibility(!(moneyControlManager.getCashRecordAdapter().getItemCount() > 0) ? View.GONE : View.VISIBLE);
+        CashRecordAdapter cashRecordAdapter = moneyControlManager.getCashRecordAdapter();
+        cashRecordAdapter.setClickListener(new CustomClickListener() {
+            @Override
+            public void onClick(View itemView, int position) {
+                Intent intent = new Intent(MainActivity.this, DetailDisplayActivity.class);
+                intent.putExtra(CashRecord.CASHRECORD_DETAIL,cashRecordAdapter.getCashRecords().get(position));
+                startActivity(intent);
+            }
+        });
+        mRecentsRecyclerView.setAdapter(cashRecordAdapter);
+        noRecordsTextView.setVisibility(cashRecordAdapter.getItemCount() > 0 ? View.GONE : View.VISIBLE);
+        statisticsCardView.setVisibility(!(cashRecordAdapter.getItemCount() > 0) ? View.GONE : View.VISIBLE);
 
         mBalanceRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         mBalanceRecyclerView.setAdapter(moneyControlManager.getBalanceAdapter());
 
-        moneyControlManager.getCashRecordAdapter().attachCashRecordListListener(new CashRecordAdapter.CashRecordListListener() {
+        cashRecordAdapter.attachCashRecordListListener(new CashRecordAdapter.CashRecordListListener() {
             @Override
             public void checkRecordList() {
                 noRecordsTextView.setVisibility(moneyControlManager.getCashRecordAdapter().getItemCount() > 0 ? View.GONE : View.VISIBLE);
@@ -319,11 +346,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
 
-        if (ExportManager.STORAGE_PERMISSION_REQUEST_CODE == requestCode
+        if (STORAGE_PERMISSION_REQUEST_CODE == requestCode
                 && grantResults.length > 0
                 && grantResults[0] == PackageManager.PERMISSION_GRANTED){
             ExportManager.getInstance(this).createPdf();
-        }else if (ExportManager.STORAGE_PERMISSION_REQUEST_CODE == requestCode
+        }else if (STORAGE_PERMISSION_REQUEST_CODE == requestCode
                 && grantResults.length > 0
                 && grantResults[0] == PackageManager.PERMISSION_DENIED){
             Toast.makeText(getApplicationContext(), "Permission denied", Toast.LENGTH_SHORT).show();

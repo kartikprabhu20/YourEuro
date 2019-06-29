@@ -1,7 +1,6 @@
 package com.artexceptionals.youreuro.adapter;
 
 import android.content.Context;
-import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -12,7 +11,7 @@ import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.artexceptionals.youreuro.DetailDisplayActivity;
+import com.artexceptionals.youreuro.CustomClickListener;
 import com.artexceptionals.youreuro.R;
 import com.artexceptionals.youreuro.helpers.CurrencyHelper;
 import com.artexceptionals.youreuro.model.CashRecord;
@@ -34,6 +33,7 @@ public class CashRecordAdapter extends RecyclerView.Adapter<CashRecordAdapter.Ca
     private List<CashRecord> searchRecordList = new ArrayList<>();
     private Context context;
     private CashRecordListListener cashRecordListListener;
+    CustomClickListener customClickListener;
 
 
     public CashRecordAdapter(Context context) {
@@ -71,10 +71,9 @@ public class CashRecordAdapter extends RecyclerView.Adapter<CashRecordAdapter.Ca
             holder.date.setText(DateFormat.getDateTimeInstance(DateFormat.SHORT, DateFormat.SHORT).format(new Date(cashRecord.getTimeStamp())));
             holder.paymentType.setText(cashRecord.getPaymentType());
             holder.currencySymbol.setText(CurrencyHelper.getSymbol(cashRecord.getCurrency()));
-            holder.amount.setText(String.valueOf(cashRecord.getAmount()));
+            holder.amount.setText(String.format("%.2f",cashRecord.getAmount()));
             holder.amount.setTextColor(Constants.CashRecordType.EXPENSE.equalsIgnoreCase(cashRecord.getCashRecordType()) ? context.getResources().getColor(R.color.red): context.getResources().getColor(R.color.green));
             holder.currencySymbol.setTextColor(Constants.CashRecordType.EXPENSE.equalsIgnoreCase(cashRecord.getCashRecordType()) ? context.getResources().getColor(R.color.red): context.getResources().getColor(R.color.green));
-
         }
     }
 
@@ -128,7 +127,11 @@ public class CashRecordAdapter extends RecyclerView.Adapter<CashRecordAdapter.Ca
 
     }
 
-    public class CashRecordViewHolder extends  RecyclerView.ViewHolder implements View.OnClickListener {
+    public List<CashRecord> getCashRecords() {
+        return searchRecordList;
+    }
+
+    public class CashRecordViewHolder extends  RecyclerView.ViewHolder {
         @BindView(R.id.category_image)
         ImageView categoryImage;
 
@@ -153,14 +156,12 @@ public class CashRecordAdapter extends RecyclerView.Adapter<CashRecordAdapter.Ca
         public CashRecordViewHolder(@NonNull View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);
-            itemView.setOnClickListener(this);
-        }
-
-        @Override
-        public void onClick(View v) {
-            Intent intent = new Intent(context, DetailDisplayActivity.class);
-            intent.putExtra(CashRecord.CASHRECORD_DETAIL,searchRecordList.get(getAdapterPosition()));
-            context.startActivity(intent);
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    customClickListener.onClick(itemView,getAdapterPosition());
+                }
+            });
         }
     }
 
@@ -211,4 +212,7 @@ public class CashRecordAdapter extends RecyclerView.Adapter<CashRecordAdapter.Ca
         void checkRecordList();
     }
 
+    public void setClickListener(CustomClickListener clickListener) {
+        customClickListener = clickListener;
+    }
 }

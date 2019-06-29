@@ -129,7 +129,7 @@ public class ExportPdfActivity extends AppCompatActivity {
                     String paymentType = cashRecords.get(i).getPaymentType();
                     String categoryName = cashRecords.get(i).getCategory().getCatagoryName();
                     String timeStamp = DateFormat.getDateInstance(DateFormat.SHORT).format(cashRecords.get(i).getTimeStamp());
-                    float amount = cashRecords.get(i).getAmount();
+                    double amount = cashRecords.get(i).getAmount();
 
                     table.addCell(String.valueOf(categoryName));
                     table.addCell(String.valueOf(paymentType));
