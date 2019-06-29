@@ -28,10 +28,13 @@ import com.github.mikephil.charting.data.Entry;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.TreeMap;
 
 public class StatisticManager {
     private static StatisticManager instance;
@@ -93,6 +96,8 @@ public class StatisticManager {
         Map<String, Float> mapAmount = (cashRecordFilter.isCategoryFilter() && cashRecordFilter.getCategories().size() == 1) ?
                 getMonthAmount(cashRecords) : getCategoryAmount(cashRecords);
 
+        mapAmount = new TreeMap<String, Float>(mapAmount);
+
         for (String key : mapAmount.keySet()) {
             pieEntries.add(new PieEntry(mapAmount.get(key), key));
         }
@@ -119,6 +124,8 @@ public class StatisticManager {
         List<BarEntry> barEntries = new ArrayList<>();
         Map<String, Float> mapAmount = (cashRecordFilter.isCategoryFilter() && cashRecordFilter.getCategories().size() == 1) ?
                 getMonthAmount(cashRecords) : getCategoryAmount(cashRecords);
+
+        mapAmount = new TreeMap<String, Float>(mapAmount);
 
         int i = 0;
         for (String key : mapAmount.keySet()) {
@@ -177,6 +184,7 @@ public class StatisticManager {
         Map<String, Float> mapAmount = (cashRecordFilter.isCategoryFilter() && cashRecordFilter.getCategories().size() == 1) ?
                 getMonthAmount(cashRecords) : getCategoryAmount(cashRecords);
 
+        mapAmount = new TreeMap<String, Float>(mapAmount);
 
         List<LegendEntry> legendEntries = new ArrayList<>();
         int i = 0;
@@ -203,6 +211,8 @@ public class StatisticManager {
         ArrayList<Entry> entries = new ArrayList<>();
         Map<String, Float> categoryAmount = getCategoryAmount(cashRecordDatabase.cashRecordDao().getCashRecords(getQuery(cashRecordFilter)));
 
+        categoryAmount = new TreeMap<String, Float>(categoryAmount);
+
         if (cashRecordFilter.isCategoryFilter()) {
             if (cashRecordFilter.getCategories().size() > 1) {
                 filterCategories.addAll(cashRecordFilter.getCategories());
@@ -210,6 +220,12 @@ public class StatisticManager {
                 return lineData;
             }
         }else {
+           Collections.sort(allCategories, new Comparator<Category>() {
+                public int compare(Category c1, Category c2) {
+                    return c1.getCatagoryName().compareTo(c2.getCatagoryName());
+                }
+            });
+
             for (Category category: allCategories) {
                 if (categoryAmount.keySet().contains(category.getCatagoryName()))
                      filterCategories.add(category);

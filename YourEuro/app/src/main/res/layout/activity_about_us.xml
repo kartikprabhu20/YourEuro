@@ -26,8 +26,7 @@
             android:layout_height="wrap_content"
             android:padding="@dimen/unit2"
             android:layout_margin="5dp"
-            android:text="Using our App user can easily monitor
-            and visualize all his money transactions."
+            android:text="Monitor and visualize all your money transactions."
             android:textSize="20dp" />
 
         <TextView
