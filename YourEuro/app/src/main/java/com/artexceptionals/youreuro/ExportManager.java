@@ -57,30 +57,8 @@ public class ExportManager {
         return instance;
     }
 
-    public void emailPdf() {
-        cashRecords = cashRecordDatabase.cashRecordDao().getAll();
-        try {
-            createPdfWrapper();
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (DocumentException e) {
-            e.printStackTrace();
-        }
-    }
-
-    private void createPdfWrapper() throws FileNotFoundException, DocumentException{
-        int hasWritePermission = ActivityCompat.checkSelfPermission(((MainActivity)mContext), Manifest.permission.WRITE_EXTERNAL_STORAGE);
-        if(hasWritePermission != PackageManager.PERMISSION_GRANTED
-                && Build.VERSION.SDK_INT >= Build.VERSION_CODES.M
-                && ((MainActivity)mContext).shouldShowRequestPermissionRationale(Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
-
-            ((MainActivity)mContext).requestPermissions(new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, STORAGE_PERMISSION_REQUEST_CODE);
-        } else {
-            createPdf();
-        }
-
-    }
     public void createPdf(){
+        cashRecords = cashRecordDatabase.cashRecordDao().getAll();
 
         File docsFolder = new File(Environment.getExternalStorageDirectory() + "/Documents");
         if (!docsFolder.exists()) {
@@ -88,8 +66,7 @@ public class ExportManager {
             Log.i("YourEuro", "Created a new directory for PDF");
         }
 
-        String pdfname = "YourEuroSummary.pdf";
-        pdfFile = new File(docsFolder.getAbsolutePath(), pdfname);
+        pdfFile = new File(docsFolder.getAbsolutePath(), SUMMARY_FILE);
         OutputStream output = null;
         try {
             output = new FileOutputStream(pdfFile);
@@ -119,13 +96,13 @@ public class ExportManager {
                     String paymentType = cashRecords.get(i).getPaymentType();
                     String categoryName = cashRecords.get(i).getCategory().getCatagoryName();
                     String timeStamp = DateFormat.getDateInstance(DateFormat.SHORT).format(cashRecords.get(i).getTimeStamp());
-                    float amount = cashRecords.get(i).getAmount();
+                    double amount = cashRecords.get(i).getAmount();
 
                     table.addCell(String.valueOf(categoryName));
                     table.addCell(String.valueOf(paymentType));
                     table.addCell(String.valueOf(cashRecordType));
                     table.addCell(String.valueOf(timeStamp));
-                    table.addCell(String.valueOf(amount));
+                    table.addCell(String.format("%.2f",amount));
 
                 }
             }

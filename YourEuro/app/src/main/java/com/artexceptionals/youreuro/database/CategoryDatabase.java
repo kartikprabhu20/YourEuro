@@ -41,6 +41,7 @@ public abstract class CategoryDatabase extends RoomDatabase {
                                             categoryList.add(new Category("Entertainment", context.getResources().getResourceEntryName(R.drawable.ic_baseline_movie_filter)));
                                             categoryList.add(new Category("Bills",context.getResources().getResourceEntryName(R.drawable.ic_baseline_local_atm)));
                                             categoryList.add(new Category(" Health",context.getResources().getResourceEntryName(R.drawable.ic_add_medical)));
+                                            categoryList.add(new Category(" Salary",context.getResources().getResourceEntryName(R.drawable.ic_account_balance_wallet_black_24dp)));
                                             getCategoryDatabase(context).categoryDao().insertAll(categoryList);
                                         }
                                     });

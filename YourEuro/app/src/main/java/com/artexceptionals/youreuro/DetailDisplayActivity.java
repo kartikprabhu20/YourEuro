@@ -26,6 +26,7 @@ import com.artexceptionals.youreuro.model.Constants;
 import com.maltaisn.icondialog.IconHelper;
 
 import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -154,7 +155,7 @@ public class DetailDisplayActivity extends AppCompatActivity {
         scheduleSpinner.setSelection(scheduleTypesAdapter.getPosition(cashRecord.getRecurringType()));
         scheduleSpinner.setEnabled(false);
 
-        amountEditText.setText(String.valueOf(cashRecord.getAmount()));
+        amountEditText.setText(String.format("%.2f",cashRecord.getAmount()));
         amountEditText.setEnabled(false);
 
         noteEditText.setText(cashRecord.getNotes());
@@ -163,7 +164,8 @@ public class DetailDisplayActivity extends AppCompatActivity {
         calendarImageView.setVisibility(View.GONE);
         timeImageView.setVisibility(View.GONE);
 
-        timeTextView.setText(DateFormat.getTimeInstance().format(cashRecord.getTimeStamp()));
+        DateFormat dateFormat = new SimpleDateFormat("HH:mm");
+        timeTextView.setText(dateFormat.format(cashRecord.getTimeStamp()));
         dateTextView.setText(DateFormat.getDateInstance(DateFormat.SHORT).format(cashRecord.getTimeStamp()));
 
         currencySymbolTextView.setText(CurrencyHelper.getSymbol(cashRecord.getCurrency()));

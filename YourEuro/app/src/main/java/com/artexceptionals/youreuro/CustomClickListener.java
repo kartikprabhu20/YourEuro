@@ -1,6 +1,7 @@
 package com.artexceptionals.youreuro;
 
-public interface CustomClickListener {
-    void onClick(int position);
+import android.view.View;
 
+public interface CustomClickListener {
+    void onClick(View itemView, int position);
 }
