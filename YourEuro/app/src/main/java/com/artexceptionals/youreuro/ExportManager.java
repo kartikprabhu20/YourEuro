@@ -1,16 +1,14 @@
 package com.artexceptionals.youreuro;
 
 import android.Manifest;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Environment;
-import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.FileProvider;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
@@ -35,24 +33,31 @@ import java.io.OutputStream;
 import java.text.DateFormat;
 import java.util.List;
 
-public class ExportPdfActivity extends AppCompatActivity {
-    private CashRecordDatabase cashRecordDatabase;
-    private static final String TAG = "PdfCreatorActivity";
+public class ExportManager {
+    private static ExportManager instance;
+    private Context mContext;
     private static final String SUMMARY_FILE = "YourEuroSummary.pdf";
-    final private int STORAGE_PERMISSION_REQUEST_CODE = 111;
-    private File pdfFile;
-    List<CashRecord> cashRecords;
+    public static final int  STORAGE_PERMISSION_REQUEST_CODE = 111;
+    private final CashRecordDatabase cashRecordDatabase;
     CustomSharedPreferences sharedPreferences;
+    List<CashRecord> cashRecords;
+    private File pdfFile;
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_export_pdf);
-        cashRecordDatabase = CashRecordDatabase.getCashRecordDatabase(ExportPdfActivity.this);
-        sharedPreferences = CustomSharedPreferences.getInstance(YourEuroApp.getAppContext());
+    public ExportManager(Context context,CustomSharedPreferences sharedPreferences, CashRecordDatabase cashRecordDatabase) {
+        this.sharedPreferences = sharedPreferences;
+        this.cashRecordDatabase = cashRecordDatabase;
+        mContext = context;
     }
 
-    public void emailPdf(View view) {
+    public static ExportManager getInstance(Context context) {
+        if (instance == null) {
+            instance = new ExportManager(context,CustomSharedPreferences.getInstance(YourEuroApp.getAppContext()),
+                    CashRecordDatabase.getCashRecordDatabase(context));
+        }
+        return instance;
+    }
+
+    public void emailPdf() {
         cashRecords = cashRecordDatabase.cashRecordDao().getAll();
         try {
             createPdfWrapper();
@@ -64,38 +69,23 @@ public class ExportPdfActivity extends AppCompatActivity {
     }
 
     private void createPdfWrapper() throws FileNotFoundException, DocumentException{
-        int hasWritePermission = ActivityCompat.checkSelfPermission(ExportPdfActivity.this, Manifest.permission.WRITE_EXTERNAL_STORAGE);
+        int hasWritePermission = ActivityCompat.checkSelfPermission(((MainActivity)mContext), Manifest.permission.WRITE_EXTERNAL_STORAGE);
         if(hasWritePermission != PackageManager.PERMISSION_GRANTED
                 && Build.VERSION.SDK_INT >= Build.VERSION_CODES.M
-                && shouldShowRequestPermissionRationale(Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
+                && ((MainActivity)mContext).shouldShowRequestPermissionRationale(Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
 
-            requestPermissions(new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, STORAGE_PERMISSION_REQUEST_CODE);
+            ((MainActivity)mContext).requestPermissions(new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, STORAGE_PERMISSION_REQUEST_CODE);
         } else {
             createPdf();
         }
 
     }
-
-    @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-
-        if (STORAGE_PERMISSION_REQUEST_CODE == requestCode
-                && grantResults.length > 0
-                && grantResults[0] == PackageManager.PERMISSION_GRANTED){
-            createPdf();
-        }else if (STORAGE_PERMISSION_REQUEST_CODE == requestCode
-                && grantResults.length > 0
-                && grantResults[0] == PackageManager.PERMISSION_DENIED){
-            Toast.makeText(getApplicationContext(), "Permission denied", Toast.LENGTH_SHORT).show();
-        }
-    }
-
-    private void createPdf(){
+    public void createPdf(){
 
         File docsFolder = new File(Environment.getExternalStorageDirectory() + "/Documents");
         if (!docsFolder.exists()) {
             docsFolder.mkdir();
-            Log.i(TAG, "Created a new directory for PDF");
+            Log.i("YourEuro", "Created a new directory for PDF");
         }
 
         String pdfname = "YourEuroSummary.pdf";
@@ -149,8 +139,8 @@ public class ExportPdfActivity extends AppCompatActivity {
             document.add(table);
             document.close();
 
-            Uri myUri = FileProvider.getUriForFile(getApplicationContext(), getApplicationContext().getPackageName() + ".MyFileProvider",pdfFile);
-            this.grantUriPermission("com.artexceptionals.youreuro", myUri, Intent.FLAG_GRANT_WRITE_URI_PERMISSION | Intent.FLAG_GRANT_READ_URI_PERMISSION);
+            Uri myUri = FileProvider.getUriForFile(YourEuroApp.getAppContext(), YourEuroApp.getAppContext().getPackageName() + ".MyFileProvider",pdfFile);
+            ((MainActivity)mContext).grantUriPermission("com.artexceptionals.youreuro", myUri, Intent.FLAG_GRANT_WRITE_URI_PERMISSION | Intent.FLAG_GRANT_READ_URI_PERMISSION);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (DocumentException e) {
@@ -160,27 +150,10 @@ public class ExportPdfActivity extends AppCompatActivity {
         sendEmail();
     }
 
-    private void previewPdf() {
-
-        PackageManager packageManager = ExportPdfActivity.this.getPackageManager();
-        Intent testIntent = new Intent(Intent.ACTION_VIEW);
-        testIntent.setType("application/pdf");
-        List list = packageManager.queryIntentActivities(testIntent, PackageManager.MATCH_DEFAULT_ONLY);
-        if (list.size() > 0) {
-            Intent intent = new Intent();
-            intent.setAction(Intent.ACTION_VIEW);
-            Uri uri = Uri.fromFile(pdfFile);
-            intent.setDataAndType(uri, "application/pdf");
-            ExportPdfActivity.this.startActivity(intent);
-        } else {
-            Toast.makeText(ExportPdfActivity.this, "Download a PDF Viewer to see the generated PDF", Toast.LENGTH_SHORT).show();
-        }
-    }
-
     public void sendEmail() {
         File file = new File(Environment.getExternalStorageDirectory().getAbsolutePath()+File.separator+"Documents", SUMMARY_FILE);
-        Uri myUri = FileProvider.getUriForFile(getApplicationContext(), getApplicationContext().getPackageName() + ".MyFileProvider",file);
-        this.grantUriPermission("com.artexceptionals.youreuro", myUri, Intent.FLAG_GRANT_WRITE_URI_PERMISSION | Intent.FLAG_GRANT_READ_URI_PERMISSION);
+        Uri myUri = FileProvider.getUriForFile(YourEuroApp.getAppContext(), YourEuroApp.getAppContext().getPackageName() + ".MyFileProvider",file);
+        mContext.grantUriPermission("com.artexceptionals.youreuro", myUri, Intent.FLAG_GRANT_WRITE_URI_PERMISSION | Intent.FLAG_GRANT_READ_URI_PERMISSION);
         String to = sharedPreferences.genericGetString("user_Email","Not Set");
         if (file.exists()) {
             if(!("Not Set".equalsIgnoreCase(to))) {
@@ -193,8 +166,10 @@ public class ExportPdfActivity extends AppCompatActivity {
                 // the mail subject
                 emailIntent.putExtra(Intent.EXTRA_SUBJECT, "summary PDF");
                 emailIntent.putExtra(Intent.EXTRA_TEXT, "Summary from YourEuro Money Control App");
-                startActivity(emailIntent);
-            }else Toast.makeText(ExportPdfActivity.this,"Set user Email in settings",Toast.LENGTH_LONG).show();
+                mContext.startActivity(emailIntent);
+            }else {
+                Toast.makeText(mContext, "Set user Email in settings", Toast.LENGTH_LONG).show();
+            }
         }
     }
 }

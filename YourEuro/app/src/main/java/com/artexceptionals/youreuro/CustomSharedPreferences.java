@@ -42,8 +42,8 @@ public class CustomSharedPreferences {
         return sharedPreferences.getString(Key,Default);
     }
 
-    public String genericGetString(String key, String defualt){
-        return sharedPreferences.getString(key, defualt);
+    public String genericGetString(String key, String defaultString){
+        return sharedPreferences.getString(key, defaultString);
     }
 
     public int getInt(String key) {

@@ -4,6 +4,8 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.CardView;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -43,8 +45,11 @@ public class CategoryActivity extends AppCompatActivity implements IconDialog.Ca
     @BindView(R.id.save_category)
     Button saveCategoryButton;
 
+//    @BindView(R.id.category_settings_listView)
+//    ListView categoryListView;
+
     @BindView(R.id.category_settings_listView)
-    ListView categoryListView;
+    RecyclerView mCategoryRecyclerView;
 
     @BindView(R.id.new_category_cardview)
     CardView newCategoryCardView;
@@ -74,7 +79,10 @@ public class CategoryActivity extends AppCompatActivity implements IconDialog.Ca
             newCategoryCardView.setVisibility(View.GONE);
 
         categoryAdapter = new CategorySettingsAdapter(this, IconHelper.getInstance(this),moneyControlManager.getAllCategories(),isAddCategory);
-        categoryListView.setAdapter(categoryAdapter);
+        mCategoryRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+        mCategoryRecyclerView.setAdapter(categoryAdapter);
+
+//        categoryListView.setAdapter(categoryAdapter);
         categoryAdapter.setCategoryListener(new CategorySettingsAdapter.CategoryListener() {
             @Override
             public void listen(int position) {

@@ -8,6 +8,7 @@ import android.widget.Toast;
 
 import com.github.paolorotolo.appintro.AppIntro;
 import com.github.paolorotolo.appintro.AppIntroFragment;
+import com.github.paolorotolo.appintro.model.SliderPage;
 
 public class AppIntroActivity extends AppIntro {
 
@@ -15,20 +16,31 @@ public class AppIntroActivity extends AppIntro {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        addSlide(AppIntroFragment.newInstance("New to YourEuro App", "Follow the intro to know how to add transaction",
-                R.drawable.home_screen_intro, ContextCompat.getColor(getApplicationContext(), R.color.colorPrimary)));
-        addSlide(AppIntroFragment.newInstance("", "",
-                R.drawable.details_page_empty_intro, ContextCompat.getColor(getApplicationContext(), R.color.colorPrimary)));
-        addSlide(AppIntroFragment.newInstance("", "",
-                R.drawable.details_page_intro, ContextCompat.getColor(getApplicationContext(), R.color.colorPrimary)));
-        addSlide(AppIntroFragment.newInstance("", "",
-                R.drawable.details_page_recurring_intro, ContextCompat.getColor(getApplicationContext(), R.color.colorPrimary)));
-        addSlide(AppIntroFragment.newInstance("", "",
-                R.drawable.details_page_save_intro, ContextCompat.getColor(getApplicationContext(), R.color.colorPrimary)));
-        addSlide(AppIntroFragment.newInstance("", "",
-                R.drawable.homepage_transaction_intro, ContextCompat.getColor(getApplicationContext(), R.color.colorPrimary)));
+        addSlide(AppIntroFragment.newInstance(getSliderPage("New to YourEuro App","Follow the intro to know how to add transaction",
+                R.drawable.home_screen_intro,ContextCompat.getColor(getApplicationContext(), R.color.colorPrimary))));
+        addSlide(AppIntroFragment.newInstance(getSliderPage("", "",
+                R.drawable.details_page_empty_intro, ContextCompat.getColor(getApplicationContext(), R.color.colorPrimary))));
+        addSlide(AppIntroFragment.newInstance(getSliderPage("", "",
+                R.drawable.details_page_intro, ContextCompat.getColor(getApplicationContext(), R.color.colorPrimary))));
+        addSlide(AppIntroFragment.newInstance(getSliderPage("", "",
+                R.drawable.details_page_recurring_intro, ContextCompat.getColor(getApplicationContext(), R.color.colorPrimary))));
+        addSlide(AppIntroFragment.newInstance(getSliderPage("", "",
+                R.drawable.details_page_save_intro, ContextCompat.getColor(getApplicationContext(), R.color.colorPrimary))));
+        addSlide(AppIntroFragment.newInstance(getSliderPage("", "",
+                R.drawable.homepage_transaction_intro, ContextCompat.getColor(getApplicationContext(), R.color.colorPrimary))));
 
         showSkipButton(true);
+        setZoomAnimation();
+    }
+
+    private SliderPage getSliderPage(String title, String description, int imageId, int color) {
+        SliderPage sliderPage = new SliderPage();
+        sliderPage.setTitle(title);
+        sliderPage.setDescription(description);
+        sliderPage.setImageDrawable( R.drawable.home_screen_intro);
+        sliderPage.setBgColor(ContextCompat.getColor(getApplicationContext(), R.color.colorPrimary));
+
+        return sliderPage;
     }
 
     @Override

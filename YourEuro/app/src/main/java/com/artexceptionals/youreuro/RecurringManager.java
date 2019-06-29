@@ -19,7 +19,7 @@ public class RecurringManager {
     public static final String ALARM_ID = "alarm_id";
 
     private static final long HOURS_MILLISECOND = 60*60*1000L ;
-    private static final long HOURS_24_MILLISECOND = HOURS_MILLISECOND * 24 ;
+    public static final long HOURS_24_MILLISECOND = HOURS_MILLISECOND * 24 ;
 
     private static RecurringManager instance;
     private static Context mContext;

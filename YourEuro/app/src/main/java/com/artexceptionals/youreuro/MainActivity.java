@@ -1,5 +1,6 @@
 package com.artexceptionals.youreuro;
 
+import android.content.pm.PackageManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
@@ -26,6 +27,7 @@ import android.view.MenuItem;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.artexceptionals.youreuro.adapter.CashRecordAdapter;
 import com.github.mikephil.charting.charts.CombinedChart;
@@ -127,13 +129,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 } else if (id == R.id.aboutus) {
                     startActivity(new Intent(MainActivity.this,AboutUsActivity.class));
                 } else if (id == R.id.exportingpdf){
-                    startActivity(new Intent(MainActivity.this, ExportPdfActivity.class));
+//                    startActivity(new Intent(MainActivity.this, ExportPdfActivity.class));
+                    ExportManager.getInstance(MainActivity.this).emailPdf();
                 } else if (id == R.id.signin) {
                     startActivity(new Intent(MainActivity.this, SignInActivity.class));
                 }else if (id == R.id.signout){
                     Intent intent = new Intent(MainActivity.this,SignInActivity.class);
                     intent.putExtra(SignInActivity.LOGOUT, true);
                     startActivity(intent);
+                }else if (id == R.id.demo) {
+                    startActivity(new Intent(MainActivity.this, AppIntroActivity.class));
                 }
                 drawerlay.closeDrawers();
                 return true;
@@ -309,5 +314,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         nav_Menu.findItem(R.id.signin).setVisible(!SignInHelper.isLoggedIn());
         nav_Menu.findItem(R.id.signout).setVisible(SignInHelper.isLoggedIn());
 
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+
+        if (ExportManager.STORAGE_PERMISSION_REQUEST_CODE == requestCode
+                && grantResults.length > 0
+                && grantResults[0] == PackageManager.PERMISSION_GRANTED){
+            ExportManager.getInstance(this).createPdf();
+        }else if (ExportManager.STORAGE_PERMISSION_REQUEST_CODE == requestCode
+                && grantResults.length > 0
+                && grantResults[0] == PackageManager.PERMISSION_DENIED){
+            Toast.makeText(getApplicationContext(), "Permission denied", Toast.LENGTH_SHORT).show();
+        }
     }
 }

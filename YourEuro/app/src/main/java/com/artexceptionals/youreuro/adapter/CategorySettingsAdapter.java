@@ -3,13 +3,13 @@ package com.artexceptionals.youreuro.adapter;
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v7.widget.RecyclerView;
 import android.text.Editable;
 import android.text.InputFilter;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -22,7 +22,10 @@ import com.maltaisn.icondialog.IconHelper;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CategorySettingsAdapter extends ArrayAdapter<Category> {
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
+public class CategorySettingsAdapter  extends RecyclerView.Adapter<CategorySettingsAdapter.CategoryViewHolder> {
 
     private final List<Category> categories = new ArrayList<>();
     private final IconHelper iconHelper;
@@ -31,7 +34,7 @@ public class CategorySettingsAdapter extends ArrayAdapter<Category> {
     private CategoryListener categoryListener;
 
     public CategorySettingsAdapter(Context context, IconHelper iconHelper, List<Category> categories, boolean isAddCategory) {
-        super(context, R.layout.category_delete);
+//        super(context, R.layout.category_delete);
         categories.remove(0);
         this.iconHelper = iconHelper;
         this.categories.addAll(categories);
@@ -39,10 +42,6 @@ public class CategorySettingsAdapter extends ArrayAdapter<Category> {
         this.isAddCategory = isAddCategory;
     }
 
-    @Override
-    public int getCount() {
-        return categories.size();
-    }
 
     public List<Category> getCategories() {
         return categories;
@@ -50,92 +49,114 @@ public class CategorySettingsAdapter extends ArrayAdapter<Category> {
 
     @NonNull
     @Override
-    public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
-        final ViewHolder mViewHolder = new ViewHolder();
+    public CategoryViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
+        View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.category_delete,viewGroup,false);
+        return new CategoryViewHolder(view);
+    }
 
-            LayoutInflater mInflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            convertView = mInflater.inflate(R.layout.category_delete, parent, false);
-            mViewHolder.categoryImage = (ImageView) convertView.findViewById(R.id.category_image_in_settings);
-            mViewHolder.categoryName = (TextView) convertView.findViewById(R.id.category_name_in_settings);
-            mViewHolder.categoryDelete = (ImageView) convertView.findViewById(R.id.category_delete_in_settings);
-            mViewHolder.categoryThreshold = convertView.findViewById(R.id.category_threshold_et);
-            mViewHolder.categoryThreshold.setFilters(new InputFilter[]{new CurrencyInputFilter(8,2)});
+    @Override
+    public void onBindViewHolder(@NonNull CategoryViewHolder categoryViewHolder, int position) {
 
-            if (isAddCategory) {
-                mViewHolder.categoryThreshold.setVisibility(View.GONE);
-                mViewHolder.categoryDelete.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        categoryListener.listen(position);
-                    }
-                });
-            }else {
-                mViewHolder.categoryThreshold.setText(String.valueOf(categories.get(position).getThreshold()));
-                mViewHolder.categoryDelete.setVisibility(View.GONE);
+        LayoutInflater mInflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+//        convertView = mInflater.inflate(R.layout.category_delete, parent, false);
+//        categoryViewHolder.categoryImage = (ImageView) convertView.findViewById(R.id.category_image_in_settings);
+//        categoryViewHolder.categoryName = (TextView) convertView.findViewById(R.id.category_name_in_settings);
+//        categoryViewHolder.categoryDelete = (ImageView) convertView.findViewById(R.id.category_delete_in_settings);
+//        categoryViewHolder.categoryThreshold = convertView.findViewById(R.id.category_threshold_et);
 
-                mViewHolder.categoryThreshold.addTextChangedListener(new TextWatcher() {
-                    @Override
-                    public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+        categoryViewHolder.categoryThreshold.setFilters(new InputFilter[]{new CurrencyInputFilter(8,2)});
 
-                    }
+        if (isAddCategory) {
+            categoryViewHolder.categoryThreshold.setVisibility(View.GONE);
+            categoryViewHolder.categoryDelete.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    categoryListener.listen(position);
+                }
+            });
+        }else {
+            categoryViewHolder.categoryThreshold.setText(String.format ("%.2f", categories.get(position).getThreshold()));
+            categoryViewHolder.categoryDelete.setVisibility(View.GONE);
 
-                    @Override
-                    public void onTextChanged(CharSequence s, int start, int before, int count) {
+            categoryViewHolder.categoryThreshold.addTextChangedListener(new TextWatcher() {
+                @Override
+                public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
-                    }
+                }
 
-                    @Override
-                    public void afterTextChanged(Editable s) {
-                        String value = mViewHolder.categoryThreshold.getText().toString();
-                        categories.get(position).setThreshold(Float.parseFloat(value.isEmpty()? "0": value));
-                    }
-                });
-            }
+                @Override
+                public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+                }
+
+                @Override
+                public void afterTextChanged(Editable s) {
+                    String value = categoryViewHolder.categoryThreshold.getText().toString();
+                    categories.get(position).setThreshold(Float.parseFloat(value.isEmpty()? "0": value));
+                }
+            });
+        }
 
         if(categories.get(position).isDefault) {
-            mViewHolder.categoryImage.setImageDrawable(mContext.getResources().getDrawable(mContext.getResources().getIdentifier(categories.get(position).getImageID(), "drawable", mContext.getPackageName())));
-            mViewHolder.categoryDelete.setVisibility(View.GONE);
+            categoryViewHolder.categoryImage.setImageDrawable(mContext.getResources().getDrawable(mContext.getResources().getIdentifier(categories.get(position).getImageID(), "drawable", mContext.getPackageName())));
+            categoryViewHolder.categoryDelete.setVisibility(View.GONE);
         }else{
             iconHelper.addLoadCallback(new IconHelper.LoadCallback() {
                 @Override
                 public void onDataLoaded() {
-                    mViewHolder.categoryImage.setImageDrawable(iconHelper.getIcon(Integer.parseInt(categories.get(position).getImageID())).getDrawable(mContext));
+                    categoryViewHolder.categoryImage.setImageDrawable(iconHelper.getIcon(Integer.parseInt(categories.get(position).getImageID())).getDrawable(mContext));
                 }
             });
 
-            mViewHolder.categoryDelete.setVisibility(isAddCategory ? View.VISIBLE : View.GONE);
+            categoryViewHolder.categoryDelete.setVisibility(isAddCategory ? View.VISIBLE : View.GONE);
 
         }
-        mViewHolder.categoryName.setText(categories.get(position).getCatagoryName());
-
-        return convertView;
+        categoryViewHolder.categoryName.setText(categories.get(position).getCatagoryName());
     }
 
-    private static class ViewHolder {
+    @Override
+    public int getItemCount() {
+        if (categories != null) {
+            return categories.size();
+        }
+        return 0;
+    }
+
+
+    public class CategoryViewHolder extends  RecyclerView.ViewHolder{
+        @BindView(R.id.category_image_in_settings)
         ImageView categoryImage;
+
+        @BindView(R.id.category_name_in_settings)
         TextView categoryName;
+
+        @BindView(R.id.category_delete_in_settings)
         ImageView categoryDelete;
+
+        @BindView(R.id.category_threshold_et)
         EditText categoryThreshold;
+
+
+        public CategoryViewHolder(@NonNull View itemView) {
+            super(itemView);
+            ButterKnife.bind(this, itemView);
+        }
     }
 
     @Nullable
-    @Override
     public Category getItem(int position) {
         return categories.get(position);
     }
 
-    @Override
     public int getPosition(@Nullable Category item) {
         return categories.indexOf(item);
     }
 
-    @Override
     public void add(@androidx.annotation.Nullable @Nullable Category object) {
         categories.add(object);
         notifyDataSetChanged();
     }
 
-    @Override
     public void remove(@androidx.annotation.Nullable @Nullable Category object) {
         categories.remove(object);
         notifyDataSetChanged();
