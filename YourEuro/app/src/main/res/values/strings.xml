@@ -24,7 +24,9 @@
     <string name="cancel">Cancel</string>
     <string name="delete">Delete</string>
     <string name="recurring_transaction">Recurring transaction? </string>
+    <string name="forgot_pin">Forgot PIN? </string>
     <string name="schedule">Schedule:</string>
+    <string name="select_security_question">Select security Question: </string>
     <string name="start_date">Start date:</string>
     <string name="end_date">End date:</string>
     <string name="start_amount">Start amount:</string>
@@ -79,6 +81,14 @@
         <item>2</item>
         <item>3</item>
         <item>4</item>
+    </string-array>
+
+    <string-array name="questions">
+        <item>Where did you go to school?</item>
+        <item>What is your favorite sport?</item>
+        <item>What city were you born in?</item>
+        <item>What is your favorite book?</item>
+        <item>What is your favorite food?</item>
     </string-array>
 
 </resources>

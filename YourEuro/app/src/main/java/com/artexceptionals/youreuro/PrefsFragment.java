@@ -12,11 +12,14 @@ import android.support.v7.app.AlertDialog;
 import android.text.InputType;
 import android.text.method.PasswordTransformationMethod;
 import android.view.LayoutInflater;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.artexceptionals.youreuro.helpers.CurrencyHelper;
+
 
 public  class PrefsFragment extends PreferenceFragment {
 
@@ -106,35 +109,47 @@ public  class PrefsFragment extends PreferenceFragment {
     private void launchDialogEnable() {
         AlertDialog.Builder alertDialog = new AlertDialog.Builder(getActivity());
         alertDialog.setTitle("SET PIN");
-        alertDialog.setMessage("Enter Pin");
 
-        final EditText input = new EditText(getActivity());
-        LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(
-                LinearLayout.LayoutParams.MATCH_PARENT,
-                LinearLayout.LayoutParams.MATCH_PARENT);
-        int dim = (int) getResources().getDimension(R.dimen.unit1);
-        lp.setMargins(dim,dim,dim,dim);
-        input.setLayoutParams(lp);
-        input.setInputType(InputType.TYPE_CLASS_NUMBER);
-        input.setTransformationMethod(new PasswordTransformationMethod());
-        alertDialog.setView(input, 50,0,50,0);
+        LayoutInflater layoutInflater = LayoutInflater.from(getActivity());
+        LinearLayout linearLayout = (LinearLayout) layoutInflater.inflate(R.layout.set_pin,null);
+        alertDialog.setView(linearLayout);
+
+        Spinner securityQuestionsSpinner_1 = (Spinner)linearLayout.findViewById(R.id.security_questions_spinner_1);
+        ArrayAdapter<CharSequence> securityQuestionsAdapter_1 = ArrayAdapter.createFromResource(getActivity(),
+                R.array.questions, R.layout.spinner_item);
+        securityQuestionsAdapter_1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        securityQuestionsSpinner_1.setAdapter(securityQuestionsAdapter_1);
+
+        EditText setPIN = (EditText) linearLayout.findViewById(R.id.PINEditText);
+        EditText securityAnswer = (EditText) linearLayout.findViewById(R.id.securityAnswerEditText_1);
 
         alertDialog.setPositiveButton("SET",
                 new DialogInterface.OnClickListener() {
 
                     public void onClick(DialogInterface dialog, int which) {
 
-                        if (!input.getText().toString().isEmpty()) {
-                            enteredPIN = Integer.parseInt(input.getText().toString());
-                            sharedPreferences.setInt("user_pin", enteredPIN);
-                            Toast.makeText(getActivity(), "Your PIN has been set.", Toast.LENGTH_LONG).show();
+                        if (!setPIN.getText().toString().isEmpty() && !securityAnswer.getText().toString().isEmpty()) {
+
+                            enteredPIN = Integer.parseInt(setPIN.getText().toString());
+                            sharedPreferences.setInt("user_pin",enteredPIN);
+                            sharedPreferences.genericSetString("security_question", securityQuestionsSpinner_1.getSelectedItem().toString());
+                            sharedPreferences.genericSetString("security_answer",securityAnswer.getText().toString());
+                            Toast.makeText(getActivity(),"Your PIN is set",Toast.LENGTH_LONG).show();
                             ((SwitchPreference) switchPreference).setChecked(true);
-                        }else{
-                            Toast.makeText(getActivity(), "PIN can't be empty", Toast.LENGTH_SHORT).show();
+
+                        }else if(!securityAnswer.getText().toString().isEmpty()) {
+                            Toast.makeText(getActivity(),"Your PIN is set",Toast.LENGTH_LONG).show();
+                            launchDialogEnable();
+                        }else if(!setPIN.getText().toString().isEmpty()) {
+                            Toast.makeText(getActivity(), "Answer can't be empty", Toast.LENGTH_LONG).show();
+                            launchDialogEnable();
+                        }else {
+                            Toast.makeText(getActivity(), "Pin or Answer can't be empty", Toast.LENGTH_LONG).show();
                             launchDialogEnable();
                         }
                     }
-                });
+                }
+        );
 
         alertDialog.setNegativeButton("CANCEL",
                 new DialogInterface.OnClickListener() {
