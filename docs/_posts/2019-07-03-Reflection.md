@@ -119,8 +119,4 @@ To summarise testing phases:</p>
     </ul>
 <p>But in the end, everyone would expect a bug-free flawless app and all the bugs in resolved status.</p>
 
-<figure>
-     <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/4_Trello_bugs.png?raw=true" style="width:100%">
-      <figcaption>Fig: Logged bugs in Trello</figcaption>
-</figure>
 
