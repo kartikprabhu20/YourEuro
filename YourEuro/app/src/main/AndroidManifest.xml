@@ -98,7 +98,12 @@
                 android:value=".MainActivity"/>
         </activity>
         <activity android:name=".AppIntroActivity"></activity>
-        <activity android:name=".SignInActivity"></activity>
+
+        <activity android:name=".SignInActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity"/>
+        </activity>
         <provider
             android:name="android.support.v4.content.FileProvider"
             android:authorities="${applicationId}.MyFileProvider"

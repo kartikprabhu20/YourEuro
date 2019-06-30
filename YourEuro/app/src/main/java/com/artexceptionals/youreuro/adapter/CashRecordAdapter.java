@@ -124,14 +124,17 @@ public class CashRecordAdapter extends RecyclerView.Adapter<CashRecordAdapter.Ca
         searchRecordList.clear();
         notifyDataSetChanged();
         cashRecordListListener.checkRecordList();
-
     }
 
     public List<CashRecord> getCashRecords() {
         return searchRecordList;
     }
 
-    public class CashRecordViewHolder extends  RecyclerView.ViewHolder {
+    public void removeCashRecord(int position) {
+        removeCashRecords(Collections.singletonList(searchRecordList.get(position)));
+    }
+
+    public class CashRecordViewHolder extends  RecyclerView.ViewHolder{
         @BindView(R.id.category_image)
         ImageView categoryImage;
 

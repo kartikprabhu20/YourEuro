@@ -167,7 +167,7 @@ public class MoneyControlManager {
             cashRecordDatabase.cashRecordDao().update(cashRecord);
 
             CashRecord newCashRecord = new CashRecord(cashRecord);
-            newCashRecord.setTimeStamp(new Date().getTime());
+            newCashRecord.setTimeStamp(recurringManager.getNextTriggerTime(cashRecord.getRecurringType(),cashRecord.getTimeStamp()));
             newCashRecord.setRecurringTransaction(true);
             newCashRecord.setRecurred(false);
 
