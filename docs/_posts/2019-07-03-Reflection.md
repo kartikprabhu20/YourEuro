@@ -38,11 +38,9 @@ date: 2019-07-02
         <li><p>Debugging the errors took more time than expected.</p></li>
         <li><p>Faced difficulties while working and merging the code parallelly in Git. </p></li>
     </ul>
-</p><br>
+<br>
 
 <h1>Benefits the team experienced by working on a software project as a team</h1><br>
-<p>
-</p> 
     <ul>
         <li><p>Knowledge sharing is major take away from the project.</p></li>
         <li><p>Dividing the task made work easier.</p></li>
@@ -65,14 +63,14 @@ date: 2019-07-02
 
 
 <h1>How the course did meet your needs or fall short?</h1><br>
-<p>
-</p> 
-    <ul>
+   <ul>
         <li><p>This course helped us to know more about the Android App development, agile methodology and team work</p></li>
         <li><p>We got the chance to work and gain skills in java,android studio, html and learnt more about Github. </p></li>
         <li><p>Learning how an entire software engineering project in agile works, from requirements analysis, designing, development  until the testing of the application.</p></li>
         <li><p>This project gave an abstarct idea of work culture in corparate sector.</p></li>
     </ul>
+    <p>
+</p> 
 </p><br>
 
 
