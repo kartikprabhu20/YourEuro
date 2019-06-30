@@ -119,7 +119,7 @@ public class Category implements Parcelable {
         if (o == null || getClass() != o.getClass()) return false;
         Category category = (Category) o;
         return categoryID == category.categoryID &&
-                imageID == category.imageID &&
+                imageID.equalsIgnoreCase(category.imageID) &&
                 catagoryName.equalsIgnoreCase(category.catagoryName);
     }
 

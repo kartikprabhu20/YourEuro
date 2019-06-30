@@ -13,8 +13,8 @@ import com.artexceptionals.youreuro.model.CashRecordFilter;
 import com.artexceptionals.youreuro.model.Category;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Date;
-import java.util.Iterator;
 import java.util.List;
 
 public class MoneyControlManager {
@@ -78,6 +78,17 @@ public class MoneyControlManager {
 
         if (cashRecord.isRecurringTransaction())
             recurringManager.cancelPendingIntents(cashRecord);
+
+        statisticsListener.listen();
+    }
+
+    public void updateCashRecord(CashRecord cashRecord) {
+        CashRecord oldCashRecord = cashRecordDatabase.cashRecordDao().getCashRecord(cashRecord.getUid());
+        balanceAdapter.deleteAccount(new Account(oldCashRecord.getCurrency(),oldCashRecord.getAmount()));
+        cashRecordDatabase.cashRecordDao().update(cashRecord);
+        cashRecordAdapter.removeCashRecords(Collections.singletonList(cashRecord));
+        cashRecordAdapter.addCashRecord(cashRecord);
+        balanceAdapter.updateAccount(new Account(cashRecord.getCurrency(),cashRecord.getAmount()));
 
         statisticsListener.listen();
     }

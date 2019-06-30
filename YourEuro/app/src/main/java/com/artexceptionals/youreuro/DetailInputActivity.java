@@ -38,6 +38,7 @@ import com.artexceptionals.youreuro.model.CashRecord;
 import com.artexceptionals.youreuro.model.Category;
 import com.artexceptionals.youreuro.model.Constants;
 
+import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -105,6 +106,7 @@ public class DetailInputActivity extends AppCompatActivity implements View.OnCli
 
     public static final String DEFAULT_TIME ="--:--";
     public static final String DEFAULT_DATE ="--/--/----";
+    private boolean isUpdate;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -160,6 +162,37 @@ public class DetailInputActivity extends AppCompatActivity implements View.OnCli
         currencySymbolTextView.setText(CurrencyHelper.getSymbol(moneyControlManager.getSharedPreference().genericGetString(CurrencyHelper.CURRENT_CURRENCY, CurrencyHelper.CurrencyType.EURO)));
 
         amountEditText.setFilters(new InputFilter[]{new CurrencyInputFilter(8,2)});
+
+        Bundle bundle = getIntent().getExtras();
+        if (bundle != null && bundle.containsKey(CashRecord.CASHRECORD_DETAIL)) {
+            isUpdate = true;
+            cashRecord = (CashRecord) bundle.getParcelable(CashRecord.CASHRECORD_DETAIL);
+            amountEditText.setText(String.format("%.2f",cashRecord.getAmount()));
+            categorySpinner.setSelection(categoryAdapter.getPosition(cashRecord.getCategory()));
+            paymentTypeSpinner.setSelection(paymentTypesAdapter.getPosition(cashRecord.getPaymentType()));
+            DateFormat dateFormat = new SimpleDateFormat("HH:mm");
+            timeTextView.setText(dateFormat.format(cashRecord.getTimeStamp()));
+            dateTextView.setText(DateFormat.getDateInstance(DateFormat.SHORT).format(cashRecord.getTimeStamp()));
+            currencySymbolTextView.setText(CurrencyHelper.getSymbol(cashRecord.getCurrency()));
+
+            noteEditText.setText(cashRecord.getNotes());
+            recurringCheckBox.setChecked(cashRecord.isRecurringTransaction());
+            scheduleLinearLayout.setVisibility(recurringCheckBox.isChecked() ?View.VISIBLE : View.GONE);
+            scheduleSpinner.setSelection(scheduleTypesAdapter.getPosition(cashRecord.getRecurringType()));
+
+            if(Constants.CashRecordType.EXPENSE.equalsIgnoreCase(cashRecord.getCashRecordType())){
+                incomeToggleButton.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
+                expenseToggleButton.setBackgroundColor(getResources().getColor(R.color.colorAccent));
+                amountEditText.setTextColor(getResources().getColor(R.color.red));
+
+            }else{
+                incomeToggleButton.setBackgroundColor(getResources().getColor(R.color.colorAccent));
+                expenseToggleButton.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
+                amountEditText.setTextColor(getResources().getColor(R.color.green));
+            }
+        }else {
+            isUpdate = false;
+        }
 
     }
 
@@ -246,12 +279,8 @@ public class DetailInputActivity extends AppCompatActivity implements View.OnCli
                     break;
 
                 case R.id.recurring_cb:
-                    if(recurringCheckBox.isChecked()){
-                        scheduleLinearLayout.setVisibility(View.VISIBLE);
-                    }else {
-                        scheduleLinearLayout.setVisibility(View.GONE);
-                    }
-                    break;
+                    scheduleLinearLayout.setVisibility(recurringCheckBox.isChecked() ?View.VISIBLE : View.GONE);
+
             }
         }
     };
@@ -274,7 +303,12 @@ public class DetailInputActivity extends AppCompatActivity implements View.OnCli
         cashRecord.setRecurringTransaction(recurringCheckBox.isChecked());
         cashRecord.setRecurringType(recurringCheckBox.isChecked() ? scheduleSpinner.getSelectedItem().toString() : RecurringHelper.RecurringType.UNKNOWN);
         cashRecord.setRecurred(!recurringCheckBox.isChecked());
-        moneyControlManager.addCashRecord(cashRecord);
+
+        if (!isUpdate){
+            moneyControlManager.addCashRecord(cashRecord);
+        }else {
+            moneyControlManager.updateCashRecord(cashRecord);
+        }
         onBackPressed();
     }
 
