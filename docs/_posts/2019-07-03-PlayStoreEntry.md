@@ -24,13 +24,13 @@ date: 2019-07-03
 </style>
 </head>
     <body style="background-color:powderblue;">
-  <h2>What is the app about & Why should android users download our app ?</h2>
+  <h1>What is the app about & Why should android users download our app ?</h1>
   <p> <br>
 Hello and welcome to our penultimate blog for the series of ‘YourEuro’ - A money control app. In this blog we discuss in detail the process of testing which we followed to make our app flawless and make it Playstore ready.</p><hr>
   
   
   
-  <h2>Features</h2><br>
+  <h1>Features</h1><br>
 <p>We were able to implement all our necessary and essential requirement, also added few desirable requirement to make the app more appealing and user friendly. Following are the features achieved in the app based on requirement category:
   <ul>
         <li><p>Essential Requirements:</p></li>
