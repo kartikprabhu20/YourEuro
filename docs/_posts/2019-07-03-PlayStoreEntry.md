@@ -62,6 +62,7 @@ date: 2019-07-03
   
   <h1>Additinal Information </h1>
   <p><b>Updated:</b>
+  <p><b>Category of App:</b>
   <p><b>Android Version:</b>
   <p><b>Supported Devices:</b>
   <p><b>Content Rating:</b>
