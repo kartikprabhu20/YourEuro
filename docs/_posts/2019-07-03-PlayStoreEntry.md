@@ -34,9 +34,10 @@ Hello and welcome to our penultimate blog for the series of ‘YourEuro’ - A m
 <p>We were able to implement all our necessary and essential requirement, also added few desirable requirement to make the app more appealing and user friendly. Following are the features achieved in the app based on requirement category:
   <ul>
         <li><p>Essential Requirements:</p></li>
-    
-        <li><p>Integration Testing</p></li>
-        <li><p>Functional Testing</p></li>
+        <li>1.Details/Parameters of expense/income (category, note, date, place, camera for receipt)</li>
+        <li>a.Customizable category, deleting option</li>
+        <li>b.Payment method of income and expenditure</li>
+
         <li><p>System Testing</p></li>
         <li><p>Acceptance Testing</p></li>
     </ul>
