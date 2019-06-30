@@ -108,8 +108,6 @@ To know more about our app and to download it, please visit our next blog!!
  <i>Example:</i> Filters for history was created with single category, while the customer feedback was to have multiple selection of categories.
 <br><br>
 
-To summarise testing phases:</p>
-<img src=" https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/4_testing_phases.png?raw=true" width="675" height="300" class="center">
 
 
 
