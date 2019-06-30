@@ -35,8 +35,8 @@ Hello and welcome to our penultimate blog for the series of ‘YourEuro’ - A m
   <ul>
         <li><p>Essential Requirements:</p></li>
         <p>1.Details/Parameters of expense/income (category, note, date, place, camera for receipt)</p>
-        <li>a.Customizable category, deleting option</li>
-        <li>b.Payment method of income and expenditure</li>
+        <p>a.Customizable category, deleting option</p>
+        <p>b.Payment method of income and expenditure</p>
 
        
     </ul>
