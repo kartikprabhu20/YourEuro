@@ -77,16 +77,16 @@ To know more about our app and to download it, please visit our next blog!!
 
 <img src=" https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/4_testing_phases.png?raw=true" width="675" height="300" class="center">
 
+<figure>
+     <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/4_Trello_bugs.png?raw=true" style="width:100%">
+      <figcaption>Fig: Logged bugs in Trello</figcaption>
+</figure>
 
 
 
 
-<p>Some of these test methods can be further classified into:<br>
-    <ul>
-        <li><p><b>White-Box Testing:</b> A software testing process where the tester will have knowledge of internal   structure/ design/ implementation of the produce under consideration.</p></li>
-        <li><p><b>Black-Box Testing:</b> A software testing process where the tester will NOT have knowledge of internal structure/ design/ implementation of the produce under consideration </p></li>
-    </ul>
- </p><br>
+
+
 
 <p><b>Unit Testing:</b>  Unit testing is the foundation of testing process. This can be executed in parallel while the feature is implemented by the developer. And since the developer is expected to know A-Z of what he has written in the source code, white-box testing was followed. Android supports many libraries that support unit testing. In YourEuro app we have used JUnit and Mockito.<br>
 <i>Example:</i> A simple model class like the CashRecord has multiple fields to be set before saving it to database. Using Mockito the values in constructor is called and JUnit helps to assert the set values.
