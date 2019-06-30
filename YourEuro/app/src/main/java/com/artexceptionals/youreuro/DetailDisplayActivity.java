@@ -1,6 +1,7 @@
 package com.artexceptionals.youreuro;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -209,6 +210,12 @@ public class DetailDisplayActivity extends AppCompatActivity {
 
         if (id == R.id.details_delete) {
             launchDialog(cashRecord);
+            return true;
+        }else if (id == R.id.details_edit) {
+            Intent intent = new Intent(this, DetailInputActivity.class);
+            intent.putExtra(CashRecord.CASHRECORD_DETAIL,cashRecord);
+            startActivity(intent);
+            finish();
             return true;
         }
         return super.onOptionsItemSelected(item);
