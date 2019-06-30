@@ -139,8 +139,4 @@ To summarise testing phases:</p>
     </div>
 </div>
 
-<figure>
-    <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/4_modelClassesTested.PNG?raw=true" width="400" height="100" class="center">
-     <figcaption class="center" >Fig: Class and line coverage of model package</figcaption>
-</figure><br>
-                                                                                                                               <hr>        
+<figure>       
