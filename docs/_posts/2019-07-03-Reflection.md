@@ -147,6 +147,3 @@ To summarise testing phases:</p>
 <h1>White box testing </h1>
 <p>White box testing is testing process where the tester knows the internal structure of the code. The test coverage can be done by statement-by-statement or branch-by-branch basis. The following are the 5 scenarios which was tested using white-box testing.</p>
 
-<h2>1. PinActivity: Validation of user credential</h2>
-<p>PinActivity is the screen where the user enters the security pin to enter the app. We have tested 3 scenarios with empty pin, correct pin and invalid pin. We have restricted the input to be number and provided only number pad so that user doesn't enter any random strings.</p>
-<img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/4_wbt_1.png?raw=true" style="width:100%">
