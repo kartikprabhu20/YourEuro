@@ -69,7 +69,9 @@ date: 2019-07-02
         <li><p>Learning how an entire software engineering project in agile works, from requirements analysis, designing, development  until the testing of the application.</p></li>
         <li><p>This project gave an abstarct idea of work culture in corparate sector.</p></li>
     </ul>
-    <p>
+    <p>Our team 'ARTExceptionals' would like to thank Dr. Schulze for granting us the oppurtunity to develop our skills in a very practical approach.We would also like to thank Dean D'souza for bringing the best out the best out of us by his regular inputs and feedbacks.</p> 
+<p> 
+To know more about our app and to download it, please visit our next blog.
 </p> 
 </p><br>
 
