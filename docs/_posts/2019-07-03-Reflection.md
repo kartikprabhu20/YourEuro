@@ -168,7 +168,4 @@ To summarise testing phases:</p>
 <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/4_wbt_5.jpeg?raw=true" style="width:100%">
 
 
-<hr>
-<h1>Black box testing</h1>
-<p>Black box testing is a testing process where the tester is not familiar with the internal structure or flow of the source code. He will just be familiar with the input and expected output and using them will create various test cases covering simple and edge cases.As explained earlier one of our team members will be a tester for a particular feature. But along with that person, we even asked some of our friends to use the app and give us feedback on the same. We concentrated on the below 5 features which covers different aspects of our product.</p>
 
