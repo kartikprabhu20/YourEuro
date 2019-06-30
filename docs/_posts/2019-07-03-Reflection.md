@@ -26,10 +26,10 @@ date: 2019-07-02
     <body style="background-color:powderblue;">
                 
 <h1>Overview</h1>
-<p> Hello Folks,welcome to our last blog of the series for ‘YourEuro’ - A money control app. In this blog we discuss about the reflections of our whole experience as working in team and difficulties encountered while developing the app.</p><hr>
+<p> Hello Folks, Welcome to our last blog of the series for ‘YourEuro’ - A money control app. In this blog we discuss about the reflections of our whole experience as working in team and difficulties encountered while developing the app.</p><hr>
 
 <h1>Technical challenges our team encountered</h1><br>
-<p>
+<p>Technical challenges, is less a solution to all of problems than a puzzle that needs to be constantly assessed and configured to make sure everything is going in a pace. by constantly getting called upon to adapt learnings and break down new barriers.
 </p> 
     <ul>
         <li><p>Three of our team members were not well aware of the android platform and MVC architecture, learning and understanding the concepts took time initially. Hence development burden was on single person.</p></li>
@@ -51,7 +51,7 @@ date: 2019-07-02
         <li><p>Approaching the problem with different perspective lead us to a better solution. </p></li>
         <li><p>Working in a team developed not technical skills but also improved management and communication competence.</p></li>
     </ul>
-</p><br>
+<br>
 
 <h1>Challenges the team experienced by working on a software project as a team</h1><br>
 <p>Due to the nature of working in teams, group members can sometimes find that they are not working effectively, which negatively impacts on their progress, and their ability to be successful.  Some common problems identified by individuals working in teams are:</p> 
