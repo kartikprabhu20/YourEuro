@@ -59,7 +59,7 @@ date: 2019-07-02
         <li><p>Collabaration of team member for perticular task on common time was challenging</p></li>
         <li><p>Learning is fun, but its a long process.</p></li>
     </ul>
-</p><br>
+<br>
 
 
 <h1>How the course did meet your needs or fall short?</h1><br>
