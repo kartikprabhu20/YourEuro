@@ -45,6 +45,7 @@ date: 2019-07-03
         <li><p>Application should store the data locally, one user in fine</p></li>
         <li><p>Security feature (Pin login for the app)</p></li>
         <li><p>Statistics</p></li>
+	<li><p>Summarize monthly expenses in mail</p></li>
        
    </ul>
 
@@ -52,11 +53,11 @@ date: 2019-07-03
   <ul>
         <li><p>The data needs to be filtered based on time, type of payment, category, range of money</p></li>
         <li><p>Currency change support</p></li>
+	
   </ul>
   
   <h2>Desirable Requirements:</h2>
   <ul>
-        <li><p>Summarize monthly expenses in mail</p></li>
         <li><p>Forget pin</p></li>
         <li><p>Demo of app</p></li>
   </ul>
