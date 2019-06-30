@@ -117,6 +117,6 @@ To summarise testing phases:</p>
         <li><p><b><i>P1</i></b> are slightly lower issues, which also needs to be resolved before releasing the product</p></li>
         <li><p><b><i>P2</i></b> are least priority bugs, over which features can take precedence.</p></li>
     </ul>
-<p>But in the end, everyone would expect a bug-free flawless app and all the bugs in resolved status.</p>
+
 
 
