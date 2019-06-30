@@ -111,12 +111,7 @@ To know more about our app and to download it, please visit our next blog!!
 To summarise testing phases:</p>
 <img src=" https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/4_testing_phases.png?raw=true" width="675" height="300" class="center">
 
-<p>All these testing needs to be documented so that we avoid duplicate efforts and at the same time with newer versions the same test cases can be executed again to make sure the features are still functioning as desired. Since we did not have any access to a test management tool, we used whatsapp to share the excel files in which test cases were written module-wise. Moving further we will share all the files in GIT so that the test cases are visible globally. Trello is used to log a bug found during any phase of testing by the tester in black-box testing. Each bug is given priority level depending on the severity of the issue.</p> 
-    <ul>
-        <li><p><b><i>P0</i></b> are blockers or crashes which under no circumstances be present in release version.</p></li>
-        <li><p><b><i>P1</i></b> are slightly lower issues, which also needs to be resolved before releasing the product</p></li>
-        <li><p><b><i>P2</i></b> are least priority bugs, over which features can take precedence.</p></li>
-    </ul>
+
 
 
 
