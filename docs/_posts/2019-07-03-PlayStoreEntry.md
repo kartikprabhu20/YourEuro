@@ -59,9 +59,15 @@ date: 2019-07-03
         <li><p>Summarize monthly expenses in mail</p></li>
         <li><p>Forget pin</p></li>
   </ul>
+  
+  <h1>Additinal Information </h1>
+  <p><b>Updated:</b>
+  <p><b>Android Version:</b>
+  
   <h1>Working Prototype</h1>
   <p> Please find the downloadable application link here: <a href="https://github.com/DBSE-teaching/isee2019-          ARTexceptionals/releases/download/release/app-debug.apk">Downlaod</a></p>
 <br>
+
    
 
 
