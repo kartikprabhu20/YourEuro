@@ -100,9 +100,6 @@ To know more about our app and to download it, please visit our next blog!!
 <i>Example:</i> As a user I want to set my transactions as recurring.
 <br><br>
 
-<b>System Testing:</b>  The product is tested in different environments and devices.<br>
-<i>Example:</i> UI testing was done on devices of different screen size and different android version using emulators.
-<br><br>
 
 
 
