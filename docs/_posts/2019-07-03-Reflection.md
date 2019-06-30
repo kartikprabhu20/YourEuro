@@ -156,8 +156,6 @@ To summarise testing phases:</p>
 <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/4_wbt_2.jpeg?raw=true" style="width:100%">
 
 <h2>3. CategoryActivity: New custom category name</h2>
-<p>This is a unique scenario where the 'Save' button is enabled or disabled dynamically with respect to the custom category name. The save button is enabled only when the text field is not empty and an icon is selected. Thus we have 2 test scenarios for the same.</p> 
-
 
 
 
