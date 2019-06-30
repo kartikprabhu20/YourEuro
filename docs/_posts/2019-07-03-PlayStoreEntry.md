@@ -53,5 +53,13 @@ Hello and welcome to our penultimate blog for the series of ‘YourEuro’ - A m
         <li><p>The data needs to be filtered based on time, type of payment, category, range of money</p></li>
         <li><p>Currency change support</p></li>
   <ul/>
+  
+   <h2>Desirable Requirements:</h2>
+   <ul>
+        <li><p>Summarize monthly expenses in mail</p></li>
+        <li><p>Currency change support</p></li>
+        <li><p>Pin reset</p></li>
+  <ul/>
+   
 
 </p>
