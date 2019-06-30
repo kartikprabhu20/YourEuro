@@ -29,7 +29,7 @@ date: 2019-07-03
 </p>
   
   
-  
+  <hr>
   <h1>Features</h1>
 <p>We were able to implement all our necessary and essential requirement, also added few desirable requirement to make the app more appealing and user friendly.<br>
   Following are the features achieved in the app based on requirement category:</p>
@@ -75,11 +75,12 @@ date: 2019-07-03
   <p><b>Android Version:</b>
   <p><b>Supported Devices:</b>
   <p><b>Content Rating:</b>
-  
+  <hr>
   <h1>Working Prototype</h1>
   <p> Please find the downloadable application link here: <a href="https://github.com/DBSE-teaching/isee2019-          ARTexceptionals/releases/download/release/app-debug.apk">Downlaod</a></p>
  <p> Feel free to check out the code in our repository: <a href="https://github.com/DBSE-teaching/isee2019-ARTexceptionals">Repository</a></p>
-<br>
+<hr>
+<h1>App Screenshots:</h1>
 <div class="imageClass">	
 <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/Demo.jpeg?raw=true" width="250" height="480"> 
 <div class="imageClass">
@@ -98,7 +99,6 @@ date: 2019-07-03
 </div>
 	</div>
 </div>
-<h1>App Sreenshots</h1>
 <hr>
 
    
