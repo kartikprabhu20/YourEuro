@@ -30,7 +30,7 @@ Hello and welcome to our penultimate blog for the series of ‘YourEuro’ - A m
   
   
   
-  <h1>Features</h1><br>
+  <h1>Features</h1>
 <p>We were able to implement all our necessary and essential requirement, also added few desirable requirement to make the app more appealing and user friendly. 
   Following are the features achieved in the app based on requirement category:
   
@@ -40,15 +40,18 @@ Hello and welcome to our penultimate blog for the series of ‘YourEuro’ - A m
         <p>a) Customizable category, deleting option</p>
         <p>b) Payment method of income and expenditure</p>
         <p>c) Free text noted</p>
-        <p>c) Date and Time</p>
+        <p>d) Date and Time</p>
         <li><p>The application should work offline</p></li>
         <li><p>Application should store the data locally, one user in fine</p></li>
         <li><p>Security feature (Pin login for the app)</p></li>
         <li><p>Statistics</p></li>
        
-    </ul>
+   </ul>
 
-
-
+  <h2>Necessary Requirements:</h2>
+  <ul>
+        <li><p>The data needs to be filtered based on time, type of payment, category, range of money</p></li>
+        <li><p>Currency change support</p></li>
+  <ul/>
 
 </p>
