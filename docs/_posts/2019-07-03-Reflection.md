@@ -163,8 +163,6 @@ To summarise testing phases:</p>
 <p>In this test case we have considered a parallel event. While setting a new pin, the user can either select 'SET' or 'CANCEL' button. Hence it is the parallel representation. We have executed 3 test cases for this feature. For empty pin, for any pin and for cancel selection.</p>
 <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/4_wbt_4.jpeg?raw=true" style="width:100%">
 
-<h2>5. Statistics Filter: Changing filter fo charts</h2>
-<p>Even though this part of the code has a nested IF statements, we considered only the one line in the deepest part that decides which 
 
 
 
