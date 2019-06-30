@@ -104,9 +104,6 @@ To know more about our app and to download it, please visit our next blog!!
 <i>Example:</i> UI testing was done on devices of different screen size and different android version using emulators.
 <br><br>
 
-<b>Acceptance Testing:</b>  Prototype was created for each user story/feature and demonstrated to the client in weekly meetings. Starting from UI to different features, client feedback was taken as acceptance. Any changes from the developer was immediately notified to the client and any requests from the client was taken into consideration and implemented in the following development sprint planning.<br>
- <i>Example:</i> Filters for history was created with single category, while the customer feedback was to have multiple selection of categories.
-<br><br>
 
 
 
