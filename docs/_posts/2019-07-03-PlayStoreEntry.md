@@ -25,28 +25,23 @@ date: 2019-07-03
 </head>
     <body style="background-color:powderblue;">
   <h2>What is the app about & Why should android users download our app ?</h2>
-  
+  <p> <br>
+Hello and welcome to our penultimate blog for the series of ‘YourEuro’ - A money control app. In this blog we discuss in detail the process of testing which we followed to make our app flawless and make it Playstore ready.</p><hr>
   
   
   
   <h2>Features</h2><br>
-<p>We were able to implement all our necessary and essential requirement, also added few desirable requirement to make the app more appealing and user friendly.
-Following are the features achieved in the app based on requirement category:
-Essential Requirements:
-1.	Details/Parameters of expense/income (Category, note, date, place, camera for receipt)
-a.	Customizable category, deleting option
-b.	Payment method of income and expenditure
-c.	Free text noted.	Date
-2.	The application should work offline
-3.	Application should store the data locally, one user in fine
-4.	Security feature (Pin login for the app)
-5.	Statistics
-Necessary Requirements:
-1.	The data needs to be filtered based on time, type of payment, category, range of money
-2.	Currency change support
-Desirable Requirements:
-a.	Summarize monthly expenses in mail
-b.	Store data on server/firebase
-c.	Sync at particular time with firebase server
+<p>We were able to implement all our necessary and essential requirement, also added few desirable requirement to make the app more appealing and user friendly. Following are the features achieved in the app based on requirement category:
+  <ul>
+        <li><p>Essential Requirements:</p></li>
+    
+        <li><p>Integration Testing</p></li>
+        <li><p>Functional Testing</p></li>
+        <li><p>System Testing</p></li>
+        <li><p>Acceptance Testing</p></li>
+    </ul>
+
+
+
 
 </p>
