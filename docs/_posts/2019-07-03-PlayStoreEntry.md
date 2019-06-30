@@ -31,7 +31,10 @@ Hello and welcome to our penultimate blog for the series of ‘YourEuro’ - A m
   
   
   <h1>Features</h1><br>
-<p>We were able to implement all our necessary and essential requirement, also added few desirable requirement to make the app more appealing and user friendly. Following are the features achieved in the app based on requirement category:
+<p>We were able to implement all our necessary and essential requirement, also added few desirable requirement to make the app more appealing and user friendly. 
+  Following are the features achieved in the app based on requirement category:
+  
+  <h2>Essential Requirements:</h2>
   <ul>
         <li><p>Essential Requirements:</p></li>
         <p>1.Details/Parameters of expense/income (category, note, date, place, camera for receipt)</p>
