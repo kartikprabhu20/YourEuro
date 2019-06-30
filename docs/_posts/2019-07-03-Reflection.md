@@ -155,7 +155,7 @@ To summarise testing phases:</p>
 <p>This is the core page of our app where user enters the transaction details. Since we do not have edit screen as of now, we want to make sure user enters all the mandatory fields before saving it. In case any field is untouched, then we throw an error and indicate the user to fill it. We have five mandatory fields and for simplicity sake we have tested 2 scenarios where all the details are filled in one case and some of the fields are not changed in the other case. </p>
 <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/4_wbt_2.jpeg?raw=true" style="width:100%">
 
-<h2>3. CategoryActivity: New custom category name</h2>
+
 
 
 
