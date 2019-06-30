@@ -93,13 +93,19 @@ public class StatisticManager {
     public PieData setupPieChart(List<CashRecord> cashRecords, CashRecordFilter cashRecordFilter) {
         List<PieEntry> pieEntries = new ArrayList<>();
 
-        Map<String, Double> mapAmount = (cashRecordFilter.isCategoryFilter() && cashRecordFilter.getCategories().size() == 1) ?
-                getMonthAmount(cashRecords) : getCategoryAmount(cashRecords);
+        boolean isCategoryFilter = cashRecordFilter.isCategoryFilter() && cashRecordFilter.getCategories().size() == 1;
+        Map<String, Double> mapAmount = isCategoryFilter ? getMonthAmount(cashRecords) : getCategoryAmount(cashRecords);
+        mapAmount = isCategoryFilter ? mapAmount : new TreeMap<String, Double>(mapAmount);
 
-        mapAmount = new TreeMap<String, Double>(mapAmount);
+        if(!isCategoryFilter){
+            for (String key : mapAmount.keySet()) {
+                pieEntries.add(new PieEntry(Float.valueOf(String.valueOf(mapAmount.get(key))), key));
+            }
+        }else {
 
-        for (String key : mapAmount.keySet()) {
-            pieEntries.add(new PieEntry(Float.valueOf(String.valueOf(mapAmount.get(key))), key));
+            for (int i=0 ; i < 12; i++)
+                if (!(mapAmount.get(getMonth(i)) == 0.0))
+                    pieEntries.add(new PieEntry(Float.valueOf(String.valueOf(mapAmount.get(getMonth(i)))), getMonth(i)));
         }
 
         PieDataSet dataSet = new PieDataSet(pieEntries, "#YourEuro");
@@ -122,16 +128,26 @@ public class StatisticManager {
 
     public BarData setupBarChart(List<CashRecord> cashRecords, CashRecordFilter cashRecordFilter) {
         List<BarEntry> barEntries = new ArrayList<>();
-        Map<String, Double> mapAmount = (cashRecordFilter.isCategoryFilter() && cashRecordFilter.getCategories().size() == 1) ?
-                getMonthAmount(cashRecords) : getCategoryAmount(cashRecords);
 
-        mapAmount = new TreeMap<String, Double>(mapAmount);
+        boolean isCategoryFilter = cashRecordFilter.isCategoryFilter() && cashRecordFilter.getCategories().size() == 1;
+        Map<String, Double> mapAmount = isCategoryFilter ? getMonthAmount(cashRecords) : getCategoryAmount(cashRecords);
+        mapAmount = isCategoryFilter ? mapAmount : new TreeMap<String, Double>(mapAmount);
 
-        int i = 0;
-        for (String key : mapAmount.keySet()) {
-            BarEntry barEntry = new BarEntry(i,Float.valueOf(String.valueOf(mapAmount.get(key))));
-            barEntries.add(barEntry);
-            i++;
+        if(!isCategoryFilter){
+            int i = 0;
+            for (String key : mapAmount.keySet()) {
+                BarEntry barEntry = new BarEntry(i,Float.valueOf(String.valueOf(mapAmount.get(key))));
+                barEntries.add(barEntry);
+                i++;
+            }
+        }else {
+            int j = 0;
+            for (int i=0 ; i < 12; i++)
+                if (!(mapAmount.get(getMonth(i)) == 0.0)) {
+                    BarEntry barEntry = new BarEntry(j,Float.valueOf(String.valueOf(mapAmount.get(getMonth(i)))));
+                    barEntries.add(barEntry);
+                    j++;
+                }
         }
 
         BarDataSet barSet = new BarDataSet(barEntries, "#YourEuro");
@@ -157,6 +173,9 @@ public class StatisticManager {
 
     private Map<String, Double> getMonthAmount(List<CashRecord> cashRecords) {
         Map<String, Double> monthAmount = new HashMap<>();
+        for (int i=0 ; i < 12; i++)
+            monthAmount.put(getMonth(i),0.0);
+
         for (CashRecord cashRecord : cashRecords) {
 
             Calendar calendar = Calendar.getInstance();
@@ -181,18 +200,31 @@ public class StatisticManager {
     public List<LegendEntry> getLegends(CashRecordFilter cashRecordFilter) {
         List<CashRecord> cashRecords = cashRecordDatabase.cashRecordDao().getCashRecords(getQuery(cashRecordFilter));
 
-        Map<String, Double> mapAmount = (cashRecordFilter.isCategoryFilter() && cashRecordFilter.getCategories().size() == 1) ?
-                getMonthAmount(cashRecords) : getCategoryAmount(cashRecords);
+        boolean isCategoryFilter = cashRecordFilter.isCategoryFilter() && cashRecordFilter.getCategories().size() == 1;
+        Map<String, Double> mapAmount = isCategoryFilter ? getMonthAmount(cashRecords) : getCategoryAmount(cashRecords);
+        mapAmount = isCategoryFilter ? mapAmount : new TreeMap<String, Double>(mapAmount);
 
-        mapAmount = new TreeMap<String, Double>(mapAmount);
 
         List<LegendEntry> legendEntries = new ArrayList<>();
-        int i = 0;
-        for (String key : mapAmount.keySet()) {
-            LegendEntry legendEntry = new LegendEntry(key, Legend.LegendForm.SQUARE, 8f, 8f, null, customColors[i]);
-            legendEntries.add(legendEntry);
-            i++;
+
+
+        if(!isCategoryFilter){
+            int i = 0;
+            for (String key : mapAmount.keySet()) {
+                LegendEntry legendEntry = new LegendEntry(key, Legend.LegendForm.SQUARE, 8f, 8f, null, customColors[i]);
+                legendEntries.add(legendEntry);
+                i++;
+            }
+        }else {
+            int j = 0;
+            for (int i=0 ; i < 12; i++)
+                if (!(mapAmount.get(getMonth(i)) == 0.0)) {
+                    LegendEntry legendEntry = new LegendEntry(getMonth(i), Legend.LegendForm.SQUARE, 8f, 8f, null, customColors[j]);
+                    legendEntries.add(legendEntry);
+                    j++;
+                }
         }
+
         return legendEntries;
     }
 

@@ -30,7 +30,7 @@ public class SignInActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signin);
-
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         sharedPreferences = CustomSharedPreferences.getInstance(YourEuroApp.getAppContext());
         googleSignInButton = findViewById(R.id.sign_in_button);
 

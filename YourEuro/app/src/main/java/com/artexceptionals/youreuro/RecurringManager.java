@@ -46,25 +46,32 @@ public class RecurringManager {
         this.listener = listener;
         receiver.registerCashRecord(cashRecord, listener);
 
-        long nextTriggerTime = cashRecord.getTimeStamp();
-        Log.i("YourEuro",  "initialiseNextEvent:"+new SimpleDateFormat("dd/MM/yyyy HH:mm:ss.SSS", Locale.US).format(nextTriggerTime));
+        Log.i("YourEuro",  "initialiseNextEvent:"+new SimpleDateFormat("dd/MM/yyyy HH:mm:ss.SSS", Locale.US).format(cashRecord.getTimeStamp()));
+        setAlarm(cashRecord.getUid(), getNextTriggerTime(cashRecord.getRecurringType(),cashRecord.getTimeStamp()));
 
-        switch(cashRecord.getRecurringType()){
+    }
+
+    public long getNextTriggerTime(String recurringType, long previousTriggerTime) {
+        Log.i("YourEuro",  "initialiseNextEvent:"+new SimpleDateFormat("dd/MM/yyyy HH:mm:ss.SSS", Locale.US).format(previousTriggerTime));
+
+        long nextTriggerTime = 0;
+        switch(recurringType){
             case RecurringHelper.RecurringType.DAILY:
-                setAlarm(cashRecord.getUid(), nextTriggerTime+ HOURS_24_MILLISECOND);
+                nextTriggerTime = previousTriggerTime+ HOURS_24_MILLISECOND;
                 break;
             case RecurringHelper.RecurringType.WEEKLY:
-                setAlarm(cashRecord.getUid(), nextTriggerTime + 7 * HOURS_24_MILLISECOND);
+                nextTriggerTime = previousTriggerTime  + 7 * HOURS_24_MILLISECOND;
                 break;
             case RecurringHelper.RecurringType.MONTHLY:
-                setAlarm(cashRecord.getUid(), getNextMonthTime(nextTriggerTime));
+                nextTriggerTime =  getNextMonthTime(previousTriggerTime);
                 break;
             case RecurringHelper.RecurringType.YEARLY:
-                setAlarm(cashRecord.getUid(), getNextYearTime(nextTriggerTime));
+                nextTriggerTime = getNextYearTime(previousTriggerTime);
                 break;
-
         }
+        return nextTriggerTime;
     }
+
 
     private void setAlarm(long conditionID, long nextTriggerTime) {
         Intent intent = new Intent(RECURRING_CASHRECORD_ACTION);

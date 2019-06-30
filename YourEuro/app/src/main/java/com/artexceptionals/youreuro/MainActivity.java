@@ -176,6 +176,28 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         moneyControlManager =  MoneyControlManager.getInstance(YourEuroApp.getAppContext());
         moneyControlManager.setStatisticsListener(statisticsListener);
 
+
+        setupRecyclerView();
+        moneyControlManager.updateAllRecords();
+
+        FloatingActionButton fab = findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplication(), DetailInputActivity.class));
+            }
+        });
+
+        //Statistics
+        statisticsListener.listen();
+        barChartFilter.setOnClickListener(this);
+        pieChartFilter.setOnClickListener(this);
+        barChartRefresh.setOnClickListener(this);
+        pieChartRefresh.setOnClickListener(this);
+        setChartHeight();
+    }
+
+    private void setupRecyclerView() {
         mRecentsRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         CashRecordAdapter cashRecordAdapter = moneyControlManager.getCashRecordAdapter();
         cashRecordAdapter.setClickListener(new CustomClickListener() {
@@ -200,23 +222,24 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 statisticsCardView.setVisibility(!(moneyControlManager.getCashRecordAdapter().getItemCount() > 0) ? View.GONE : View.VISIBLE);
             }
         });
-        moneyControlManager.updateAllRecords();
 
-        FloatingActionButton fab = findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(getApplication(), DetailInputActivity.class));
-            }
-        });
-
-        //Statistics
-        statisticsListener.listen();
-        barChartFilter.setOnClickListener(this);
-        pieChartFilter.setOnClickListener(this);
-        barChartRefresh.setOnClickListener(this);
-        pieChartRefresh.setOnClickListener(this);
-        setChartHeight();
+//        SwipeController swipeController = new SwipeController(new SwipeControllerActions() {
+//            @Override
+//            public void onRightClicked(int position) {
+//                cashRecordAdapter.removeCashRecord(position);
+//                cashRecordAdapter.notifyItemRemoved(position);
+//                cashRecordAdapter.notifyItemRangeChanged(position, cashRecordAdapter.getItemCount());
+//            }
+//        });
+//
+//        ItemTouchHelper itemTouchhelper = new ItemTouchHelper(swipeController);
+//        itemTouchhelper.attachToRecyclerView(mRecentsRecyclerView);
+//        mRecentsRecyclerView.addItemDecoration(new RecyclerView.ItemDecoration() {
+//            @Override
+//            public void onDraw(Canvas c, RecyclerView parent, RecyclerView.State state) {
+//                swipeController.onDraw(c);
+//            }
+//        });
     }
 
     @Override
