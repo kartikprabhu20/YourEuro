@@ -24,4 +24,4 @@ date: 2019-07-03
 </style>
 </head>
     <body style="background-color:powderblue;">
-  <h1>what is the app about & why should android users download your app</h1>
+  <h2>What is the app about & Why should android users download your app</h2>
