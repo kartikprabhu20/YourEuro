@@ -72,13 +72,17 @@ date: 2019-07-03
   <p> Please find the downloadable application link here: <a href="https://github.com/DBSE-teaching/isee2019-          ARTexceptionals/releases/download/release/app-debug.apk">Downlaod</a></p>
  <p> Feel free to check out the code in our repository:https://github.com/DBSE-teaching/isee2019-ARTexceptionals</p>
 <br>
+<div class="imageClass">
 <img src=" https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/Demo.jpeg?raw=true" width="250" height="480">
-div class="imageClass">
+<div class="imageClass">
 		<img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/AddPin.jpeg?raw=true" width="250" height="480">
-    div class="imageClass">
+    <div class="imageClass">
 		<img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/Pin.jpeg?raw=true" width="250" height="480">
-    div class="imageClass">
+    <div class="imageClass">
 		<img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/Recurring.jpeg?raw=true" width="250" height="480">
+	    </div>
+	</div>
+</div
 
    
 
