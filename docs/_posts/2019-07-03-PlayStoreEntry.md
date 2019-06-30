@@ -59,10 +59,8 @@ Hello and welcome to our penultimate blog for the series of ‘YourEuro’ - A m
         <li><p>Summarize monthly expenses in mail</p></li>
         <li><p>Forgot pin</p></li>
   <ul/>
-  
-  
   <h1>Working Prototype</h1>
-  <p> Please find the downloadable application link here: <a href="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/releases/download/release/app-debug.apk">Downlaod</a></p>
+  <p> Please find the downloadable application link here: <a href="https://github.com/DBSE-teaching/isee2019-          ARTexceptionals/releases/download/release/app-debug.apk">Downlaod</a></p>
 <br>
    
 
