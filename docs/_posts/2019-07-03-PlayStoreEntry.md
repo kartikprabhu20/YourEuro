@@ -81,7 +81,7 @@ date: 2019-07-03
  <p> Feel free to check out the code in our repository: <a href="https://github.com/DBSE-teaching/isee2019-ARTexceptionals">Repository</a></p>
 <hr>
 <h1>App Screenshots:</h1>
-<div class="row">
+
 <div class="column">
 <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/Demo.jpeg?raw=true" width="250" height="480"> 
 	<div class="column">
