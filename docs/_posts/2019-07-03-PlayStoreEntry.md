@@ -31,8 +31,8 @@ Hello and welcome to our penultimate blog for the series of ‘YourEuro’ - A m
   
   
   <h1>Features</h1>
-<p>We were able to implement all our necessary and essential requirement, also added few desirable requirement to make the app more appealing and user friendly. 
-  Following are the features achieved in the app based on requirement category:
+<p>We were able to implement all our necessary and essential requirement, also added few desirable requirement to make the app more appealing and user friendly.<br>
+  Following are the features achieved in the app based on requirement category:</p>
   
   <h2>Essential Requirements:</h2>
   <ul>
@@ -60,9 +60,10 @@ Hello and welcome to our penultimate blog for the series of ‘YourEuro’ - A m
         <li><p>Forgot pin</p></li>
   <ul/>
   
+  
   <h1>Working Prototype</h1>
   <p> Please find the downloadable application link here: <a href="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/releases/download/release/app-debug.apk">Downlaod</a></p>
 <br><hr>
    
 
-</p>
+
