@@ -58,6 +58,7 @@ date: 2019-07-03
   <ul>
         <li><p>Summarize monthly expenses in mail</p></li>
         <li><p>Forget pin</p></li>
+        <li><p>Demo of app</p></li>
   </ul>
   
   <h1>Additinal Information </h1>
@@ -71,8 +72,6 @@ date: 2019-07-03
   <p> Please find the downloadable application link here: <a href="https://github.com/DBSE-teaching/isee2019-          ARTexceptionals/releases/download/release/app-debug.apk">Downlaod</a></p>
  <p> Feel free to check out the code in our repository:https://github.com/DBSE-teaching/isee2019-ARTexceptionals</p>
 <br>
-
-<h1>Demo of the APP</h1>
 <img src=" https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/Demo.jpeg?raw=true" width="250" height="480">
 
 
