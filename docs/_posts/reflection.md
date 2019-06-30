@@ -53,6 +53,28 @@ date: 2019-07-02
     </ul>
 </p><br>
 
+<h1>Challenges the team experienced by working on a software project as a team</h1><br>
+<p>Due to the nature of working in teams, group members can sometimes find that they are not working effectively, which negatively impacts on their progress, and their ability to be successful.  Some common problems identified by individuals working in teams are:</p> 
+    <ul>
+        <li><p>Tasks were not being completed on time which led to Doppler effect and too much work for single person</p></li>
+        <li><p>Communication is not always easy, that's how humans are!</p></li>
+        <li><p>Collabaration of team member for perticular task on common time was challenging</p></li>
+        <li><p>Learning is fun, but its a long process.</p></li>
+    </ul>
+</p><br>
+
+
+<h1>How the course did meet your needs or fall short?</h1><br>
+<p>
+</p> 
+    <ul>
+        <li><p>This course helped us to know more about the Android App development, agile methodology and team work</p></li>
+        <li><p>We got the chance to work and gain skills in java,android studio, html and learnt more about Github. </p></li>
+        <li><p>Learning how an entire software engineering project in agile works, from requirements analysis, designing, development  until the testing of the application.</p></li>
+        <li><p>This project gave an abstarct idea of work culture in corparate sector.</p></li>
+    </ul>
+</p><br>
+
 
 
 
