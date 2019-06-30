@@ -174,7 +174,4 @@ To summarise testing phases:</p>
 
 <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/4_black_box_testing.png?raw=true"  class="center" style="width:100%"><br>
  <ul>
-        <li><p>Scenarios 1, 2 and 4 describes equivalence class where the Data input 1 column are valid inputs  and Data input 2 column are invalid input(example: empty input)</p></li>
-        <li><p>Scenario 5 is Boundary value tests, where adding a range which is not present will give empty list to view.</p></li>
-    </ul>
-
+       
