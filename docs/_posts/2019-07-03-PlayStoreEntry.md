@@ -26,7 +26,7 @@ date: 2019-07-03
     <body style="background-color:powderblue;">
   <h1>What is the app about & Why should android users download our app ?</h1>
   <p> <br>
-Hello and welcome to our penultimate blog for the series of ‘YourEuro’ - A money control app. In this blog we discuss in detail the process of testing which we followed to make our app flawless and make it Playstore ready.</p><hr>
+Hello and welcome to our penultimate blog for the series of ‘YourEuro’ - A money control app. In this blog we discuss in detail the process of testing which we followed to make our app flawless and make it Playstore ready.</p>
   
   
   
@@ -63,7 +63,7 @@ Hello and welcome to our penultimate blog for the series of ‘YourEuro’ - A m
   
   <h1>Working Prototype</h1>
   <p> Please find the downloadable application link here: <a href="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/releases/download/release/app-debug.apk">Downlaod</a></p>
-<br><hr>
+<br>
    
 
 
