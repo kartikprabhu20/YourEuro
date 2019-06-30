@@ -73,7 +73,7 @@ date: 2019-07-02
 <p> 
 To know more about our app and to download it, please visit our next blog.
 </p> 
-</p><br>
+<br>
 
 <img src=" https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/4_testing_phases.png?raw=true" width="675" height="300" class="center">
 
