@@ -37,9 +37,14 @@ Hello and welcome to our penultimate blog for the series of ‘YourEuro’ - A m
   <h2>Essential Requirements:</h2>
   <ul>
         <li><p>Details/Parameters of expense/income (category, note, date, place, camera for receipt)</p></li>
-        <p>a.Customizable category, deleting option</p>
-        <p>b.Payment method of income and expenditure</p>
-
+        <p>a) Customizable category, deleting option</p>
+        <p>b) Payment method of income and expenditure</p>
+        <p>c) Free text noted</p>
+        <p>c) Date and Time</p>
+        <li><p>The application should work offline</p></li>
+        <li><p>Application should store the data locally, one user in fine</p></li>
+        <li><p>Security feature (Pin login for the app)</p></li>
+        <li><p>Statistics</p></li>
        
     </ul>
 
