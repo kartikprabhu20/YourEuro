@@ -144,6 +144,3 @@ To summarise testing phases:</p>
      <figcaption class="center" >Fig: Class and line coverage of model package</figcaption>
 </figure><br>
                                                                                                                                <hr>        
-<h1>White box testing </h1>
-<p>White box testing is testing process where the tester knows the internal structure of the code. The test coverage can be done by statement-by-statement or branch-by-branch basis. The following are the 5 scenarios which was tested using white-box testing.</p>
-
