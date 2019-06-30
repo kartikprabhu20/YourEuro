@@ -86,8 +86,10 @@ date: 2019-07-03
 	<p>Demo of App</p>
 <div class="imageClass">
 <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/AddPin.jpeg?raw=true" width="250" height="480">
+	<p>Pin Login</p>
 	<div class="imageClass">
 <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/Pin.jpeg?raw=true" width="250" height="480">
+		<p>Set Pin</p>
 </div>
 	</div>
 </div>
