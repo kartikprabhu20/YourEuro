@@ -46,6 +46,8 @@ date: 2019-07-03
         <li><p>Security feature (Pin login for the app)</p></li>
         <li><p>Statistics</p></li>
 	<li><p>Summarize monthly expenses in mail</p></li>
+	<li><p>Recurring transactions (daily, weekly, monthly, yearly)</p></li>
+	<li><p>Two charts for visualization</p></li>
        
    </ul>
 
@@ -53,13 +55,18 @@ date: 2019-07-03
   <ul>
         <li><p>The data needs to be filtered based on time, type of payment, category, range of money</p></li>
         <li><p>Currency change support</p></li>
+	<li><p>Threshold per category support</p></li>
+	<li><p>Deleting existing record</p></li>
+	<li><p>Custom Category supportd</p></li>
+	<li><p>Enable/Disable PIN</p></li>
 	
   </ul>
   
   <h2>Desirable Requirements:</h2>
   <ul>
-        <li><p>Forget pin</p></li>
+        <li><p>Forgot pin</p></li>
         <li><p>Demo of app</p></li>
+	<li><p>Edit existing record</p></li>
   </ul>
   
   <h1>Additinal Information </h1>
