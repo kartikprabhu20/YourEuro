@@ -40,6 +40,25 @@ date: 2019-07-02
     </ul>
 </p><br>
 
+<h1>Benefits the team experienced by working on a software project as a team</h1><br>
+<p>
+</p> 
+    <ul>
+        <li><p>Knowledge sharing is major take away from the project.</p></li>
+        <li><p>Dividing the task made work easier.</p></li>
+        <li><p>Driving each other to work, made deadlines less scary.</p></li>
+        <li><p>Learning was fun when you learn from friends.</p></li>
+        <li><p>Approaching the problem with different perspective lead us to a better solution. </p></li>
+        <li><p>Working in a team developed not technical skills but also improved management and communication competence.</p></li>
+    </ul>
+</p><br>
+
+
+
+
+
+
+
 <p>Some of these test methods can be further classified into:<br>
     <ul>
         <li><p><b>White-Box Testing:</b> A software testing process where the tester will have knowledge of internal   structure/ design/ implementation of the produce under consideration.</p></li>
