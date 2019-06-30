@@ -73,7 +73,7 @@ date: 2019-07-03
 <br>
 
 <h1>Demo of the APP</h1>
-<img src=" https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/Demo.jpeg?raw=true" width="250" height="480" class="center">
+<img src=" https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/Demo.jpeg?raw=true" width="100" height="480" class="center">
 
 
    
