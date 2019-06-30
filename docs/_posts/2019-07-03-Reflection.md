@@ -130,13 +130,4 @@ To summarise testing phases:</p>
 
 <div class="row">
     <div class="column">
-             <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/4_UntestedCategory.PNG?raw=true" style="width:100%">
-    </div>
-    <div class="column" width="20">
-    </div>
-    <div class="column">
-            <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/4_testedCategory.PNG?raw=true" style="width:100%">
-    </div>
-</div>
-
-<figure>       
+             <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/4_UntestedCategory.PNG?
