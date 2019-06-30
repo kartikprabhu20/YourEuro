@@ -26,23 +26,17 @@ date: 2019-07-02
     <body style="background-color:powderblue;">
                 
 <h1>Overview</h1>
-//<p> <i>“It’s time for some testing!”</i><br>
-Hello Folks,welcome to our last blog of the series for ‘YourEuro’ - A money control app. In this blog we discuss about the reflections of our whole experience as working in team and difficulties encountered while developing the app.</p><hr>
+<p> Hello Folks,welcome to our last blog of the series for ‘YourEuro’ - A money control app. In this blog we discuss about the reflections of our whole experience as working in team and difficulties encountered while developing the app.</p><hr>
 
-<h1>Technical difficulties</h1><br>
-<p>Testing is a default part of software development package. It helps in enhancing the quality of the product, make it more reliable, give an effective performances and flawless experience. In the end these measures are required to stay in business.<br><br>  
-In a team of 4, one of the members will be the developer for a feature while two other will be the code reviewer. The fourth person will not participate in the code review and thereby be ignorant of the structure of the source code. He will act as a tester and write test cases for blackbox testing. And the same is repeated with different developer and tester for different features.
+<h1>Technical challenges our team encountered</h1><br>
+<p>
 </p> 
-
-<img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/4_tester.png?raw=true" width="350" height="300" class="center"><br>
-
-<p>We followed standard industrial norms of testing a product, and following were the different types of testing we executed.
     <ul>
-        <li><p>Unit Testing</p></li>
-        <li><p>Integration Testing</p></li>
-        <li><p>Functional Testing</p></li>
-        <li><p>System Testing</p></li>
-        <li><p>Acceptance Testing</p></li>
+        <li><p>Three of our team members were not well aware of the android platform and MVC architecture, learning and understanding the concepts took time initially. Hence development burden was on single person.</p></li>
+        <li><p>Due to our misconception in requirements, made us to rebuild few of the functionalities.</p></li>
+        <li><p>Creating blog and adding libraries through Github was challenging.</p></li>
+        <li><p>Debugging the errors took more time than expected.</p></li>
+        <li><p>Faced difficulties while working and merging the code parallelly in Git. </p></li>
     </ul>
 </p><br>
 
