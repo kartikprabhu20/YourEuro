@@ -58,7 +58,7 @@ Hello and welcome to our penultimate blog for the series of ‘YourEuro’ - A m
    <ul>
         <li><p>Summarize monthly expenses in mail</p></li>
         <li><p>Currency change support</p></li>
-        <li><p>Pin reset</p></li>
+        <li><p>Forgot pin</p></li>
   <ul/>
    
 
