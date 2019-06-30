@@ -177,21 +177,4 @@ To summarise testing phases:</p>
         <li><p>Scenarios 1, 2 and 4 describes equivalence class where the Data input 1 column are valid inputs  and Data input 2 column are invalid input(example: empty input)</p></li>
         <li><p>Scenario 5 is Boundary value tests, where adding a range which is not present will give empty list to view.</p></li>
     </ul>
-<hr>
-<h1>Summary of changes</h1>
 
-<h2>New features introduced after Advanced prototype:</h2>
-<ul>
-     <li><p>Threshold set for categories</p></li>
-     <li><p>Export transaction summary pdf via e-mail</p></li>
-      <li><p>Recurring transactions</p></li>
-</ul>
-    
-<h2>Modifications after Advanced prototype:</h2>
-<ul>
-        <li><p>Category thresholds are represented as line graph over existing bar graph</p></li>
-        <li><p>The axis values for charts changes depending on filter selection</p></li>
-    </ul>
-                
-<br><hr>
-<h3><i><strong>Thank You for visiting our blog!! That’s all for Now. Stay tuned for our final blog where we reflect on our journey in creating a dream app!!!</strong></i></h3>
