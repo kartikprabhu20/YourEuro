@@ -85,30 +85,30 @@ date: 2019-07-03
 <h1>App Screenshots:</h1>
 
 <div class="imageClass">	
-<img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/6final1.png?raw=true" width="250" height="480"> 
+<img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/6final2.png?raw=true" width="250" height="480"> 
 <div class="imageClass">
-<img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/6final2.png?raw=true" width="250" height="480">
+<img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/6final1.png?raw=true" width="250" height="480">
 	<div class="imageClass">
-<img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/6final3.png?raw=true" width="250" height="480">
+<img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/6final7.png?raw=true" width="250" height="480">
 </div>
 	</div>
 </div>
 <div class="imageClass">	
-<img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/6final4.png?raw=true" width="250" height="480"> 
+<img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/6final3.png?raw=true" width="250" height="480"> 
 <div class="imageClass">
-<img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/6final5.png?raw=true" width="250" height="480">
+<img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/6final4.png?raw=true" width="250" height="480">
 	<div class="imageClass">
-<img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/6final6.png?raw=true" width="250" height="480">
+<img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/6final9.png?raw=true" width="250" height="480">
 </div>
 	</div>
 </div>
 
 <div class="imageClass">	
-<img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/6final7.png?raw=true" width="250" height="480"> 
+<img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/6final5.png?raw=true" width="250" height="480"> 
 <div class="imageClass">
-<img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/6final8.png?raw=true" width="250" height="480">
+<img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/6final6.png?raw=true" width="250" height="480">
 	<div class="imageClass">
-<img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/6final9.png?raw=true" width="250" height="480">
+<img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/6final7.png?raw=true" width="250" height="480">
 </div>
 </div>
 </div>
