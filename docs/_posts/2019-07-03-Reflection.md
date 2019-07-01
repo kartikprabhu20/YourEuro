@@ -47,7 +47,7 @@ date: 2019-07-02
         <li><p>Driving each others to work, made deadlines less scarier.</p></li>
         <li><p>Learning is fun when you learn from friends.</p></li>
         <li><p>Approaching the problem with different perspective lead us to a better solution. </p></li>
-        <li><p>Working in a team developed not technical skills but also improved management and communication competence.</p></li>
+        <li><p>Working in a team developed not only technical skills but also improved management and communication competence.</p></li>
     </ul>
 <br>
 
