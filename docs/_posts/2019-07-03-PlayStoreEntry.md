@@ -30,8 +30,9 @@ date: 2019-07-03
 <hr>
 
  <h1>All about <i>YOUREURO</i></h1>
-  <p>Saving money and keeping track of the spending is a very hectic task, It’s always necessary for each one of us to track the money flow for efficient financial management. Our App “YOUREURO” will not only keep the track of money flow, but will also give a statistical analysis.<br>	  
-</p>
+  <p>Saving money and keeping track of the spending is a very hectic task, It’s always necessary for each one of us to track the money flow for efficient financial management. Our App “YOUREURO” will not only keep the track of money flow, but will also give a statistical analysis. Become your own finanace planner.</p><br>	  
+
+<p>YourEuro is a light weighted simple to use</p><br>
   
   <hr>
   <h1>Features</h1>
@@ -76,6 +77,14 @@ date: 2019-07-03
   <p><b>Download size:</b> 5.7 MB</p>
   <p><b>Targeted age group</b> 12+ years</p>
   <p><b>Content Rating:</b> USK: All ages</p>
+  <p><b>Permissions:</b>
+	 <ul>
+        <li><p>Storage</p></li>
+        <li><p>Receive data from Internet</p></li>
+	<li><p>Full network access</p></li>
+	<li><p>Use accounts on the device</p></li>
+  	</ul>
+  </p>
 
   <hr>
   <h1>Working Prototype</h1>
@@ -89,7 +98,7 @@ date: 2019-07-03
 <div class="imageClass">
 <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/6final1.png?raw=true" width="250" height="480">
 	<div class="imageClass">
-<img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/6final7.png?raw=true" width="250" height="480">
+<img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/6final8.png?raw=true" width="250" height="480">
 </div>
 	</div>
 </div>
