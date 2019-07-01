@@ -33,7 +33,7 @@ date: 2019-07-02
 </p> 
     <ul>
         <li><p>Three of our team members were not well aware of the android platform and MVC architecture, learning and understanding the concepts took time initially. Hence development burden was on single person.</p></li>
-        <li><p>Due to our misconception in requirements, made us to rebuild few of the functionalities.</p></li>
+        <li><p>Due to our misconception in requirements, made us to rebuild few of the app functionalities.</p></li>
         <li><p>Creating blog and adding libraries through Github was challenging.</p></li>
         <li><p>Debugging the errors took more time than expected.</p></li>
         <li><p>Faced difficulties while working and merging the code parallelly in Git. </p></li>
