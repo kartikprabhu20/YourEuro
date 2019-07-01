@@ -27,6 +27,7 @@ date: 2019-07-02
                 
 <h1>Overview</h1>
 <h3><i> Hello folks! Welcome to our last blog of the series for ‘YourEuro’ - A money control app. In this blog we discuss about  our whole experience as working in team and difficulties encountered while developing the app.</i></h3>
+<hr>
 
 <h1>Technical challenges?</h1><br>
 <p>Technical challenges, are less a solution to all of problems than a puzzle that needs to be constantly assessed and configured to make sure everything is going in a pace. by constantly getting called upon to adapt learnings and break down new barriers.
@@ -39,6 +40,7 @@ date: 2019-07-02
         <li><p>Faced difficulties while working and merging the code parallelly in Git. </p></li>
     </ul>
 <br>
+<hr>
 
 <h1>Role of team work</h1><br>
     <ul>
@@ -54,6 +56,7 @@ date: 2019-07-02
 <figure>
      <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/team.png?raw=true" class="center">
 </figure>
+<hr>
 
 <h1>Challenges experienced as a team</h1><br>
 <p>Due to the nature of working in teams, group members can sometimes find that they are not working effectively, which negatively impacts on their progress, and their ability to be successful.  Some common problems identified while working in team are:</p> 
@@ -65,7 +68,7 @@ date: 2019-07-02
     </ul>
 <br>
 
-
+<hr>
 <h1>About the course</h1><br>
    <ul>
         <li><p>This course helped us to know more about the Android App development, agile methodology and team work</p></li>
@@ -75,7 +78,8 @@ date: 2019-07-02
     </ul>
     <p>Our team 'ARTExceptionals' would like to thank Dr. Schulze for granting us the opportunity to develop our skills in a very practical approach.We would also like to thank Dean D'souza for bringing the best out of us by his regular inputs and feedbacks.</p>
     
-  <br><hr>
+  <br>
+  <hr>
 
 <h3><i> 
 To know more about our app and to download it, please visit our next blog!!
