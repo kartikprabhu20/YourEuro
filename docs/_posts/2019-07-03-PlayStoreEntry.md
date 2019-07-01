@@ -29,14 +29,13 @@ date: 2019-07-03
   <p>Welcome to our final blog of the series YourEuro’ - A money control app. In this blog we are going to simulate a playstore entry and key features to attract our customers.</p>
 <hr>
 
- <h1>All about <i>YOUREURO</i></h1><br>
+ <h1>All about <i>YOUREURO</i></h1>
   <p>Saving money and keeping track of the spending is a very hectic task, It’s always necessary for each one of us to track the money flow for efficient financial management. Our App “YOUREURO” will not only keep the track of money flow, but will also give a statistical analysis.<br>	  
 </p>
   
   <hr>
-  <h1>Features</h1><br>
-<p>We were able to implement all the essential requirements requested by our client, also added few desirable features to make the app more appealing and user friendly.<br>
-  Following are the features achieved in the app based on requirement given by the client:</p>
+  <h1>Features</h1>
+<p>We were able to implement all the essential requirements requested by our client, also added few desirable features to make the app more appealing and user friendly. Following are the features achieved in the app based on requirement given by the client:</p>
   
   <h2>Essential Requirements:</h2>
   <ul>
@@ -79,7 +78,7 @@ date: 2019-07-03
   <p><b>Content Rating:</b> USK: All ages</p>
 
   <hr>
-  <h1>Working Prototype</h1><br>
+  <h1>Working Prototype</h1>
   <p> Please find the downloadable application link here: <a href="https://github.com/DBSE-teaching/isee2019-          ARTexceptionals/releases/download/release/app-debug.apk">Downlaod</a></p>
  <p> Feel free to check out the code in our repository: <a href="https://github.com/DBSE-teaching/isee2019-ARTexceptionals">Repository</a></p>
 <hr>
@@ -116,8 +115,8 @@ date: 2019-07-03
 <hr>
 
 
- <h1>What to expect from near future...</h1><br>
-<p>A product never stops with a single release. There will be 'N' number of features which for various circumstances could'nt make into the current release. Version control helps us keep improvising the app and meet the demands made by our customers or the market.</p>
+ <h1>What to expect from near future...</h1>
+<p>A product never stops with a single release. There will be 'N' number of features which for various circumstances could not make into the current release. Version control helps us keep improvising the app and meet the demands made by our customers or the market.</p>
     <ul>
         <li><p>Currency convertor</p></li>
         <li><p>In-built calculator</p></li>
