@@ -35,7 +35,7 @@ date: 2019-07-03
   
   <hr>
   <h1>Features</h1>
-<p>We were able to implement all the essential requirements requested by our client, also added few desirable features to make the app more appealing and user friendly. Following are the features achieved in the app based on requirement given by the client:</p>
+<p>We were able to implement all the essential requirements requested by our client, also added few desirable features to make the app more appealing and user friendly. <br>Following are the features achieved in the app based on requirement given by the client:</p>
   
   <h2>Essential Requirements:</h2>
   <ul>
