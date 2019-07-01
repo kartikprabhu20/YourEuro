@@ -45,9 +45,9 @@ date: 2019-07-03
 	<li><p><b>Customize the categories</b><br> If the categories provided by the app are insufficent, you can always create a new category of your choice with corresponding image. You can also add </p></li>
 	<li><p><b>Recurring transaction:</b><br> Don't break a sweat if you have a transaction which occurs repeatedly. Just by selecting the recurring option the app will automatically register a transaction and schedule the next one without user interference</p></li>
 	<li><p><b>Security:</b><br>The user has been given the option to enable the PIN security, so that the transaction can't be read by some random person. Even if you forget the pin , no worries, we have security question which helps you reset the PIN</p></li>
-	<li><p><b>Multi-currency support</b><br>The app name might suggest that we support only 'Euro'. But we support multiple other currencies and track the same.</p></li>
-	<li><p><b>Share the summary</b><br>The app facilitates the sharing of all the transaction in pdf format. If the user has signed in using google , then the pdf can be shared either via mail or all other apps that support sharing like whatsapp, yahoo mail, etc.</p></li>
-	<li><p><b>View history anytime</b><br>'Past is in the past', but all your transactions are in the 'History' page. Even here the filter can be filtered easily using the dynamic search view.</p></li>
+	<li><p><b>Multi-currency support:</b><br>The app name might suggest that we support only 'Euro'. But we support multiple other currencies and track the same.</p></li>
+	<li><p><b>Share the summary:</b><br>The app facilitates the sharing of all the transaction in pdf format. If the user has signed in using google , then the pdf can be shared either via mail or all other apps that support sharing like whatsapp, yahoo mail, etc.</p></li>
+	<li><p><b>View history anytime:</b><br>'Past is in the past', but all your transactions are in the 'History' page. Even here the filter can be filtered easily using the dynamic search view.</p></li>
 </ul>
 
   <hr>
