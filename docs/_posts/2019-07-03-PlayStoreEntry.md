@@ -29,15 +29,18 @@ date: 2019-07-03
   <p>Welcome to our final blog of the series YourEuro’ - A money control app. In this blog we are going to simulate a playstore entry and key features to attract our customers.</p>
 <hr>
 
- <h1>All about <i>YOUREURO</i></h1>
+ <h1>All about <i>YOUREURO</i></h1><br>
   <p>Saving money and keeping track of the spending is a very hectic task, It’s always necessary for each one of us to track the money flow for efficient financial management. Our App “YOUREURO” will not only keep the track of money flow, but will also give a statistical analysis. Become your own finanace planner.</p><br>	  
 
 <p>YourEuro is a light weighted simple to use</p><br>
   
-  <hr>
-  <h1>Features</h1>
+<h3>Who should use YourEuro?</h3>
+<p>Some one who wants to get rid of all the notebooks, spreadsheets and budget bookmarks, and wishes to consolidate all the transaction in one single place, needs to go no further.It may be for your travel, holiday, food habits, morgages,etc the app is just one click away. YourEuro by ARTExceptionals isn't just a transaction recorder. It is a place where you can visualise, plan, track, and make wise decisions from monthly summaries.</p>
+
+<hr>
+<h1>Features</h1><br>
 <p>We were able to implement all the essential requirements requested by our client, also added few desirable features to make the app more appealing and user friendly. <br>Following are the features achieved in the app based on requirement given by the client:</p>
-  
+ 
   <h2>Essential Requirements:</h2>
   <ul>
         <li><p>Parameters of a transaction:</p></li>
@@ -128,6 +131,7 @@ date: 2019-07-03
 <p>A product never stops with a single release. There will be 'N' number of features which for various circumstances could not make into the current release. Version control helps us keep improvising the app and meet the demands made by our customers or the market.</p>
     <ul>
         <li><p>Currency convertor</p></li>
+	<li><p>Camera support</p></li>
         <li><p>In-built calculator</p></li>
         <li><p>Cloud storage for backup</p></li>
 	<li><p>More statistical analysis</p></li>
