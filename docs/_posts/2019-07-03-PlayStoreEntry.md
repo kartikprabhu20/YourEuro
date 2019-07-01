@@ -24,11 +24,14 @@ date: 2019-07-03
 </style>
 </head>
     <body style="background-color:powderblue;">
-  <h1>All about <i>YOUREURO</i></h1>
-  <p>Saving money and keeping track of the spending is a very hectic task, It’s always necessary for each one of us to track the money flow for efficient financial management. Our App “YOUREURO” will not only keep the track of money flow, but will also give a statistical analysis.<br>
-	  
+	
+<h1>Overview</h1>
+  <p>Welcome to our final blog of the series YourEuro’ - A money control app. In this blog we are going to simulate a playstore entry and key features to attract our customers.<br>
+<hr>
+
+ <h1>All about <i>YOUREURO</i></h1>
+  <p>Saving money and keeping track of the spending is a very hectic task, It’s always necessary for each one of us to track the money flow for efficient financial management. Our App “YOUREURO” will not only keep the track of money flow, but will also give a statistical analysis.<br>	  
 </p>
-  
   
   <hr>
   <h1>Features</h1>
@@ -125,5 +128,7 @@ date: 2019-07-03
 	<li><p>Making a paid version with some more cooler features.</p></li>
    </ul>
 <hr>
+<p>Thank you for following our journey in developing a money control app. But, we are not done yet. Even though this is our final blog on this series, the app will improve with time and we like you to support and follow us in the journey ahead. 
+Until next time...</p>
 
 
