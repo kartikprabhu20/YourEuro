@@ -77,6 +77,9 @@ date: 2019-07-02
         <li><p>Collabaration of team members for particular task on common time slot was challenging</p></li>
         <li><p>Learning is fun, but it is a long process.</p></li>
     </ul>
+    
+<p>But in the end, what mattered was how we overcame these challeges to successfully complete the assigned tasks and get the best out of everything.</p> 
+
 <br>
 
 <hr>
