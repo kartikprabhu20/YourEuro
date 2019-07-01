@@ -26,7 +26,7 @@ date: 2019-07-02
     <body style="background-color:powderblue;">
                 
 <h1>Overview</h1>
-<h3><i> Hello folks! Welcome to our last blog of the series for ‘YourEuro’ - A money control app. In this blog we discuss about  our whole experience as working in team and difficulties encountered while developing the app.</i></h3>
+<p><i> Hello folks! Welcome to our penultimate blog of the series for ‘YourEuro’ - A money control app. In this blog we discuss about  our whole experience as working in team and difficulties encountered while developing the app.</i></p>
 <hr>
 
 <h1>Technical challenges?</h1><br>
