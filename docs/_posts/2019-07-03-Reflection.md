@@ -70,10 +70,10 @@ date: 2019-07-02
    <ul>
         <li><p>This course helped us to know more about the Android App development, agile methodology and team work</p></li>
         <li><p>We got the chance to work and gain skills in java,android studio, html and learnt more about Github. </p></li>
-        <li><p>Learnt how an entire software engineering project in agile works, from requirements analysis, designing, development  until the testing of the application.</p></li>
+        <li><p>Learnt how an entire software engineering project works in agile. From requirements analysis, designing, development  until the testing of the application.</p></li>
         <li><p>This project gave an abstract idea of work culture in corparate sector.</p></li>
     </ul>
-    <p>Our team 'ARTExceptionals' would like to thank Dr. Schulze for granting us the opportunity to develop our skills in a very practical approach.We would also like to thank Dean D'souza for bringing the best out the best out of us by his regular inputs and feedbacks.</p>
+    <p>Our team 'ARTExceptionals' would like to thank Dr. Schulze for granting us the opportunity to develop our skills in a very practical approach.We would also like to thank Dean D'souza for bringing the best out of us by his regular inputs and feedbacks.</p>
     
   <br><hr>
 
