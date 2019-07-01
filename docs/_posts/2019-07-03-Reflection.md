@@ -44,7 +44,7 @@ date: 2019-07-02
     <ul>
         <li><p>Knowledge sharing is major take away from the project.</p></li>
         <li><p>Dividing the task made work easier.</p></li>
-        <li><p>Driving each other to work, made deadlines less scary.</p></li>
+        <li><p>Driving each others to work, made deadlines less scarier.</p></li>
         <li><p>Learning was fun when you learn from friends.</p></li>
         <li><p>Approaching the problem with different perspective lead us to a better solution. </p></li>
         <li><p>Working in a team developed not technical skills but also improved management and communication competence.</p></li>
