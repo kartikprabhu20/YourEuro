@@ -33,7 +33,7 @@ date: 2019-07-02
 <p>Technical challenges, are less a solution to all of problems than a puzzle that needs to be constantly assessed and configured to make sure everything is going in a pace. by constantly getting called upon to adapt learnings and break down new barriers.
   
   <figure>
-     <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/technical.png?raw=true" class="center" width="300" height="300">
+     <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/technical.jpg?raw=true" class="center" >
 </figure>
 
 </p> 
@@ -59,7 +59,7 @@ date: 2019-07-02
 <br>
 
 <figure>
-     <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/team.png?raw=true" class="center" width="300" height="300">
+     <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/team2.jpg?raw=true" class="center" >
 </figure>
 <hr>
 
