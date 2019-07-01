@@ -66,11 +66,14 @@ date: 2019-07-03
   </ul>
   
   <h1>Additinal Information </h1>
-  <p><b>Updated:</b>
-  <p><b>Category of App:</b>
-  <p><b>Android Version:</b>
-  <p><b>Supported Devices:</b>
-  <p><b>Content Rating:</b>
+  <p><b>Version:</b> 1.0</p>
+  <p><b>Updated:</b> 1st July 2019</p>
+  <p><b>Category of App:</b> Finance</p>
+  <p><b>Android Version:</b> Android 5.0 Lollipop(API 21)</p>
+  <p><b>Download size:</b> 5.7 MB</p>
+  <p><b>Targeted age group</b> 12+ years</p>
+  <p><b>Content Rating:</b> USK: All ages</p>
+
   <hr>
   <h1>Working Prototype</h1>
   <p> Please find the downloadable application link here: <a href="https://github.com/DBSE-teaching/isee2019-          ARTexceptionals/releases/download/release/app-debug.apk">Downlaod</a></p>
@@ -104,11 +107,23 @@ date: 2019-07-03
 	<div class="imageClass">
 <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/6final9.png?raw=true" width="250" height="480">
 </div>
-	</div>
+</div>
 </div>
 <hr>
 
 
-   
+ <h1>What to expect from near future...</h1>
+<p>A product never stops with a single release. There will be 'N' number of features which for various circumstances could'nt make into the current release. Version control helps us keep improvising the app and meet the demands made by our customers or the market.</p>
+    <ul>
+        <li><p>Currency convertor</p></li>
+        <li><p>In-built calculator</p></li>
+        <li><p>Cloud storage for backup</p></li>
+	<li><p>More statistical analysis</p></li>
+	<li><p>Widgets and notifications</p></li>
+        <li><p>Reminders for transactions</p></li>
+	<li><p>Bookmark transactions</p></li>
+	<li><p>Making a paid version with some more cooler features.</p></li>
+   </ul>
+<hr>
 
 
