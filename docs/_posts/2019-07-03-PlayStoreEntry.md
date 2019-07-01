@@ -96,6 +96,16 @@ date: 2019-07-03
 </div>
 	</div>
 </div>
+
+<div class="imageClass">	
+<img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/6final7.png?raw=true" width="250" height="480"> 
+<div class="imageClass">
+<img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/6final8.png?raw=true" width="250" height="480">
+	<div class="imageClass">
+<img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/6final9.png?raw=true" width="250" height="480">
+</div>
+	</div>
+</div>
 <hr>
 
 
