@@ -29,8 +29,8 @@ date: 2019-07-02
 <p><i> Hello folks! Welcome to our penultimate blog of the series for ‘YourEuro’ - A money control app. In this blog we discuss about  our whole experience as working in team and difficulties encountered while developing the app.</i></p>
 <hr>
 
-<h1>Technical challenges?</h1><br>
-<p>Technical challenges, are less a solution to all of problems than a puzzle that needs to be constantly assessed and configured to make sure everything is going in a pace. by constantly getting called upon to adapt learnings and break down new barriers.
+<h1>Technical challenges?</h1>
+<p>Technical challenges, are less a solution to all of problems than a puzzle that needs to be constantly assessed and configured to make sure everything is going in a pace, by constantly getting called upon to adapt learnings and break down new barriers.
   
   <figure>
      <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/technical.jpg?raw=true" class="center" >
@@ -47,7 +47,7 @@ date: 2019-07-02
 <br>
 <hr>
 
-<h1>Role of team work</h1><br>
+<h1>Role of team work</h1>
     <ul>
         <li><p>Knowledge sharing is major take away from the project.</p></li>
         <li><p>Dividing the task made work easier.</p></li>
@@ -63,7 +63,7 @@ date: 2019-07-02
 </figure>
 <hr>
 
-<h1>Challenges experienced as a team</h1><br>
+<h1>Challenges experienced as a team</h1>
 <p>Every project will have its own sets of hurdles, and getting a good throughput means overcoming those hurdles. Due to the nature of working in teams, group members can sometimes find that they are not working effectively, which negatively impacts on their progress, and their ability to be successful.</p>   
   
   <figure>
@@ -83,7 +83,7 @@ date: 2019-07-02
 <br>
 
 <hr>
-<h1>About the course</h1><br>
+<h1>About the course</h1>
    <ul>
         <li><p>This course helped us to know more about the Android App development, agile methodology and team work</p></li>
         <li><p>We got the chance to work and gain skills in java,android studio, html and learnt more about Github. </p></li>
