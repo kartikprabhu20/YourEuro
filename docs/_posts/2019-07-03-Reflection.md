@@ -61,7 +61,7 @@ date: 2019-07-02
         <li><p>Tasks were not getting completed on time which led to a Doppler effect and too much work for single person</p></li>
         <li><p>Communication is not always easy, that's how humans are!</p></li>
         <li><p>Collabaration of team members for particular task on common time slot was challenging</p></li>
-        <li><p>Learning is fun, but its a long process.</p></li>
+        <li><p>Learning is fun, but it is a long process.</p></li>
     </ul>
 <br>
 
