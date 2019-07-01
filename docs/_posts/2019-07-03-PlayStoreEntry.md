@@ -79,11 +79,11 @@ date: 2019-07-03
 <h1>App Screenshots:</h1>
 
 <div class="imageClass">	
-<img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/Demo.jpeg?raw=true" width="250" height="480"> 
+<img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/final1.jpg?raw=true" width="250" height="480"> 
 <div class="imageClass">
-<img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/AddPin.jpeg?raw=true" width="250" height="480">
+<img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/final2.jpg?raw=true" width="250" height="480">
 	<div class="imageClass">
-<img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/Pin.jpeg?raw=true" width="250" height="480">
+<img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/final3.jpg?raw=true" width="250" height="480">
 </div>
 	</div>
 </div>
