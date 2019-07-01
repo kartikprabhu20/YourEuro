@@ -36,7 +36,7 @@ date: 2019-07-03
 <p>Some one who wants to get rid of all the notebooks, spreadsheets and budget bookmarks, and wishes to consolidate all the transaction in one single place, needs to go no further.It may be for your travel, holiday, food habits, morgages,etc the app is just one click away. YourEuro by ARTExceptionals isn't just a transaction recorder. It is a place where you can visualise, plan, track, and make wise decisions from monthly summaries.</p>
 
 <hr>
-<h1>Features</h1>
+<h1>Key features</h1>
 <p>We were able to implement all the essential requirements requested by our client, also added few desirable features to make the app more appealing and user friendly. <br>Following are the features achieved in the app based on requirement given by the client:</p>
  
   <ul>
