@@ -88,11 +88,11 @@ date: 2019-07-03
 	</div>
 </div>
 <div class="imageClass">	
-<img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/Recurring.jpeg?raw=true" width="250" height="480"> 
+<img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/6final4.png?raw=true" width="250" height="480"> 
 <div class="imageClass">
-<img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/Pie.jpeg?raw=true" width="250" height="480">
+<img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/6final5.png?raw=true" width="250" height="480">
 	<div class="imageClass">
-<img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/Bar.jpeg?raw=true" width="250" height="480">
+<img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/6final6.png?raw=true" width="250" height="480">
 </div>
 	</div>
 </div>
