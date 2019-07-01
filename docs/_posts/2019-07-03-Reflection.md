@@ -26,7 +26,7 @@ date: 2019-07-02
     <body style="background-color:powderblue;">
                 
 <h1>Overview</h1>
-<p> Hello Folks, Welcome to our last blog of the series for ‘YourEuro’ - A money control app. In this blog we discuss about  our whole experience as working in team and difficulties encountered while developing the app.</p><hr>
+<h3><i> Hello folks, Welcome to our last blog of the series for ‘YourEuro’ - A money control app. In this blog we discuss about  our whole experience as working in team and difficulties encountered while developing the app.<i><h3>
 
 <h1>Technical challenges?</h1><br>
 <p>Technical challenges, are less a solution to all of problems than a puzzle that needs to be constantly assessed and configured to make sure everything is going in a pace. by constantly getting called upon to adapt learnings and break down new barriers.
