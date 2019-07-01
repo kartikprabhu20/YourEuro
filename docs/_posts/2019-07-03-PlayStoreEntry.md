@@ -29,48 +29,27 @@ date: 2019-07-03
   <p>Welcome to our final blog of the series YourEuro’ - A money control app. In this blog we are going to simulate a playstore entry and key features to attract our customers.</p>
 <hr>
 
- <h1>All about <i>YOUREURO</i></h1><br>
-  <p>Saving money and keeping track of the spending is a very hectic task, It’s always necessary for each one of us to track the money flow for efficient financial management. Our App “YOUREURO” will not only keep the track of money flow, but will also give a statistical analysis. Become your own finanace planner.</p><br>	  
-
-<p>YourEuro is a light weighted simple to use</p><br>
+ <h1>All about <i>YOUREURO</i></h1>
+  <p>Saving money and keeping track of the spending is a very hectic task, It’s always necessary for each one of us to track the money flow for efficient financial management. Our App “YOUREURO” will not only keep the track of money flow, but will also give a statistical analysis. Become your own finanace planner. On top of that the app is very light weighted and simple to use and thus doesn't take much of the phone's storage space</p><br>	  
   
 <h3>Who should use YourEuro?</h3>
 <p>Some one who wants to get rid of all the notebooks, spreadsheets and budget bookmarks, and wishes to consolidate all the transaction in one single place, needs to go no further.It may be for your travel, holiday, food habits, morgages,etc the app is just one click away. YourEuro by ARTExceptionals isn't just a transaction recorder. It is a place where you can visualise, plan, track, and make wise decisions from monthly summaries.</p>
 
 <hr>
-<h1>Features</h1><br>
+<h1>Features</h1>
 <p>We were able to implement all the essential requirements requested by our client, also added few desirable features to make the app more appealing and user friendly. <br>Following are the features achieved in the app based on requirement given by the client:</p>
  
-  <h2>Essential Requirements:</h2>
   <ul>
-        <li><p>Parameters of a transaction:</p></li>
-        <p>a) Customizable category</p>
-        <p>b) Payment method like cash, debit/credit cards, voucher, banck account</p>
-        <p>c) Free text notes</p>
-        <p>d) Date and Time</p>
-        <li><p>The application should work offline</p></li>
-        <li><p>Optional security feature where user can enable/disable PIN login</p></li>
-        <li><p>Statistical representations of all the transaction with two charts for visualisation</p></li>
-	<li><p>Summarize monthly expenses in mail</p></li>
-	<li><p>Recurring transactions (daily, weekly, monthly, yearly)</p></li>
-        <li><p>The records needs to be filtered based on time, type of payment, category, range of money</p></li>
-	<li><p>Mutli-Currency support</p></li>
-	<li><p>Threshold limits for category</p></li>
-	<li><p>Deleting existing transaction</p></li>
-   </ul>
+	<li><p><b>One-click tracking:</b><br> User can simple add a transaction by selecting the '+' sign on the home screen. A transaction can have details like category, payment method, date and time. The user can also add a note for any transaction. Each transaction is easily editable or even deleted if necessary</p></li>
+	<li><b><p>Insightful reports:</b><br> The app visualises the transactions which simpliefies the user's task of analysis of the expenses. Pie chart, barchart and line chart are the most common graph which are easily understood by any person. One can easily filter the graphs as categories, payment types, date range, amount range or combination of them all.</p></li>
+	<li><b><p>Customize the categories</b><br> If the categories provided by the app are insufficent, you can always create a new category of your choice with corresponding image. You can also add </p></li>
+	<li><p><b>Recurring transaction:</b><br> Don't break a sweat if you have a transaction which occurs repeatedly. Just by selecting the recurring option the app will automatically register a transaction and schedule the next one without user interference</p></li>
+	<li><p><b>Security:</b><br>The user has been given the option to enable the PIN security, so that the transaction can't be read by some random person. Even if you forget the pin , no worries, we have security question which helps you reset the PIN</p></li>
+	<li><p><b>Multi-currency support</b><br>The app name might suggest that we support only 'Euro'. But we support multiple other currencies and track the same.</p></li>
+	<li><p><b>Share the summary</b><br>The app facilitates the sharing of all the transaction in pdf format. If the user has signed in using google , then the pdf can be shared either via mail or all other apps that support sharing like whatsapp, yahoo mail, etc.</p></li>
+	<li><p><b>View history anytime</b><br>'Past is in the past', but all your transactions are in the 'History' page. Even here the filter can be filtered easily using the dynamic search view.</p></li>
+</ul>
 
-  
-  <h2>Additional features added:</h2>
-  <ul>
-        <li><p>Forgot pin</p></li>
-        <li><p>Demo of app</p></li>
-	<li><p>Edit existing record</p></li>
-	<li><p>Dynamic search of the records using a search box</p></li>
-	<li><p>Summary sharing accross other apps like whatsapp</p></li>
-	<li><p>Optional google SignIn which is helpful to share summary and other future scopes.</p></li>
-
-  </ul>
-  
   <hr>
   <h1>Additinal Information </h1><br>
   <p><b>Version:</b> 1.0</p>
