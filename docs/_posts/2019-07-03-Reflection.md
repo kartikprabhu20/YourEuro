@@ -58,9 +58,9 @@ date: 2019-07-02
 <h1>Challenges experienced as a team</h1><br>
 <p>Due to the nature of working in teams, group members can sometimes find that they are not working effectively, which negatively impacts on their progress, and their ability to be successful.  Some common problems identified while working in team are:</p> 
     <ul>
-        <li><p>Tasks were not getting completed on time which led to Doppler effect and too much work for single person</p></li>
+        <li><p>Tasks were not getting completed on time which led to a Doppler effect and too much work for single person</p></li>
         <li><p>Communication is not always easy, that's how humans are!</p></li>
-        <li><p>Collabaration of team member for particular task on common time was challenging</p></li>
+        <li><p>Collabaration of team members for particular task on common time slot was challenging</p></li>
         <li><p>Learning is fun, but its a long process.</p></li>
     </ul>
 <br>
