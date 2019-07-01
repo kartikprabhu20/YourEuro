@@ -33,7 +33,7 @@ date: 2019-07-02
 <p>Technical challenges, are less a solution to all of problems than a puzzle that needs to be constantly assessed and configured to make sure everything is going in a pace. by constantly getting called upon to adapt learnings and break down new barriers.
   
   <figure>
-     <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/technical.png?raw=true" class="center" width="350" height="300">
+     <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/technical.png?raw=true" class="center" width="300" height="300">
 </figure>
 
 </p> 
@@ -59,18 +59,18 @@ date: 2019-07-02
 <br>
 
 <figure>
-     <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/team.png?raw=true" class="center">
+     <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/team.png?raw=true" class="center" width="300" height="300">
 </figure>
 <hr>
 
 <h1>Challenges experienced as a team</h1><br>
-<p>Every project will have its own sets of hurdles, and getting a good throughput means overcoming those hurdles. Due to the nature of working in teams, group members can sometimes find that they are not working effectively, which negatively impacts on their progress, and their ability to be successful.  
+<p>Every project will have its own sets of hurdles, and getting a good throughput means overcoming those hurdles. Due to the nature of working in teams, group members can sometimes find that they are not working effectively, which negatively impacts on their progress, and their ability to be successful.</p>   
   
   <figure>
-     <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/challenges.png?raw=true" class="center">
+     <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/challenges.png?raw=true" class="center" width="300" height="300">
 </figure>
 
-Some common problems identified while working in team are:</p> 
+<p>Some common problems identified while working in team are:</p> 
     <ul>
         <li><p>Tasks were not getting completed on time which led to a Doppler effect and too much work for single person</p></li>
         <li><p>Communication is not always easy, that's how humans are!</p></li>
