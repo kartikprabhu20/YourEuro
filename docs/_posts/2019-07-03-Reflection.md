@@ -67,7 +67,7 @@ date: 2019-07-02
 <p>Every project will have its own sets of hurdles, and getting a good throughput means overcoming those hurdles. Due to the nature of working in teams, group members can sometimes find that they are not working effectively, which negatively impacts on their progress, and their ability to be successful.</p>   
   
   <figure>
-     <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/challenges3.png?raw=true" class="center">
+     <img src="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/blob/master/docs/images/challenges3.jpg?raw=true" class="center">
 </figure>
 
 <p>Some common problems identified while working in team are:</p> 
