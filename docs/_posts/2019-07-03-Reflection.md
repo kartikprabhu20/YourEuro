@@ -77,7 +77,7 @@ date: 2019-07-02
     
   <br><hr>
 
-<h3> 
+<p><i> 
 To know more about our app and to download it, please visit our next blog!!
-</h3> 
+</i></p> 
 <br>
