@@ -58,8 +58,8 @@ date: 2019-07-03
         <li><p>Currency change support</p></li>
 	<li><p>Threshold per category support</p></li>
 	<li><p>Deleting existing record</p></li>
-	<li><p>Custom Category supportd</p></li>
 	<li><p>Enable/Disable PIN</p></li>
+	
 	
   </ul>
   
