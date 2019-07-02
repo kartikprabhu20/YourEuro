@@ -70,8 +70,8 @@ date: 2019-07-03
 
   <hr>
   <h1>Working Prototype</h1>
-  <p> Please find the downloadable application link here: <a href="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/releases/download/release/app-debug.apk">Download</a></p>
- <p> Feel free to check out the code in our repository: <a href="https://github.com/DBSE-teaching/isee2019-ARTexceptionals">Repository</a></p>
+  <p> Please find the downloadable application link here: <a href="https://github.com/DBSE-teaching/isee2019-ARTexceptionals/releases/download/release/app-debug.apk"><font color="blue">Download</font></a></p>
+ <p> Feel free to check out the code in our repository: <a href="https://github.com/DBSE-teaching/isee2019-ARTexceptionals"><font color="red"><font color="blue">Repository</font></a></p>
 <hr>
 <h1>App Screenshots:</h1>
 
