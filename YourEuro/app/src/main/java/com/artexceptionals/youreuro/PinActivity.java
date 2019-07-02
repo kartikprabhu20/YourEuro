@@ -133,6 +133,8 @@ public class PinActivity extends AppCompatActivity {
                             sharedPreferences.genericSetString("security_question", securityQuestionsSpinner_1.getSelectedItem().toString());
                             sharedPreferences.genericSetString("security_answer",securityAnswer.getText().toString());
                             Toast.makeText(PinActivity.this,"Your PIN is set",Toast.LENGTH_LONG).show();
+                            pinEditText.setText("");
+                            securityAnswerEditText.setText("");
                             forgotPinCheckBox.setChecked(false);
                             forgotPinCheckBox.callOnClick();
 
