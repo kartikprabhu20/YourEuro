@@ -30,7 +30,7 @@ date: 2019-07-03
 <hr>
 
  <h1>All about <i>YOUREURO</i></h1>
-  <p>Saving money and keeping track of the spending is a very hectic task, It’s always necessary for each one of us to track the money flow for efficient financial management. Our App “YOUREURO” will not only keep the track of money flow, but will also give a statistical analysis. Become your own finanace planner. On top of that the app is very light weighted and simple to use and thus doesn't take much of the phone's storage space</p><br>	  
+  <p>Saving money and keeping track of the spending is a very hectic task, It’s always necessary for each one of us to track the money flow for efficient financial management. Our App “YOUREURO” will not only keep the track of money flow, but will also give a statistical analysis. Become your own finanace planner. On top of that the app is very light weighted and simple to use and thus doesn't take much of the phone's storage space.</p><br>	  
   
 <h3>Who should use YourEuro?</h3>
 <p>Some one who wants to get rid of all the notebooks, spreadsheets and budget bookmarks, and wishes to consolidate all the transaction in one single place, needs to go no further.It may be for your travel, holiday, food habits, morgages,etc the app is just one click away. YourEuro by ARTExceptionals isn't just a transaction recorder. It is a place where you can visualise, plan, track, and make wise decisions from monthly summaries.</p>
