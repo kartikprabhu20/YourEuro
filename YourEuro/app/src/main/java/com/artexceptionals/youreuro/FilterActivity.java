@@ -5,7 +5,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.text.InputFilter;
+import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -13,12 +16,14 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.artexceptionals.youreuro.adapter.CategoryFilterAdapter;
+import com.artexceptionals.youreuro.helpers.CurrencyInputFilter;
 import com.artexceptionals.youreuro.model.CashRecordFilter;
 
 import java.text.DateFormat;
@@ -30,6 +35,8 @@ import java.util.Locale;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+
+import static com.artexceptionals.youreuro.RecurringManager.HOURS_24_MILLISECOND;
 
 public class FilterActivity  extends AppCompatActivity implements View.OnClickListener {
 
@@ -101,6 +108,7 @@ public class FilterActivity  extends AppCompatActivity implements View.OnClickLi
 
         categoryAdapter = new CategoryFilterAdapter(this,moneyControlManager.getAllCategories());
         categoryListView.setAdapter(categoryAdapter);
+        setListViewHeightBasedOnChildren(categoryListView);
 
         cancelFilterButton.setOnClickListener(onClickListener);
         saveFilterButton.setOnClickListener(onClickListener);
@@ -114,9 +122,8 @@ public class FilterActivity  extends AppCompatActivity implements View.OnClickLi
         dateRangeLinearLayout.setVisibility(View.GONE);
         amountRangeLinearLayout.setVisibility(View.GONE);
         paymentTypeSpinner.setVisibility(View.GONE);
-
-
-            String current_date = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new Date());
+        
+        String current_date = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new Date());
 
         istartdate = (ImageView) findViewById(R.id.start_date_iv);
         ienddate = (ImageView) findViewById(R.id.end_date_iv);
@@ -127,6 +134,8 @@ public class FilterActivity  extends AppCompatActivity implements View.OnClickLi
         istartdate.setOnClickListener(this);
         ienddate.setOnClickListener(this);
 
+        startAmountEditText.setFilters(new InputFilter[]{new CurrencyInputFilter(10,2)});
+        endAmountEditText.setFilters(new InputFilter[]{new CurrencyInputFilter(10,2)});
     }
 
     View.OnClickListener onClickListener =  new View.OnClickListener() {
@@ -134,13 +143,23 @@ public class FilterActivity  extends AppCompatActivity implements View.OnClickLi
         public void onClick(View view) {
             switch (view.getId()){
                 case  R.id.save_filter:
-                    String startAmount = String.valueOf(startAmountEditText.getText());
-                    String endAmount = String.valueOf(endAmountEditText.getText());
+                    String startAmount = startAmountEditText.getText().toString();
+                    String endAmount = endAmountEditText.getText().toString();
 
-                    if(!checkDates(tstartdate.getText().toString(),tenddate.getText().toString())) {
+                    Date startTimeStamp = new Date();
+                    Date endTimeStamp = new Date();
+                    try {
+                        startTimeStamp = new SimpleDateFormat("dd-MM-yyyy").parse(tstartdate.getText().toString());
+                        endTimeStamp = new SimpleDateFormat("dd-MM-yyyy").parse(tenddate.getText().toString());
+
+                    } catch (ParseException e) {
+                        Log.e("YourEuro", "ParseException in dateformating");
+                    }
+
+                    if(dateFilterCheckbox.isChecked() && !checkDates(tstartdate.getText().toString(),tenddate.getText().toString())) {
                         break;
                     }
-                    cashRecordFilter = new CashRecordFilter(new Date().getTime(), new Date().getTime(),
+                    cashRecordFilter = new CashRecordFilter(startTimeStamp.getTime(), endTimeStamp.getTime()+ HOURS_24_MILLISECOND,
                             Float.valueOf(startAmount.isEmpty()? "0": startAmount),Float.valueOf(endAmount.isEmpty()? "100000000000":endAmount),
                             categoryAdapter.getSelectedItems(),paymentTypeSpinner.getSelectedItem().toString(),
                             categoryFilterCheckbox.isChecked(),dateFilterCheckbox.isChecked(),paymentFilterCheckbox.isChecked(),rangeFilterCheckbox.isChecked());
@@ -212,10 +231,8 @@ public class FilterActivity  extends AppCompatActivity implements View.OnClickLi
     public boolean checkDates(String tstartdate, String tenddate) {
         SimpleDateFormat dfDate = new SimpleDateFormat("dd-MM-yyyy");
 
-        boolean b = true;
-
         try {
-            if (dfDate.parse(tstartdate).before(dfDate.parse(tenddate))) {
+            if (dfDate.parse(tstartdate).before(dfDate.parse(tenddate)) || dfDate.parse(tstartdate).equals(dfDate.parse(tenddate))) {
                 return true;//If start date is before end date
             } else {
                 Toast toast = Toast.makeText(getApplicationContext(), "End date is before Start date", Toast.LENGTH_LONG);
@@ -225,5 +242,27 @@ public class FilterActivity  extends AppCompatActivity implements View.OnClickLi
             e.printStackTrace();
         }
         return false;
+    }
+
+    public static void setListViewHeightBasedOnChildren(ListView listView) {
+        ListAdapter listAdapter = listView.getAdapter();
+        if (listAdapter == null) return;
+        int desiredWidth = View.MeasureSpec.makeMeasureSpec(listView.getWidth(),
+                View.MeasureSpec.UNSPECIFIED);
+        int totalHeight = 0;
+        View view = null;
+        for (int i = 0; i < listAdapter.getCount(); i++) {
+            view = listAdapter.getView(i, view, listView);
+            if (i == 0) view.setLayoutParams(new ViewGroup.LayoutParams(desiredWidth, ViewGroup.LayoutParams.WRAP_CONTENT));
+            view.measure(desiredWidth, View.MeasureSpec.UNSPECIFIED);
+            totalHeight += view.getMeasuredHeight();
+        }
+
+        ViewGroup.LayoutParams params = listView.getLayoutParams();
+
+        params.height = totalHeight + (listView.getDividerHeight() * (listAdapter.getCount() - 1));
+
+        listView.setLayoutParams(params);
+        listView.requestLayout();
     }
 }

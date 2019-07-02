@@ -3,9 +3,13 @@ package com.artexceptionals.youreuro;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.CardView;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -23,6 +27,9 @@ import butterknife.ButterKnife;
 
 public class CategoryActivity extends AppCompatActivity implements IconDialog.Callback{
 
+    public static final String ADD_CATEGORY = "add_category";
+    public static final String TYPE = "category_activity_type";
+    public static final String ADD_THRESHOLD = "add_threshold";
     IconDialog iconDialog;
     Icon[] selectedIcons = new Icon[]{};
 
@@ -38,8 +45,14 @@ public class CategoryActivity extends AppCompatActivity implements IconDialog.Ca
     @BindView(R.id.save_category)
     Button saveCategoryButton;
 
+//    @BindView(R.id.category_settings_listView)
+//    ListView categoryListView;
+
     @BindView(R.id.category_settings_listView)
-    ListView categoryListView;
+    RecyclerView mCategoryRecyclerView;
+
+    @BindView(R.id.new_category_cardview)
+    CardView newCategoryCardView;
 
     CategorySettingsAdapter categoryAdapter = null;
     MoneyControlManager moneyControlManager;
@@ -51,6 +64,7 @@ public class CategoryActivity extends AppCompatActivity implements IconDialog.Ca
 
         Toolbar toolbar = findViewById(R.id.toolbarCategory);
         setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         categoryImageView.setVisibility(View.GONE);
         saveCategoryButton.setEnabled(false);
@@ -59,8 +73,16 @@ public class CategoryActivity extends AppCompatActivity implements IconDialog.Ca
 
         moneyControlManager = MoneyControlManager.getInstance(YourEuroApp.getAppContext());
 
-        categoryAdapter = new CategorySettingsAdapter(this, IconHelper.getInstance(this),moneyControlManager.getAllCategories());
-        categoryListView.setAdapter(categoryAdapter);
+        boolean isAddCategory = getIntent().getStringExtra(TYPE).equalsIgnoreCase(ADD_CATEGORY);
+
+        if (!isAddCategory)
+            newCategoryCardView.setVisibility(View.GONE);
+
+        categoryAdapter = new CategorySettingsAdapter(this, IconHelper.getInstance(this),moneyControlManager.getAllCategories(),isAddCategory);
+        mCategoryRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+        mCategoryRecyclerView.setAdapter(categoryAdapter);
+
+//        categoryListView.setAdapter(categoryAdapter);
         categoryAdapter.setCategoryListener(new CategorySettingsAdapter.CategoryListener() {
             @Override
             public void listen(int position) {
@@ -127,5 +149,20 @@ public class CategoryActivity extends AppCompatActivity implements IconDialog.Ca
         }else {
             saveCategoryButton.setEnabled(false);
         }
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+
+        moneyControlManager.updateAllCategories(categoryAdapter.getCategories());
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == android.R.id.home){
+            onBackPressed();
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

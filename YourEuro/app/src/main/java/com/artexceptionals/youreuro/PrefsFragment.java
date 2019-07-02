@@ -12,19 +12,23 @@ import android.support.v7.app.AlertDialog;
 import android.text.InputType;
 import android.text.method.PasswordTransformationMethod;
 import android.view.LayoutInflater;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.artexceptionals.youreuro.helpers.CurrencyHelper;
+
 
 public  class PrefsFragment extends PreferenceFragment {
 
     private static final String DISABLE_PIN = "disablePIN";
     private static final String CURRENCY_CHANGE = "changeCurrency";
     CustomSharedPreferences sharedPreferences;
-    Preference switchPreference, changePinPreference, currencyPreference, addCategoryPreference;
+    Preference switchPreference, changePinPreference, currencyPreference, addCategoryPreference, setEmailAccountPreference, addCategoryThreshold;
     private int enteredPIN,enteredOldPIN,enteredNewPIN;
+    private String enteredEmail;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -35,16 +39,25 @@ public  class PrefsFragment extends PreferenceFragment {
         changePinPreference = findPreference("changePIN");
         currencyPreference = findPreference("changeCurrency");
         addCategoryPreference = findPreference("modifyCategory");
+        addCategoryThreshold = findPreference("modifyThreshold");
+        setEmailAccountPreference = findPreference("setEmailAccount");
         changePinPreference.setOnPreferenceClickListener(onClickPreference);
         addCategoryPreference.setOnPreferenceClickListener(onClickPreference);
+        addCategoryThreshold.setOnPreferenceClickListener(onClickPreference);
+        setEmailAccountPreference.setOnPreferenceClickListener(onClickPreference);
         switchPreference.setOnPreferenceChangeListener(preferenceChangeListener);
         currencyPreference.setOnPreferenceChangeListener(preferenceChangeListener);
         currencyPreference.setDefaultValue(sharedPreferences.genericGetString(CurrencyHelper.CURRENT_CURRENCY, CurrencyHelper.CurrencyType.EURO));
+        emailPreferenceSetSummary();
     }
 
     @Override
     public void onCreatePreferences(Bundle bundle, String s) {
 
+    }
+
+    private void emailPreferenceSetSummary(){
+        setEmailAccountPreference.setSummary(sharedPreferences.genericGetString("user_Email","Not Set"));
     }
 
     @SuppressLint("RestrictedApi")
@@ -64,13 +77,19 @@ public  class PrefsFragment extends PreferenceFragment {
 
         alertDialog.setPositiveButton("YES", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int which) {
-                int enteredPIN = Integer.parseInt(input.getText().toString());
-                if (sharedPreferences.getInt("user_pin") == enteredPIN) {
-                    Toast.makeText(getActivity(), "Password Matched", Toast.LENGTH_SHORT).show();
-                    ((SwitchPreference) switchPreference).setChecked(false);
-                    dialog.dismiss();
+
+                if (!input.getText().toString().isEmpty()) {
+                    int enteredPIN = Integer.parseInt(input.getText().toString());
+                    if (sharedPreferences.getInt("user_pin") == enteredPIN) {
+                        Toast.makeText(getActivity(), "Password Matched", Toast.LENGTH_SHORT).show();
+                        ((SwitchPreference) switchPreference).setChecked(false);
+                        dialog.dismiss();
+                    }else {
+                        Toast.makeText(getActivity(), "Wrong Password!", Toast.LENGTH_SHORT).show();
+                        launchDialogDisable();
+                    }
                 }else {
-                    Toast.makeText(getActivity(), "Wrong Password!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(), "Pin can't be empty", Toast.LENGTH_SHORT).show();
                     launchDialogDisable();
                 }
             }
@@ -90,29 +109,47 @@ public  class PrefsFragment extends PreferenceFragment {
     private void launchDialogEnable() {
         AlertDialog.Builder alertDialog = new AlertDialog.Builder(getActivity());
         alertDialog.setTitle("SET PIN");
-        alertDialog.setMessage("Enter Pin");
 
-        final EditText input = new EditText(getActivity());
-        LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(
-                LinearLayout.LayoutParams.MATCH_PARENT,
-                LinearLayout.LayoutParams.MATCH_PARENT);
-        int dim = (int) getResources().getDimension(R.dimen.unit1);
-        lp.setMargins(dim,dim,dim,dim);
-        input.setLayoutParams(lp);
-        input.setInputType(InputType.TYPE_CLASS_NUMBER);
-        input.setTransformationMethod(new PasswordTransformationMethod());
-        alertDialog.setView(input, 50,0,50,0);
+        LayoutInflater layoutInflater = LayoutInflater.from(getActivity());
+        LinearLayout linearLayout = (LinearLayout) layoutInflater.inflate(R.layout.set_pin,null);
+        alertDialog.setView(linearLayout);
+
+        Spinner securityQuestionsSpinner_1 = (Spinner)linearLayout.findViewById(R.id.security_questions_spinner_1);
+        ArrayAdapter<CharSequence> securityQuestionsAdapter_1 = ArrayAdapter.createFromResource(getActivity(),
+                R.array.questions, R.layout.spinner_item);
+        securityQuestionsAdapter_1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        securityQuestionsSpinner_1.setAdapter(securityQuestionsAdapter_1);
+
+        EditText setPIN = (EditText) linearLayout.findViewById(R.id.PINEditText);
+        EditText securityAnswer = (EditText) linearLayout.findViewById(R.id.securityAnswerEditText_1);
 
         alertDialog.setPositiveButton("SET",
                 new DialogInterface.OnClickListener() {
 
                     public void onClick(DialogInterface dialog, int which) {
-                        enteredPIN = Integer.parseInt(input.getText().toString());
-                        sharedPreferences.setInt("user_pin",enteredPIN);
-                        Toast.makeText(getActivity(),"Your PIN has been set.",Toast.LENGTH_LONG).show();
-                        ((SwitchPreference) switchPreference).setChecked(true);
+
+                        if (!setPIN.getText().toString().isEmpty() && !securityAnswer.getText().toString().isEmpty()) {
+
+                            enteredPIN = Integer.parseInt(setPIN.getText().toString());
+                            sharedPreferences.setInt("user_pin",enteredPIN);
+                            sharedPreferences.genericSetString("security_question", securityQuestionsSpinner_1.getSelectedItem().toString());
+                            sharedPreferences.genericSetString("security_answer",securityAnswer.getText().toString());
+                            Toast.makeText(getActivity(),"Your PIN is set",Toast.LENGTH_LONG).show();
+                            ((SwitchPreference) switchPreference).setChecked(true);
+
+                        }else if(!securityAnswer.getText().toString().isEmpty()) {
+                            Toast.makeText(getActivity(),"Your PIN is set",Toast.LENGTH_LONG).show();
+                            launchDialogEnable();
+                        }else if(!setPIN.getText().toString().isEmpty()) {
+                            Toast.makeText(getActivity(), "Answer can't be empty", Toast.LENGTH_LONG).show();
+                            launchDialogEnable();
+                        }else {
+                            Toast.makeText(getActivity(), "Pin or Answer can't be empty", Toast.LENGTH_LONG).show();
+                            launchDialogEnable();
+                        }
                     }
-                });
+                }
+        );
 
         alertDialog.setNegativeButton("CANCEL",
                 new DialogInterface.OnClickListener() {
@@ -139,23 +176,62 @@ public  class PrefsFragment extends PreferenceFragment {
 
                     public void onClick(DialogInterface dialog, int which) {
 
-                        if (oldPIN.getText() == null || oldPIN.getText().toString().equalsIgnoreCase(""))
-                            oldPIN.setError(getResources().getString(R.string.empty_pin));
+                        if (oldPIN.getText() == null || oldPIN.getText().toString().isEmpty())
+                            Toast.makeText(getActivity(),"Old PIN can't be empty.",Toast.LENGTH_LONG).show();
 
-                        if (newPIN.getText() == null || newPIN.getText().toString().equalsIgnoreCase(""))
-                            newPIN.setError(getResources().getString(R.string.empty_pin));
+                        if (newPIN.getText() == null || newPIN.getText().toString().isEmpty())
+                            Toast.makeText(getActivity(),"New PIN can't be empty.",Toast.LENGTH_LONG).show();
+
 
                         if(oldPIN.getText() != null && newPIN.getText() != null && !newPIN.getText().toString().equalsIgnoreCase("")
                                 && !oldPIN.getText().toString().equalsIgnoreCase("")){
-                        enteredOldPIN = Integer.parseInt(oldPIN.getText().toString());
-                        enteredNewPIN = Integer.parseInt(newPIN.getText().toString());
-                        if(sharedPreferences.getInt("user_pin") == enteredOldPIN){
-                            sharedPreferences.setInt("user_pin",enteredNewPIN);
-                            Toast.makeText(getActivity(),"Your New PIN has been set.",Toast.LENGTH_LONG).show();
-                        }else {
-                            oldPIN.setError(getResources().getString(R.string.wrong_pin));
+                            enteredOldPIN = Integer.parseInt(oldPIN.getText().toString());
+                            enteredNewPIN = Integer.parseInt(newPIN.getText().toString());
+                            if(sharedPreferences.getInt("user_pin") == enteredOldPIN){
+                                sharedPreferences.setInt("user_pin",enteredNewPIN);
+                                Toast.makeText(getActivity(),"Your New PIN has been set.",Toast.LENGTH_LONG).show();
+                            }else {
+                                oldPIN.setError(getResources().getString(R.string.wrong_pin));
+                                Toast.makeText(getActivity(),"Entered wrong Old PIN",Toast.LENGTH_LONG).show();
+                                launchDialogChangePIN();
+                            }
+                         }else {
+                            launchDialogChangePIN();
                         }
                     }
+                });
+
+        alertDialog.setNegativeButton("CANCEL",
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.cancel();
+                    }
+                });
+        alertDialog.show();
+    }
+
+    @SuppressLint("RestrictedApi")
+    private void launchDialogSetEmail() {
+        AlertDialog.Builder alertDialog = new AlertDialog.Builder(getActivity());
+        alertDialog.setTitle("SET Email Account");
+        alertDialog.setMessage("Enter mail id");
+
+        final EditText input = new EditText(getActivity());
+        LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.MATCH_PARENT,
+                LinearLayout.LayoutParams.MATCH_PARENT);
+        int dim = (int) getResources().getDimension(R.dimen.unit1);
+        lp.setMargins(dim,dim,dim,dim);
+        input.setLayoutParams(lp);
+        alertDialog.setView(input, 50,0,50,0);
+
+        alertDialog.setPositiveButton("SET",
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        enteredEmail = input.getText().toString();
+                        sharedPreferences.genericSetString("user_Email",enteredEmail);
+                        Toast.makeText(getActivity(),"Your Email account has been set.",Toast.LENGTH_LONG).show();
+                        emailPreferenceSetSummary();
                     }
                 });
 
@@ -195,8 +271,15 @@ public  class PrefsFragment extends PreferenceFragment {
             if ("changePIN".equalsIgnoreCase(preference.getKey())) {
                 launchDialogChangePIN();
             }else if("modifyCategory".equalsIgnoreCase(preference.getKey())){
-                startActivity(new Intent(YourEuroApp.getAppContext(), CategoryActivity.class));
-
+                Intent intent = new Intent(YourEuroApp.getAppContext(), CategoryActivity.class);
+                intent.putExtra(CategoryActivity.TYPE, CategoryActivity.ADD_CATEGORY);
+                startActivity(intent);
+            }else if("setEmailAccount".equalsIgnoreCase(preference.getKey())){
+                launchDialogSetEmail();
+            }else if("modifyThreshold".equalsIgnoreCase(preference.getKey())){
+                Intent intent = new Intent(YourEuroApp.getAppContext(), CategoryActivity.class);
+                intent.putExtra(CategoryActivity.TYPE, CategoryActivity.ADD_THRESHOLD);
+                startActivity(intent);
             }
             return false;
         }

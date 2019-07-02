@@ -17,11 +17,15 @@ public class Category implements Parcelable {
 
     @ColumnInfo(name = "catagoryName")
     String catagoryName;
+
     @ColumnInfo(name = "imageID")
     String imageID;
 
     @ColumnInfo(name = "isDefault")
     public boolean isDefault;
+
+    @ColumnInfo(name = "threshold")
+    public float threshold;
 
     public Category(String  catagoryName, String imageID, boolean isDefault) {
         this.catagoryName = catagoryName;
@@ -45,6 +49,7 @@ public class Category implements Parcelable {
         catagoryName = in.readString();
         imageID = in.readString();
         isDefault = in.readByte() != 0;
+        threshold = in.readFloat();
     }
 
     public static final Creator<Category> CREATOR = new Creator<Category>() {
@@ -58,6 +63,10 @@ public class Category implements Parcelable {
             return new Category[size];
         }
     };
+
+    public Category() {
+
+    }
 
     public int getCategoryID() {
         return categoryID;
@@ -82,6 +91,14 @@ public class Category implements Parcelable {
         this.imageID = imageID;
     }
 
+    public float getThreshold() {
+        return threshold;
+    }
+
+    public void setThreshold(float threshold) {
+        this.threshold = threshold;
+    }
+
     @Override
     public int describeContents() {
         return 0;
@@ -92,8 +109,8 @@ public class Category implements Parcelable {
         dest.writeInt(categoryID);
         dest.writeString(catagoryName);
         dest.writeString(imageID);
-        dest.writeString(imageID);
         dest.writeByte((byte) (isDefault ? 1 : 0));
+        dest.writeFloat(threshold);
     }
 
     @Override
@@ -102,7 +119,7 @@ public class Category implements Parcelable {
         if (o == null || getClass() != o.getClass()) return false;
         Category category = (Category) o;
         return categoryID == category.categoryID &&
-                imageID == category.imageID &&
+                imageID.equalsIgnoreCase(category.imageID) &&
                 catagoryName.equalsIgnoreCase(category.catagoryName);
     }
 

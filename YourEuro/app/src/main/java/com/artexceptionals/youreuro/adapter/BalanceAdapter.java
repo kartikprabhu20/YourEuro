@@ -36,14 +36,13 @@ public class BalanceAdapter extends RecyclerView.Adapter<BalanceAdapter.BalanceV
         return new BalanceViewHolder(view);
     }
 
-
     @Override
     public void onBindViewHolder(@NonNull BalanceViewHolder holder, int index) {
 
         if (holder != null){
             Account account =  balanceList.get(index);
 
-            holder.netAmount.setText(String.valueOf(account.getBalance()));
+            holder.netAmount.setText(String.format("%.2f",account.getBalance()));
             holder.currencySymbol.setText(CurrencyHelper.getSymbol(account.getAccountName()));
 
             if (account.getBalance() > 0){
@@ -68,6 +67,9 @@ public class BalanceAdapter extends RecyclerView.Adapter<BalanceAdapter.BalanceV
         return 0;
     }
 
+    public List<Account> getBalanceList(){
+        return balanceList;
+    }
     public void addAccount(Account account) {
         balanceList.add(account);
         notifyDataSetChanged();

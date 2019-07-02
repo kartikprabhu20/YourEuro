@@ -23,13 +23,13 @@ import butterknife.ButterKnife;
 
 public class HistoryActivity  extends AppCompatActivity {
 
-    private static final int FILTER_REQUEST_CODE = 123;
     @BindView(R.id.recent_history_rv)
     RecyclerView mRecentsRecyclerView;
 
     @BindView(R.id.noRecords_tv)
     TextView noRecordsTextView;
 
+    @BindView(R.id.history_search)
     SearchView searchView;
 
     private MoneyControlManager moneyControlManager;
@@ -42,6 +42,7 @@ public class HistoryActivity  extends AppCompatActivity {
 
         Toolbar toolbar = findViewById(R.id.history_toolbar);
         setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         moneyControlManager =  MoneyControlManager.getInstance(YourEuroApp.getAppContext());
         mRecentsRecyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -62,8 +63,8 @@ public class HistoryActivity  extends AppCompatActivity {
             MenuInflater inflater = getMenuInflater();
             inflater.inflate(R.menu.history_search_menu, menu);
 
-            MenuItem searchItem = menu.findItem(R.id.action_search);
-            searchView = (SearchView) searchItem.getActionView();
+//            MenuItem searchItem = menu.findItem(R.id.action_search);
+//            searchView = (SearchView) searchItem.getActionView();
             searchView.setImeOptions(EditorInfo.IME_ACTION_DONE);
             searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
                 @Override
@@ -83,7 +84,9 @@ public class HistoryActivity  extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (R.id.action_filter == item.getItemId()){
-            startActivityForResult(new Intent(this, FilterActivity.class), FILTER_REQUEST_CODE);
+            startActivityForResult(new Intent(this, FilterActivity.class), CashRecordFilter.FILTER_REQUEST_CODE);
+        }if (android .R.id.home == item.getItemId()){
+            onBackPressed();
         }
         return true;
     }
@@ -92,7 +95,7 @@ public class HistoryActivity  extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        if (requestCode == FILTER_REQUEST_CODE) {
+        if (requestCode == CashRecordFilter.FILTER_REQUEST_CODE) {
             if (resultCode == RESULT_OK) {
                 Bundle bundle = data.getExtras();
                 if (bundle.containsKey(CashRecordFilter.FILTER)) {

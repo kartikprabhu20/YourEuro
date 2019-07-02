@@ -35,6 +35,18 @@
         android:scaleType="center"
         android:src="@android:drawable/ic_menu_delete"
         android:tint="@color/black"
-        android:layout_weight="0" />
+        android:layout_gravity="center"
+        android:layout_weight="0"/>
+
+    <EditText
+        android:id="@+id/category_threshold_et"
+        android:layout_width="@dimen/unit6"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/unit2"
+        android:textAlignment="viewEnd"
+        android:layout_weight="0"
+        android:inputType="numberDecimal"
+        android:text="0.0"
+        android:layout_gravity="center"/>
 
 </LinearLayout>

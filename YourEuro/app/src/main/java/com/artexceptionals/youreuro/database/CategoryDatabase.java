@@ -4,6 +4,7 @@ import android.arch.persistence.db.SupportSQLiteDatabase;
 import android.arch.persistence.room.Database;
 import android.arch.persistence.room.Room;
 import android.arch.persistence.room.RoomDatabase;
+import android.arch.persistence.room.migration.Migration;
 import android.content.Context;
 import android.support.annotation.NonNull;
 
@@ -14,7 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.Executors;
 
-@Database(entities = {Category.class}, version = 1)
+@Database(entities = {Category.class}, version = 2)
 public abstract class CategoryDatabase extends RoomDatabase {
 
     private static CategoryDatabase INSTANCE;
@@ -26,6 +27,7 @@ public abstract class CategoryDatabase extends RoomDatabase {
             INSTANCE =
                     Room.databaseBuilder(context.getApplicationContext(), CategoryDatabase.class, "category-database")
                             .allowMainThreadQueries()
+                            .addMigrations(MIGRATION_1_2)
                             .addCallback(new Callback() {
                                 @Override
                                 public void onCreate(@NonNull SupportSQLiteDatabase db) {
@@ -40,7 +42,8 @@ public abstract class CategoryDatabase extends RoomDatabase {
                                             categoryList.add(new Category("Education", context.getResources().getResourceEntryName(R.drawable.ic_baseline_cast_for_education)));
                                             categoryList.add(new Category("Entertainment", context.getResources().getResourceEntryName(R.drawable.ic_baseline_movie_filter)));
                                             categoryList.add(new Category("Bills",context.getResources().getResourceEntryName(R.drawable.ic_baseline_local_atm)));
-                                            categoryList.add(new Category(" Health",context.getResources().getResourceEntryName(R.drawable.ic_add_medical)));
+                                            categoryList.add(new Category("Health",context.getResources().getResourceEntryName(R.drawable.ic_add_medical)));
+                                            categoryList.add(new Category("Salary",context.getResources().getResourceEntryName(R.drawable.ic_account_balance_wallet_black_24dp)));
                                             getCategoryDatabase(context).categoryDao().insertAll(categoryList);
                                         }
                                     });
@@ -56,4 +59,10 @@ public abstract class CategoryDatabase extends RoomDatabase {
         INSTANCE = null;
     }
 
+    static final Migration MIGRATION_1_2 = new Migration(1, 2) {
+        @Override
+        public void migrate(SupportSQLiteDatabase database) {
+            // Since we didn't alter the table, there's nothing else to do here.
+        }
+    };
 }

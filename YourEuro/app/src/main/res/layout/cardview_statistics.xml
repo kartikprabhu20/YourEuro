@@ -24,26 +24,142 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:id="@+id/statistic_title"
             android:padding="@dimen/unit3"
             android:text="@string/statistic"
             android:textSize="@dimen/unit3_5" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="@android:color/darker_gray" />
+
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/unit3"
+                android:text="@string/piechart"
+                android:textSize="@dimen/unit3"
+                android:layout_weight="1"/>
+
+            <ImageView
+                android:id="@+id/piechart_refresh"
+                android:layout_width="@dimen/unit5"
+                android:layout_height="@dimen/unit4_5"
+                android:padding="@dimen/unit3"
+                android:scaleType="center"
+                android:src="@drawable/ic_refresh_black_24dp"
+                android:tint="@color/black"
+                android:layout_gravity="center"
+                android:layout_weight="0"
+                android:clickable="true"/>
+
+            <ImageView
+                android:id="@+id/piechart_filter"
+                android:layout_width="@dimen/unit5"
+                android:layout_height="@dimen/unit4_5"
+                android:padding="@dimen/unit3_5"
+                android:scaleType="center"
+                android:src="@drawable/ic_filter_icon"
+                android:tint="@color/black"
+                android:layout_gravity="center"
+                android:layout_weight="0"
+                android:clickable="true"/>
+
+        </LinearLayout>
+
+
 
 
         <com.github.mikephil.charting.charts.PieChart
             android:id="@+id/pieChart"
             android:layout_width="match_parent"
-            android:layout_height="360dp" />
+            android:layout_height="wrap_content" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="@dimen/unit3" />
 
-        <com.github.mikephil.charting.charts.BarChart
-            android:padding="@dimen/unit2"
+        <View
             android:layout_width="match_parent"
-            android:layout_height="360dp"
-            android:id="@+id/barChart"/>
+            android:layout_height="2dp"
+            android:background="@android:color/darker_gray" />
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/unit3"
+                android:text="@string/barchart"
+                android:textSize="@dimen/unit3"
+                android:layout_weight="1"/>
+
+            <ImageView
+                android:id="@+id/barchart_refresh"
+                android:layout_width="@dimen/unit5"
+                android:layout_height="@dimen/unit4_5"
+                android:padding="@dimen/unit3"
+                android:scaleType="center"
+                android:src="@drawable/ic_refresh_black_24dp"
+                android:tint="@color/black"
+                android:layout_gravity="center"
+                android:layout_weight="0"
+                android:clickable="true"/>
+
+            <ImageView
+                android:id="@+id/barchart_filter"
+                android:layout_width="@dimen/unit5"
+                android:layout_height="@dimen/unit4_5"
+                android:padding="@dimen/unit3_5"
+                android:scaleType="center"
+                android:src="@drawable/ic_filter_icon"
+                android:tint="@color/black"
+                android:layout_gravity="center"
+                android:layout_weight="0"
+                android:clickable="true"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:rotation="270"
+                android:text="Amount"
+                android:textSize="@dimen/unit2_5"
+                android:gravity="center"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="Categories"
+                    android:id="@+id/barchart_title"
+                    android:textSize="@dimen/unit2_5"
+                    android:gravity="center"/>
+
+                <com.github.mikephil.charting.charts.CombinedChart
+                    android:padding="@dimen/unit2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/combinedChart"/>
+            </LinearLayout>
+        </LinearLayout>
 
     </LinearLayout>
 

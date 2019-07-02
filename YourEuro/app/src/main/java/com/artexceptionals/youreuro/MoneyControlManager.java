@@ -13,8 +13,8 @@ import com.artexceptionals.youreuro.model.CashRecordFilter;
 import com.artexceptionals.youreuro.model.Category;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Date;
-import java.util.Iterator;
 import java.util.List;
 
 public class MoneyControlManager {
@@ -82,6 +82,17 @@ public class MoneyControlManager {
         statisticsListener.listen();
     }
 
+    public void updateCashRecord(CashRecord cashRecord) {
+        CashRecord oldCashRecord = cashRecordDatabase.cashRecordDao().getCashRecord(cashRecord.getUid());
+        balanceAdapter.deleteAccount(new Account(oldCashRecord.getCurrency(),oldCashRecord.getAmount()));
+        cashRecordDatabase.cashRecordDao().update(cashRecord);
+        cashRecordAdapter.removeCashRecords(Collections.singletonList(cashRecord));
+        cashRecordAdapter.addCashRecord(cashRecord);
+        balanceAdapter.updateAccount(new Account(cashRecord.getCurrency(),cashRecord.getAmount()));
+
+        statisticsListener.listen();
+    }
+
     public synchronized void updateAllRecords() {
         List<CashRecord> cashRecords = cashRecordDatabase.cashRecordDao().getAll();
         cashRecordAdapter.removeAllCashRecords();
@@ -108,33 +119,16 @@ public class MoneyControlManager {
         categoryDatabase.categoryDao().delete(category);
     }
 
+    public void updateAllCategories(List<Category> categories) {
+        categoryDatabase.categoryDao().updateAll(categories);
+    }
+
     public void clearCacheCashRecords() {
         cashRecordAdapter.removeAllCashRecords();
     }
 
     public void loadCashRecords(CashRecordFilter cashRecordFilter) {
-
-        List<Category> filterCategories = cashRecordFilter.getCategories();
-
-        StringBuilder categories  = new StringBuilder();
-        Iterator<Category> iter = filterCategories.iterator();
-        while(iter.hasNext())
-        {
-            categories.append(iter.next().getCategoryID());
-            if(iter.hasNext()){
-                categories.append(",");
-            }
-        }
-
-        SimpleSQLiteQuery simpleSQLiteQuery = new SimpleSQLiteQuery("SELECT * FROM cashrecord WHERE uid NOT NULL "+
-                (cashRecordFilter.isAmountRangeFilter()?"AND amount BETWEEN "+cashRecordFilter.getStartAmount()+" AND "+cashRecordFilter.getEndAmount()+" ":"")+
-                (cashRecordFilter.isDateRangeFilter()?"AND timeStamp BETWEEN "+cashRecordFilter.getStartTimeStamp()+" AND "+cashRecordFilter.getEndTimeStamp()+" ":"")+
-                (cashRecordFilter.isRecurryingFilter()?"AND recurringTransaction = " +(cashRecordFilter.isRecurryingFilter()? 1 : 0):"")+
-                (cashRecordFilter.isCategoryFilter()?"AND categoryID IN ("+categories.toString()+") ":"")+
-                (cashRecordFilter.isPaymentFilter()?"AND paymenttype = '"+ cashRecordFilter.getPaymentType()+"'":""));
-
-        List<CashRecord> cashRecords = cashRecordDatabase.cashRecordDao().getCashRecords(simpleSQLiteQuery);
-
+        List<CashRecord> cashRecords = cashRecordDatabase.cashRecordDao().getCashRecords(statisticsManager.getQuery(cashRecordFilter));
         cashRecordAdapter.addCashRecords(cashRecords);
     }
 
@@ -173,7 +167,7 @@ public class MoneyControlManager {
             cashRecordDatabase.cashRecordDao().update(cashRecord);
 
             CashRecord newCashRecord = new CashRecord(cashRecord);
-            newCashRecord.setTimeStamp(new Date().getTime());
+            newCashRecord.setTimeStamp(recurringManager.getNextTriggerTime(cashRecord.getRecurringType(),cashRecord.getTimeStamp()));
             newCashRecord.setRecurringTransaction(true);
             newCashRecord.setRecurred(false);
 

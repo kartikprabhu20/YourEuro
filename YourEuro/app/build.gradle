@@ -21,6 +21,10 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+
+    testOptions {
+        unitTests.returnDefaultValues = true
+    }
 }
 
 dependencies {
@@ -54,15 +58,24 @@ dependencies {
     implementation "android.arch.persistence.room:runtime:$room_version"
     annotationProcessor "android.arch.persistence.room:compiler:$room_version"
     testImplementation "android.arch.persistence.room:testing:$room_version"
-    
+
     //itextPdf
     implementation 'com.itextpdf:itextg:5.5.10'
 
     //icons
-    compile 'com.maltaisn:icondialog:2.0.2'
+    implementation 'com.maltaisn:icondialog:2.0.2'
+
+    // Unit testing dependencies
+    testImplementation 'junit:junit:4.12'
+
+    //App Intro
+    implementation 'com.github.AppIntro:AppIntro:4.2.3'
+
+    compile 'com.google.android.gms:play-services-auth:16.0.1'
+
+
 }
 
 repositories {
     maven { url "https://jitpack.io" }
 }
-

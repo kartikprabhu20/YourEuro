@@ -5,14 +5,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center"
-    android:background="@color/colorPrimaryDark">
+    android:background="@color/black">
 
 
     <ImageView
-        android:layout_width="352dp"
-        android:layout_height="217dp"
-
-        android:background="@drawable/youreuro_square" />
+        android:layout_width="wrap_content"
+        android:layout_height="150dp"
+        android:background="@drawable/youreuro"/>
 
 </LinearLayout>
 

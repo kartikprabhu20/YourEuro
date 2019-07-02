@@ -1,6 +1,7 @@
 package com.artexceptionals.youreuro;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -19,13 +20,14 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
 
-import com.artexceptionals.youreuro.adapter.CustomCategoryAdapter;
 import com.artexceptionals.youreuro.helpers.CurrencyHelper;
 import com.artexceptionals.youreuro.model.CashRecord;
 import com.artexceptionals.youreuro.model.Category;
 import com.artexceptionals.youreuro.model.Constants;
+import com.maltaisn.icondialog.IconHelper;
 
 import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -99,6 +101,8 @@ public class DetailDisplayActivity extends AppCompatActivity {
         }
         Toolbar toolbar = findViewById(R.id.detail_toolbar);
         setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         init();
 
@@ -125,7 +129,18 @@ public class DetailDisplayActivity extends AppCompatActivity {
 
         paymentTypeSpinner.setVisibility(View.GONE);
         categorySpinner.setVisibility(View.GONE);
-        categorySelectedImageView.setImageDrawable(getApplicationContext().getResources().getDrawable(getApplicationContext().getResources().getIdentifier(cashRecord.getCategory().getImageID(),"drawable", getApplicationContext().getPackageName())));
+        if(cashRecord.getCategory().isDefault) {
+            categorySelectedImageView.setImageDrawable(this.getResources().getDrawable(this.getResources().getIdentifier(cashRecord.getCategory().getImageID(), "drawable", this.getPackageName())));
+        }else{
+            IconHelper iconHelper = IconHelper.getInstance(this);
+            iconHelper.addLoadCallback(new IconHelper.LoadCallback() {
+                @Override
+                public void onDataLoaded() {
+                    categorySelectedImageView.setImageDrawable(iconHelper.getIcon(Integer.parseInt(cashRecord.getCategory().getImageID())).getDrawable(getApplicationContext()));
+                }
+            });
+        }
+
         categorySelectedTextView.setText(cashRecord.getCategory().getCatagoryName());
         paymentSelectedTextView.setText(cashRecord.getPaymentType());
 
@@ -141,7 +156,7 @@ public class DetailDisplayActivity extends AppCompatActivity {
         scheduleSpinner.setSelection(scheduleTypesAdapter.getPosition(cashRecord.getRecurringType()));
         scheduleSpinner.setEnabled(false);
 
-        amountEditText.setText(String.valueOf(cashRecord.getAmount()));
+        amountEditText.setText(String.format("%.2f",cashRecord.getAmount()));
         amountEditText.setEnabled(false);
 
         noteEditText.setText(cashRecord.getNotes());
@@ -150,7 +165,8 @@ public class DetailDisplayActivity extends AppCompatActivity {
         calendarImageView.setVisibility(View.GONE);
         timeImageView.setVisibility(View.GONE);
 
-        timeTextView.setText(DateFormat.getTimeInstance().format(cashRecord.getTimeStamp()));
+        DateFormat dateFormat = new SimpleDateFormat("HH:mm");
+        timeTextView.setText(dateFormat.format(cashRecord.getTimeStamp()));
         dateTextView.setText(DateFormat.getDateInstance(DateFormat.SHORT).format(cashRecord.getTimeStamp()));
 
         currencySymbolTextView.setText(CurrencyHelper.getSymbol(cashRecord.getCurrency()));
@@ -194,6 +210,12 @@ public class DetailDisplayActivity extends AppCompatActivity {
 
         if (id == R.id.details_delete) {
             launchDialog(cashRecord);
+            return true;
+        }else if (id == R.id.details_edit) {
+            Intent intent = new Intent(this, DetailInputActivity.class);
+            intent.putExtra(CashRecord.CASHRECORD_DETAIL,cashRecord);
+            startActivity(intent);
+            finish();
             return true;
         }
         return super.onOptionsItemSelected(item);

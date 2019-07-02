@@ -1,12 +1,16 @@
 package com.artexceptionals.youreuro;
 
+import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
+import android.graphics.Color;
+import android.content.DialogInterface;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.text.InputFilter;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -27,13 +31,13 @@ import android.widget.ToggleButton;
 
 import com.artexceptionals.youreuro.adapter.CustomCategoryAdapter;
 import com.artexceptionals.youreuro.helpers.CurrencyHelper;
+import com.artexceptionals.youreuro.helpers.CurrencyInputFilter;
 import com.artexceptionals.youreuro.helpers.PaymentTypeHelper;
 import com.artexceptionals.youreuro.helpers.RecurringHelper;
 import com.artexceptionals.youreuro.model.CashRecord;
 import com.artexceptionals.youreuro.model.Category;
 import com.artexceptionals.youreuro.model.Constants;
 
-import java.sql.Time;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -46,11 +50,6 @@ import butterknife.ButterKnife;
 
 public class DetailInputActivity extends AppCompatActivity implements View.OnClickListener {
 
-
-    ImageView idate;
-    ImageView itime;
-    TextView tdate;
-    TextView ttime;
     private int day,month,year,hour,minute;
 
     @BindView(R.id.category_spinner)
@@ -105,6 +104,10 @@ public class DetailInputActivity extends AppCompatActivity implements View.OnCli
     ArrayAdapter<Category> categoryAdapter = null;
     CashRecord cashRecord;
 
+    public static final String DEFAULT_TIME ="--:--";
+    public static final String DEFAULT_DATE ="--/--/----";
+    private boolean isUpdate;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -146,23 +149,50 @@ public class DetailInputActivity extends AppCompatActivity implements View.OnCli
         recurringCheckBox.setOnClickListener(onClickListener);
 
 
-        String current_date = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new Date());
-
         Calendar c = Calendar.getInstance();
         hour = c.get(Calendar.HOUR_OF_DAY);
         minute = c.get(Calendar.MINUTE);
         String current_time= hour+":"+minute;
 
-        idate = (ImageView) findViewById(R.id.calendar_iv);
-        itime = (ImageView) findViewById(R.id.time_iv);
-        tdate = (TextView) findViewById(R.id.date_tv);
-        tdate.setText(current_date);
-        ttime = (TextView) findViewById(R.id.time_tv);
-        ttime.setText(current_time);
-        idate.setOnClickListener(this);
-        itime.setOnClickListener(this);
+        dateTextView.setText(DEFAULT_DATE);
+        timeTextView.setText(DEFAULT_TIME);
+        calendarImageView.setOnClickListener(this);
+        timeImageView.setOnClickListener(this);
 
         currencySymbolTextView.setText(CurrencyHelper.getSymbol(moneyControlManager.getSharedPreference().genericGetString(CurrencyHelper.CURRENT_CURRENCY, CurrencyHelper.CurrencyType.EURO)));
+
+        amountEditText.setFilters(new InputFilter[]{new CurrencyInputFilter(8,2)});
+
+        Bundle bundle = getIntent().getExtras();
+        if (bundle != null && bundle.containsKey(CashRecord.CASHRECORD_DETAIL)) {
+            isUpdate = true;
+            cashRecord = (CashRecord) bundle.getParcelable(CashRecord.CASHRECORD_DETAIL);
+            amountEditText.setText(String.format("%.2f",cashRecord.getAmount()));
+            categorySpinner.setSelection(categoryAdapter.getPosition(cashRecord.getCategory()));
+            paymentTypeSpinner.setSelection(paymentTypesAdapter.getPosition(cashRecord.getPaymentType()));
+            DateFormat dateFormat = new SimpleDateFormat("HH:mm");
+            timeTextView.setText(dateFormat.format(cashRecord.getTimeStamp()));
+            dateTextView.setText(DateFormat.getDateInstance(DateFormat.SHORT).format(cashRecord.getTimeStamp()));
+            currencySymbolTextView.setText(CurrencyHelper.getSymbol(cashRecord.getCurrency()));
+
+            noteEditText.setText(cashRecord.getNotes());
+            recurringCheckBox.setChecked(cashRecord.isRecurringTransaction());
+            scheduleLinearLayout.setVisibility(recurringCheckBox.isChecked() ?View.VISIBLE : View.GONE);
+            scheduleSpinner.setSelection(scheduleTypesAdapter.getPosition(cashRecord.getRecurringType()));
+
+            if(Constants.CashRecordType.EXPENSE.equalsIgnoreCase(cashRecord.getCashRecordType())){
+                incomeToggleButton.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
+                expenseToggleButton.setBackgroundColor(getResources().getColor(R.color.colorAccent));
+                amountEditText.setTextColor(getResources().getColor(R.color.red));
+
+            }else{
+                incomeToggleButton.setBackgroundColor(getResources().getColor(R.color.colorAccent));
+                expenseToggleButton.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
+                amountEditText.setTextColor(getResources().getColor(R.color.green));
+            }
+        }else {
+            isUpdate = false;
+        }
 
     }
 
@@ -179,33 +209,56 @@ public class DetailInputActivity extends AppCompatActivity implements View.OnCli
 
         Animation shake = AnimationUtils.loadAnimation(this, R.anim.shake);
         if (id == R.id.details_ok) {
+            boolean result = true;
             if (amountEditText.getText().toString().equalsIgnoreCase("")) {
                 amountEditText.setError("Amount cannot be empty");
                 amountEditText.requestFocus();
                 amountEditText.startAnimation(shake);
-                return false;
+                result = false;
             }
             if (categorySpinner.getSelectedItemPosition() == 0) {
                 categorySpinner.startAnimation(shake);
                 categorySpinner.requestFocus();
                 ((TextView)categorySpinner.getSelectedView().findViewById(R.id.category_spinner_Name)).setTextColor(getResources().getColor(R.color.red));
                 ((ImageView)categorySpinner.getSelectedView().findViewById(R.id.category_spinner_image)).setBackgroundColor(getResources().getColor(R.color.highlight_red));
-                return false;
+                result = false;
             }
             if (paymentTypeSpinner.getSelectedItemPosition() == 0) {
                 paymentTypeSpinner.startAnimation(shake);
                 paymentTypeSpinner.requestFocus();
                 ((TextView)paymentTypeSpinner.getSelectedView()).setTextColor(getResources().getColor(R.color.red));
-                return false;
+                result = false;
             }
-            saveCashRecord();
-            return true;
-        }else if (id == R.id.details_cancel) {
-            onBackPressed();
-        }
 
+            if (dateTextView.getText().toString().equalsIgnoreCase(DEFAULT_DATE)){
+                dateTextView.requestFocus();
+                dateTextView.setTextColor(getResources().getColor(R.color.red));
+                dateTextView.startAnimation(shake);
+                calendarImageView.startAnimation(shake);
+                calendarImageView.setBackgroundColor(getResources().getColor(R.color.highlight_red));
+                result = false;
+            }
+
+            if (timeTextView.getText().toString().equalsIgnoreCase(DEFAULT_TIME)){
+                timeTextView.requestFocus();
+                timeTextView.setTextColor(getResources().getColor(R.color.red));
+                timeTextView.startAnimation(shake);
+                timeImageView.startAnimation(shake);
+                timeImageView.setBackgroundColor(getResources().getColor(R.color.highlight_red));
+                result = false;
+            }
+
+            if (result)
+                saveCashRecord();
+
+            return result;
+
+        }else if (id == R.id.details_cancel) {
+            cancelDialog();
+        }
         return super.onOptionsItemSelected(item);
     }
+
 
     private View.OnClickListener onClickListener = new View.OnClickListener() {
         @Override
@@ -226,12 +279,8 @@ public class DetailInputActivity extends AppCompatActivity implements View.OnCli
                     break;
 
                 case R.id.recurring_cb:
-                    if(recurringCheckBox.isChecked()){
-                        scheduleLinearLayout.setVisibility(View.VISIBLE);
-                    }else {
-                        scheduleLinearLayout.setVisibility(View.GONE);
-                    }
-                    break;
+                    scheduleLinearLayout.setVisibility(recurringCheckBox.isChecked() ?View.VISIBLE : View.GONE);
+
             }
         }
     };
@@ -244,9 +293,9 @@ public class DetailInputActivity extends AppCompatActivity implements View.OnCli
 
         Date timeStamp = new Date();
         try {
-            timeStamp = new SimpleDateFormat("dd-MM-yyyy hh:mm").parse(tdate.getText() + " " + ttime.getText());
+            timeStamp = new SimpleDateFormat("dd-MM-yyyy hh:mm").parse(dateTextView.getText() + " " + timeTextView.getText());
         } catch (ParseException e) {
-            Log.e("YourEuro", "ParseException in dateformating");
+            Log.e("YourEuro", "ParseException in date formatting");
         }
         cashRecord.setTimeStamp(timeStamp.getTime());
         cashRecord.setCurrency(moneyControlManager.getSharedPreference().genericGetString(CurrencyHelper.CURRENT_CURRENCY, CurrencyHelper.CurrencyType.EURO));
@@ -254,14 +303,40 @@ public class DetailInputActivity extends AppCompatActivity implements View.OnCli
         cashRecord.setRecurringTransaction(recurringCheckBox.isChecked());
         cashRecord.setRecurringType(recurringCheckBox.isChecked() ? scheduleSpinner.getSelectedItem().toString() : RecurringHelper.RecurringType.UNKNOWN);
         cashRecord.setRecurred(!recurringCheckBox.isChecked());
-        moneyControlManager.addCashRecord(cashRecord);
+
+        if (!isUpdate){
+            moneyControlManager.addCashRecord(cashRecord);
+        }else {
+            moneyControlManager.updateCashRecord(cashRecord);
+        }
         onBackPressed();
+    }
+
+    private void cancelDialog() {
+        final AlertDialog.Builder builder = new AlertDialog.Builder(DetailInputActivity.this);
+        builder.setMessage("Are you sure you want to cancel?");
+        builder.setCancelable(true);
+        builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                dialogInterface.cancel();
+            }
+        });
+        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                onBackPressed();
+            }
+        });
+        AlertDialog alertDialog = builder.create();
+        alertDialog.show();
     }
 
     @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
     public void onClick(View v) {
-        if (v == idate) {
+
+        if (v == calendarImageView) {
             Calendar c = Calendar.getInstance();
             day = c.get(Calendar.DAY_OF_MONTH);
             month = c.get(Calendar.MONTH);
@@ -271,40 +346,35 @@ public class DetailInputActivity extends AppCompatActivity implements View.OnCli
             DatePickerDialog datePickerDialog = new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
                 @Override
                 public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
-                    tdate.setText(dayOfMonth + "-" + (monthOfYear + 1) + "-" + year);
+                    dateTextView.setTextColor(getResources().getColor(R.color.black));
+                    calendarImageView.setBackgroundColor(Color.TRANSPARENT);
+
+                    dateTextView.setText(dayOfMonth + "-" + (monthOfYear + 1) + "-" + year);
                 }
             }, day, month, year);
             datePickerDialog.updateDate(year,month,day);
             datePickerDialog.show();
 
-        }
-        if (v == itime) {
-            {
-                Calendar c = Calendar.getInstance();
-                Date date = new Date();
+        }else if (v == timeImageView) {
+            Calendar c = Calendar.getInstance();
+            Date date = new Date();
 
-
-                hour = c.get(Calendar.HOUR_OF_DAY);
-                minute = c.get(Calendar.MINUTE);
-//
-//                public String convertDate(int minute) {
-//                if (minute >= 10) {
-//                    return String.valueOf(minute);
-//                } else {
-//                    return "0" + String.valueOf(minute);
-//                }
-
+            hour = c.get(Calendar.HOUR_OF_DAY);
+            minute = c.get(Calendar.MINUTE);
 
                 TimePickerDialog timePickerDialog = new TimePickerDialog(this, new TimePickerDialog.OnTimeSetListener() {
                     @Override
                     public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
-                        ttime.setText(hourOfDay + ":" + minute);
+                        timeTextView.setTextColor(getResources().getColor(R.color.black));
+                        timeImageView.setBackgroundColor(Color.TRANSPARENT);
+                        timeTextView.setText(hourOfDay + ":" + checkDigit(minute));
+                    }
+
+                    public String checkDigit(int minute) {
+                        return minute <= 9 ? "0" + minute : String.valueOf(minute);
                     }
                 }, hour, minute, false);
                 timePickerDialog.show();
-
-            }
-
         }
     }
 }

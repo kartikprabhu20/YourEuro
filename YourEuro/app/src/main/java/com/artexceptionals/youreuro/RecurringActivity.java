@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
@@ -33,6 +34,7 @@ public class RecurringActivity  extends AppCompatActivity {
 
         Toolbar toolbar = findViewById(R.id.history_toolbar);
         setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         moneyControlManager =  MoneyControlManager.getInstance(YourEuroApp.getAppContext());
         mRecentsRecyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -61,6 +63,14 @@ public class RecurringActivity  extends AppCompatActivity {
         super.onBackPressed();
         moneyControlManager.clearCacheCashRecords();
         moneyControlManager.updateAllRecords();
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == android.R.id.home){
+            onBackPressed();
+        }
+        return super.onOptionsItemSelected(item);
     }
 
 }

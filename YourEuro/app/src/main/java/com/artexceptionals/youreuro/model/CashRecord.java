@@ -7,6 +7,7 @@ import android.arch.persistence.room.Ignore;
 import android.arch.persistence.room.PrimaryKey;
 import android.os.Parcel;
 import android.os.Parcelable;
+import android.support.annotation.NonNull;
 
 import com.artexceptionals.youreuro.helpers.CurrencyHelper;
 import com.artexceptionals.youreuro.helpers.PaymentTypeHelper;
@@ -14,7 +15,7 @@ import com.artexceptionals.youreuro.helpers.PaymentTypeHelper;
 import java.util.Objects;
 
 @Entity(tableName = "cashrecord")
-public class CashRecord implements Parcelable {
+public class CashRecord implements Parcelable, Comparable<CashRecord> {
 
     public static final String CASHRECORD_DETAIL = "cashrecord_details";
     @PrimaryKey(autoGenerate = true)
@@ -25,7 +26,7 @@ public class CashRecord implements Parcelable {
     @ColumnInfo(name = "timeStamp")
     long timeStamp;
     @ColumnInfo(name = "amount")
-    float amount;
+    double amount;
 
     @ColumnInfo(name = "currency")
     @CurrencyHelper.CurrencyType.Values
@@ -51,7 +52,7 @@ public class CashRecord implements Parcelable {
     @ColumnInfo(name = "recurred")
     boolean recurred = false;
 
-    public CashRecord(String notes, long timeStamp, float amount,
+    public CashRecord(String notes, long timeStamp, double amount,
                       String currency, String cashRecordType, String paymentType,
                       Category category, boolean recurred) {
         this.notes = notes;
@@ -84,7 +85,7 @@ public class CashRecord implements Parcelable {
         uid = in.readLong();
         notes = in.readString();
         timeStamp = in.readLong();
-        amount = in.readFloat();
+        amount = in.readDouble();
         currency = in.readString();
         cashRecordType = in.readString();
         paymentType = in.readString();
@@ -114,11 +115,11 @@ public class CashRecord implements Parcelable {
         this.uid = uid;
     }
 
-    public float getAmount() {
+    public double getAmount() {
         return amount;
     }
 
-    public void setAmount(float amount) {
+    public void setAmount(double amount) {
         this.amount = amount;
     }
 
@@ -207,7 +208,7 @@ public class CashRecord implements Parcelable {
         dest.writeLong(uid);
         dest.writeString(notes);
         dest.writeLong(timeStamp);
-        dest.writeFloat(amount);
+        dest.writeDouble(amount);
         dest.writeString(currency);
         dest.writeString(cashRecordType);
         dest.writeString(paymentType);
@@ -228,5 +229,12 @@ public class CashRecord implements Parcelable {
     @Override
     public int hashCode() {
         return Objects.hash(uid);
+    }
+
+
+    @Override
+    public int compareTo(@NonNull CashRecord object) {
+        long timeStamp = ((CashRecord) object).getTimeStamp();
+        return new Long(this.timeStamp).compareTo(new Long(timeStamp));
     }
 }

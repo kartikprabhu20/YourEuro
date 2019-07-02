@@ -23,8 +23,7 @@
         android:layout_height="wrap_content"
         android:hint="@string/enter_old_pin"
         android:inputType="numberPassword"
-        android:padding="@dimen/unit1"
-        android:layout_margin="@dimen/unit1"/>
+        />
 
     <TextView
         android:id="@+id/editText2"
@@ -40,7 +39,5 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/enter_new_pin"
-        android:inputType="numberPassword"
-        android:padding="@dimen/unit1"
-        android:layout_margin="@dimen/unit1"/>
+        android:inputType="numberPassword"/>
 </LinearLayout>

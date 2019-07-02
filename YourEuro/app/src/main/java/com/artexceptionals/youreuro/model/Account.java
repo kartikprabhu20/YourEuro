@@ -5,11 +5,15 @@ import java.util.Objects;
 public class Account {
 
     String accountName;
-    float balance;
+    double balance;
 
-    public Account(String accountName, float balance) {
+    public Account(String accountName, double balance) {
         this.accountName = accountName;
         this.balance = balance;
+    }
+
+    public Account() {
+
     }
 
     public String getAccountName() {
@@ -20,11 +24,11 @@ public class Account {
         this.accountName = accountName;
     }
 
-    public float getBalance() {
+    public double getBalance() {
         return balance;
     }
 
-    public void setBalance(float balance) {
+    public void setBalance(double balance) {
         this.balance = balance;
     }
 
