@@ -9,6 +9,7 @@ import com.artexceptionals.youreuro.database.CashRecordDatabase;
 import com.artexceptionals.youreuro.model.CashRecord;
 import com.artexceptionals.youreuro.model.CashRecordFilter;
 import com.artexceptionals.youreuro.model.Category;
+import com.github.mikephil.charting.components.AxisBase;
 import com.github.mikephil.charting.components.Legend;
 import com.github.mikephil.charting.components.LegendEntry;
 import com.github.mikephil.charting.components.LimitLine;
@@ -22,10 +23,12 @@ import com.github.mikephil.charting.data.LineDataSet;
 import com.github.mikephil.charting.data.PieData;
 import com.github.mikephil.charting.data.PieDataSet;
 import com.github.mikephil.charting.data.PieEntry;
+import com.github.mikephil.charting.formatter.ValueFormatter;
 import com.github.mikephil.charting.utils.ColorTemplate;
 import com.github.mikephil.charting.data.Entry;
 
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Collections;
@@ -283,15 +286,21 @@ public class StatisticManager {
 
         set.setAxisDependency(YAxis.AxisDependency.LEFT);
         lineData.addDataSet(set);
+        lineData.setValueFormatter(new ValueFormatter() {
+            @Override
+            public String getFormattedValue(float value, AxisBase axis) {
+                return new DecimalFormat("#0.00").format(value);
+            }
+        });
 
         return lineData;
-
     }
 
     public LimitLine getThresholdLimit(Category category){
 
-        LimitLine limitLine = new LimitLine((int)category.getThreshold(), "Threshold - " + category.getCatagoryName());
+        LimitLine limitLine = new LimitLine((int)category.getThreshold(), "Threshold");
         limitLine.setLineColor(Color.RED);
+        limitLine.setTextColor(Color.RED);
         limitLine.setLineWidth(2.5f);
         return limitLine;
     }

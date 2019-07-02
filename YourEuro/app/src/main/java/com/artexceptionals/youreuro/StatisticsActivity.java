@@ -2,6 +2,7 @@ package com.artexceptionals.youreuro;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.Toolbar;
@@ -55,6 +56,8 @@ public class StatisticsActivity extends AppCompatActivity implements View.OnClic
     @BindView(R.id.statistic_title)
     TextView statisticsTitle;
 
+    @BindView(R.id.fab)
+    FloatingActionButton fab;
 
     private MoneyControlManager moneyControlManager;
 
@@ -73,6 +76,7 @@ public class StatisticsActivity extends AppCompatActivity implements View.OnClic
         recentsCardView.setVisibility(View.GONE);
         balanceCardView.setVisibility(View.GONE);
         statisticsTitle.setVisibility(View.GONE);
+        fab.hide();
 
         //Statistics
         barChartFilter.setOnClickListener(this);

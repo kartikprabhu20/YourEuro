@@ -81,6 +81,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @BindView(R.id.statistic_cardview)
     CardView statisticsCardView;
 
+    @BindView(R.id.barchart_title)
+    TextView barchartTitle;
+
     NavigationView nav_View;
 
     private MoneyControlManager moneyControlManager;
@@ -314,14 +317,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             if (cashRecordFilter.isCategoryFilter() && cashRecordFilter.getCategories().size() == 1){
                 combinedChart.getAxisLeft().removeAllLimitLines();
                 combinedChart.getAxisLeft().addLimitLine(moneyControlManager.getStatisticsManager().getThresholdLimit(cashRecordFilter.getCategories().get(0)));
+                barchartTitle.setText(cashRecordFilter.getCategories().get(0).getCatagoryName());
             }else {
                 combinedChart.getAxisLeft().removeAllLimitLines();
+                barchartTitle.setText("Categories");
             }
-
+            combinedChart.getDescription().setEnabled(false);
             combinedChart.getAxisLeft().setAxisMinimum(0f);
             combinedChart.getAxisRight().setAxisMinimum(0f);
             combinedChart.getXAxis().setEnabled(false);
-            combinedChart.getDescription().setEnabled(false);
             combinedChart.fitScreen();
             combinedChart.notifyDataSetChanged();
             combinedChart.invalidate();
