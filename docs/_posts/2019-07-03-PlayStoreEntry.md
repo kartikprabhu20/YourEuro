@@ -26,7 +26,7 @@ date: 2019-07-03
     <body style="background-color:powderblue;">
 	
 <h1>Overview</h1>
-  <p>Welcome to our final blog of the series YourEuro’ - A money control app. In this blog we are going to simulate a playstore entry and key features to attract our customers.</p>
+  <p>Welcome to our final blog of the series 'YourEuro’ - A money control app. In this blog we are going to simulate a playstore entry and key features to attract our customers.</p>
 <hr>
 
  <h1>All about <i>YOUREURO</i></h1>
