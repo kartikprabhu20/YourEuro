@@ -51,7 +51,7 @@ date: 2019-07-03
 </ul>
 
   <hr>
-  <h1>Additinal Information </h1><br>
+  <h1>Additional Information </h1><br>
   <p><b>Version:</b> 1.0</p>
   <p><b>Updated:</b> 1st July 2019</p>
   <p><b>Category of App:</b> Finance</p>
