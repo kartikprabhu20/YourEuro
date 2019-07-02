@@ -33,17 +33,17 @@ date: 2019-07-03
   <p>Saving money and keeping track of the spending is a very hectic task, It’s always necessary for each one of us to track the money flow for efficient financial management. Our App “YOUREURO” will not only keep the track of money flow, but will also give a statistical analysis. Become your own finanace planner. On top of that the app is very light weighted and simple to use and thus doesn't take much of the phone's storage space.</p><br>	  
   
 <h3>Who should use YourEuro?</h3>
-<p>Some one who wants to get rid of all the notebooks, spreadsheets and budget bookmarks, and wishes to consolidate all the transaction in one single place, needs to go no further.It may be for your travel, holiday, food habits, morgages,etc the app is just one click away. YourEuro by ARTExceptionals isn't just a transaction recorder. It is a place where you can visualise, plan, track, and make wise decisions from monthly summaries.</p>
+<p>Someone who wants to get rid of all the notebooks, spreadsheets and budget bookmarks, and wishes to consolidate all the transaction in one single place, needs to go no further. It may be for your travel, holiday, food habits, morgages,etc the app is just one click away. YourEuro by ARTExceptionals isn't just a transaction recorder. It is a place where you can visualise, plan, track, and make wise decisions from monthly summaries.</p>
 
 <hr>
 <h1>Key features</h1>
-<p>Our moto for developing the app was user friendliness and perferomance.Keeping that in mind we have the following awesome features which the user can utilize.</p>
+<p>Our moto for developing the app was user friendliness and perferomance. Keeping that in mind we have the following awesome features which the user can utilize.</p>
  
   <ul>
-	<li><p><b>One-click tracking:</b><br> User can simply add a transaction by selecting the '+' sign on the home screen. A transaction can have details like category, payment method, date and time. The user can also add a note for any transaction. Each transaction is easily editable or even deleted if necessary</p></li>
+	<li><p><b>One-click tracking:</b><br> User can simply add a transaction by selecting the '+' sign on the home screen. A transaction can have details like category, payment method, date and time. The user can also add a note for any transaction. Each transaction is easily editable or even deleted if necessary.</p></li>
 	<li><p><b>Insightful reports:</b><br> The app visualises the transactions which simpliefies the user's task of analysis of the expenses. Pie chart, barchart and line chart are the most common graph which are easily understood by any person. One can easily filter the graphs as categories, payment types, date range, amount range or combination of them all.</p></li>
-	<li><p><b>Customize the categories:</b><br> If the categories provided by the app are insufficent, you can always create a new category of your choice with corresponding image. You can also add </p></li>
-	<li><p><b>Recurring transaction:</b><br> Don't break a sweat if you have a transaction which occurs repeatedly. Just by selecting the recurring option the app will automatically register a transaction and schedule the next one without user interference</p></li>
+	<li><p><b>Customize the categories:</b><br> If the categories provided by the app are insufficent, you can always create a new category of your choice with corresponding image. You can also add. </p></li>
+	<li><p><b>Recurring transaction:</b><br> Don't break a sweat if you have a transaction which occurs repeatedly. Just by selecting the recurring option the app will automatically register a transaction and schedule the next one without user interference.</p></li>
 	<li><p><b>Security:</b><br>The user has been given the option to enable the PIN security, so that the transaction can't be read by some random person. Even if you forget the pin , no worries, we have security question which helps you reset the PIN</p></li>
 	<li><p><b>Multi-currency support:</b><br>The app name might suggest that we support only 'Euro'. But we support multiple other currencies and track the same.</p></li>
 	<li><p><b>Share the summary:</b><br>The app facilitates the sharing of all the transaction in pdf format. If the user has signed in using google, then the pdf can be shared either via mail or all other apps that support sharing like whatsapp, yahoo mail, etc.</p></li>
