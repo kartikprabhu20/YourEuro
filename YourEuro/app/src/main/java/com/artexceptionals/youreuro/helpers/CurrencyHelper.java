@@ -36,5 +36,39 @@ public class CurrencyHelper {
         }
 
     }
+
+    public static String getName(String currencyType ){
+
+        switch (currencyType){
+            case CurrencyType.EURO:
+                return "Euro";
+            case CurrencyType.DOLLAR:
+                return "Dollar";
+            case CurrencyType.RUPEE:
+                return "Rupee";
+            case CurrencyType.POUND:
+                return "Pound";
+            default:
+                return PaymentTypeHelper.PaymentType.UNKNOWN;
+        }
+
+    }
+
+    public static String getSymbolName(String currencyType ){
+
+        switch (currencyType){
+            case CurrencyType.EURO:
+                return "€";
+            case CurrencyType.DOLLAR:
+                return "$";
+            case CurrencyType.RUPEE:
+                return "Rs";
+            case CurrencyType.POUND:
+                return "£";
+            default:
+                return PaymentTypeHelper.PaymentType.UNKNOWN;
+        }
+    }
 }
+
 

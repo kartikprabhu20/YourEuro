@@ -1,19 +1,16 @@
 package com.artexceptionals.youreuro;
 
-import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Environment;
-import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.FileProvider;
 import android.util.Log;
-import android.view.View;
 import android.widget.Toast;
 
 import com.artexceptionals.youreuro.database.CashRecordDatabase;
+import com.artexceptionals.youreuro.helpers.CurrencyHelper;
+import com.artexceptionals.youreuro.model.Account;
 import com.artexceptionals.youreuro.model.CashRecord;
 import com.itextpdf.text.BaseColor;
 import com.itextpdf.text.Document;
@@ -31,6 +28,7 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.OutputStream;
 import java.text.DateFormat;
+import java.util.ArrayList;
 import java.util.List;
 
 public class ExportManager {
@@ -86,34 +84,72 @@ public class ExportManager {
             table.setHeaderRows(1);
             PdfPCell[] cells = table.getRow(0).getCells();
             for (int j = 0; j < cells.length; j++) {
-                cells[j].setBackgroundColor(BaseColor.GRAY);
+                cells[j].setBackgroundColor(BaseColor.LIGHT_GRAY);
             }
 
             if(cashRecords.size()>0) {
                 for (int i = 0; i < cashRecords.size(); i++) {
 
-                    String cashRecordType = cashRecords.get(i).getCashRecordType();
-                    String paymentType = cashRecords.get(i).getPaymentType();
-                    String categoryName = cashRecords.get(i).getCategory().getCatagoryName();
+                    CashRecord cashRecord = cashRecords.get(i);
                     String timeStamp = DateFormat.getDateInstance(DateFormat.SHORT).format(cashRecords.get(i).getTimeStamp());
-                    double amount = cashRecords.get(i).getAmount();
 
-                    table.addCell(String.valueOf(categoryName));
-                    table.addCell(String.valueOf(paymentType));
-                    table.addCell(String.valueOf(cashRecordType));
+                    table.addCell(String.valueOf(cashRecord.getCategory().getCatagoryName()));
+                    table.addCell(String.valueOf(cashRecord.getPaymentType()));
+                    table.addCell(String.valueOf(cashRecord.getCashRecordType()));
                     table.addCell(String.valueOf(timeStamp));
-                    table.addCell(String.format("%.2f",amount));
-
+                    table.addCell(String.format("%.2f",cashRecord.getAmount()) + " " +CurrencyHelper.getSymbolName(cashRecords.get(i).getCurrency()));
                 }
             }
+
+            PdfPTable balanceTable = new PdfPTable(new float[]{3, 3, 3});
+            balanceTable.getDefaultCell().setHorizontalAlignment(Element.ALIGN_CENTER);
+            balanceTable.getDefaultCell().setFixedHeight(50);
+            balanceTable.setTotalWidth(PageSize.A4.getWidth());
+            balanceTable.setWidthPercentage(100);
+            balanceTable.getDefaultCell().setVerticalAlignment(Element.ALIGN_MIDDLE);
+            balanceTable.addCell("Currency");
+            balanceTable.addCell("Symbol");
+            balanceTable.addCell("Amount");
+            table.setHeaderRows(1);
+
+            PdfPCell[] balanceCells = balanceTable.getRow(0).getCells();
+            for (int j = 0; j < balanceCells.length; j++) {
+                balanceCells[j].setBackgroundColor(BaseColor.LIGHT_GRAY);
+            }
+
+            List<Account> accountList = new ArrayList<>();
+            for (CashRecord cashRecord: cashRecords){
+                Account account = new Account(cashRecord.getCurrency(), cashRecord.getAmount());
+
+                if (accountList.contains(account)){
+                    accountList.get(accountList.indexOf(account)).setBalance(accountList.get(accountList.indexOf(account)).getBalance() + account.getBalance());
+                }else {
+                    accountList.add(account);
+                }
+            }
+
+            for (Account account: accountList){
+                balanceTable.addCell(String.valueOf(CurrencyHelper.getName(account.getCurrency())));
+                balanceTable.addCell(CurrencyHelper.getSymbolName(account.getCurrency()));
+                balanceTable.addCell(String.valueOf(account.getBalance()));
+            }
+
             PdfWriter.getInstance(document, output);
             document.open();
             Font f = new Font(Font.FontFamily.TIMES_ROMAN, 30.0f, Font.UNDERLINE, BaseColor.BLUE);
             Font g = new Font(Font.FontFamily.TIMES_ROMAN, 20.0f, Font.NORMAL, BaseColor.BLUE);
-            document.add(new Paragraph("Expenses Summary", f));
-            document.add(new Paragraph("Detail records of your Transactions", g));
+
+            document.add(new Paragraph("Summary of transactions", f));
+            document.add(new Paragraph("\n",g));
+
+            document.add(new Paragraph("Details of all the records:", g));
             document.add(new Paragraph("\n",g));
             document.add(table);
+            document.add(new Paragraph("\n",g));
+
+            document.add(new Paragraph("Net balance:" , g));
+            document.add(new Paragraph("\n",g));
+            document.add(balanceTable);
             document.close();
 
             Uri myUri = FileProvider.getUriForFile(YourEuroApp.getAppContext(), YourEuroApp.getAppContext().getPackageName() + ".MyFileProvider",pdfFile);

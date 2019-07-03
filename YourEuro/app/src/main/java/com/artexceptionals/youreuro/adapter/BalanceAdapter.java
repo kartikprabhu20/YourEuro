@@ -43,7 +43,7 @@ public class BalanceAdapter extends RecyclerView.Adapter<BalanceAdapter.BalanceV
             Account account =  balanceList.get(index);
 
             holder.netAmount.setText(String.format("%.2f",account.getBalance()));
-            holder.currencySymbol.setText(CurrencyHelper.getSymbol(account.getAccountName()));
+            holder.currencySymbol.setText(CurrencyHelper.getSymbol(account.getCurrency()));
 
             if (account.getBalance() > 0){
                 holder.netAmount.setBackgroundColor(context.getResources().getColor(R.color.highlight_green));

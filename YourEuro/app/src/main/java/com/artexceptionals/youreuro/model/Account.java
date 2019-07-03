@@ -4,11 +4,11 @@ import java.util.Objects;
 
 public class Account {
 
-    String accountName;
+    String currency;
     double balance;
 
-    public Account(String accountName, double balance) {
-        this.accountName = accountName;
+    public Account(String currency, double balance) {
+        this.currency = currency;
         this.balance = balance;
     }
 
@@ -16,12 +16,12 @@ public class Account {
 
     }
 
-    public String getAccountName() {
-        return accountName;
+    public String getCurrency() {
+        return currency;
     }
 
-    public void setAccountName(String accountName) {
-        this.accountName = accountName;
+    public void setCurrency(String currency) {
+        this.currency = currency;
     }
 
     public double getBalance() {
@@ -37,12 +37,12 @@ public class Account {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Account account = (Account) o;
-        return Objects.equals(accountName, account.accountName);
+        return Objects.equals(currency, account.currency);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(accountName);
+        return Objects.hash(currency);
     }
 
 }
