@@ -56,7 +56,7 @@ date: 2019-07-03
   <p><b>Updated:</b> 1st July 2019</p>
   <p><b>Category of App:</b> Finance</p>
   <p><b>Android Version:</b> Android 5.0 Lollipop(API 21)</p>
-  <p><b>Download size:</b> 11.2 MB</p>
+  <p><b>Download size:</b> 10.4 MB</p>
   <p><b>Targeted age group</b> 12+ years</p>
   <p><b>Content Rating:</b> USK: All ages</p>
   <p><b>Permissions:</b>
